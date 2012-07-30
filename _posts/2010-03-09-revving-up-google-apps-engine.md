@@ -7,6 +7,8 @@ Google have just [announced](http://googleblog.blogspot.com/2010/03/open-for-bus
 their [Google Apps Marketplace](http://www.google.com/enterprise/marketplace/home),
 a huge step forward for SME's and forward-looking Large Enterprises.
 
+Test.
+
 [Google Apps](http://www.google.com/apps/) is a powerful, affordable and highly
 reliable infrastructure. It is delivered at a cost point that is [hard for even
 the largest of enterprises to match](http://www.e-gineer.com/v2/blog/2010/01/two-worlds-colliding-small-and-nimble.htm).
