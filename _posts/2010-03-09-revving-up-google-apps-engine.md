@@ -5,7 +5,7 @@ title: Revving up the Google App(s) Engine
 
 Google have just [announced](http://googleblog.blogspot.com/2010/03/open-for-business-google-apps.html)
 their [Google Apps Marketplace](http://www.google.com/enterprise/marketplace/home),
-a huge step forward for SME's and forward-looking Large Enterprises. Test.
+a huge step forward for SME's and forward-looking Large Enterprises.
 
 [Google Apps](http://www.google.com/apps/) is a powerful, affordable and highly
 reliable infrastructure. It is delivered at a cost point that is [hard for even
