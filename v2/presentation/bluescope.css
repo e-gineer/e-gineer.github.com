@@ -1,0 +1,229 @@
+body {
+  width: 841px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-size: 12pt;
+  color: #222;
+}
+H1 {
+  font-size: 1.7em;
+  color: black;
+  /*margin-bottom: 0.8em;*/
+  font-weight: normal;
+}
+H2 {
+  font-size: 1.3em;
+  color: black;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+  font-weight: normal;
+}
+H3 {
+  font-size: 1.1em;
+  color: black;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+  font-weight: normal;
+}
+UL {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+P {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+OBJECT {
+  margin: 1em 0 0 4em;
+}
+a {
+  color: #174694;
+}
+img {
+  border: 0;
+}
+
+div.clearFloats {
+  clear: all;
+  line-height: 0;
+  font-size: 0;
+}
+
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #005498;
+}
+
+header {
+}
+
+#logo {
+  float: left;
+}
+
+#nav {
+  text-align: right;
+}
+#nav a {
+  margin-left: 50px;
+  font-size: 14pt;
+  line-height: 109px;
+}
+#nav a img {
+  vertical-align: text-bottom;
+}
+
+#homeContent, #pageContent {
+  margin-top: 30px;
+  margin-left: 41px;
+  width: 800px;
+  overflow: auto;
+}
+
+#homeContent {
+  position: relative;
+  background-image: url('/v2/presentation/social-network-brain9.png');
+  background-position: 340px top;
+  background-repeat: no-repeat;
+}
+
+#tweets {
+  margin-top: 50px;
+  width: 290px;
+  /*float: left;*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+p.more a {
+  color: black;
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+#tweet-links {
+  color: #333333;
+  font-size: 11pt;
+}
+
+#tweet-links p {
+  margin: 0;
+  margin-top: 1.5em;
+  padding-right: 5px;
+  /*
+  border-bottom: 1px dotted #dddddd;
+  background-image: url(grey-corner.png);
+  background-position: right bottom;
+  background-image: url(grey-arrow.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  */
+}
+
+#tweet-links a {
+}
+
+.tweet-underline {
+  float: right;
+  width: 30%;
+  border-bottom: 1px dotted #dddddd;
+}
+
+span.timestamp {
+  font-size: 9pt;
+  color: #999999;
+}
+
+#blogs {
+  margin-top: 110px;
+  width: 290px;
+  /*float: left;*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#blog-posts {
+  color: #999999;
+  font-size: 10pt;
+}
+
+#blogs p.more {
+  padding-left: 10px;
+}
+
+#blog-posts p {
+  margin: 2em 0;
+  padding-left: 10px;
+  background-image: url(/v2/presentation/grey-arrow.png);
+  background-position: left 13px;
+  background-repeat: no-repeat;
+}
+
+#blog-posts a {
+  font-size: 16pt;
+}
+
+#brain {
+  margin-left: 290px;
+}
+
+footer {
+  clear: both;
+  font-size: 10pt;
+  color: #999999;
+  margin: 50px 0 0 41px;
+}
+
+img.archiveScreenshot {
+  float: right;
+  border: 0px;
+  margin-left: 0.3em;
+  width: 250px;
+  height: 196px;
+}
+
+#searchArchive {
+}
+#searchArchiveForm {
+  display: inline;
+  border: 1px solid #ddd;
+  background-color: #fcfcfc;
+  padding: 0.6em 1em;
+  font-size: 0.9em;
+}
+#searchArchiveInput {
+  border: 1px solid black;
+}
+#searchArchiveButton {
+  color: black;
+  border: 1px solid #333;
+  height: 1.5em;
+}
+
+/*
+#searchArchive {
+  margin: 2em 0;
+  text-align: center;
+}
+#searchArchiveForm {
+  display: inline;
+  border: 1px solid #ddd;
+  background-color: #fcfcfc;
+  padding: 0.6em 6em;
+  font-size: 0.9em;
+}
+#searchArchiveInput {
+  border: 1px solid black;
+}
+#searchArchiveButton {
+  color: black;
+  border: 1px solid #333;
+  height: 1.5em;
+}
+*/

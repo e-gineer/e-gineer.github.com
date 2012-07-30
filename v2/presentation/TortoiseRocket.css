@@ -1,0 +1,365 @@
+BODY {
+  margin: 0 10px 3em 10px;
+  font-family: Cambria, Georgia, Times, Serif;
+  font-size: 1em;
+  color: #222;
+  text-align: center;
+}
+H1 {
+  font-size: 1.7em;
+  color: black;
+  margin-bottom: 0.8em;
+  font-weight: normal;
+}
+H2 {
+  font-size: 1.2em;
+  color: black;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+}
+H3 {
+  font-size: 1.05em;
+  color: black;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+}
+UL {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+P {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+OBJECT {
+  margin: 1em 0 0 4em;
+}
+a {
+  color: #174694;
+}
+img {
+  border: 0;
+}
+
+div.clearFloats {
+  clear: all;
+  line-height: 0;
+  font-size: 0;
+}
+
+#homePageBlogTitles {
+  background: url(TortoiseRocket.jpg) top right no-repeat;
+  height: 316px;
+  margin: 1.5em 0;
+  padding-top: 2.5em;
+  color: #777;
+}
+div.homePageBlogLink {
+  margin-bottom: 1em;
+}
+a.homePageBlogLink {
+  display: block;
+  width: 420px;
+  font-size: 1.6em;
+  text-decoration: none;
+}
+a.homePageBlogLinkMore {
+  color: #f7931e;
+  text-decoration: none;
+}
+#homePageDelicious {
+  overflow: auto;
+  display: none;
+}
+#homePageDeliciousLinks {
+  font-size: 0.65em;
+  color: #777;
+  overflow: auto;
+  border-top: 1px solid #f7931e;
+  border-bottom: 1px solid #f7931e;
+  padding: 0.3em 0;
+}
+div.homePageDeliciousLinksRow {
+  margin: 1.2em 0;
+  overflow: auto;
+}
+div.homePageDeliciousLinksColumn {
+  float: left;
+  width: 32%;
+  margin-left: 2%;
+}
+div.homePageDeliciousLink {
+}
+span.homePageDeliciousLink {
+  white-space: nowrap;
+}
+a.homePageDeliciousLink {
+  text-decoration: none;
+  font-size: 1.4em;
+}
+#homePageDeliciousLinkMore {
+  font-size: 0.65em;
+  float: right;
+  margin-top: -1.4em;
+  padding-left: 0.5em;
+  background-color: white;
+}
+a.homePageDeliciousLinkMore {
+  color: #f7931e;
+  text-decoration: none;
+  font-size: 1.4em;
+}
+
+#homePageTwitter {
+  overflow: auto;
+}
+#homePageTwitterLinks {
+  font-size: 0.91em;
+  color: #444444;
+  overflow: auto;
+  border-top: 1px solid #f7931e;
+  border-bottom: 1px solid #f7931e;
+  padding: 0.3em 0;
+}
+div.homePageTwitterLinksRow {
+  margin: 0.78em 0;
+  overflow: auto;
+}
+div.homePageTwitterLinksColumn {
+  float: left;
+  width: 32%;
+  margin-left: 2%;
+}
+div.homePageTwitterLink a {
+  text-decoration: none;
+}
+span.homePageTwitterLink {
+  font-size: 0.72em;
+  color: #777;
+  white-space: nowrap;
+}
+#homePageTwitterLinkMore {
+  float: right;
+  margin-top: -0.95em;
+  padding-left: 0.5em;
+  background-color: white;
+}
+a.homePageTwitterLinkMore {
+  color: #f7931e;
+  text-decoration: none;
+}
+
+#homePageCopyrightNotice {
+  margin-top: 3em;
+  font-family: Calibri, Verdana, Arial, Sans Serif;
+  font-size: 0.8em;
+  color: #ccc;
+  text-align: center;
+}
+
+#contentPageWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 920px;
+  text-align: left;
+}
+#contentPageHeader {
+  font-family: Calibri, Verdana, Arial, Sans Serif;
+  overflow: auto;
+}
+#contentPageHeaderBar {
+  float: right;
+  background: url(TortoiseRocket-HeaderLine.gif) no-repeat center left;
+  margin-top: 7px;
+  margin-left: 5px;
+  width: 580px;
+  height: 53px;
+}
+#contentPageEgineerImage {
+  border: 0;
+}
+#contentPageEgineerImage:focus {
+  -moz-outline-style: none;
+}
+#contentPageEgineerTitle {
+  border: 0;
+  width: 196px;
+  height: 57px;
+}
+#contentPageLinks {
+  margin-top: 20px;
+  margin-left: 1px;
+}
+a.contentPageHeaderLink, a.contentPageHeaderLink:visited, a.contentPageHeaderLink:hover {
+  color: #414142;
+  text-decoration: none;
+}
+#contentPageHeaderLinkBlog {
+  font-size: 1.6em;
+  font-weight: bold;
+  float: left;
+  display: inline;
+  margin: 14px 0 0 198px;
+}
+#contentPageHeaderLinkNathan {
+  font-size: 1.4em;
+  float: left;
+  display: inline;
+  margin: 17px 0 0 102px;
+}
+#contentPageHeaderLinkArchive {
+  font-size: 1.4em;
+  float: left;
+  display: inline;
+  margin: 17px 0 0 89px;
+}
+IMG.contentPageLink {
+  border: 0;
+}
+#contentPageFooter {
+  background: url(TortoiseRocket-FooterLine.jpg) no-repeat center left;
+  width: 916px;
+  height: 134px;
+  font-family: Calibri, Verdana, Arial, Sans Serif;
+  font-size: 0.9em;
+  color: #777;
+  margin: 3em 0;
+}
+#googleAd {
+  margin: 2em 0 2em 105px;
+}
+
+img.archiveScreenshot {
+  float: right;
+  border: 0px;
+  margin-left: 0.3em;
+  width: 250px;
+  height: 196px;
+}
+
+div.blogPostBody {
+  margin-top: 1em;
+}
+div.blogPostBody p {
+  margin: 0 0 1em 0;
+}
+a.blogPostTitle {
+  text-decoration: none;
+  color: black;
+}
+h1.blogPostTitle {
+  margin: 0;
+  padding: 0;
+}
+.blogPostByline {
+  margin-top: 0.3em;
+  font-size: 0.82em;
+  color: #777;
+}
+a.blogPostTimestamp, a.blogPostCommentLink {
+  text-decoration: none;
+  color: #777;
+}
+a.blogPostTimestamp:hover, a.blogPostCommentLink:hover {
+  color: #333;
+}
+div.blogPost {
+  margin-bottom: 2em;
+}
+
+#blogComments {
+  margin-top: 2em;
+  margin-left: 2em;
+  padding-left: 1em;
+  border-left: 2px dotted #ddd;
+  font-size: 0.9em;
+}
+div.blogComment {
+  margin-top: 1.7em;
+}
+div.blogCommentByline {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  color: #666;
+}
+div.blogCommentByline a {
+  text-decoration: none;
+  color: #666;
+}
+div.blogCommentByline a:hover {
+  color: #333;
+}
+div.blogCommentBody {
+  margin-left: 1em;
+}
+div.blogCommentCreate {
+  margin-top: 1.7em;
+}
+div.blogCommentCreate a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #777;
+  font-size: 0.9em;
+}
+
+#blogArchives {
+  float: left;
+  margin-top: 1.4em;
+}
+div.blogArchivesDateLinksYear {
+}
+a.blogArchivesMainLink:hover {
+  color: #333;
+}
+a.blogArchives {
+  text-decoration: none;
+  padding-left: 0.2em;
+}
+a.blogArchives:hover {
+}
+span.blogArchivesNonLink {
+  padding-left: 0.2em;
+  color: #ccc;
+}
+span.blogArchivesYear {
+  font-style: italic;
+}
+a.blogXmlButton {
+  text-decoration: none;
+}
+img.blogXmlButton {
+  border: 0;
+  width: 15px;
+  height: 14px;
+  vertical-align: middle;
+}
+span.blogXmlButton {
+  vertical-align: middle;
+}
+
+#copyrightNotice {
+  float: left;
+  margin: 1em 0 0 3em;
+  width: 250px;
+}
+
+#searchArchive {
+  margin: 2em 0;
+  text-align: center;
+}
+#searchArchiveForm {
+  display: inline;
+  border: 1px solid #ddd;
+  background-color: #fcfcfc;
+  padding: 0.6em 6em;
+  font-size: 0.9em;
+}
+#searchArchiveInput {
+  border: 1px solid black;
+}
+#searchArchiveButton {
+  color: black;
+  border: 1px solid #333;
+  height: 1.5em;
+}

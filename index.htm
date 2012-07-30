@@ -1,1 +1,219 @@
-<html><body>Hello, world!</body></html>
+---
+title: e-gineer by Nathan Wallace
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope.css"/>
+    <link rel="shortcut icon" href="/v2/presentation/bluescope.ico" type="image/ico"/>
+    <script>
+
+      function drawBrainLine (context, xs, ys, xf, yf) {
+        var r = 5;
+        context.beginPath();
+        context.moveTo(xs, ys);
+        if ((yf-ys) > r) {
+          // heading downwards, do a simple quadratic
+          context.lineTo(xs, yf-r);
+          if (xf < xs) {
+            context.arc(xs-r, yf-r, r, 0, 90*Math.PI/180);
+          }
+          else {
+            context.arc(xs+r, yf-r, r, 180*Math.PI/180, 90*Math.PI/180, true);
+          }
+          context.lineTo(xf, yf);
+          //context.bezierCurveTo(xs, yf, xs, yf, xf, yf);
+          //context.quadraticCurveTo(xs, yf, xf, yf);
+          context.stroke();
+        }
+        else {
+          // heading straight across or back up, do a quadratic combo
+          // down
+          context.lineTo(xs, ys+r);
+          if (xf < xs) {
+            // turn left
+            context.arc(xs-r, ys+r, r, 0, 90*Math.PI/180);
+            // left
+            context.lineTo(xf+3*r, ys+2*r);
+            // turn up
+            context.arc(xf+3*r, ys+r, r, 90*Math.PI/180, 180*Math.PI/180);
+            // up
+            context.lineTo(xf+2*r, yf+r);
+            // turn left
+            context.arc(xf+r, yf+r, r, 0, 270*Math.PI/180, true);
+          }
+          else {
+            // turn right
+            context.arc(xs+r, ys+r, r, 180*Math.PI/180, 90*Math.PI/180, true);
+            // right
+            context.lineTo(xf-3*r, ys+2*r);
+            // turn up
+            context.arc(xf-3*r, ys+r, r, 90*Math.PI/180, 0, true);
+            // up
+            context.lineTo(xf-2*r, yf+r);
+            // turn right
+            context.arc(xf-r, yf+r, r, 180*Math.PI/180, 270*Math.PI/180);
+          }
+          // finish
+          context.lineTo(xf, yf);
+          context.stroke();
+
+          /*
+          xcp1 = xs;
+          ycp1 = ys + r;
+          xcp2 = xs + 0.8*(xf-xs);
+          ycp2 = yf;
+          xm = (xcp1 + xcp2) / 2;
+          ym = (ycp1 + ycp2) / 2;
+          context.quadraticCurveTo(xcp1, ycp1, xm, ym);
+          context.quadraticCurveTo(xcp2, ycp2, xf, yf);
+          context.stroke();
+          */
+          /*
+          context.strokeStyle = '#ff0000';
+          context.beginPath();
+          context.moveTo(xs, ys);
+          context.lineTo(xcp1, ycp1);
+          context.lineTo(xm, ym);
+          context.stroke();
+          context.strokeStyle = '#00ff00';
+          context.beginPath();
+          context.moveTo(xm, ym);
+          context.lineTo(xcp2, ycp2);
+          context.lineTo(xf, yf);
+          context.stroke();
+          context.strokeStyle = '#0000ff';
+          context.beginPath();
+          context.moveTo(xcp1, ycp1);
+          context.lineTo(xcp2, ycp2);
+          context.stroke();
+          context.strokeStyle = '#adadad';
+          */
+
+        }
+      }
+
+      window.onload = function() {
+        var canvas = document.getElementById("brain");
+        var context = canvas.getContext("2d");
+        startX = 126.5;
+        startY = 145.5;
+        context.lineWidth = 1;
+        context.strokeStyle = '#dddddd';
+
+        drawBrainLine(context, startX+25, startY, canvas.width, 205.5);
+        drawBrainLine(context, startX+17, startY, canvas.width, 288.5);
+        drawBrainLine(context, startX+12, startY, canvas.width, 371.5);
+      }
+    </script>
+  </head>
+  <body>
+
+    {% include header.html %}
+
+    <div id="homeContent">
+
+      <div id="tweets">
+        <div id="tweet-links"><img src="/v2/presentation/ajax-loader.gif"></div>
+        <p class="more"><a href="https://twitter.com/nathanwallace">Twitter &rarr;</a></p>
+      </div>
+
+      <canvas id="brain" width='220' height='500'></canvas>
+
+      <div id="blogs">
+        <div id="blog-posts">
+          {% for p in site.posts limit:3 %}
+          <p><a href="{{ p.url }}">{{ p.title }}</a>&nbsp;&nbsp;{{ p.date | date: "%e %b %Y" }}</p>
+          {% endfor %}
+        </div>
+        <p class="more"><a href="">Blog &rarr;</a></p>
+      </div>
+
+    </div>
+
+    {% include footer.html %}
+
+<script type="text/javascript"><!--
+function relativeTime(time_value) {
+  var values = time_value.split(" ");
+  time_value = values[1] + " " + values[2] + ", " + values[5] + " " + values[3] + " " + values[4];
+  var parsed_date = Date.parse(time_value);
+  var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
+  var delta = parseInt((relative_to.getTime() - parsed_date) / 1000);
+  if(delta < 120) {
+  return '1&nbsp;min&nbsp;ago';
+  } else if(delta < (60*60)) {
+  return (parseInt(delta / 60)).toString() + '&nbsp;mins&nbsp;ago';
+  } else if(delta < (2*60*60)) {
+  return '1&nbsp;hour&nbsp;ago';
+  } else if(delta < (24*60*60)) {
+  return (parseInt(delta / 3600)).toString() + '&nbsp;hours&nbsp;ago';
+  } else if(delta < (48*60*60)) {
+  return 'Yesterday';
+  } else if(delta < (30*24*60*60)) {
+  return (parseInt(delta / 86400)).toString() + '&nbsp;days&nbsp;ago';
+  } else {
+  return 'Long&nbsp;ago';
+  }
+}
+function linkTweet(tweet) {
+  // remove any stray line breaks to make regexp easier
+  tweet = tweet.replace(/\n/gi,' ');
+  // if it's just a bit.ly link, then show as a link
+  re_url = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
+  re_url_at_end = /(.*\s+)((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)$/gi;
+  urls = tweet.match(re_url);
+  if (urls && (urls.length == 1)) {
+    if (tweet.match(re_url_at_end)) {
+      return tweet.replace(re_url_at_end, '<a href="$2">$1</a>');
+    }
+  }
+  // otherwise it's a tweet, so linkify it
+  regexp = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
+  tweet = tweet.replace(regexp,'<a href="$1">$1</a>');
+  regexp = /[\@]+([A-Za-z0-9-_]+)/gi;
+  tweet = tweet.replace(regexp,"<a href=\"https://twitter.com/$1\">@$1</a>");
+  regexp = / [\#]+([A-Za-z0-9-_]+)/gi;
+  tweet = tweet.replace(regexp,' <a href="http://search.twitter.com/search?q=&tag=$1&lang=all">#$1</a>');
+  return tweet;
+}
+function twitterItems(items) {
+  html = '';
+  for (i=0;i<items.length;i++) {
+    html += '<p>' + linkTweet(items[i]['text']) + '&nbsp; <span class="timestamp">' + relativeTime(items[i]['created_at']) + '</span></p>';
+    html += '<div class="tweet-underline"></div>';
+  }
+  document.getElementById('tweet-links').innerHTML = html;
+  var canvas = document.getElementById("brain");
+  var context = canvas.getContext("2d");
+  startX = 126.5;
+  startY = 145.5;
+  context.lineWidth = 1;
+  context.strokeStyle = '#eeeeee';
+
+  var gradLeft = context.createLinearGradient(startX+10, startY, 0, startY);
+  gradLeft.addColorStop(0.6, '#dddddd'); //'#eeeeee');
+  gradLeft.addColorStop(1, '#eeeeee'); //'#f3f3f3');
+  context.strokeStyle = gradLeft;
+
+  tmp = document.getElementsByClassName('tweet-underline');
+  xOffsets = [0, 1, 4, 5, 8, 9];
+  for (i in tmp) {
+    drawBrainLine(context, startX+xOffsets[i], startY, 0, tmp[i].offsetTop+tmp[i].offsetParent.offsetTop);
+  }
+
+  /*
+  drawBrainLine(context, startX, startY, 0, 121.5);
+  drawBrainLine(context, startX+1, startY, 0, 203.5);
+  drawBrainLine(context, startX+4, startY, 0, 285.5);
+  drawBrainLine(context, startX+5, startY, 0, 347.5);
+  drawBrainLine(context, startX+8, startY, 0, 409.5);
+  drawBrainLine(context, startX+9, startY, 0, 451.5);
+  */
+}
+--></script>
+<script src="http://twitter.com/status/user_timeline/nathanwallace.json?count=6&callback=twitterItems"></script>
+    
+  </body>
+</html>
