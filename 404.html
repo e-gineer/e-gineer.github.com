@@ -11,12 +11,12 @@ alert(broken_url);
       // switch them away from old .phtml pages
       new_url = new_url.replace('.phtml', '.htm');
       // remove the old /e-gineer/ directory prefix if it exists
-alert(new_url.substring(0, 8));
-      if (new_url.substring(0, 8) == '/e-gineer') {
+alert(new_url.substring(0, 9));
+      if (new_url.substring(0, 9) == '/e-gineer') {
         new_url = new_url.substring(9);
       }
       // move them into the v1 directory for old areas of the site
-      if ( (new_url.substring(0, 8) == '/articles') || (new_url.substring(0, 12) == '/instructions') || (new_url.substring(0, 10) == '/domainator') ) {
+      if ( (new_url.substring(0, 9) == '/articles') || (new_url.substring(0, 13) == '/instructions') || (new_url.substring(0, 11) == '/domainator') ) {
         new_url = '/v1' + new_url;
       }
 alert(broken_url + '\n' + new_url);
