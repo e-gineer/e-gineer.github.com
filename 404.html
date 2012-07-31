@@ -17,6 +17,7 @@
       if ( (new_url.substring(0, 8) == '/articles') || (new_url.substring(0, 12) == '/instructions') || (new_url.substring(0, 10) == '/domainator') ) {
         new_url = '/v1' + new_url;
       }
+alert(broken_url + '\n' + new_url);
       if (new_url != broken_url) {
         window.location = new_url;
       }
