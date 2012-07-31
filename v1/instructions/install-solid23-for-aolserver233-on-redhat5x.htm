@@ -1,0 +1,875 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (April 28, 1999)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+This document describes how to install <a href="http://www.solidtech.com">Solid</a> for <a href="http://www.aolserver.com">AOLserver</a> on <a href="http://www.redhat.com">Red Hat Linux</a>.
+
+<p>
+
+If you want to know more about connecting web sites to databases then read <a href="http://philip.greenspun.com/panda/">Philip and Alex's Guide to Web Publishing</a>.
+
+<p>
+
+The examples here assume that you followed our <a href="install-aolserver233-on-redhat5x.htm">AOLserver installation instructions</a>.  But the process should still be simple if you managed to install AOLserver yourself.
+
+<p>
+
+We will work through the installation of Solid and then setup AOLserver to talk to the Solid database.  The setup of Solid is trivial.  If you are a complete maniac then <a href="install-oracle805-on-redhat5x.htm">try installing Oracle</a>.  The best comparison is that Solid is a 2MB download, compared to 140MB for Oracle.  This difficulty factor of 70 holds true throughout the installation of Oracle.
+
+<p>
+
+Solid is cheap, low maintenance and will be powerful enough for most web sites.
+
+<p>
+<br>
+
+
+<h2>Installing Solid</h2>
+
+<ol>
+
+<li>Login as nsadmin.  You should have a user nsadmin from your <a href="install-aolserver233-on-redhat5x.htm">AOLserver installation</a>.
+
+<p>
+
+<li>Make a directory solid in the nsadmin home directory. 
+<pre>
+    mkdir solid
+    cd solid
+</pre>
+
+<p>
+
+<li>Download the file sw23lux.tar.gz from <a href="http://www.solidtech.com">www.solidtech.com</a> into the solid directory.  This file is based on the latest Solid release (as at March 10, 1999) 02.30.0026.
+
+<p>
+
+<li>Untar the file with:
+<pre>
+    tar xzvf sw23lux.tar
+</pre>
+
+<p>
+
+<li>Start the solid setup program.
+<pre>
+    setup
+</pre>
+
+<p>
+
+<li>Press C to continue.
+
+<p>
+
+<li>Press A to accept the license agreement.
+
+<p>
+
+<li>Press E to use an evaluation license.
+
+<p>
+
+<li>Enter your company name and user name.  I used:
+<pre>
+    Synop Software
+    Synop User
+</pre>
+
+<p>
+
+<li>Press C to confirm the information.
+
+<p>
+
+<li>Press E for express install.
+
+<p>
+
+<li>Press Y to start the server.
+
+<p>
+
+<li>Enter your preferred user name and password.  These will be used by AOLserver to connect to the database, so you should use a different password to your unix login.  I used:
+<pre>
+    nsadmin
+    synop
+</pre>
+
+<p>
+
+<strong>Congratulations, your Solid database server is running.</strong>  That <a href="install-oracle805-on-redhat5x.htm">took me a week with Oracle</a>.
+
+</ol>
+
+<p>
+<br>
+
+
+<h2>Using Solid</h2>
+
+<ol>
+
+<li>In a new xterm we connect to the database for the first time using the solid remote console.  The session below uses the commands help, userlist and shutdown.  We use shutdown to make the Solid server stop.
+<pre>
+    bin/solcon
+</pre>
+<pre>
+SOLID Remote Control v.02.30.0026
+(C) Copyright Solid Information Technology Ltd 1993-1998
+Exit by giving command: exit
+Username: nsadmin
+Password: 
+SOLID Server - v.02.30.0026 (Linux ix86)
+(C) Copyright Solid Information Technology Ltd 1993-1998
+License for SOLID Web Engine v2.30, Standard Edition
+Evaluation License
+Serial number: 0000023023
+Maximum number of connections: 20
+Database age limit: 30 days
+Extensions: SMP, Server, JDBC
+Licensed to:
+     Synop Software
+     Synop User
+&gt; help
+Available commands:
+backup       bak   Takes a backup copy of the database.
+backuplist   bls   Displays a status list of last backups.
+close        clo   Closes server connections, no new connections are allowed.
+errorcode    ec    Displays a description of an error code.
+exit         ex    Exits from SOLID Remote Control.
+help         ?     Displays this text.
+hotstandby   hsb   Executes hot standby command.
+makecp       mcp   Makes a checkpoint.
+messages     mes   Displays server messages.
+monitor      mon   Sets server monitoring on or off.
+open         ope   Opens server connections, new connections are allowed.
+report       rep   Generates a report of server info to a file.
+shutdown     sd    Stops SOLID Server.
+status       sta   Displays server statistics.
+throwout     to    Throws out users from SOLID Server.
+userlist     ul    Displays user list.
+version      ver   Displays server version info.
+&gt; userlist
+User name:     User id: Type:  Machine id:          Login time:   
+NSADMIN        0        Solcon Local                31.10 02:39:40 
+&gt; shutdown
+Server is shutting down, please wait...
+Server is shut down, exiting from SOLID Remote Control.
+</pre>
+
+<p>
+
+<li>Run Solid in the foreground (using the -f option) with:
+<pre>
+    bin/solid -f -cdatabase/default
+</pre>
+
+<p>
+
+<li>The solid sql interpreter can be used to perform sql operations on the database.  First we will use the sample sql file from Solid.
+<pre>
+    bin/solsql -fsamples/sample.sql
+</pre>
+<pre>
+SOLID SQL Editor (teletype) v.02.30.0026
+(C) Copyright Solid Information Technology Ltd 1993-1998
+Execute SQL statements terminated by a semicolon.
+Exit by giving command: exit;
+Username: nsadmin
+Password: 
+Connected to default server.
+--/****************************************************************\
+--** filename     *  sample.sql
+
+--** description * Table, index, role and user creation samples.
+
+--** Copyright (C) Solid Information Technology Ltd 1997
+--\****************************************************************/
+
+-- First create table TEST_TABLE
+CREATE TABLE TEST_TABLE (
+	ID INTEGER NOT NULL, 
+	TEXT VARCHAR, 
+	TODAY DATE, 
+	VALUE FLOAT,
+	PRIMARY KEY(ID)
+)
+Command completed successfully, 0 rows affected.
+
+
+-- Statements are ended with a semicolon.
+
+-- Create another table named PROD_TABLE
+CREATE TABLE PROD_TABLE (
+	ID INTEGER NOT NULL UNIQUE, 
+	TEXT VARCHAR, 
+	TODAY DATE, 
+	VALUE FLOAT, 
+	PRIMARY KEY (ID)
+)
+Command completed successfully, 0 rows affected.
+
+
+
+-- Create few users
+CREATE USER CALVIN   IDENTIFIED BY HOBBES
+Command completed successfully, 0 rows affected.
+
+
+CREATE USER DIANE     IDENTIFIED BY PASSWO1
+Command completed successfully, 0 rows affected.
+
+
+CREATE USER JILL          IDENTIFIED BY PASSWO2
+Command completed successfully, 0 rows affected.
+
+
+CREATE USER MARK      IDENTIFIED BY PASSWO3
+Command completed successfully, 0 rows affected.
+
+
+CREATE USER JAKE        IDENTIFIED BY PASSWO4
+Command completed successfully, 0 rows affected.
+
+
+
+-- Change Jakes password to ELWOOD
+ALTER USER JAKE IDENTIFIED BY ELWOOD
+Command completed successfully, 0 rows affected.
+
+
+
+-- Delete user Calvin
+DROP USER CALVIN
+Command completed successfully, 0 rows affected.
+
+
+
+-- Create TESTERS and PRODUCTION roles
+CREATE ROLE TESTERS
+Command completed successfully, 0 rows affected.
+
+
+CREATE ROLE PRODUCTION
+Command completed successfully, 0 rows affected.
+
+
+
+-- Grant rights for these roles
+GRANT INSERT, SELECT ON TEST_TABLE TO TESTERS
+Command completed successfully, 0 rows affected.
+
+
+GRANT INSERT, SELECT, DELETE ON PROD_TABLE TO PRODUCTION
+Command completed successfully, 0 rows affected.
+
+
+
+-- Grant roles to users. 
+-- Diane and Mark are testers while the others are production users.
+GRANT TESTERS TO DIANE
+Command completed successfully, 0 rows affected.
+
+
+GRANT TESTERS TO MARK
+Command completed successfully, 0 rows affected.
+
+
+GRANT PRODUCTION TO JILL
+Command completed successfully, 0 rows affected.
+
+
+GRANT PRODUCTION TO JAKE
+Command completed successfully, 0 rows affected.
+
+
+
+-- Grant Diane right to delete from test_table
+GRANT DELETE ON TEST_TABLE TO JILL
+Command completed successfully, 0 rows affected.
+
+
+
+-- Grant Mark Production role
+GRANT PRODUCTION TO MARK
+Command completed successfully, 0 rows affected.
+
+
+
+-- Revoke the delete right from Jill on PROD_TABLE
+REVOKE DELETE ON PROD_TABLE FROM JILL
+Command completed successfully, 0 rows affected.
+
+
+
+-- Revoke the PRODUCTION role from JAKE
+REVOKE PRODUCTION FROM JAKE
+Command completed successfully, 0 rows affected.
+
+
+
+-- Revoke the delete right on table TEST_TABLE from TESTERS role.
+REVOKE DELETE ON TEST_TABLE FROM TESTERS
+Command completed successfully, 0 rows affected.
+
+
+
+-- Grant Jill the system administrator role. Jill will have all 
+-- rights to all tables (except the system tables) from now on.
+GRANT SYS_ADMIN_ROLE TO JILL
+Command completed successfully, 0 rows affected.
+
+
+
+-- Drop the GUEST_USERS role. When this role is dropped all users
+-- granted this role have their rights removed.
+DROP ROLE TESTERS
+Command completed successfully, 0 rows affected.
+
+
+
+-- Make the changes to tables, users and roles 
+-- permanent by committing the work we have done.
+-- If the autocommit set to ON, this has no effect.
+COMMIT WORK
+Command completed successfully, 0 rows affected.
+
+
+
+-- Now we modify the tables and create few indexes.
+
+-- Add another column to table TEST_TABLE
+ALTER TABLE TEST_TABLE ADD COLUMN C CHAR(1)
+Command completed successfully, 0 rows affected.
+
+
+
+COMMIT WORK
+Command completed successfully, 0 rows affected.
+
+
+
+-- Delete the added column
+ALTER TABLE TEST_TABLE DROP COLUMN C
+Command completed successfully, 0 rows affected.
+
+
+
+-- Create a non-unique index on column ID to TEST_TABLE
+CREATE INDEX X_TEST ON TEST_TABLE (ID)
+Command completed successfully, 0 rows affected.
+
+
+
+-- Create a unique index on column VALUE to TEST_TABLE
+CREATE UNIQUE INDEX UX_TEST ON TEST_TABLE (VALUE)
+Command completed successfully, 0 rows affected.
+
+
+
+-- Drop the non-unique index
+DROP INDEX X_TEST
+Command completed successfully, 0 rows affected.
+
+
+
+-- And again commit the work we have done.
+COMMIT WORK
+Command completed successfully, 0 rows affected.
+
+
+
+SOLID SQL Editor exiting.
+</pre>
+
+<p>
+
+<li>Next we set up the Solid cgi test example.  We will use this later when the AOLserver installation is complete.
+
+<p>
+
+The first step is to insert the sample table into the database.  The given sql code does not contain a commit work instruction and so we must instruct the sql editor to automatically commit every line if we want the table to be permanent, hence the -a option. 
+
+<p>
+
+The Solid distribution 2.30.0026 for Linux contains an error in cgitest.c.  Line 44 of this file must be changed to use UCHAR * not char *.  If you run make this error will be reported and the change is obvious.  If you get an error from the cgitest.run program saying that it couldn't connect, or couldn't verify the user then you have done something wrong.
+<pre>
+    bin/solsql -a -fsamples/cgi_c/cgitest.sql
+    cd samples/cgi_c
+    edit cgitest.c line 44
+</pre>
+<pre>
+    static void process_SQL_statement(
+        HENV henv, HDBC hdbc, HSTMT hstmt, char* statement);
+    static void process_SQL_statement(
+        HENV henv, HDBC hdbc, HSTMT hstmt, UCHAR* statement);
+    </pre>
+<pre>
+    make
+    cgitest.run
+</pre>
+<pre>
+Content-type: text/html
+
+&lt;!DOCTYPE HTML PUBLIC&gt;&lt;HEAD&gt;&lt;TITLE&gt;
+CGI-bin Result Page
+&lt;/TITLE&gt;&lt;/HEAD&gt;&lt;BODY&gt;&lt;CENTER&gt;&lt;H1 ALIGN=CENTER&gt;
+Email Addresses with Name like "NO*"
+&lt;/H1&gt;&lt;/CENTER&gt;&lt;CENTER&gt;&lt;TABLE BORDER=1 ALIGN=CENTER&gt;
+&lt;TR&gt;
+&lt;TD&gt;NAME&lt;/TD&gt;
+&lt;TD&gt;EMAIL&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;&lt;/CENTER&gt;&lt;/BODY&gt;
+</pre>
+
+<p>
+
+<li>We can also use the solid sql editor to perform ad-hoc queries on the database.  Note that the tables and sys_users tables can be queried by the database administrator.  These can be useful to get an overview of the status of the database.
+<pre>
+    bin/solsql
+</pre>
+<pre>
+SOLID SQL Editor (teletype) v.02.30.0026
+(C) Copyright Solid Information Technology Ltd 1993-1998
+Execute SQL statements terminated by a semicolon.
+Exit by giving command: exit;
+Username: nsadmin
+Password: 
+Connected to default server.
+help;
+SOLID SQL Editor executes SQL statements;
+SQL statements must be terminated by a semicolon (;).
+To quit give command quit terminated by a semicolon.
+select * from test_table;
+       ID TEXT                    TODAY          VALUE 
+       -- ----                    -----          ----- 
+0 rows fetched.
+
+select * from tables;
+TABLE_CATALOG      TABLE_SCHEMA       TABLE_NAME         TABLE_TYPE         REMARKS            
+-------------      ------------       ----------         ----------         -------            
+NULL               _SYSTEM            SYS_TABLES         BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_COLUMNS        BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_USERS          BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_UROLE          BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_RELAUTH        BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_ATTAUTH        BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_VIEWS          BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_KEYPARTS       BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_KEYS           BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_CARDINAL       BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_INFO           BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_SYNONYM        BASE TABLE         NULL               
+NULL               _SYSTEM            TABLES             VIEW               NULL               
+NULL               _SYSTEM            COLUMNS            VIEW               NULL               
+NULL               _SYSTEM            SQL_LANGUAGES      BASE TABLE         NULL               
+NULL               _SYSTEM            SERVER_INFO        VIEW               NULL               
+NULL               _SYSTEM            SYS_TYPES          BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_FORKEYS        BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_FORKEYPARTS    BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_PROCEDURES     BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_TRIGGERS       BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_TABLEMODES     BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_EVENTS         BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_SEQUENCES      BASE TABLE         NULL               
+NULL               _SYSTEM            SYS_TMP_HOTSTANDBY BASE TABLE         NULL               
+NULL               NSADMIN            PARTNERS           BASE TABLE         NULL               
+NULL               NSADMIN            TEST_TABLE         BASE TABLE         NULL               
+NULL               NSADMIN            PROD_TABLE         BASE TABLE         NULL               
+28 rows fetched.
+
+select * from sys_users;
+       ID NAME               TYPE                    PRIV PASSW           PRIORITY 
+       -- ----               ----                    ---- -----           -------- 
+        1 NSADMIN            USER                       1 73ADA120B31AF4      NULL 
+        2 CGITEST            USER                       0 CCEA881A19783A      NULL 
+        4 DIANE              USER                       0 FC6D49C3F857D7      NULL 
+        5 JILL               USER                       1 1310BB69BFC314      NULL 
+        6 MARK               USER                       0 969C68D13E018A      NULL 
+        7 JAKE               USER                       0 7789B462C68910      NULL 
+        9 PRODUCTION         ROLE                       0 NULL                NULL 
+7 rows fetched.
+
+quit;
+SOLID SQL Editor exiting.
+</pre>
+
+<p>
+
+<li>Next we shall compile the example for sql calls from c code.  
+<p>
+Again, distribution 2.30.0026 contains an error here.  The makefile given is for the previous version 2.2 and needs to be changed to reference the include files for version 2.3.  The adhoc program is similar to the solsql program, it simply allows you to make adhoc queries to the database.
+<pre>
+    cd ~/solid/samples/sqlapi_c
+    edit makefile line 31
+        VER=22
+        VER=23
+    make
+    adhoc
+</pre>
+
+<p>
+
+<li>To shut down the server we use the solid remote console and issue the shutdown command.
+<pre>
+    bin/solcon
+</pre>
+<pre>
+SOLID Remote Control v.02.30.0026
+(C) Copyright Solid Information Technology Ltd 1993-1998
+Exit by giving command: exit
+Username: nsadmin
+Password: 
+SOLID Server - v.02.30.0026 (Linux ix86)
+(C) Copyright Solid Information Technology Ltd 1993-1998
+License for SOLID Web Engine v2.30, Standard Edition
+Evaluation License
+Serial number: 0000023023
+Maximum number of connections: 20
+Database age limit: 30 days
+Extensions: SMP, Server, JDBC
+Licensed to:
+     Synop Software
+     Synop User
+&gt; shutdown
+Server is shutting down, please wait...
+Server is shut down, exiting from SOLID Remote Control.
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Making AOLserver and Solid Work Together with CGI</h2>
+
+<ol>
+
+<li>If you don't want to use CGI then you can skip this section.  In fact, you probably shouldn't use CGI for connecting to the database since every time a CGI script is run it must spawn the new process, connect to the database, run the query, disconnect and close the process.  If you use the ns_db API in the AOLserver tcl scripting language, all that has to be done is run the query.  The end result, using cgi is about 100 times slower for doing a database query than using ns_db in tcl.
+
+<p>
+
+<li>To connect to Solid via cgi the web server does not have to know that the database exists at all.  We do not need to set up any database drivers or pools.
+
+<p>
+
+<li>Enter the AOLserver setup server.  Go to the virtual server that you are using, in our case synop.  Now click on the CGI Scripting link.  Here we need to set it up so that the Solid cgi example is accessible through AOLserver.  AOLserver will only run cgi programs from directories that have been specified.  Add the following two associations:
+<pre>
+    GET	/cgi-bin	/home/nsadmin/solid/samples/cgi_c
+    POST	/cgi-bin	/home/nsadmin/solid/samples/cgi_c
+</pre>
+
+<p>
+
+<li>The /home/nsadmin/solid/samples/cgi_c/cgitest.htm html will not work correctly with this configuration.  The link address for the ACTION address on line 8 needs to be changed.
+<pre>
+    ACTION="http://internal.synop.com/cgi-bin/cgitest.cgi"
+</pre>
+
+<p>
+
+<li>In your browser open the file /home/nsadmin/solid/samples/cgi_c/cgitest.htm.  Enter the letter S (make sure it is capital) in the form and press Submit.  You should be presented with a table of names from the partners table in the database that all begin with S.
+
+<p>
+
+We can see that this is simply a program which performs this query on the database:
+<pre>
+    SELECT * FROM WHERE NAME LIKE 'S%'
+</pre>
+
+<p>
+
+<strong>Congratulations, you have just set up a database backed web site.</strong>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Making AOLserver and Solid Work Together with TCL and Persistant Connections</h2>
+
+<ol>
+
+<li>We have to set up a database driver in AOLserver.  This driver enables the AOLserver ns_db API to communicate with Solid.  The AOLserver documentation says that the Solid driver is an option in the web pages, I found this not to be the case.  Go into Setup Database Drivers page.  If the Solid driver is not available then click Add Database Driver.  Give the driver a name, eg: intsol (internal solid driver), and tell AOLserver to use nssolid.so.  This file should be residing in the default /home/nsadmin/AOLserver/bin directory.
+
+<p>
+
+<li>Return to the Standard Setup Area.  Go to the Database Pools page.  Click Add Database Pool.  A database pool is a way for AOLserver to keep a number of persistent connections to the database.  These connections can then be allocated to requesting threads as required.  The connections do not have to be opened and closed every time we want to perform an operation on the database.
+
+<p>
+
+<li>Give the pool a suitable name and description, eg: solidpool and Solid Database Pool.  Click Add.
+
+<p>
+
+<li>Select the Solid driver that you found/created earlier (eg: intsol).  Enter the datasource as "TCP/IP internal.synop.com 1313" with no quotes and using the appropriate hostname where the database will be running.  This just means that the Solid server is listening for requests on port 1313 on the machine internal.synop.com.  Enter the user name and password that will be used to access the database.  eg: nsadmin.  You may wish to make this the user that is used to control web access to the file system for safety eg: nsuser, nsadmin may be better left for administration only.  I use five connections to the database for speed since my machine is fairly beefy.  I turn on verbose logging as it makes development much simpler.  Here are my parameters that are different from the defaults in expert mode:
+<pre>
+    Driver: intsol
+    Connections: 5
+    Data Source: TCP/IP internal.synop.com 1313
+    User: nsadmin
+    Password: synop
+    Verbose: On
+    Log SQL Errors: On
+    Extended Table Info: On
+</pre>
+
+<p>
+
+<li>Return to the Standard Setup page.
+
+<p>
+
+<li>Next the virtual server (synop) created above must be configured to use this database pool.  Select Virtual Servers.
+
+<p>
+
+<li>Click on the arrow next to the virtual server name.  Most parameters were entered earlier when creating the virtual server.  Select Database Services.
+
+<p>
+
+<li>Enter * as the pools, allowing this virtual server to use any of the specified database pools.  Solid Database Pool (or equivalent) should be the default pool.  Click Update.
+
+<p>
+
+<li>Now we are ready to access the database from tcl.  We will write an adp page to do exactly the same as the cgi example above.
+
+<p>
+
+<li>In the <a href="install-aolserver233-on-redhat5x.htm">AOLserver installation</a> you set up the pages directory to be something like:
+<pre>
+    /web/synop/www
+</pre>
+
+<p>
+
+<li>We are going to create a file in that directory called tcltest.html.  This file will connect to the database and return the information to the user just like the script above.  It's easiest just to copy the html page from above:
+<pre>
+    cp /home/nsadmin/solid/samples/cgi_c/cgitest.htm /web/synop/www/tcltest.html
+</pre>
+
+<p>
+
+Now edit that file and change the action to be tcltest.tcl.  The line should now look like this (link removed):
+<pre>
+&lt;/CENTER&gt;&lt;FORM METHOD="post" ACTION="tcltest.tcl"&gt;
+</pre>
+
+<p>
+  
+This means that the tcl script stored in tcltest.tcl will be run to handle the information from the script.  Open the html file in your browser to test it:
+<pre>
+    http://internal.synop.com/tcltest.html or
+    file:/web/synop/www/tcltest.html
+</pre>
+
+<p>
+
+<li>We have to create this tcltest.tcl script.  Lets just check that we have .tcl files working properly.  Make /web/synop/www/tcltest.tcl contain the following:
+<pre>
+ns_return 200 text/plain "testing"
+</pre>
+
+<p>
+
+This tells AOLserver to return the string testing to the client with a return code of 200 and the mime type text/plain.  The browser should return testing if you go to the URL:
+<pre>
+    http://internal.synop.com/tcltest.tcl
+</pre>
+
+<p>
+
+You can test your tcltest.html file by clicking on submit, again it should say testing.
+
+<p>
+
+<li>Update tcltest.tcl.  My file is here:
+<pre>
+# get the value of the name parameter
+set formdata [ns_conn form $conn]
+set name [ns_set get $formdata Name]
+
+# open a connection to the database
+set db [ns_db gethandle solidpool]
+
+# perform the query
+set row [ns_db select $db "select name, email from partners where name like [ns_dbquotevalue $name%]"]
+
+# set up the html
+set html "
+&lt;html&gt;
+&lt;body&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;Email&lt;/td&gt;"
+
+# get the rows returned by the query and insert them in the table
+while { [ns_db getrow $db $row] } {
+    append html "
+&lt;tr&gt;&lt;td&gt;[ns_set get $row name]&lt;/td&gt;&lt;td&gt;[ns_set get $row email]&lt;/td&gt;&lt;/tr&gt;"
+}
+
+# finish the html
+append html "
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;"
+
+# return it all to the user
+ns_return 200 text/html $html
+</pre>
+
+<p>
+
+<li>Now you can perform the query as for the cgi test above.
+
+<p>
+
+<li>We can use an adp page instead of the tcl page.  We just have to change tcltest.html to use tcltest.adp as the action.  Create a file /web/synop/www/tcltest.adp.  My adp file is here:
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;Email&lt;/td&gt;
+
+&lt;%
+
+# get the value of the name parameter
+set formdata [ns_conn form $conn]
+set name [ns_set get $formdata Name]
+
+# open a connection to the database
+set db [ns_db gethandle solidpool]
+
+# perform the query
+set row [ns_db select $db "select name, email from partners where name like [ns_dbquotevalue $name%]"]
+
+# set up the rows
+while { [ns_db getrow $db $row] } {
+    append html "
+&lt;tr&gt;&lt;td&gt;[ns_set get $row name]&lt;/td&gt;&lt;td&gt;[ns_set get $row email]&lt;/td&gt;&lt;/tr&gt;"
+}
+
+# release the database handle back to the pool
+ns_db releasehandle $db
+
+# print out the rows
+ns_puts $html
+
+%&gt;
+
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Opening a new Solid Database</h2>
+
+<p>
+
+The Solid evaluation license limits the life of any database file to 30 days maximum.  To create a new database all you have to do is delete the out of date database file.  Go to solid/database/default and delete the file solid.db.  Of course, all information in the deleted database file will be lost.
+
+<p>
+
+To delete the file:
+<pre>
+    cd /home/nsadmin/solid/database/default
+    rm solid.db
+</pre>
+
+<p>
+
+To start the database up again:
+<pre>
+    cd
+    cd solid
+    bin/solid -f -cdatabase/default
+</pre>
+<pre>
+SOLID Server - v.02.30.0026 (Linux ix86)
+(C) Copyright Solid Information Technology Ltd 1993-1998
+Using license file /home/nsadmin/solid/database/default/solid.lic
+License for SOLID Web Engine v2.30, Standard Edition
+Evaluation License
+Serial number: 0000023023
+Maximum number of connections: 20
+Database age limit: 30 days
+Extensions: SMP, Server, JDBC
+Licensed to:
+     Synop Software
+     Synop User
+Current working directory changed to database/default
+Using configuration file /home/nsadmin/solid/database/default/solid.ini
+Database does not exist. Do you want to create a new database (y/n)? y
+Give username and password for database administrator.
+Username: nsadmin
+Password:
+Retype password:
+Creating a new database, please wait ...
+Listening of 'UPipe SOLID' started.
+Listening of 'TCP/IP 1313' started.
+SOLID Server started at Sat Oct 31 02:34:14 1998
+</pre>
+
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

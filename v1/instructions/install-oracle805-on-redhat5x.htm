@@ -1,0 +1,909 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing Oracle 8.0.5 on Red Hat Linux 5.x</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing Oracle 8.0.5 on Red Hat Linux 5.x</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (April 28, 1999)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+This document describes how to install <a href="http://www.oracle.com">Oracle</a> on <a href="http://www.redhat.com">Red Hat Linux</a> 5.x.
+
+<p>
+
+The setup of Oracle is quite difficult.  Do not try to install Oracle unless you really have to use it.  <a href="http://www.solidtech.com">Solid</a> is much <a href="install-solid23-for-aolserver233-on-redhat5x.htm">simpler to install</a> and maintain.  The best comparison is that Solid is a 2MB download, compared to 140MB for Oracle.  This difficulty factor of 70 holds true throughout the installation of Oracle.
+
+<p>
+
+These instructions should allow you to get Oracle running in a couple of hours (after you have downloaded the beast).  Using the Oracle docs and some other internet resources it took me a week to get this far...
+
+<p>
+<br>
+
+<h2>Getting Oracle</h2>
+
+<ol>
+
+<li>Create an place for the download.  I use /usr/installs/databases/ora805.
+
+<p>
+
+<li>Download the files 805ship[1-7].tar from <a href="ftp://ftp.oracle.com/pub/www/oracle8/linux">ftp.oracle.com/pub/www/oracle8/linux</a>.
+
+<p>
+
+<li>Extract all the setup files with
+<pre>
+    cat 805ship*.tar | tar -zx
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Getting Ready</h2>
+
+<ol>
+
+<li>If you know nothing about Oracle then some good background information is available from the <a href="http://linux.manas.kg/books/oracle_unleashed/">Oracle Unleashed book</a>.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Setting the Environment</h2>
+
+<ol>
+
+<li>Log in as root.
+
+<p>
+
+<li>These instructions are designed to be used in tandem with the Oracle installation instructions.  Step through the Oracle instructions as you step through this guide.  This guide only outlines the more complicated parts of the official installation instructions.  Open the installation guide in Netscape from
+<pre>
+    /usr/installs/databases/ora805/unixdoc/index.htm
+</pre>
+
+<p>
+
+<li>Work your way to the Setting the Environment section.
+
+<p>
+
+<li>We are now at the Tasks to Perform as root section.
+
+<p>
+
+<li>Configure Linux Kernel for Oracle.  Momentary panic as you realise (after 2 hours research) that this means you will have to recompile the kernel.
+
+<p>
+
+If you have source code installed you can go to /usr/src/linux and then run
+<pre>
+    cd /usr/src/linux
+	grep SHMMAX `find . -name *.h`
+</pre>
+to find the relevant lines in the include files (note the backquotes).
+
+<p>
+
+Breathe a sigh of relief as you realise that the default linux parameters are probably good enough for now.
+
+<p>
+
+<li>Create two linux groups called dba and oper.  I did this using the User Configuration tool in X windows.
+
+<p>
+
+<li>Create a user called oracle whose default group is dba.  Again I used the User Configuration tool.
+
+<p>
+
+<li>I only have a single disk and I am not worried about an optimal architecture at this stage so I ignored the mount information.  Later I found that Oracle requires heaps of disk space and I ran out during the installation.  So on one of my many installation attempts I created a new mount point /u01 on my machine.
+
+<p>
+
+First create a new directory /u01.  We are already working as root at this time.
+<pre>
+    cd /
+    mkdir u01
+    chown oracle u01
+    chgrp dba u01
+</pre>
+
+<p>
+
+Now we must mount a hard disk partition under this directory.  I did this using the graphical tools.  This mount is now an automatic part of your system configuration.
+
+<p>
+
+If you already have enough space somewhere else, hundreds of megabytes, then you can just create a symbolic link for /u01 to that space.
+
+<p>
+
+<li>Red Hat already has /usr/local/bin setup.
+
+<p>
+
+<li>Now we need to run the oratab script as root.  First we must setup the ORACLE_OWNER environment variable.  For now we'll do this temporarily with
+<pre>
+    ORACLE_OWNER=oracle
+    export ORACLE_OWNER
+</pre>
+
+<p>
+
+Now run the script.  It is OK to continue since ORACLE_OWNER is set.
+<pre>
+    cd /usr/installs/databases/ora805/orainst
+    oratab.sh
+</pre>
+
+<p>
+
+<li>Now are now at the tasks to perform as the oracle user section.  Open an xterm and change to the oracle user
+<pre>
+    su oracle
+</pre>
+
+<p>
+
+<li>The umask for the oracle account must be set to 022.  You can check this with:
+<pre>
+    umask
+</pre>
+
+<p>
+
+If it is not correct then you need to add a line to your .bash_profile
+<pre>
+umask 022
+</pre>
+
+<p>
+
+<li>Here are the parameters that I set in /home/oracle/.bash_profile.  I found that I needed to logout of X (the root session) and relogin as oracle to get these parameters to come alive:
+<pre>
+# oracle parameters
+ORACLE_BASE=/u01/app/oracle
+ORACLE_HOME=$ORACLE_BASE/product/8.0.5
+LD_LIBRARY_PATH=$ORACLE_HOME/lib
+ORACLE_SID=main
+ORACLE_TERM=386
+PATH=$PATH:$ORACLE_HOME/bin
+TMPDIR=/var/tmp
+export ORACLE_BASE ORACLE_HOME LD_LIBRARY_PATH ORACLE_SID ORACLE_TERM PATH TMPDIR
+umask 022
+</pre>
+
+<p>
+
+Check these parameters twice before relying on them.  I set export for LD_LIBRARY not LD_LIBRARY_PATH and wasted hours looking for the subsequent linking problem.
+
+<p>
+
+If you have AOLserver started automatically by init then you may like to add the definition of these parameters to that script.  Alternatively you can create a wrapper for the AOLserver program (nsd) which sets these variables.
+
+<p>
+
+<a href="mailto:M.P.vangorkom@kub.nl">mpgorkom</a> wrote to tell me that if you add the lines below to the .bash_profile you can avoid the whole installation error we work through later on.  I haven't personally tested his solution:
+<pre>
+ORACLE_DOC=$ORACLE_BASE/doc
+export ORACLE_DOC
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Installing</h2>
+
+<ol>
+
+<li>Start the installation program as the oracle user.
+<pre>
+    cd /usr/installs/databases/ora805/orainst
+    orainst
+</pre>
+
+<p>
+
+<li>Choose Custom Install.  You have to tab through to the options, press the down arrow to highlight custom and then hit space to select.  Tab through to the OK button and hit enter to continue.
+
+<p>
+
+<li>Click OK to the two readme files.
+
+<p>
+
+<li>We are going to Install, Upgrade or De-Install Software.
+
+<p>
+
+<li>Install New Product - Create DB Objects.
+
+<p>
+
+<li>The values for ORACLE_BASE and ORACLE_HOME should be:
+<pre>
+    ORACLE_BASE: /u01/app/oracle
+    ORACLE_HOME: /u01/app/oracle/product/8.0.5
+</pre>
+
+<p>
+
+<li>Just accept the defaults for the log file locations unless you are doing an OFA compliant installation.
+
+<p>
+
+<li>We are Installing from a Staging Area.
+
+<p>
+
+<li>The path is wherever you unpacked the Oracle download.  Mine is:
+<pre>
+    /usr/installs/databases/ora805
+</pre>
+
+<p>
+
+<li>I set the ORACLE_SID to main.
+
+<p>
+
+<li>There was no English/Australian so I had to settle for English/American.
+
+<p>
+
+<li>We have to remember where that root.sh file is so we can run it later.  Of course, your lucky because this document will do that for you.
+
+<p>
+
+<li>Now for the actual installation!
+
+<p>
+
+I selected the following for installation, you should probably do the same.  Maniacs who want to install more options can always do so later on.  Let's get something working first...
+<pre>
+    Client Software 8.0.5.0.0
+    Oracle8 Server, Release 8.0.5 Documentation 8.0.5.0
+    Oracle8 Standard (RDBMS) 8.0.5.0.0
+    PL/SQL 8.0.5.0.0
+    SQL*Plus 8.0.5.0.0
+</pre>
+
+<p>
+
+Note that there is a problem with the installation of the documentation.  It will cause the installation to bark at us later on.  If you like to play safety first then you probably shouldn't install the documentation right now.  Otherwise I have included a work around later in this document.
+
+<p>
+
+<li>Hit tab to move to the install button and press enter.
+
+<p>
+
+<li>The default value for ULIMIT is acceptable.
+
+<p>
+
+<li>Use dba as the group.
+
+<p>
+
+<li>You have a choice for the OSOPER group.  You can use the dba group, or if you created it above the oper group.  If you choose the oper group then Oracle will have to relink the executables.
+
+<p>
+
+<li>Use a File System Based Database.
+
+<p>
+
+<li>If you are aiming for OFA compliance then you do want three mount points.  Since we are wimps we are using just the single mount point, so we have to choose No.
+
+<p>
+
+<li>/u01 is our single mount point.
+
+<p>
+
+<li>I used the US7ASCII character set to create the database.
+
+<p>
+
+<li>I used US7ASCII as the National Character Set for the database.
+
+<p>
+
+<li>Choose the password for the database SYSTEM user.  Confirm it.
+
+<p>
+
+<li>Choose the password for the database SYS user.  Confirm it.
+
+<p>
+
+<li>The last thing I want on my development machine is more passwords so I didn't create database passwords for dba and operator.
+
+<p>
+
+<li>Choose the password for the TNS listener.  Confirm it.
+
+<p>
+
+<li>I decided to answer No to configuring the Multi-Threaded Server and automatically starting the SQL*Net listener.
+
+<p>
+
+<li>The next three pages of default control files and sizes are fine.  Accept them all.
+
+<p>
+
+<li>I decided that the SQL*Plus Help facility would be useful.
+
+<p>
+
+<li>Load the demo tables as they will help us check our installation later.
+
+<p>
+
+<li>My ORACLE_DOC path is:
+<pre>
+    /u01/app/oracle/doc
+</pre>
+
+<p>
+
+<li>HTML documentation is probably the simplest.
+
+<p>
+
+<li>Now we are copying files!  This takes a long time...  but since we are installing the documentation it will blow up in the middle, so keep an eye on it.
+
+<p>
+
+<li>The doc install barfs with the error:
+<pre>
+A write error occurred while trying to copy
+'/usr/installs/databases/ora805/unixdoc/server.805/install/lnx_server.805
+to
+'/u01/app/oracle/product/8.0.5/doc/server.805/install/lnx_server.805
+(No such file or directory.)
+</pre>
+
+<p>
+
+If we take a look ourselves we can see that the /u01/app/oracle/product/8.0.5/doc directory is empty!  Log in to another xterm as the oracle user and help out by creating the directories.
+<pre>
+    cd /u01/app/oracle/product/8.0.5/doc
+    mkdir server.805
+    cd server.805
+    mkdir install
+</pre>
+
+<p>
+
+Now hit Retry on the installation.  It should continue as normal.
+
+<p>
+
+<li>The requested action has been performed for selected products.  Great!  You have Oracle installed.
+
+<p>
+
+<li>Check that all the components you selected for installation are now listed as being installed.  Once you are satisfied you can Exit the installer.  If you are feeling braver now, you can install more components before exiting the installer.
+
+<p>
+
+<li>The Oracle installer prints its status on exit.  If you don't get the message below then you are in trouble and should probably start again.
+<pre>
+Result: Success
+</pre>
+
+<p>
+
+<li>As I understand it the Oracle database is actually running at this stage.  We cannot use it however until we have configured a few more parameters.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Making Oracle Work</h2>
+
+<ol>
+
+<li>You have the actual Oracle files installed but there are still a few steps to go before you can use Oracle.  We are now up to Configuring the Oracle System in the manual.
+
+<p>
+
+<li>Now we can run the root.sh script.  Note that the script does not have execute permissions so we have to use sh unless we want to chmod the file.
+<pre>
+    cd /u01/app/oracle/product/8.0.5/orainst
+    sh root.sh
+</pre>
+
+<p>
+
+<li>The root user needs to have access to all of the Oracle environment variables before she can run root.sh.  I am the only one to use my development machine so I just added all of the environment variables outlined above (ORACLE_HOME, etc) to the /etc/profile.  That way they are available to all users.  Alternatively you can just add them to the root users .bash_profile.  I added the following to /etc/profile:
+<pre>
+#
+# oracle
+#
+
+ORACLE_BASE=/u01/app/oracle
+ORACLE_HOME=$ORACLE_BASE/product/8.0.5
+LD_LIBRARY_PATH=$ORACLE_HOME/lib
+ORACLE_SID=main
+ORACLE_TERM=386
+PATH=$PATH:$ORACLE_HOME/bin
+TMPDIR=/var/tmp
+export ORACLE_BASE ORACLE_HOME LD_LIBRARY_PATH ORACLE_SID ORACLE_TERM PATH TMPDIR
+
+ORAENV_ASK=NO
+. /usr/local/bin/oraenv
+</pre>
+
+<p>
+
+The oraenv program is a simple way to set up the same environment for all oracle users if you have this setup information scattered in all of their respective .profile's.
+
+<p>
+
+<li>You will need to log out and log back in as root to see the effects of these changes.
+
+<p>
+
+<li>I accepted these settings:
+<pre>
+    ORACLE_OWNER= oracle
+    ORACLE_HOME=  /u01/app/oracle/product/8.0.5
+    ORACLE_SID=   main
+</pre>
+
+<p>
+
+<li>The full pathname of the local bin directory is:
+<pre>
+    /usr/local/bin
+</pre>
+
+<p>
+
+<li>It does not matter that the ORACLE_HOME directory is not the oracle home directory.  So it's OK to continue.
+
+<p>
+
+<li>Now we are ready to connect to the server!  We need to enter in the views and packages necessary for replication.  This is done using SQL*Plus.  Note that we are still working as root.  The catrep.sql file (which we will run) is in the admin directory.  Here is the sequence:
+<pre>
+    cd ..
+    cd rdbms/admin
+    sqlplus
+</pre>
+<pre>
+SQL*Plus: Release 8.0.5.0.0 - Production on Wed Mar 10 16:14:0 1999
+
+(c) Copyright 1998 Oracle Corporation.  All rights reserved.
+
+Enter user-name: sys
+Enter password: 
+
+Connected to:
+Oracle8 Release 8.0.5.0.0 - Production
+PL/SQL Release 8.0.5.0.0 - Production
+
+SQL&gt; help topics
+
+----- long list of help topics will be printed
+
+SQL&gt; @catrep.sql
+
+----- long list of status messages, don't worry about the errors
+
+Commit complete.
+
+SQL&gt; exit
+Disconnected from Oracle8 Release 8.0.5.0.0 - Production
+PL/SQL Release 8.0.5.0.0 - Production
+</pre>
+
+<p>
+
+<li>Check that your /etc/oratab file looks like this:
+<pre>
+#
+#  This file is used by ORACLE utilities.  It is created by root.sh
+#  and updated by the Oracle8 and SQL*Net install procedures.
+#
+#  A colon, ':', is used as the field terminator.  A new line terminates
+#  the entry.  Lines beginning with a pound sign, '#', are comments.
+#
+#  Entries are of the form:
+#      $ORACLE_SID:$ORACLE_HOME:&lt;N|Y&gt;:
+#
+#  The first and second fields are the system identifier and home
+#  directory of the database respectively.  The third field indicates
+#  to the dbstart utility that the database should, "Y", or should not,
+#  "N", be brought up at system boot time.
+#
+#  Multiple entries with the same $ORACLE_SID are not allowed.
+#
+#
+main:/u01/app/oracle/product/8.0.5:N
+</pre>
+
+<p>
+
+<li>Log out of the root account and log back in as Oracle.  Don't shut down the machine since the Oracle database is still running.
+
+<p>
+
+<li>Now we'll shutdown the database, just to introduce the svrmgrl program.  Here is the procedure:
+<pre>
+    svrmgrl
+</pre>
+<pre>
+Oracle Server Manager Release 3.0.5.0.0 - Production
+
+(c) Copyright 1997, Oracle Corporation.  All Rights Reserved.
+
+Oracle8 Release 8.0.5.0.0 - Production
+PL/SQL Release 8.0.5.0.0 - Production
+
+SVRMGR&gt; help
+The following are SIMPLIFIED syntax descriptions. For complete syntax
+descriptions, please refer to the Oracle Server Manager User's Guide.
+
+STARTUP      [DBA] [FORCE] [PFILE=filespec] [EXCLUSIVE | SHARED]
+             [MOUNT dbname | OPEN dbname] [NOMOUNT]
+
+SHUTDOWN     [NORMAL | IMMEDIATE | ABORT]
+
+MONITOR      For graphical modes only, bring up a monitor
+
+ARCHIVE LOG  [START] [STOP] [LIST] [NEXT] [&lt;n&gt;] [ALL] ['destination']
+
+RECOVER      { [DATABASE [MANUAL] ] | [TABLESPACE ts-name [,tsname]] }
+
+CONNECT      [username [/password] ] [INTERNAL] ['@'instance-spec]
+DISCONNECT
+
+SET          options: INSTANCE, ECHO, TERMOUT, TIMING, NUMWIDTH, CHARWIDTH
+SHOW         LONGWIDTH, DATEWIDTH, AUTOPRINT and for SHOW: ALL, SPOOL
+
+EXIT
+REM
+             SQL statements can also be executed.
+SVRMGR&gt; connect internal
+Connected.
+SVRMGR&gt; shutdown 
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SVRMGR&gt; exit 
+Server Manager complete.
+</pre>
+
+<p>
+
+<li>If you want to start up the database just use svrmgrl again.  Do this now.
+<pre>
+    svrmgrl
+</pre>
+<pre>
+Oracle Server Manager Release 3.0.5.0.0 - Production
+
+(c) Copyright 1997, Oracle Corporation.  All Rights Reserved.
+
+Oracle8 Release 8.0.5.0.0 - Production
+PL/SQL Release 8.0.5.0.0 - Production
+
+SVRMGR&gt; connect internal
+Connected.
+SVRMGR&gt; startup
+ORACLE instance started.
+Total System Global Area                          4754704 bytes
+Fixed Size                                          48400 bytes
+Variable Size                                     4222976 bytes
+Database Buffers                                   409600 bytes
+Redo Buffers                                        73728 bytes
+Database mounted.
+Database opened.
+SVRMGR&gt; exit
+Server Manager complete.
+</pre>
+
+<p>
+
+<li>Now it is time to test our installation with a real example.  We have the database running, and we have the demo tables that we installed with SQL*Plus.
+<pre>
+    sqlplus
+</pre>
+<pre>
+SQL*Plus: Release 8.0.5.0.0 - Production on Wed Mar 10 17:33:48 1999
+
+(c) Copyright 1998 Oracle Corporation.  All rights reserved.
+
+Enter user-name: scott
+Enter password: tiger
+
+Connected to:
+Oracle8 Release 8.0.5.0.0 - Production
+PL/SQL Release 8.0.5.0.0 - Production
+
+SQL&gt; select * from emp;
+     EMPNO ENAME      JOB	       MGR HIREDATE	    SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK	      7902 17-DEC-80	    800
+	20
+
+      7499 ALLEN      SALESMAN	      7698 20-FEB-81	   1600        300
+	30
+
+      7521 WARD       SALESMAN	      7698 22-FEB-81	   1250        500
+	30
+
+
+     EMPNO ENAME      JOB	       MGR HIREDATE	    SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER	      7839 02-APR-81	   2975
+	20
+
+      7654 MARTIN     SALESMAN	      7698 28-SEP-81	   1250       1400
+	30
+
+      7698 BLAKE      MANAGER	      7839 01-MAY-81	   2850
+	30
+
+
+     EMPNO ENAME      JOB	       MGR HIREDATE	    SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER	      7839 09-JUN-81	   2450
+	10
+
+      7788 SCOTT      ANALYST	      7566 09-DEC-82	   3000
+	20
+
+      7839 KING       PRESIDENT 	   17-NOV-81	   5000
+	10
+
+
+     EMPNO ENAME      JOB	       MGR HIREDATE	    SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN	      7698 08-SEP-81	   1500 	 0
+	30
+
+      7876 ADAMS      CLERK	      7788 12-JAN-83	   1100
+	20
+
+      7900 JAMES      CLERK	      7698 03-DEC-81	    950
+	30
+
+
+     EMPNO ENAME      JOB	       MGR HIREDATE	    SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST	      7566 03-DEC-81	   3000
+	20
+
+      7934 MILLER     CLERK	      7782 23-JAN-82	   1300
+	10
+
+
+14 rows selected.
+
+SQL&gt; exit
+Disconnected from Oracle8 Release 8.0.5.0.0 - Production
+PL/SQL Release 8.0.5.0.0 - Production
+</pre>
+
+<p>
+
+<strong>Congratulations!  You have a working Oracle installation.</strong>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Making Oracle Start Automatically</h2>
+
+This section is optional.  You may feel more comfortable starting and stopping Oracle manually.  It was written with help from Ken Mayer.
+
+<ol>
+
+<li>Open an xterm window and log in as root
+<pre>
+    su
+</pre>
+
+<p>
+
+<li>Change to the runlevel configuration directory.
+<pre>
+    cd /etc/rc.d/init.d
+</pre>
+
+<p>
+
+<li>Create a file called dbora that contains script below.  You might find it easier to just download it (link removed).
+<pre>
+#!/bin/sh
+#
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+ORA_HOME=/u01/app/oracle/product/8.0.5
+ORA_OWNER=oracle
+
+if [ ! -f $ORA_HOME/bin/dbstart -o ! -d $ORA_HOME ]; then
+        echo "Oracle startup: cannot start"
+        exit
+fi
+
+# See how we were called.
+case "$1" in
+  start)
+        # Start daemons.
+        echo -n "Starting Oracle: "
+        su - $ORA_OWNER -c $ORA_HOME/bin/dbstart &
+        echo
+        touch /var/lock/subsys/dbora
+        ;;
+  stop)
+        # Stop daemons.
+        echo -n "Shutting down Oracle: "
+        su - $ORA_OWNER -c $ORA_HOME/bin/dbshut
+        echo
+        rm -f /var/lock/subsys/dbora
+        ;;
+  restart)
+        $0 stop
+        $0 start
+        ;;
+  status)
+        ;;
+  *)
+        echo "Usage: dbora {start|stop|restart|status}"
+        exit 1
+esac
+
+exit 0
+</pre>
+
+<p>
+
+<li>Make the script executable with:
+<pre>
+    chmod 755 dbora
+</pre>
+
+<p>
+
+<li>That script can now be used by a number of different run levels.  Different run levels are used for starting, rebooting and so on.  The script is initiated in the different run levels by creating links to it from the appropriate directories.
+
+<p>
+
+The link has a S (start) or K (kill) as its first letter.  The next 2 characters in the name are a number which is used to determine the order in which the services are started and shut down.  Oracle should be one of the last things started (high number eg: 95) and one of the first things shut down (low number eg: 12).
+
+<p>
+
+<li>We have to add a start up to run level 3.
+<pre>
+    cd ..
+    cd rc3.d
+    ln -s ../init.d/dbora S95dbora
+</pre>
+
+<p>
+
+<li>No we need to add shut down commands to levels 0, 1 and 6.
+<pre>
+    cd ..
+    cd rc0.d
+    ln -s ../init.d/dbora K12dbora
+    cd rc1.d
+    ln -s ../init.d/dbora K12dbora
+    cd rc6.d
+    ln -s ../init.d/dbora K12dbora
+</pre>
+
+<p>
+
+<li>Finished!  Oracle should now automatically start up and shut down.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Using Oracle from AOLserver</h2>
+
+These instructions are not complete.  They are just recommended steps.
+
+<ol>
+
+<li>We have to set up the database driver in AOLserver.  This driver enables the AOLserver ns_db API to communicate with Oracle.  The first step is to get the <a href="http://arsdigita.com/free-tools/oracle-driver.html">Oracle database driver for AOLserver from ArsDigita</a> installed.  You have to compile it.
+
+<p>
+
+<li>Go into Setup Database Drivers page.  Click Add Database Driver.  Give the driver a name, eg: oracle, and tell AOLserver to use ora8.so.  This file should be residing in the default /home/nsadmin/AOLserver/bin directory.
+
+<p>
+
+<li>Return to the Standard Setup Area.  Go to the Database Pools page.  Click Add Database Pool.  A database pool is a way for AOLserver to keep a number of persistant connections to the database.  These connections can then be allocated to requesting threads as required.  The connections do not have to be opened and closed every time we want to perform an operation on the database.
+
+<p>
+
+<li>Give the pool a suitable name and description, eg: main and Main.  Click Add.
+
+<p>
+
+<li>Select the Oracle driver that you created earlier (eg: oracle).  The datasource should be empty.  Enter the user name and password that will be used to access the database.
+
+</ol>
+
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

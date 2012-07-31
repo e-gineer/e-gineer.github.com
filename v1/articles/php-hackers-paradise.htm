@@ -1,0 +1,1212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>PHP: Hackers Paradise</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>PHP: Hackers Paradise</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (March 10, 2000)
+
+<p>
+<br>
+
+<strong>Note:</strong> There is a follow up talk to this one called <a href="php-hackers-paradise-revisited.htm">PHP: Hackers Paradise Revisited</a>.  It has
+some changes and extra information, but makes a lot of references to this article.
+
+<p>
+<br>
+
+<h2>1 Introduction</h2>
+
+PHP (<a href="http://www.php.net">http://www.php.net</a>) is a powerful server side web scripting solution. It has quickly grown in popularity and according to the <a href="http://www.netcraft.com/survey">2000 January Netcraft Web Server Survey</a> PHP is installed on 12.8% of all web sites.  Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in. The goal of the language is to allow web developers to write dynamically generated pages quickly.
+
+<p>
+
+Being a good PHP hacker isn't just about writing single line solutions to complex problems.  For example, web gurus know that speed of coding is much more important than speed of code.  In this article we'll look at techniques that can help you become a better PHP hacker.  We'll assume that you have a basic knowledge of PHP and databases.
+
+<p>
+
+If nothing else, you should leave here with the 3 key ideals for PHP hackers:
+<ul>
+<li>Laziness is a Virtue
+<li>Chameleon Coding
+<li>Speed of Coding, Not Speed of Code
+</ul>
+
+<p>
+<br>
+
+<h2>2 Laziness is a Virtue</h2>
+
+<h3>2.1 Introduction</h3>
+
+It seems strange to think of a web programmer as lazy.  Most of us work one hundred-hour week's in our quest to join the gold rush.  In fact, we need to be lazy because we are so busy.
+
+<p>
+
+There are two key ways to be lazy.  Firstly always use existing code when it is available, just integrate it into your standards and project.  The second technique is to develop a library of helpful functions that let you be lazy in the future.
+
+<p>
+
+<h3>2.2 Use Other People's Code</h3>
+
+We need to use laziness to our advantage and PHP is the perfect tool.  PHP was born and raised in an open source environment.  The community holds open source ideals close to its heart.  As a result there are thousands of people on the mailing list willing to share their knowledge and code.  There are also many open source PHP projects that you can tap into.
+I'm not suggesting that you spend all day asking people to write code for you.  But through clever use of the knowledge base, mailing list archives and PHP projects you can save yourself a lot of time.
+
+<p>
+
+PHP Knowledge Base - http://php.faqts.com
+
+<p>
+
+PHP Mailing List Archive - http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2
+
+<p>
+
+<h3>2.3 Helpful Functions and Classes</h3>
+
+<strong>2.3.1 Introduction</strong>
+
+<p>
+
+In this section we will work at developing a library of PHP code which will aid us in future development.  A small amount of work now let's us be lazy in the future.
+
+<p>
+
+Some of this code has been taken from open source PHP projects.  Other parts from the mailing list archives.  In fact, all the work I really needed to do was structure the code into a coherent library of functions.
+
+<p>
+
+<strong>2.3.2 Database Abstraction</strong>
+
+<p>
+
+One of the features / problems with PHP is that it does not have a uniform method for accessing databases.  There are specialized functions for each database PHP is able to connect to.  This is a feature because it allows you to optimize your database code.  It is a problem because it makes your code less portable and increases the learning curve for newcomers.
+
+<p>
+
+A number of database wrapper classes have been developed to solve this problem.  They provide a uniform set of functions for accessing any database.  Personally I like them because I find it much easier to remember a few simple functions like query and next_record than having to think about database handles, connections and so on.
+
+<p>
+
+The most commonly used (and defacto standard) is PHPLib - http://phplib.netuse.de/
+
+<p>
+
+Metabase - http://phpclasses.UpperDesign.com/browse.html/package/20
+
+<p>
+
+There is also PHPDB - http://phpdb.linuxbox.com/
+
+<p>
+
+<strong>2.3.3 Session Management</strong>
+
+<p>
+
+The main purpose of PHPLib is session management.  This allows you to associate data with visitors to your site for the duration of their stay.  This can be useful for remembering options and so on.
+
+<p>
+
+PHP4 has session management features built into the PHP internal function library.
+
+<p>
+
+<strong>2.3.4 Debugging Variables</strong>
+
+<p>
+
+There is limited debugging support for PHP. This is no Smalltalk environment where you can browse objects and perform methods on them. Instead we need to make creative use of the old, reliable echo statement. 
+
+<p>
+
+The first thing we need to be able to do is look at the value of variables. The loose typing of PHP lets us use most variables directly in strings. This is great for numbers and so on, but falls down when we are dealing with arrays and objects. 
+
+<p>
+
+The other problem with debugging is that sometimes I'm not even sure what a variable is likely to contain. If I was, there be no need to debug. 
+
+<p>
+
+So, lets be smart now and lazy for the rest of time. We can write a function that shows us the type and value of any variable. 
+
+<pre>
+function ss_array_as_string (&amp;$array, $column = 0) {
+    $str = "Array(&lt;BR&gt;\n";
+    while(list($var, $val) = each($array)){
+        for ($i = 0; $i &lt; $column+1; $i++){
+            $str .= "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;";
+        }
+        $str .= $var.' ==&gt; ';
+        $str .= ss_as_string($val, $column+1)."&lt;BR&gt;\n";
+    }
+    for ($i = 0; $i &lt; $column; $i++){
+        $str .= "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;";
+    }
+    return $str.')';
+}
+
+function ss_object_as_string (&amp;$object, $column = 0) {
+    if (empty($object-&gt;classname)) {
+        return "$object";
+    }
+    else {
+        $str = $object-&gt;classname."(&lt;BR&gt;\n";
+        while (list(,$var) = each($object-&gt;persistent_slots)) {
+            for ($i = 0; $i &lt; $column; $i++){
+                $str .= "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;";
+            }
+            global $$var;
+            $str .= $var.' ==&gt; ';
+            $str .= ss_as_string($$var, column+1)."&lt;BR&gt;\n";
+        }
+        for ($i = 0; $i &lt; $column; $i++){
+            $str .= "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;";
+        }
+        return $str.')';
+    }
+}
+
+function ss_as_string (&amp;$thing, $column = 0) {
+    if (is_object($thing)) {
+        return ss_object_as_string($thing, $column);
+    }
+    elseif (is_array($thing)) {
+        return ss_array_as_string($thing, $column);
+    }
+    elseif (is_double($thing)) {
+        return "Double(".$thing.")";
+    }
+    elseif (is_long($thing)) {
+        return "Long(".$thing.")";
+    }
+    elseif (is_string($thing)) {
+        return "String(".$thing.")";
+    }
+    else {
+        return "Unknown(".$thing.")";
+    }
+}
+</pre>
+
+Note that these functions work together to correctly print, format and indent arrays. They are also able to print objects when they have been defined with the PHPLIB standard variables classname (the name of the class) and persistent_slots (an array of the variable names we care about). 
+
+<p>
+
+Now we can see the state of any variable by just doing: 
+<pre>
+    echo ss_as_string($my_variable);
+</pre>
+
+We can see the value of all variables currently defined in the PHP namespace with: 
+<pre>
+    echo ss_as_string($GLOBALS);
+</pre>
+
+<p>
+
+<strong>2.3.5 Log Functions</strong>
+
+<p>
+
+A great way to debug is through logging.  It's even easier if you can leave the log messages through your code and turn them on and off with a single command.  To facilitate this we will create a number of logging functions.
+
+<pre>
+$ss_log_level = 0;
+$ss_log_filename = '/tmp/ss-log';
+$ss_log_levels = array(
+    NONE  =&gt; 0,
+    ERROR =&gt; 1,
+    INFO  =&gt; 2,
+    DEBUG =&gt; 3);
+
+function ss_log_set_level ($level = ERROR) {
+    global $ss_log_level;
+    $ss_log_level = $level;
+}
+
+function ss_log ($level, $message) {
+    global $ss_log_level, $ss_log_filename;
+    if ($ss_log_levels[$ss_log_level] &lt; $ss_log_levels[$level]) {
+        // no logging to be done
+        return false;
+    }
+    $fd = fopen($ss_log_filename, "a+");
+    fputs($fd, $level.' - ['.ss_timestamp_pretty().'] - '.$message."\n");
+    fclose($fd);
+    return true;
+}
+
+function ss_log_reset () {
+    global $ss_log_filename;
+    @unlink($ss_log_filename);
+}
+</pre>
+
+<p>
+
+There are 4 logging levels available.  Log messages will only be displayed if they are at a level less verbose than that currently set.  So, we can turn on logging with the following command:
+<pre>
+    ss_log_set_level(INFO);
+</pre>
+
+Now any log messages from the levels ERROR or INFO will be recorded.  DEBUG messages will be ignored.  We can have as many log entries as we like.  They take the form:
+<pre>
+    ss_log(ERROR, "testing level ERROR");
+    ss_log(INFO, "testing level INFO");
+    ss_log(DEBUG, "testing level DEBUG");
+</pre>
+
+This will add the following entries to the log:
+<pre>
+    ERROR - [Feb 10, 2000 20:58:17] - testing level ERROR
+    INFO - [Feb 10, 2000 20:58:17] - testing level INFO
+</pre>
+
+You can empty the log at any time with:
+<pre>
+    ss_log_reset();
+</pre>
+
+<p>
+
+<strong>2.3.6 Optimization</strong>
+
+<p>
+
+We need a way to test the execution speed of our code before we can easily perform optimizations.  A set of timing functions that utilize microtime() is the easiest method:
+<pre>
+function ss_timing_start ($name = 'default') {
+    global $ss_timing_start_times;
+    $ss_timing_start_times[$name] = explode(' ', microtime());
+}
+
+function ss_timing_stop ($name = 'default') {
+    global $ss_timing_stop_times;
+    $ss_timing_stop_times[$name] = explode(' ', microtime());
+}
+
+function ss_timing_current ($name = 'default') {
+    global $ss_timing_start_times, $ss_timing_stop_times;
+    if (!isset($ss_timing_start_times[$name])) {
+        return 0;
+    }
+    if (!isset($ss_timing_stop_times[$name])) {
+        $stop_time = explode(' ', microtime());
+    }
+    else {
+        $stop_time = $ss_timing_stop_times[$name];
+    }
+    // do the big numbers first so the small ones aren't lost
+    $current = $stop_time[1] - $ss_timing_start_times[$name][1];
+    $current += $stop_time[0] - $ss_timing_start_times[$name][0];
+    return $current;
+}
+</pre>
+
+Now we can check the execution time of any code very easily.  We can even run a number of execution time checks simultaneously because we have established named timers.
+
+<p>
+
+See the optimizations section below for the examination of echo versus inline coding for an example of the use of these functions.
+
+<p>
+
+<strong>2.3.7 Debugging and Optimizing Database Operations</strong>
+
+<p>
+
+The best way to gauge the stress you are placing on the database with your pages is through observation.  We will combine the logging and timing code above to assist us in this process.
+
+<p>
+
+We will alter the query() function in PHPLib, adding debugging and optimizing capabilities that we can enable and disable easily.
+<pre>
+function query($Query_String, $halt_on_error = 1) {
+    $this-&gt;connect();
+    ss_timing_start();
+    $this-&gt;Query_ID = @mysql_query($Query_String,$this-&gt;Link_ID);
+    ss_timing_stop();
+    ss_log(INFO, ss_timing_current().' Secs - '.$Query_String);
+    $this-&gt;Row   = 0;
+    $this-&gt;Errno = mysql_errno();
+    $this-&gt;Error = mysql_error();
+    if ($halt_on_error && !$this-&gt;Query_ID) {
+      $this-&gt;halt("Invalid SQL: ".$Query_String);
+    }
+    return $this-&gt;Query_ID;
+}
+</pre>
+
+<p>
+<br>
+
+<h2>3 Chameleon Coding</h2>
+
+<h3>3.1 Introduction</h3>
+
+A chameleon is a lizard that is well known for its ability to change skin color.  This is a useful metaphor for web programming as it highlights the importance of separating well structured and stable backend code from the dynamic web pages it supports.
+
+<p>
+
+PHP is the perfect language for chameleon coding as it supports both structured classes and simple web scripting.
+
+<p>
+
+<h3>3.2 Structuring your PHP Code</h3>
+
+<strong>3.2.1 Introduction</strong>
+
+<p>
+
+When writing PHP code we need to make a clear distinction between the code which does the principal work of the application and the code which is used to display that work to the user.
+
+<p>
+
+The backend code does the difficult tasks like talking to the database, logging, and performing calculations.
+
+<p>
+
+The pages that display the interface to these operations are part of the front end.
+
+<p>
+
+<strong>3.2.2 Dynamic, Hackable Frontend Code</strong>
+
+<p>
+
+Mixing programming code in with HTML is messy.  We can talk about ways to format the code or structure your pages, but the end result will still be quite complicated.
+
+<p>
+
+We need to move as much of the code away from the HTML as possible.  But, we need to do this so that we don't get lost in the interaction between our application and the user interface.
+
+<p>
+
+A web site is a dynamic target.  It is continually evolving, improving and changing.  We need to keep our HTML pages simple so that these changes can be made quickly and easily.  The best way to do that is by making all calls to PHP code simple and their results obvious.
+
+<p>
+
+We shouldn't worry too much about the structure of the PHP code contained in the front end, it will change soon anyway.
+
+<p>
+
+That means that we need to remove all structured code from the actual pages into the supporting include files.  All common operations should be encapsulated into functions contained in the backend.
+
+<p>
+
+<strong>3.2.3 Stable, Structured Backend Code</strong>
+
+In complete contrast to the web pages your backend code should be well designed, documented and structured.  All the time you invest here is well spent, next time you need a page quickly hacked together all the hard parts will be already done waiting for you in backend functions.
+
+<p>
+
+Your backend code should be arranged into a set of include files.  These should be either included dynamically when required, or automatically included in all pages through the use of the php3_auto_prepend_file directive.
+
+<p>
+
+If you need to include HTML in your backend code it should be as generic as possible.  All presentation and layout should really be contained in the front end code.  Exceptions to this rule are obvious when they arise, for example, the creation of select boxes for a date selection form.
+
+<p>
+
+PHP is flexible enough to let you design your code using classes and or functions.  My object oriented background means that I like to create a class to represent each facet of the application.  All database queries are encapsulated in these classes, hidden from the front end pages completely.  This helps by keeping all database code in a single location and simplifying the PHP code contained in pages.
+
+<p>
+
+<h3>3.3 Coding Techniques</h3>
+
+<strong>3.3.1 Include Files</strong>
+
+<p>
+
+If we are building these function libraries we need to work out a scheme for including them in our pages.  There are a couple of different approaches to this.
+
+<p>
+
+We can either include all our library files all the time, or include them conditionally as required.
+
+<p>
+
+As part of my speed of coding philosophy I prefer to just include all the files and never think about it again.  When the Zend optimizing engine becomes available to pre-parse this code the performance hit will not be significant.
+
+<p>
+
+I have about 10,000 lines of code in PHP libraries for my site.  A quick check using the timing functions will tell us the damage:
+<pre>
+&lt;?php
+require('timing.inc');
+ss_timing_start();
+// include other library files here
+ss_timing_stop();
+echo '&lt;h1&gt;'.ss_timing_current().'&lt;/h1&gt;';
+?&gt;
+</pre>
+
+<p>
+
+It seems to take about 0.6 seconds to parse all my function libraries.  My sites do not receive millions of hits so this penalty is not important enough to worry about yet.
+
+<p>
+
+One drawback of including all libraries all the time is that it makes it difficult to work on them.  One mistake in any of those files will bring down every page on the entire site.  Be very, very careful.
+
+<p>
+
+If you are not as lazy as me then perhaps you'd prefer the conditional include technique.  It's simple to use and implement.  Just structure all of your library files like the example below:
+<pre>
+&lt;?php // liba.inc
+
+if ( defined( '__LIBA_INC' ) ) return;
+define( '__LIBA_INC', 1 );
+
+/*
+ * Library code here.
+ */
+
+?&gt;
+</pre>
+
+ Then you just need to include this library in any script where it is used.  Libraries may also need to include other libraries.  Your include statements look the same as normal:
+<pre>
+include('liba.inc');
+</pre>
+
+This way, the calling scripts don't have to do any of the work.  Unfortunately return won't work from require()d files in PHP4 anymore. So, you will need to use include() instead.  You can still use require() in PHP3.
+
+<p>
+
+<strong>3.3.2 Design Patterns for Web Programming</strong>
+
+<p>
+
+Some of the best web programming techniques are captured in the Web Programming Design Patterns.  They are high level descriptions of the best solutions to common web programming problems.  You can read more about these here:
+
+<p>
+
+<a href="http://www.e-gineer.com/articles/design-patterns-in-web-programming.phtml">http://www.e-gineer.com/articles/design-patterns-in-web-programming.phtml</a>
+
+<p>
+<br>
+
+<h2>4 Speed of Coding, Not Speed of Code</h2>
+
+<h3>4.1 Introduction</h3>
+
+The hardest thing for me to learn as a web programmer was to change the way I wrote code.  Coming from a product development and university background the emphasis is on doing it the right way.  Products have to be as close to perfect as possible before release.  School assignments need to be perfect.
+
+<p>
+
+The web is different.  Here it is more important to finish a project as soon as possible than it is to get it perfect first time. Web sites are evolutionary, there is no freeze date after which it is difficult to make changes.
+
+<p>
+
+I like to think of my web sites as prototypes.  Everyday they get a little closer to being finished.  I can throw together 3 pages in the time it would take to do one perfectly.  It's usually better on the web to release all three and then decide where your priorities lie.  Speed is all important.
+
+<p>
+
+So, everything you do as a programmer should be focused on the speed at which you are producing code (pages).
+
+<p>
+
+<h3>4.2 Optimizations to Satisfy Your Hacker Instinct</h3>
+
+<strong>4.2.1 Introduction</strong>
+
+<p>
+
+This section describes some tricks you can use to speed up your PHP code.  Most of them make very little difference when compared to the time taken for parsing, database queries and sending data down a modem.
+
+<p>
+
+They are useful to know both so you can feel you are optimizing your code and to aid your understanding of certain PHP concepts.
+
+<p>
+
+<strong>4.2.2 Use Inline Tags Instead of echo</strong>
+
+<p>
+
+The PHP interpreter gets invoked once for each page.  Whatever is not contained in PHP tags like  is just echoed back out by the interpreter.
+
+<p>
+
+As a result it is faster to use lots of little in-line tags than it is to build massive strings or use echo statements.
+
+<p>
+
+Let's use the timing functions we developed above to run a quick test.
+
+<pre>
+&lt;h2&gt;Test Inline Tags vs echo&lt;/h2&gt;
+
+&lt;p&gt;
+
+&lt;?php ss_timing_start('echo'); ?&gt;
+&lt;?php
+for ($i=0; $i&lt;1000; $i++) {
+    echo $i."&lt;br&gt;";
+}
+?&gt;
+&lt;?php ss_timing_stop('echo'); ?&gt;
+
+&lt;p&gt;
+
+&lt;?php ss_timing_start(str); ?&gt;
+&lt;?php
+$str = '';
+for ($i=0; $i&lt;1000; $i++) {
+    $str .= $i."&lt;br&gt;";
+}
+echo $str;
+?&gt;
+&lt;?php ss_timing_stop(str); ?&gt;
+
+&lt;p&gt;
+ &lt;?php ss_timing_start(inline); ?&gt;
+&lt;?php
+for ($i=0; $i&lt;1000; $i++) {
+?&gt;
+123&lt;br&gt;
+&lt;?php
+}
+?&gt;
+&lt;?php ss_timing_stop(inline); ?&gt;
+
+&lt;p&gt;
+&lt;br&gt;
+
+&lt;h2&gt;Results&lt;/h2&gt;
+
+echo - &lt;?php echo ss_timing_current('echo') ?&gt;
+
+&lt;p&gt;
+
+str - &lt;?php echo ss_timing_current(str) ?&gt;
+
+&lt;p&gt;
+
+inline - &lt;?php echo ss_timing_current(inline) ?&gt;
+</pre>
+
+<p>
+
+The results of this test averaged out to be:
+<pre>
+echo   - 0.063347 secs
+str    - 0.083996 secs
+inline - 0.035276 secs
+</pre>
+
+We can see that inline is clearly the fastest technique.  But, when we consider that we only save 0.03 milliseconds each time we use it, the method you use to echo your values is pretty much irrelevant. A moral victory at best…
+
+<p>
+
+<strong>4.2.3 str_replace vs ereg_replace</strong>
+
+<p>
+
+It's predictable that the simple str_replace() will be significantly faster than ereg_replace.  A quick test also reveals the time difference when we introduce a simple pattern match into the ereg_replace.
+
+<pre>
+&lt;h2&gt;Test str_replace vs ereg&lt;/h2&gt;
+
+&lt;p&gt;
+
+&lt;?php $string = 'Testing with &lt;i&gt;emphasis&lt;/i&gt;'; ?&gt;
+ &lt;?php ss_timing_start('str_replace'); ?&gt;
+&lt;?php
+for ($i=0; $i&lt;1000; $i++) {
+    str_replace('i&gt;', 'b&gt;', $string).'&lt;br&gt;';
+}
+?&gt;
+&lt;?php ss_timing_stop('str_replace'); ?&gt;
+
+&lt;p&gt;
+
+&lt;?php ss_timing_start(ereg); ?&gt;
+&lt;?php
+for ($i=0; $i&lt;1000; $i++) {
+    ereg_replace('i&gt;', 'b&gt;', $string).'&lt;br&gt;';
+}
+?&gt;
+&lt;?php ss_timing_stop(ereg); ?&gt;
+
+&lt;p&gt;
+
+&lt;?php ss_timing_start(ereg_pattern); ?&gt;
+&lt;?php
+for ($i=0; $i&lt;1000; $i++) {
+    ereg_replace('&lt;([/]*)i&gt;', '&lt;\1b&gt;', $string).'&lt;br&gt;';
+}
+?&gt;
+&lt;?php ss_timing_stop(ereg_pattern); ?&gt;
+
+&lt;p&gt;
+&lt;br&gt;
+
+&lt;h2&gt;Results&lt;/h2&gt;
+
+str_replace - &lt;?php echo ss_timing_current(str_replace) ?&gt;
+
+&lt;p&gt;
+
+ereg - &lt;?php echo ss_timing_current(ereg) ?&gt;
+
+&lt;p&gt;
+
+ereg_pattern - &lt;?php echo ss_timing_current(ereg_pattern) ?&gt;
+</pre>
+
+<p>
+
+Here are the results.  Notice how using the simple pattern in ereg_replace has almost doubled the execution time.
+<pre>
+str_replace - 0.089757 
+ereg - 0.149406 
+ereg_pattern - 0.248881 
+</pre>
+
+<p>
+
+Again, the difference of these functions relative to one another is noticable but in the context of returning a web page basically irrelevant.
+
+<p>
+
+<strong>4.2.4 Quoted Strings</strong>
+
+<p>
+
+PHP parses double quoted strings to look for variables.  Any variable contained in a double quoted string will be resolved and inserted into the string at that location.
+
+<p>
+
+Single quoted strings are printed exactly as they appear.  They are not parsed.
+
+<p>
+
+So, you should use single quoted strings where possible to reduce the work to be done by the parser.
+
+<p>
+
+<h3>4.3 Optimizations that Really Make a Difference</h3>
+
+<strong>4.3.1 Reduce queries</strong>
+
+<p>
+
+Accessing the database is expensive.  Persistent connections reduce a lot of the overhead by removing the need to connect with each request, but performing queries is still a high cost exercise compared with the execution of PHP code.
+
+<p>
+
+This is particularly true due to locking issues in the database.  In testing you might see that individual queries to the database are actually quite fast.  In production you will see the database get overloaded with many small queries as it struggles to satisfy a single large query.
+
+<p>
+
+<strong>4.3.2 Optimize your Queries</strong>
+
+<p>
+
+The type of queries you make to the database will have a dramatic effect on the speed of your application.  Making smart use of column indexes is essential.  Small changes to your SQL can result in dramatic time savings.
+
+<p>
+
+<strong>4.3.3 Avoid joins</strong>
+
+<p>
+
+Joins are expensive.  The minute you do a join the size of the resulting table becomes the multiple of the tables being joined.
+
+<p>
+
+Lets look at some quick statistics to give you a feel for the cost of joins.  I have created two tables, foo and big_foo.  Foo contains a single column with the numbers 1-1000.  Big_foo contains a single column with the numbers 1-1,000,000.  So, big_foo is equivalent in size to the join of foo with itself.
+
+<pre>
+$db-&gt;query("select * from foo");
+0.032273 secs
+
+$db-&gt;next_record();
+0.00048999999999999 secs
+$db-&gt;query("insert into foo values (NULL)");
+0.019506 secs
+
+$db-&gt;query("select * from foo as a, foo as b");
+17.280596 secs
+
+$db-&gt;query("select * from foo as a, foo as b where a.id &gt; b.id");
+14.645251 secs
+
+$db-&gt;query("select * from foo as a, foo as b where a.id = b.id");
+0.041269 secs
+
+$db-&gt;query("select * from big_foo");
+25.393672 secs
+</pre>
+
+We can see from the results above that selecting all rows from the join of a 1000 row table is only marginally quicker than selecting all rows from a 1,000,000 row table.
+
+<p>
+
+It is worth noting that a join that returns a small number of rows is still very fast.
+
+<p>
+
+<strong>4.3.4 Make your pages smaller</strong>
+
+<p>
+
+Let's consider a typical user on a 56Kbps modem.  On a good connection, they can download pages at approximately 6kBps.  We were looking at optimizations above that save approximately 0.15 seconds on an extremely complex page.  Reducing the size of your page by about 900 bytes will give you an equivalent saving.
+
+<p>
+
+Usually response times for the user are gained most easily through examination of your HTML and optimizing the use of images.
+
+<p>
+
+<h3>4.4 Gotchas</h3>
+
+<strong>4.4.1 Introduction</strong>
+
+<p>
+
+This section will be quite small since most PHP developers are now making the switch to PHP4.  The parsing engine has been completely rewritten and has removed a lot of the annoying quirks that can bring a lot of grief to both newcomers and experienced PHP programmers.
+
+<p>
+
+<strong>4.4.2 Arrays of Objects</strong>
+
+<p>
+
+PHP3 does not handle arrays of objects very well.  The following code will NOT parse correctly:
+<pre>
+$a[$i]-&gt;foo();
+</pre>
+
+<p>
+
+PHP does not like the object reference after the array index brackets.  Instead you need to use a temporary variable:
+<pre>
+$tmp = $a[$i];
+$tmp-&gt;foo();
+</pre>
+
+<p>
+
+<strong>4.4.3 Calling overridden methods</strong>
+
+<p>
+
+PHP3 has support for classes and inheritence.  You can even override functions in subclasses.  Problems occur when you need to call the overridden function in the parent class.  Unfortunately this is quite common as you may want to define the function in the subclass as being the original function plus some extra work.  If that explanation has made you completely confused take a look at the example below.
+
+<p>
+
+There is a (hacky) work around.  The basic idea is to define a unique method name in each class for the same method.  Then the extended class can reference directly to the unique method name in its parent.
+
+<p>
+
+To achieve the appearance of polymorphism when using the class you just create a method with the desired name in every class definition that calls the unique method name in that class.  An example will explain it better:
+
+<pre>
+class A {
+  function A() { }
+
+  function A_dspTwo() {
+    echo "A: Two&lt;br&gt;";
+  }
+
+  function dspTwo() {
+    return $this-&gt;A_dspTwo();  // call the class A dspTwo method
+  }
+}
+  
+class B extends A {
+  function B() {
+    $this-&gt;A(); // call the parent constructor.
+  }
+
+  function B_dspTwo() {
+    $this-&gt;A_dspTwo();
+    echo "B: Two&lt;br&gt;";
+  }
+
+  function dspTwo() {
+    return $this-&gt;B_dspTwo();
+  }
+}
+
+$object = new B();
+$object-&gt;dspTwo();
+</pre>
+
+This is supported by the Zend engine and will thus be supported in PHP 4.0. 
+
+<p>
+
+<strong>4.4.4 Trouble with Types</strong>
+
+<p>
+
+PHP is a loosely typed language.  That means that the variables actually do have types, but in general you do not need to worry about them.  PHP will automatically convert variables between types when required.
+
+<p>
+
+Unfortunately there are some cases where you need to manually convert the type of variables.  This can lead to confusion because they are very rare.  Below is an example page to highlight how rare these cases can be:
+
+<pre>
+&lt;h2&gt;Test String Integer Comparisons&lt;/h2&gt;
+
+&lt;?php
+$a = 1;
+$b = '2';
+if ($a &lt; $b) {
+    echo ss_as_string($a).' &lt; '.ss_as_string($b);
+}
+else {
+    echo ss_as_string($a).' &gt;= '.ss_as_string($b);
+}
+?&gt;
+
+&lt;p&gt;
+
+&lt;?php
+$a = 2;
+$b = '2';
+if ($a == $b) {
+    echo ss_as_string($a).' == '.ss_as_string($b);
+}
+else {
+    echo ss_as_string($a).' != '.ss_as_string($b);
+}
+?&gt;
+
+&lt;p&gt;
+
+&lt;?php
+$a = array(2, '1');
+if ($a[0] &gt; $a[1]) {
+    echo ss_as_string($a[0]).' &gt; '.ss_as_string($a[1]);
+}
+else {
+    echo ss_as_string($a[0]).' &lt;= '.ss_as_string($a[1]);
+}
+?&gt;
+
+&lt;p&gt;
+
+ &lt;?
+$a = array('2', '1');
+echo ss_as_string($a).'&lt;br&gt;sorts to&lt;br&gt;';
+sort($a);
+echo ss_as_string($a);
+?&gt;
+
+&lt;p&gt;
+
+&lt;?
+$a = array(2, 1);
+echo ss_as_string($a).'&lt;br&gt;sorts to&lt;br&gt;';
+sort($a);
+echo ss_as_string($a);
+?&gt;
+
+&lt;p&gt;
+
+&lt;?
+$a = array('2', 1);
+echo ss_as_string($a).'&lt;br&gt;sorts to&lt;br&gt;';
+sort($a);
+echo ss_as_string($a);
+?&gt;
+
+&lt;p&gt;
+
+&lt;?
+$a = array(2, '1');
+echo ss_as_string($a).'&lt;br&gt;sorts to&lt;br&gt;';
+sort($a);
+echo ss_as_string($a);
+?&gt;
+</pre>
+
+Here is the output from these tests.  Notice that all the tests work correctly except for the last one, sorting array(2, '1').  We can even sort array('2', 1) without problems.  The error occurs when we have multiple types in an array passed to the sort function with the order number then string.
+
+<pre>
+Long(1) &lt; String(2) 
+
+Long(2) == String(2) 
+
+Long(2) &gt; String(1) 
+
+Array(
+0 ==&gt; String(2)
+1 ==&gt; String(1)
+)
+sorts to
+Array(
+0 ==&gt; String(1)
+1 ==&gt; String(2)
+) 
+
+Array(
+0 ==&gt; Long(2)
+1 ==&gt; Long(1)
+)
+sorts to
+Array(
+0 ==&gt; Long(1)
+1 ==&gt; Long(2)
+) 
+
+Array(
+0 ==&gt; String(2)
+1 ==&gt; Long(1)
+)
+sorts to
+Array(
+0 ==&gt; Long(1)
+1 ==&gt; String(2)
+) 
+
+Array(
+0 ==&gt; Long(2)
+1 ==&gt; String(1)
+)
+sorts to
+Array(
+0 ==&gt; Long(2)
+1 ==&gt; String(1)
+) 
+</pre>
+
+<p>
+
+<h3>4.5 Tricky Concepts</h3>
+
+<strong>4.5.1 Include vs Require</strong>
+
+<p>
+
+Include() and require() are slightly different.  Basically, include is conditional and require is not.
+
+<p>
+
+This would include 'somefile' if $something is true:
+<pre>
+if($something){
+    include("somefile");
+}
+</pre>
+
+This would include 'somefile' unconditionally
+<pre>
+if($something){
+    require("somefile");
+}
+</pre>
+
+This would have VERY strange effects if somefile looked like:
+<pre>
+} echo "Ha!  I'm here regardless of something: $something&lt;br&gt;\n";
+if (false) {
+</pre>
+
+Another interesting example is to consider what will happen if you use include() or require() inside a loop.
+<pre>
+$i = 1;
+while ($i &lt; 3) {
+    require("somefile.$i");
+    $i++;
+}
+</pre>
+
+Using require() as above will cause the same file to be used every single iteration.  Clearly this is not the intention since the file name should be changing in each iteration of the loop.  We need to use include() as below.  Include() will be evaluated at each iteration of the loop including somefile.0, somefile.1, etc as expected.
+<pre>
+$i = 1;
+while ($i &lt; 3) {
+    include("somefile.$i");
+    $i++;
+}
+</pre>
+
+The only interesting question that remains is what file will be required above.  It turns out that PHP uses the value of $i when it reads the require() statement for the first time.  So, the require() loop above will include something.1 two times.  The include() loop includes something.1 and something.2.
+
+<p>
+
+<strong>4.5.2 Echo vs Print</strong>
+
+<p>
+
+There is a difference between the two, but speed-wise it should be irrelevant which one you use.  print() behaves like a function in that you can do:
+<pre>
+$ret = print "Hello World";
+</pre>
+and $ret will be 1.
+
+<p>
+
+That means that print can be used as part of a more complex expression where echo cannot.  print is also part of the precedence table which it needs to be if it is to be used 
+within a complex expression.  It is just about at the bottom of the precendence list though.  Only "," AND, OR and XOR are lower.
+
+<p>
+
+echo is marginally faster since it doesn't set a return value if you really want to get down to the nitty gritty.
+
+<p>
+
+If the grammar is:
+<pre>
+echo expression [, expression[, expression] ... ]
+</pre>
+then
+<pre>
+echo ( expression, expression ) 
+</pre>
+is not valid.  ( expression ) reduces to just an expression so this would be valid:
+<pre>
+echo ("howdy"),("partner");
+</pre>
+but you would simply write this as:
+<pre>
+echo "howdy","partner";
+</pre>
+if you wanted to use two expressions.  Putting the brackets in there serves no purpose since there is no operator precendence issue with a single expression like that.
+
+<p>
+
+<h3>4.6 Scripting with PHP</h3>
+
+It's easy to forget that PHP is a complete programming language that can be used for more than just generating web pages.  I was once writing a script to receive emails and place them in a database.  I was fumbling around in Perl and shell scripts until it dawned on me to install PHP for scripting.  30 minutes later the emails were churning in.
+
+<p>
+
+Installing PHP for scripting on unix is easy.  Just remove the -with-apache directive from your configure options.  This will create the PHP binary that can be used to run scripts directly from the command line.  There are complete instructions for installing PHP for scripting here:
+
+<p>
+
+<a href="http://www.e-gineer.com/instructions">http://www.e-gineer.com/instructions</a>
+
+<p>
+
+You can then write your script like any other shell script.  Here is an example:
+<pre>
+#!/usr/local/bin/php -q
+</pre>
+
+Once you start scripting with PHP the possibilities are endless.  It's a fully featured language, you can do anything you would normally do in a shell script.
+
+<P>
+
+<h3>4.7 Extreme Programming</h3>
+
+We are getting a little off topic here, but I believe programming techniques are an important part of being a good programmer.
+
+<p>
+
+My working style is based on the ideas of Extreme Programming.  From the Extreme Programming web site:
+
+<p>
+
+XP improves a software project in four essential ways; communication, simplicity, feedback, and courage. XP programmers communicate with their customers and fellow programmers. They keep their design simple and clean. They get feedback by testing their software starting on day one. They deliver the system to the customers as early as possible and implement changes as suggested. With this foundation XP programmers are able to courageously respond to changing requirements and technology.
+
+<p>
+
+The focus on speed and change is what makes Extreme Programming so suitable for web projects.
+
+<p>
+
+You can learn more about Extreme Programming here:
+
+<p>
+
+<a href="http://www.extremeprogramming.org">http://www.extremeprogramming.org</a>
+
+<p>
+<br>
+
+<h2>5 Getting Help</h2>
+
+There are a number of resources available for PHP help.  The PHP community is generous with its time and assistance.  Make use of their contributions and use the time you save to help others.
+
+<p>
+
+The PHP Knowledge Base is a growing collection of PHP related information.  It captures the knowledge from the mailing list into a complete collection of searchable, correct answers.  Of course, I may be a little biased.
+
+<p>
+
+<a href="http://php.faqts.com">http://php.faqts.com</a>
+
+<p>
+
+The PHP manual is a great reference point for information on functions or language constructs.
+
+<p>
+
+<a href="http://www.php.net/manual">http://www.php.net/manual</a>
+
+<p>
+
+ If you can't find the relevant information in the PHP Knowledge Base your next stop should be the mailing list archives.  There are thousands of questions on the mailing list every month so you can be almost certain your question has been asked before.  Prepare to do some wading.
+
+<p>
+
+<a href="http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2">http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2</a>
+
+<p>
+
+If all that searching fails to help, try asking on the mailing list.  A lot of PHP gurus reside there.
+
+<p>
+
+<a href="mailto:php3@lists.php.net">php3@lists.php.net</a>
+
+<p>
+
+If all these on-line resources aren't enough or you hate reading from a computer screen, you might be interested in one of the many PHP books that are now available.
+
+<p>
+
+<a href="http://www.php.net/books.php3">http://www.php.net/books.php3</a>
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing AOLserver 2.3.3 on Red Hat Linux 5.x</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing AOLserver 2.3.3 on Red Hat Linux 5.x</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (April 28, 1999)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+This document describes how to install <a href="http://www.aolserver.com">AOLserver</a> on <a href="http://www.redhat.com">Red Hat</a> Linux 5.x.
+
+<p>
+
+This installation is suitable for use both on a production web server or on a development machine.
+
+<p>
+
+These instructions step through the installation of the web server and the configuration of a single virtual server for a web site with no database connectivity.  For information on configuring AOLserver for use with a database please see the other installation instructions.
+
+<p>
+
+If you have time to kill, then battle through the installation yourself using <a href="http://www.aolserver.com/server/docs/2.3/html/toc.htm">the documentation</a>.  Everyone should probably familiarise themselves with this doc at some stage if they are running a production server.
+
+<p>
+<br>
+
+<h2>Getting Ready</h2>
+
+<ol>
+
+<li>Create a user nsadmin.  AOLserver will be stored in this account.  The actual web server will be run as nsadmin so this user should have the minimum set of privileges possible.  I used the User Configuration graphical utility in Red Hat to create the user.
+
+<p>
+
+<li>Make sure that your machine is configured correctly with its host name.  To do this two files must be modified as root.  The example below shows the files on my development machine.
+<pre>
+/etc/HOSTNAME
+-------------
+internal.synop.com
+
+/etc/hosts
+----------
+127.0.0.1	internal.synop.com	localhost
+</pre>
+
+<p>
+
+<li>We need somewhere to keep all of our web pages, scripts and logs.  I have a directory /web.  This could be a super fast disk, or on a development machine just a symbolic link to somewhere on the machine with enough space.  Of course, you can not use this at all and just keep all the pages in user hierarchy for nsadmin.  My development machine has a partition /u01 with a lot of space that I <a href="install-oracle805-on-redhat5x.htm">use for Oracle</a>.  I keep my server logs here in /web/logs.  If you need completely optimal speed then I assume that it would probably be better to keep your logs on a different disk to your web pages.  Assuming that you are logged in as root and have set up the nsadmin user here are the commands.
+<pre>
+    cd /u01
+    mkdir web
+    cd /
+    ln -s /u01/web web
+    chown nsadmin web
+    chgrp nsadmin web
+    su nsadmin
+    chmod 755 web
+    cd web
+    mkdir logs
+    exit
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Installing AOLserver</h2>
+
+<ol>
+
+<li>Login as nsadmin.
+
+<p>
+
+<li>Make a directory AOLserver in the nsadmin home directory. 
+
+<p>
+
+<li>Download the file <a href="ftp://ftp.aolserver.com/2.3.3/as233_linux.tar.gz">as233_linux.tar.gz</a> from <a href="http://www.aolserver.com">www.aolserver.com</a> into the AOLserver directory.
+
+<p>
+
+<li>Untar the file with:
+<pre>
+    tar xzvf as232_linux.tar.gz
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Configuring the Web Server</h2>
+
+<ol>
+
+<li>Bootstrap the server with:
+<pre>
+    bin/nsbootstrap
+</pre>
+
+<p>
+
+<li>The rest of the AOLserver installation is carried out through a web interface.  This administration server is running on port 9876 by default.  Note that on many of the setup screens there is a Basic/Expert toggle button in the top right hand corner.  Switch to Expert mode by pressing this button if you wish to set any advanced options, Basic mode will be sufficient in most instances.  Connect to the server using your web browser:
+<pre>
+    http://internal.synop.com:9876/NS/Setup
+</pre>
+Initially I could only get this to work by using localhost rather than internal.synop.com.  Eventually I worked out that this is because I was using proxies in netscape.  My actual machine knows that it is internal.synop.com but Netscape was just asking the proxy server, not my machine.  The proxy server would fail trying to lookup the name internal.synop.com since it exists no where but on my machine.  I turned off proxies and it then worked fine.
+
+<p>
+
+<li>When prompted enter nsadmin as the user, leave the password field blank and press OK.
+
+<p>
+
+<li>Choose Standard Setup.
+
+<p>
+
+<li>Choose Global Parameters.  The defaults here should be fine.  You may like to go to expert mode if you are curious.  Set the user to be nsadmin and the home to be /home/nsadmin/AOLserver.  You may like to change the location where log files are written.  These may grow quite large so the /home partition may not be suitable.  You may like to place the logs in a directory /web/logs.  This will make it simple to back up the logs with the rest of the web files.   Setting the stack size to 500000 will allow the Oracle driver to allocate its 40000 stack and still give a fair bit of space for TCL recursion.  Press the Update button.  The changes from the defaults in Expert mode that I made were:
+<pre>
+    Server Log: /web/logs/server.log
+    Stack Size: 500000
+</pre>
+
+<p>
+
+<li>All changes require the server to be restarted before they take effect.  You can make many changes before restarting the server.  To restart the server simply follow the link to the restart server page and then press the Restart button.  You can restart the server now if you wish.
+
+<p>
+
+<li>Go back to the Standard Setup area.  To do this you may have to goto the Setup Home and then follow the Standard Setup link.
+
+<p>
+
+<b>Congratulations, you have AOLserver the web server running!</b>  Now we have to set it up to actually serve web pages.  A single AOLserver instance can serve web pages for a number of different domains and ports.  This is possible through the use of virtual servers.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Setting up a Virtual Server</h2>
+
+<ol>
+
+<li>Follow the Virtual Servers link.  Press the Add Virtual Server button.
+
+<p>
+
+<li>Choose a name for the virtual server.  I am setting up a server for running synop.com so I will use synop.  My description is "synop.com Virtual Server".  Click Add.
+
+<p>
+
+<li>We will create a separate directory for the web pages of each virtual server under /web.  Use the name of the virtual server as the name of the directory.  Create the tcl directory if you want to use tcl scripting in this virtual server.
+<pre>
+    cd /web
+    mkdir synop
+    cd synop
+    mkdir www
+    mkdir tcl
+</pre>
+
+<p>
+
+<li>The virtual server parameters are all set here.  You will probably need to update these later, especially the URL pointers to your error and busy pages.  You may like to set the Expert option Verbose to On.  Note that there is a bug in the setup for the nsprofile module.  When I discovered this I was very impressed that the AOLserver guys had a fix to me within two hours.   You probably don't need to use nsprofile, but <a href="patch-aolserver233-nsprofile-setup.htm">here is the fix</a>.  Click Add when you are done.  My settings for the virtual server (in Basic Mode) that are different from the defaults are:
+<pre>
+    Page Root: /web/synop/www
+    Directory File: index.html, index.htm, index.tcl
+    Webmaster: webmaster@synop.com
+    Enable TCL Pages: On
+    nscache: Selected
+</pre>
+
+<p>
+
+<li>You should <strong>not</strong> restart the server at this stage.  The server is set by default to listen on port 80.  The web server must be run by root to be able to gain access to any port less than 1024.  If you restart the server now it will exit with an error or loop infinitely with the error.  We set a parameter above telling AOLserver to run as user nsadmin once it has been started.  AOLserver runs as root only to gain access to port 80, it then runs as nsadmin.
+
+<p>
+
+People who like to jump ahead of the instructions and restarted the server before reading this can get out of trouble by typing Control-C in the xterm where the nsbootstrap program is running.  This kills the program.
+
+<p>
+
+<li>If you plan to run AOLserver with <strong>all</strong> virtual servers on ports greater than 1024 then you can skip this step.
+
+<p>
+
+First we must stop the nsbootstrap program.  We do this by pressing Control-C.
+
+<p>
+
+Now, we have to run AOLserver as root.  There are two ways to do this.  If you are lazy and using AOLserver on a development machine then you can just setuid the nsd program so it runs as root no matter who starts it.  Note:  I am not sure of the security implications of doing this.
+<pre>
+    su root
+    cd /home/nsadmin/AOLserver/bin
+    chown root nsd
+    chmod +s nsd
+    exit
+    cd ~/AOLserver
+    bin/nsd -f -cnsd.ini
+</pre>
+
+The neater method is probably to eventually have AOLserver started by the init scripts.  There it is automatically run by root.  In the meantime you should just run AOLserver from a root shell:
+<pre>
+    su root
+    cd /home/nsadmin/AOLserver
+    bin/nsd -f -cnsd.ini
+</pre>
+
+<p>
+
+Now we can reconnect to the setup server as above.
+<pre>
+    http://internal.synop.com:9876/NS/Setup
+</pre>
+
+<p>
+
+<li>If you are running your virtual server on the default port 80 you may skip this step.
+
+<p>
+
+Otherwise we must configure the virtual server to use a different port.  Click on the nssock link at the bottom of the setup server page.  You can then enter your preferred port number and press Update.
+
+<p>
+
+You can restart the server safely at this stage.
+
+<p>
+
+<li>Test your virtual server by trying to connect to it.  Example:
+<pre>
+    http://internal.synop.com
+</pre>
+
+<p>
+
+To do a real test you will need to put some html files into your pages directory for this virtual server.  For this example we need to put our pages in a hierarchy below /web/synop/www.
+
+<p>
+
+<li>Reconnect to the Virtual Server to do more configuration.  You will notice that you must still log in as nsadmin with no password.
+<pre>
+    http://internal.synop.com:9876/NS/Setup
+</pre>
+
+<p>
+
+<li>We must set a password for the setup server before someone decides that they want to modify your AOLserver.  Follow the Setup Virtual Server link and set your password.
+
+<p>
+
+<li>Click through to Setup Home.
+
+<p>
+
+<li>We are not going to set up a database connection from the virtual server at this stage.  This is covered in the other installation documents.
+
+<p>
+
+<li>Follow the link to the Virtual Servers page.  You can see your virtual server there with an arrow.  Click the arrow.  This is where all parameters for the virtual server can now be administered.
+
+<p>
+
+<li>Now you can restart the server from this page.  You should be completely configured for use with static pages only.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Making TCL and ADP Work</h2>
+
+<ol>
+
+<li>ADP is the AOLserver equivalent of ASP.  It allows TCL to be embedded in web pages.  Hence you end up with at least 3 different ways to use TCL: ADP, .tcl files, or through registered procs.
+
+<p>
+
+<li>Go to the Setup Home page.  Go to Virtual Servers.  Expand the view for your virtual server (synop).
+
+<p>
+
+<li>Follow the TCL scripting link.
+
+<p>
+
+<li>You can set the parameters now.   The library is the place where tcl files with procedures for use in this virtual server are kept.  Tcl files which are executed directly are kept in the /web/synop/www hierarchy.  Setting the client debug means that AOLserver will send any tcl errors back to the browser when they occur if the browser requests are coming from the given IP address.  Since I will be developing on the same machine that I am installing on I used the localhost IP.  I used the following that were different to the defaults in Basic mode:
+<pre>
+    Library: /web/synop/tcl
+    Client Debug: 127.0.0.1
+</pre>
+
+<p>
+
+<li>Finally, you may wish to set up .adp pages.  Follow the adp link.  I used the following values that were different to the defaults:
+<pre>
+    Map: /*.adp
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Notes and Observations</h2>
+
+<p>
+
+This whole installation is just a fancy way to create the nsd.ini file.   This file is fairly self explanatory.  You must restart the server after making changes to this file.
+
+<p>
+
+If you are aiming higher and need to use a database with AOLserver then you should look for the database installation instructions.
+
+<p>
+
+If everything above didn't work, or you were smart enough to read the whole document before beginning then you might like to use my nsd.ini file (link removed) as a reference.  This file was created by using the example settings given above.  You will have to change the webmaster email address and the setup server password, the current password is synop.
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

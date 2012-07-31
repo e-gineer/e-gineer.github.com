@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Web Server Popularity</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Web Server Popularity</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (May 13, 1999)
+
+<p>
+<br>
+
+<h2>Summary</h2>
+
+As <a href="http://www.apache.org">Apache</a> continues to win market share and technically excellent products like <a href="http://www.aolserver.com">AOLserver</a> stagnate a closer examination of the effect of popularity on web server selection has become necessary.
+
+<p>
+
+Examining the trends in the web server market for Apache, IIS and AOLserver yields some interesting results.  As expected Apache should continue to increase its market share.  After a spectacular period of growth IIS seems to have stalled and seems unlikely to increase in popularity over the next year.  AOLserver has a shrinking share of the market as the number of servers in use has not changed for the last 2 years.
+
+<p>
+
+Popularity in itself should not always be an important part of web server selection.  Only complex, large and mission critical sites will be adversely affected by a bad web server choice.  Determining the popularity of various web solutions in this market segment is difficult due to the process of selecting which sites meet the criteria.
+
+<p>
+<br>
+
+<h2>Popularity</h2>
+
+Technically <a href="http://www.aolserver.com">AOLserver</a> is one of the best web servers available.  Its database integration, threaded architecture and TCL environment make it an excellent platform for database backed web sites.  But with the rise to dominance of <a href="http://www.apache.org">Apache</a> and <a href="http://www.microsoft.com/iis">Microsoft IIS</a>, AOLserver is losing its already small share of the market.
+
+<p>
+
+Using the <a href="http://www.netcraft.co.uk">Netcraft webserver surveys</a> I've done an examination into the popularity of Apache, AOLserver and IIS.  In particular I wanted to try and get some feel for the relative growth of these web servers in the market.  This is under the belief that it doesn't matter if a product only owns a small segment of a large market provided that it is a growing segment.
+
+<p>
+
+<img src="web-server-popularity-number-servers.gif" alt="Number of Servers Graph" width=595 height=470>
+
+<p>
+
+The flat line at the bottom of this graph puts the popularity of AOLserver into perspective.  Having a small number of users is not really a problem provided that you are serving some growing niche.  We can see from the graph below however that the number of AOLserver servers has been constant (about 10,000) since November 1997.
+
+<p>
+
+<img src="web-server-popularity-aolserver-servers.gif" alt="Number of AOLserver Servers Graph" width=568 height=457>
+
+<p>
+<br>
+
+<h2>Growth and Market Share</h2>
+
+If we accept that a server is still useful by serving a corner of the market then the total number of servers is not really a helpful statistic.  Alternatively, we should look at the relative growth of the number of servers being used.  I have done a very simple growth calculation by just taking the number of servers found in the current month, dividing it by the number of servers in the previous month and subtracting 1.  Hence if there are exactly the same number of servers the growth rate would be 0.  If there are twice as many servers then the growth rate is 1.
+
+<p>
+
+<img src="web-server-popularity-growth.gif" alt="Web Server Growth Graph" width=574 height=445>
+
+<p>
+
+Here we can see that the growth in the use of Apache and the total number of servers are very closely matched.  Their growth rate is also fairly constant at about 0.1.  We can see that IIS has also settled into this stable growth pattern over time.  The growth of IIS is erratic immediately after its introduction since small changes in the number of servers dramatically affect the growth calculation.
+
+<p>
+
+In contrast, AOLserver has never really settled into a predictable growth pattern.  This may be largely due to the relatively small number of AOLserver installations, but the monthly fluctuations from -0.1 to 0.1 are still substantial.  It is clear that the growth of AOLserver is consistently less than the major web servers.
+
+<p>
+<br>
+
+<h2>Growth is not the same as Internet Growth</h2>
+
+Growth on the Internet is usually incredibly high.  A product can be growing substantially every month and still be failing in the market when the overall growth in that segment is much higher.  The graph below compares the growth of these web servers to the growth of the web server market as a whole.  This gives us some perspective on the impact each alternative is making in this segment.
+
+<p>
+
+The relative growth is calculated by subtracting the overall growth of the web server market from the growth for each particular web server.  So a positive relative growth for Apache means that the growth of the number of Apache web servers in that month exceeded the growth of the total number of web servers.  A positive relative growth is directly equatable to an increase in market share.
+
+<p>
+
+<img src="web-server-popularity-relative-growth.gif" alt="Web Server Relative Growth Graph" width=569 height=458>
+
+<p>
+
+The most interesting observation from this information is the rapid growth of IIS from April 1996 to January 1998.  Apache is consistently growing only slightly faster than the total number of web servers.
+
+<p>
+
+To get some feeling for the change in relative growth over time the moving average graph below was created.  This graph calculates the average relative growth over the previous 5 months.
+
+<p>
+
+<img src="web-server-popularity-moving-avg.gif" alt="Web Server Growth Moving Average Graph" width=569 height=453>
+
+<p>
+
+Suddenly the decline in AOLserver is very clear.  The growth rate of AOLserver relative to the segment has been at about -0.1 (-10%) since June 1998.
+
+<p>
+
+The growth rate of IIS is decreasing and consistently lower than Apache.
+
+<p>
+<br>
+
+<h2>Predicting the Future</h2>
+
+By taking the analysis one step further we can project the relative popularity of web servers one year from now.  By assuming that Windows 2000 is not widely adopted in the next 12 months it is reasonable to use a weighted average of growth over the last 12 months for our prediction.
+
+<p>
+
+These predictions are based on a weighted average growth rate for each web server.  The growth in April 1999 has the highest weight, through to May 1998 with the lowest weight.  The value for April 1999 is multiplied by 12, March 1999 is multiplied by 11, through to May 1998 which is multiplied by 1.  By adding these growth multiples and dividing the result by 78 (sum of 1 - 12).  This growth value is then used to predict the number of servers each month.
+
+<p>
+
+<img src="web-server-popularity-projection.gif" alt="Web Server Market Share Projection Graph" width=555 height=433>
+
+<p>
+<br>
+
+<h2>Development and Support Community</h2>
+
+More important than popularity is the help you can get when using a server.  Naturally popular products will have a larger community of developers, but the true value of a community is in its culture and level of expertise.
+
+<p>
+
+The <a href="http://photo.net/bboard?">photo.net web/db</a> community is not particularly large, but the level of expertise is remarkable.  Questions are answered quickly and concisely.  More importantly the questions themselves are interesting.
+
+<p>
+
+Contrast the community on the PHP mailing list.  The list is extremely active, but most of the questions are FAQ derivatives.  Except for a few obvious exceptions, the feel of the list is one of getting rather than of sharing.
+
+<p>
+
+I believe that the only thing keeping AOLserver alive as a viable platform for web development are <a href="http://philip.greenspun.com/panda/">Philip Greenspun's book</a>, <a href="http://www.arsdigita.com">ArsDigita</a> and the photo.net community that they have fostered.
+
+<p>
+
+PHP by contrast has the weight of <a href="http://www.php.net/usage.php3">nearly 600,000 installed servers</a>.  PHP is open source and runs as a module of the open source Apache.  These products and their communities are going to be around for a long time.
+
+<p>
+<br>
+
+<h2>Does Popularity Really Matter?</h2>
+
+Almost all web sites could be handled reliably by most of the web servers on the market today.  For most of these sites the choice of which web server to use is irrelevant.  The choice of a web server is really only important for the largest sites and those that plan to have some type of application or service.
+
+<p>
+
+In fact, most of these application sites will be extremely simple.  Changing between platforms would be a small task.  In these cases the choice of server is not particularly important.
+
+<p>
+
+We are left with complex, large mission critical sites where server choice is important.  Firstly, there is a large investment of time and development resources into creating the site.  Here the choice of web server is important to reduce the development time and select a solution which will exist in the long term.  These sites place a high priority on reliability and scalability.  The investment in hardware and operational resources will be large and difficult to change (eg: Unix vs NT).
+
+<p>
+
+A more interesting study would be to determine the relative popularity of these web servers amongst sites for whom choosing a web server is important.  I think that the numbers in a study of that nature would be extremely different.  In fact, we may even need to consider completely different web servers.  A study of this nature is difficult however due to the lack of information about which sites which would fit this category.
+
+<p>
+
+It could be argued that a certain number of users is required, rather than worrying about market share.  Here the focus would be on the resources available to the developer for support and information.  The best example is AOLserver which most web developers would not be aware of, let alone considering for use, except for the efforts of <a href="http://photo.net/philg">Philip Greenspun</a> and the community that has developed around him.
+
+<p>
+
+The last consideration in respect to popularity is the availability of expertise.  Clearly popular platforms attract more developer expertise making help easier and cheaper to find.
+
+<p>
+<br>
+
+<h2>So What Web Server Should We Choose?</h2>
+
+I am moving away from AOLserver.  The main reason is hosting.  There are hundreds of hosting companies who provide Apache/PHP or IIS/ASP for very little cost.  There are only a handful of AOLserver/TCL hosts.
+
+<p>
+
+Currently I am using Apache/PHP for my web sites.  Hosting is cheap, development is simple and I get the rock solid reliability of Linux and Apache.  Personally I don't think that PHP is a wise choice for large scale web sites.   The standard PHP distribution has a different API for each database, a terrible mistake by it's developers.  The other reason is simply that there are very few major sites utilizing PHP (May 21 - The release of <a href="http://www.linux.com">Linux.com</a> using PHP has changed my mind about this).  Using mod_perl may be a more appropriate solution for large Apache web sites.
+
+<p>
+
+From simple observation of complex, large mission critical web sites IIS would be amongst the most used platforms (<a href="web-servers-used-at-the-top-sites.htm">Web Servers Used at the Top Sites</a> has confirmed this).  I have never used IIS/ASP, but I would seriously consider doing so for the development of a major web site.  The platform is well tested and popular.  Partnerships and integration with other sites would be much simpler by running the same platform.
+
+<p>
+<br>
+
+<h2>Discussion</h2>
+
+This article has sparked some lively discussion, mostly in disagreement with my conclusions.
+
+<p>
+
+Readers of the PHP Mailing list think that having different API's for different databases is a feature, not a "terrible mistake".  The bulk of the messages are <a href="http://www.progressive-comp.com/Lists/?t=92722843000003&w=2&d=1&r=1">here</a>.  Scratch around a bit in the <a href="http://www.progressive-comp.com/Lists/?l=php3-general&d=1&r=1&w=2&b=199905&e=199906">May archive</a> for the rest.
+
+<p>
+
+There has also been <a href="http://photo.net/bboard/q-and-a-fetch-msg.tcl?msg_id=000Sgx">some discussion</a> on the photo.net web/db Q&amp;A forum.
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

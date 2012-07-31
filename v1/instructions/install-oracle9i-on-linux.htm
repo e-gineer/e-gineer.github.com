@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing Oracle9i on Linux</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+<h1>Installing Oracle9i on RedHat Linux (or Similar)</h1>
+This document describes how to install Oracle9i (9.0.1) on Redhat Linux
+( or similar).
+<p>by <a href="http://techdocs.postgresql.org/markir/">Mark Kirkwood</a>
+<br>(July 29th, 2001)
+<h2>
+<a NAME="intro"></a>Introduction</h2>
+This version of Oracle is easier to install than many of the previous ones.
+However there are still some traps and issues to get around. if you just
+need a database with transaction support, get Postgresql (www.postgresql.org)
+- it is very easy to install.
+<h2>
+<a NAME="bef"></a>Before You Get Oracle</h2>
+This release recommends 512 Mb of RAM, 1 GB of swap and 3 GB of disk !
+You can get away with 320 MB, 750 Mb and 2.5 Gb respectively - provided
+you do not attempt to create a database at install time (wait until later
+!)
+<p>Do not attempt to install at all if you have less than 200 Mb of RAM
+as the installer will crash at link time ! (If you are an Oracle install
+pro then you can link manually to complete the process, but its a bit of
+a pest).
+<p>This release requires a 2.4.4 Kernel and Glibc 2.2.2. However you can
+install with 2.4.2 (Redhat 7.1) or 2.4.3 (Mandrake 8.0) Kernels.
+<p>There is an undocumented dependency on Binutils. The version that comes
+with Redhat 7.1 causes Oracle to be unlinkable. The solution is to use
+the version that comes with Redhat 7.0 (binutils-2.10.0.18) or Mandrake
+8.0 (binutils-2.10.1.0.2).
+<p>The tested combinations were :
+<ol>
+<li>
+Redhat 7.0 with binutils-2.10.0.18</li>
+
+<li>
+Mandrake 8.0 with binutils-2.10.1.0.2.</li>
+</ol>
+
+<h2>
+<a NAME="get"></a>Getting Oracle</h2>
+Visit www.oracle.com and click on "Oracle technology Network". The current
+URL for downloads is <a href="http://otn.oracle.com/software">here</a>.
+Select "9i Database" and then pick the "Linux" entry. You must then agree
+to the license before the actual download page appears.
+<p>There are three big files :
+<ol>
+<li>
+Linux9i_Disk1.cpio.gz (400Mb)</li>
+
+<li>
+Linux9i_Disk2.cpio.gz (620 Mb)</li>
+
+<li>
+Linux9i_Disk3.cpio.gz (80 Mb)</li>
+</ol>
+They are actually cpio archives ( not gzipped cpio archives ! ). You need
+fast internet access...or a friend with fast internet access.
+<p>Once downloaded then expand the archives somewhere where you have 2
+GB of space :
+<pre>&nbsp; #&nbsp; cd /var/bigspace
+&nbsp; #&nbsp; cpio -idmv Linux9i_Disk1.cpio.gz
+&nbsp; #&nbsp; cpio -idmv Linux9i_Disk2.cpio.gz
+&nbsp; #&nbsp; cpio -idmv Linux9i_Disk3.cpio.gz</pre>
+These expanded archives can be burned to three CDs to provide a convenient
+and professional looking installation.
+<h2>
+<a NAME="prep"></a>Preparation</h2>
+Decide where you want Oracle to be installed and create a directory for
+it ( I use /usr/oracle/[version] but its up to you). In addition create
+a group and user for Oracle (login as root for this) :
+<pre>&nbsp; #&nbsp; groupadd dba
+&nbsp; #&nbsp; useradd oracle
+&nbsp; #&nbsp; mkdir /usr/oracle
+&nbsp; #&nbsp; mkdir /usr/oracle/9.0
+&nbsp; #&nbsp; chown -R oracle:dba /usr/oracle</pre>
+Remember you need 3 GB or so !
+<p>In addition I usually create the file /etc/oratab used to record databases
+:
+<pre>&nbsp; #&nbsp; touch /etc/oratab
+&nbsp; #&nbsp; chown oracle:dba /etc/oratab</pre>
+There is some folklore about setting a plethora of environment variables
+and a thing called "Optimal Flexible Architecture". This business is best
+summed up by saying : The procedure is neither optimal, flexible nor an
+architecture... but a way of laying out files that some Oracle folk like.
+<p>Ensure that you have installed X on your machine, as there is no longer
+a character mode installer.
+<p>Oracle, like most databases, needs to use IPC to create shared memory.
+Typically the default amount configured on most Linux distributions is
+minimal. To sort this out : ( as root here )
+<pre>&nbsp; # sysctl -w kernel.shmmax=100000000
+&nbsp; # echo "kernel.shmmax = 100000000" >> /etc/sysctl.conf</pre>
+This enables a shared memory segment to be 100 Mb ( probably enough to
+start you off...)
+<h2>
+<a NAME="inst"></a>Installation</h2>
+Login as oracle and proceed to install :
+<pre>&nbsp; $&nbsp; cd /var/bigspace
+&nbsp; $&nbsp; cd Disk1
+&nbsp; $&nbsp; export ORACLE_HOME=/usr/oracle/9.0
+&nbsp; $&nbsp; ./runInstaller</pre>
+The Java Gui installer will start and guide you through the process.
+<p>This part is now fairly easy - just pick "9i Database", then either
+of "Enterprise" or "Standard Edition" depending whether you want all the
+fancy bits or not ( bitmap indexes, partitions, transportable tablespaces
+etc require Enterprise Edition).
+<p>The next step asks about what database you want, I usually say "Software
+Only" and do the database later.
+<p>You will be asked where JDK is... if you don't have a JDK it does not
+matter ( unless you wish to do Java development of course).
+<p>Then click on install and wait for a while.
+<p>At some point you will be asked about the "other locations" for the
+remaining software archives.. its fairly straightforward what to be there
+( if you have cut CDs, ensure your terminal window is not still cd'ed into
+the cdrom mount directory... )
+<h2>
+<a NAME="post"></a>Post Installation</h2>
+Now comes creating a database. There is a reasonable Gui tool for this
+:
+<pre>&nbsp; $ export PATH=$PATH:$ORACLE_HOME/bin
+&nbsp; $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
+&nbsp; $ dbca &amp;</pre>
+Additionally there is a network configuration tool with a similar UI :
+<pre>&nbsp; $ netca &amp;</pre>
+However I will detail a command line creation and configuration of a database
+so that some understanding of what is happening can be gained:
+<p>Set up configuration for a database called db1 :
+<pre>&nbsp; $ cat "db1:/usr/oracle/9.0:Y >> /etc/oratab"
+&nbsp; $ cd $ORACLE_HOME/dbs
+&nbsp; $ cat initdw.ora |sed s/"#db_name = MY_DB_NAME"/"db_name = db1"/|sed s/#control_files/control_files/ > initdb1.ora</pre>
+Start and create database :
+<pre>&nbsp; $ export PATH=$PATH:$ORACLE_HOME/bin
+&nbsp; $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
+&nbsp; $ export ORACLE_SID=db1
+&nbsp; $ sqlplus /nolog &lt;&lt;!
+&nbsp; connect / as sysdba
+&nbsp; startup nomount
+&nbsp; create database db1;
+&nbsp; !</pre>
+This creates a default database with files in $ORACLE_HOME/dbs
+<p>Now add the database meta data to actually make it useful :
+<pre>$ sqlplus /nolog &lt;&lt;!
+&nbsp; connect / as sysdba
+&nbsp; @?/rdbms/admin/catalog
+&nbsp; @?/rdbms/admin/catproc
+&nbsp; !</pre>
+Now create a user and give it wide ranging permissions :
+<pre>&nbsp; $ sqlplus /nolog &lt;&lt;!
+&nbsp; connect / as sysdba
+&nbsp; create user myuser identified by password;
+&nbsp; grant create session,create any table to myuser;
+&nbsp; grant unlimited tablespace to myuser;
+&nbsp; !</pre>
+Now the usual sort of database stuff can be done :
+<pre>&nbsp; $ sqlplus myuser/password &lt;&lt;!
+&nbsp; create table mytable(id integer, val varchar2(100));
+&nbsp; insert into mytables values(1,'xxxxx');
+&nbsp; select * from mytable;
+&nbsp; !</pre>
+You can shut down the database with :
+<pre>&nbsp; $ sqlplus /nolog &lt;&lt;!
+&nbsp; connect / as sysdba
+&nbsp; shutdown&nbsp;
+&nbsp; !</pre>
+And start it again with :
+<pre>&nbsp; $ sqlplus /nolog &lt;&lt;!
+&nbsp; connect / as sysdba
+&nbsp; startup&nbsp;
+&nbsp; !</pre>
+Simple command line versions of these are provided :
+<pre>&nbsp; $ dbshut
+&nbsp; $ dbstart</pre>
+The thing that is unusual about Oracle is that there is a one to one correspondence
+between database server (ORACLE_SID) and database (db_name in init$ORACLE_SID.ora)
+- i.e : one server manages one and only one database. Compare this to Mysql
+or Postgresql where one server manages many databases. If you want another
+database, then you must go through the above steps again with ORACLE_SID
+set differently and a new initialization file with a new db_name in it.
+<h2>
+<a NAME="net"></a>Networking</h2>
+It is nice if remote clients can see your database, so here is the story
+:
+<pre>&nbsp; $ echo " LISTENER = (ADDRESS_LIST= (ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521)) (ADDRESS=(PROTOCOL=ipc)(KEY=PNPKEY)))" > $ORACLE_HOME/network/admin/listener.ora
+&nbsp; $ lnsrctl start
+&nbsp; $ echo "DB1 =&nbsp; (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = &lt; your host >)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = db1)))" > $ORACLE_HOME/network/admin/tnsnames.ora</pre>
+These two commands tell the network listener where to listen, and clients
+were to send connection requests to. This can be tested by :
+<pre>&nbsp; $ tnsping db1 1</pre>
+This should return (ok) [number]
+<h2>
+<a NAME="house"></a>Housekeeping</h2>
+It is easy to make Oracle start automatically. Create a script called oracle
+in /etc/init.d that is like : ( you need to be root here )
+<pre>&nbsp; #!/bin/sh
+&nbsp; #
+&nbsp; # oracle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This shell script takes care of starting and stopping
+&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the oracle services.
+&nbsp; #
+&nbsp; # chkconfig: 345 90 10
+&nbsp; # description: Oracle server
+&nbsp; #&nbsp;&nbsp;&nbsp;
+&nbsp; # probe: true
+&nbsp;&nbsp;
+&nbsp; # Source function library.
+&nbsp; . /etc/rc.d/init.d/functions
+
+&nbsp; # Source networking configuration.
+&nbsp; if [ ! -f /etc/sysconfig/network ]; then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit 0
+&nbsp; fi
+
+&nbsp; # Check for echo -n vs echo \c
+&nbsp; if echo '\c' | grep -s c > /dev/null 2 > &amp;1 ; then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ECHO_N="echo -n"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ECHO_C=""
+&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ECHO_N="echo"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ECHO_C='\c'
+&nbsp; fi
+
+
+
+&nbsp; # See how we were called.
+&nbsp; case "$1" in
+&nbsp;&nbsp;&nbsp; start)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Start server.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ECHO_N "Starting Oracle: "$ECHO_C
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; su -l oracle&nbsp; -c sqlplus /nolog >/dev/null &lt;&lt;!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect / as sysdba
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startup
+&nbsp; !
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; su -l oracle -c "lsnrctl start > /dev/null"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp;&nbsp;&nbsp; stop)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Stop server.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ECHO_N "Stopping Oracle: "$ECHO_C
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; su -l oracle&nbsp; -c sqlplus /nolog > /dev/null &lt;&lt;!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect / as sysdba
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shutdown abort
+&nbsp; !
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; su -l oracle -c "lsnrctl stop > /dev/null"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp;&nbsp;&nbsp; *)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo $"Usage: $0 {start|stop}"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp; esac
+
+&nbsp; exit 0</pre>
+Then tell the system to run it : ( as root again )
+<pre>&nbsp; #&nbsp; chkconfig --add oracle</pre>
+It is nice to set up the Oracle .bash_profile to get ORACLE_SID and PATH
+working by default :
+<pre>&nbsp; # .bash_profile
+
+&nbsp; # Get the aliases and functions
+&nbsp; if [ -f ~/.bashrc ]; then
+&nbsp;&nbsp;&nbsp; . ~/.bashrc
+&nbsp; fi
+&nbsp;&nbsp;
+&nbsp; export BASH_ENV=$HOME/.bashrc
+
+&nbsp; export ORAENV_ASK=NO
+&nbsp; export ORACLE_SID=db1
+&nbsp; if [ -f /usr/local/bin/oraenv ];then
+&nbsp;&nbsp;&nbsp; . /usr/local/bin/oraenv
+&nbsp; fi
+&nbsp; ORAENV_ASK=YES
+&nbsp; export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib</pre>
+Finally a more sophisticated script to create a database in /var/oradata
+( for example ) : ( as oracle )
+<pre>&nbsp; #!/bin/bash
+&nbsp; #&nbsp; ---------------------------------------------------------------------------
+&nbsp; #&nbsp; file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : createdb1.sql
+&nbsp; #&nbsp; ---------------------------------------------------------------------------
+&nbsp;&nbsp;
+&nbsp; DB=db1
+&nbsp; DBPATH=/var/oradata
+&nbsp; ORACLE_SID=$DB
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp; mkinit()
+&nbsp; {
+&nbsp; export ORACLE_SID=$DB
+&nbsp; export ORAENV_ASK=NO
+&nbsp; . /usr/local/bin/oraenv
+&nbsp; cp init$DB.ora $ORACLE_HOME/dbs
+&nbsp; }
+&nbsp;&nbsp;
+&nbsp; mkdb()
+&nbsp; {
+&nbsp; sqlplus /nolog &lt;&lt;!
+&nbsp; CONNECT / AS SYSDBA
+&nbsp; STARTUP NOMOUNT
+&nbsp; CREATE DATABASE $DB&nbsp;
+&nbsp; DATAFILE '$DBPATH/$DB/sys.dat' SIZE 200M
+&nbsp; AUTOEXTEND ON
+&nbsp; NEXT 10M
+&nbsp; LOGFILE GROUP 1 '$DBPATH/$DB/log01.dat' SIZE 50M,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GROUP 2 '$DBPATH/$DB/log02.dat' SIZE 50M
+&nbsp; ;
+&nbsp; !
+&nbsp; }
+&nbsp;&nbsp;
+&nbsp; scdb()
+&nbsp; {
+&nbsp; sqlplus /nolog&nbsp; &lt;&lt;!
+&nbsp; CONNECT / AS SYSDBA
+&nbsp; @?/rdbms/admin/catalog
+&nbsp; @?/rdbms/admin/catproc
+&nbsp; !
+&nbsp; }
+&nbsp;&nbsp;
+&nbsp; mktb()
+&nbsp; {
+&nbsp; sqlplus /nolog&nbsp; &lt;&lt;!
+&nbsp; CONNECT / AS SYSDBA
+&nbsp; CREATE TABLESPACE rollback
+&nbsp; DATAFILE '$DBPATH/$DB/rollback.dat' SIZE 100M
+&nbsp; AUTOEXTEND ON
+&nbsp; NEXT 100M
+&nbsp; DEFAULT STORAGE ( INITIAL 10M NEXT 10M PCTINCREASE 0)
+&nbsp; ;
+&nbsp; CREATE TABLESPACE temp
+&nbsp; DATAFILE '$DBPATH/$DB/temp.dat' SIZE 100M
+&nbsp; AUTOEXTEND ON
+&nbsp; NEXT 100M
+&nbsp; DEFAULT STORAGE ( INITIAL 10M NEXT 10M PCTINCREASE 0)
+&nbsp; TEMPORARY
+&nbsp; ;
+&nbsp; CREATE TABLESPACE data
+&nbsp; DATAFILE '$DBPATH/$DB/data.dat' SIZE 200M
+&nbsp; AUTOEXTEND ON
+&nbsp; NEXT 100M
+&nbsp; EXTENT MANAGEMENT LOCAL&nbsp;
+&nbsp; SEGMENT SPACE MANAGEMENT AUTO
+&nbsp; ;
+&nbsp; !
+&nbsp; }
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp; mkoj()
+&nbsp; {
+&nbsp; sqlplus /nolog&nbsp; &lt;&lt;!
+&nbsp; CONNECT / AS SYSDBA
+&nbsp; CREATE ROLLBACK SEGMENt t0 ;
+&nbsp; ALTER ROLLBACK SEGMENT t0 ONLINE;
+&nbsp; SET TRANSACTION USE ROLLBACK SEGMENT t0;
+&nbsp; CREATE ROLLBACK SEGMENT r0 TABLESPACE rollback;
+&nbsp; CREATE ROLLBACK SEGMENT r1 TABLESPACE rollback;
+&nbsp; ALTER ROLLBACK SEGMENT t0 OFFLINE;
+&nbsp; DROP ROLLBACK SEGMENT t0;
+&nbsp; !
+&nbsp; echo "rollback_segments = (r0,r1)" >> $ORACLE_HOME/dbs/init$DB.ora
+&nbsp; }
+&nbsp;&nbsp;
+&nbsp; resp=n
+&nbsp; echo -n "Create initial files ?"
+&nbsp; read resp
+&nbsp; case $resp in
+&nbsp;&nbsp;&nbsp; y) echo "Creating initialization files"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkinit
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp; esac
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp; resp=n
+&nbsp; echo -n "Create database ?"
+&nbsp; read resp
+&nbsp; case $resp in
+&nbsp;&nbsp;&nbsp; y) echo "Creating $DB"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdb
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp; esac
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp; resp=n
+&nbsp; echo -n "Run database scripts ?"
+&nbsp; read resp
+&nbsp; case $resp in
+&nbsp;&nbsp;&nbsp; y) echo "Running scripts for $DB"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scdb
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp; esac
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp; resp=n
+&nbsp; echo -n "Create tablespaces ?"
+&nbsp; read resp
+&nbsp; case $resp in
+&nbsp;&nbsp;&nbsp; y) echo "Creating tablespaces for $DB"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mktb
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;
+&nbsp; esac
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp; resp=n
+&nbsp; echo -n "Create objects ?"
+&nbsp; read resp
+&nbsp; case $resp in
+&nbsp;&nbsp;&nbsp; y) echo "Creating some objects for $DB"
+&nbsp;&nbsp;&nbsp;&nbsp; mkoj
+&nbsp;&nbsp;&nbsp;&nbsp; ;;
+esac</pre>
+
+<h2>
+<a NAME="help"></a>Help</h2>
+<a href="http://otn.oracle.com">Oracle Technology Network</a> is a good
+source of help and documentation
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

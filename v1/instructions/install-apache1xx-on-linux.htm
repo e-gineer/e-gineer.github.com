@@ -1,0 +1,570 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing Apache 1.x.x on Linux</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing Apache 1.x.x on Linux</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 25, 1999)<br>
+<em>and John Brett</em> (Dec 4, 2000)<br>
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+This document describes how to install <a href="http://www.apache.org">Apache</a> on Linux.  These instructions were written specifically using <a href="http://www.redhat.com">Red Hat Linux</a> 7.0 and Apache 1.3.14.
+
+<p>
+
+People familiar with my previous instruction sets will notice that I have changed the layout of the files.  I believe this new format to be slightly better.
+
+<p>
+<br>
+
+<h2>Installing Apache</h2>
+
+<ol>
+
+<li>Login as root.  You can do this for the current command terminal using su:
+<pre>
+    su root
+</pre>
+
+<p>
+
+<li>We are going to install Apache in /usr/local/etc.  Go there now.
+<pre>
+    cd /usr/local/etc
+</pre>
+
+<p>
+
+<li>Download the latest stable Apache  from <a href="http://www.apache.org">apache.org</a> (or preferably one of its <a href="http://www.apache.org/mirrors/">mirrors</a>) into this directory.  At the time of writing this was <a href="http://www.apache.org/dist/apache_1.3.14.tar.gz">apache_1.3.14</a> I keep all my downloads in a directory in case I need them again:
+<pre>
+    /usr/local/downloads
+</pre>
+If you like this idea and don't already do it you might need to create the directory:
+<pre>
+    mkdir /usr/local/downloads
+</pre>
+Here are the ftp commands to get the file:
+<pre>
+    cd /usr/local/downloads
+    ftp ftp.apache.org
+    cd dist
+    bin
+    get apache_1.3.14.tar.gz
+    bye
+</pre>
+
+<p>
+
+<li>Untar the file with: (note the capital C)
+<pre>
+    tar xzf apache_1.3.14.tar.gz -C ../etc
+</pre>
+
+<p>
+
+<li>This will have created a directory apache_1.3.14.  Let's make this nicer by providing a link:
+<pre>
+    cd /usr/local/etc
+    ln -s apache_1.3.14 httpd
+</pre>
+I've decided to start using httpd for the link since that's what everyone else seems to do.
+
+</ol>
+
+<p>
+<br>
+
+<h2>The Apache Layout</h2>
+
+Now is a good time to explain the eventual layout of our Apache installation.
+
+<p>
+
+All of the version specific (1.3.14) binaries and files are stored in:
+<pre>
+    /usr/local/etc/apache_1.3.14
+</pre>
+We currently have:
+<pre>
+    /usr/local/etc/httpd
+</pre>
+linked to this directory specifying it as the current version.  In theory when we upgrade Apache in the future we can just install it side by side and then switch over the httpd link to the newly installed version.
+
+<p>
+
+We will be placing all of our non-version specific files such as configuration files, log files and the web pages in:
+<pre>
+    /www
+</pre>
+We will have a few directories here to maintain this structure:
+<pre>
+    /www
+    /www/conf                  -- configuration files
+    /www/logs                  -- web server logs
+    /www/logs/mysite.com       -- log files for mysite.com
+    /www/logs/mycharity.org    -- log files for mycharity.com
+    /www/servers               -- sites
+    /www/servers/mysite.com    -- web pages for mysite.com
+    /www/servers/mycharity.org -- web pages for mycharity.com
+</pre>
+
+<p>
+<br>
+
+<h2>Configuring and Compiling Apache</h2>
+
+<ol>
+
+<li>First we need to create the directory structure above:
+<pre>
+    cd /
+    mkdir www
+</pre>
+If you have space issues or a super fast disk you would like to use then you might like to create /www as a link to the preferred location.  For example:
+<pre>
+    cd /u01
+    mkdir www
+    cd /
+    ln -s /u01/www www
+</pre>
+
+<p>
+
+<li>Now create directories for the configuration files, log files and servers:
+<pre>
+    cd /www
+    mkdir conf logs servers
+</pre>
+
+<p>
+
+<li>Before compiling we must configure the Apache makefiles.
+<pre>
+    cd /usr/local/etc/httpd
+    ./configure --prefix=/usr/local/etc/httpd --sysconfdir=/www/conf --enable-module=rewrite --enable-module=status
+</pre>
+This sets up the installation with the apache binaries in /usr/local/etc/httpd and puts the configuration files in /www/conf.
+It also sets up status reporting and the <a href="http://httpd.apache.org/docs/misc/rewriteguide.html ">rewrite module</a> allows url redirection and rewriting.
+<p>
+If you want to go really nuts with your apache installation, adding extra modules and so on then check out the options by using:
+<pre>
+    ./configure --help
+</pre>
+
+<p>
+
+<li>Now we can make our Apache executable.  This may take a while on older machines:
+<pre>
+    make
+</pre>
+
+<p>
+
+<li>And install all the Apache files with:
+<pre>
+    make install
+</pre>
+One nice thing here is that if you are installing a new apache, it will not override the existing configuration files.  Of course, this can also be a gotcha if you want to wipe the old installation completely...
+
+</ol>
+
+<p>
+<br>
+
+<h2>Setting Up Your Apache Server</h2>
+
+<ol>
+
+<li>Often Apache is already installed with Linux.  You can check if it is running on your system by using the command
+<pre>
+    top
+</pre>
+
+<p>
+
+top gives a list of all processes that are currently running on the machine.  Make sure that you size the xterm window so that you can see all of the processes (lines) that are listed.  Apache is running if you can see a number of lines that look something like:
+<pre>
+    475 nobody  0   0   1388    1388    1232    S   0   0.0 1.0 0:00    httpd
+</pre>
+
+<p>
+
+If you want to see what Apache is doing on your machine the simplest way is to point your browser (on the same machine) at it:
+<pre>
+    http://localhost
+</pre>
+
+<p>
+
+<li>The server configuration file for our installation is at:
+<pre>
+    /www/conf/httpd.conf
+</pre>
+
+<p>
+
+Go there now with:
+<pre>
+    cd /www/conf
+</pre>
+
+<p>
+
+<li>If you do have Apache installed and you already use it for looking at web pages then you will probably want to keep your configuration file.  Often this file is located at:
+<pre>
+    /etc/httpd/conf/httpd.conf
+</pre>
+If you are upgrading and you want to keep your old configuration file (and it is from a compatible Apache version) then just copy it over the new one:
+<pre>
+    cp /etc/httpd/conf/httpd.conf .
+</pre>
+You may also need to use your existing access and srm config files:
+<pre>
+    cp /etc/httpd/conf/access.conf .
+    cp /etc/httpd/conf/srm.conf .
+</pre>
+
+<p>
+
+<li>If you are setting up Apache for the first time then you need to edit the default http.conf file.  The line numbers below work for Apache 1.3.14 but will probably be different for other versions.
+
+<p>
+
+If you want to run Apache on a different port to the default (80) then change the number on line 238. Ports less than 1024 will require Apache to be started as root.  Port 80 is probably the easiest to use since all other ports have to be specified explicitly in the web browser, eg: http://localhost:81.
+<pre>
+    Port 80
+</pre>
+
+<p>
+
+You may want to change the server admin email address on line 260:
+<pre>
+    ServerAdmin nathan@synop.com
+</pre>
+
+<p>
+
+You should specify your machine name on line 278, you may just have to remove the # comment marker.  If you configure virtual hosts as outlined below then Apache will use the virtual server you name here as the default documents for the site.
+<pre>
+    ServerName synop.com
+</pre>
+
+<p>
+
+You should set the document root on line 285:
+<pre>
+    DocumentRoot "/www/servers"
+</pre>
+
+<p>
+
+And on line 310:
+<pre>
+    &lt;Directory "/www/servers"&gt;
+</pre>
+
+<p>
+
+If you want to be able to change the Apache configuration on a per directory basis then the use of .htaccess files needs to be allowed.  To enable this set AllowOverride to All on line 326:
+<pre>
+    AllowOverride All
+</pre>
+
+<p>
+
+The default file to serve in directories is index.html.  You can change this or add new file names (in order or importance) on line 365:
+<pre>
+    DirectoryIndex index.html index.htm
+</pre>
+
+<p>
+
+If you don't get a large number of hits and you want to know where your visitors are from then turn host name look ups on at line 450.  Turning this on does place extra load on your server as it has to look up the host name corresponding to the IP address of all your visitors.
+<pre>
+    HostnameLookups On
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<a name="vhosts"></a><h2>Setting Up Virtual Hosts</h2></a>
+
+<ol>
+
+<li>You can only have one web server program running on your machine and listening on the default HTTP port, 80.  To enable the single Apache server to serve different web pages for different domains we need to set up virtual hosts in Apache.  Using virtual hosts we can configure how Apache should handle requests to each domain.
+<p>
+One of the things that a browser sends to the web server when requesting a web page is the host name of the server that it is connecting to.  Apache catches all the HTTP requests that come to this machine (on the ports it was told to listen to).  It then examines the host name included in the request and uses that to determine the virtual host configuration it should utilize.
+
+<p>
+
+<li>When Apache receives a request it gets the:
+<ul>
+<li>IP address (eg: 216.167.19.49)
+<li>Port (eg: 80)
+<li>Host: (eg: e-gineer.com)
+</ul>
+<p>
+In the Apache configuration file we must specify each IP address and port combination for which we will be specifying virtual host domains.  So, for the example above we would add this to the end of the httpd.conf file:
+<pre>
+    NameVirtualHost 216.167.19.49:80
+</pre>
+It is important to note that you cannot use an IP address unless your machine has been configured to use it.  If you are setting up a single development machine then you should probably just use the address 127.0.0.1 which always refers to the local machine.
+
+<p>
+
+<li>If your machine has a number of IP addresses or you want virtual hosts running on other ports you can repeat the previous step for each one.  For example, my machine also runs synop.com:
+<pre>
+    NameVirtualHost 216.167.19.48:80
+</pre>
+
+<p>
+
+<li>Next we must configure the actual Virtual Hosts.  Each virtual host will have its own directory for the web pages to be stored.  This can be anywhere that the Apache web server has permission to read.  Personally I prefer to keep all my web pages in one structure as described earlier:
+<pre>
+    cd /www/servers
+</pre>
+
+<li>Now you must create a directory for each virtual host.  I use the actual domain name of the virtual host.
+<pre>
+    mkdir synop.com
+    mkdir e-gineer.com
+</pre>
+So, for example, the e-gineer home page is located at:
+<pre>
+    /www/servers/e-gineer.com/index.phtml
+</pre>
+The instructions you are reading right now live at:
+<pre>
+    /www/servers/e-gineer.com/instructions/install-apache1xx-on-linux.phtml
+</pre>
+
+<p>
+
+<li>We also need to create directories for the log files:
+<pre>
+    cd /www/logs
+    mkdir synop.com
+    mkdir e-gineer.com
+</pre>
+
+<p>
+
+<li>Remember that you cannot create a virtual host unless the machine running the web server is the destination for those domain names.  For example, synop.com is hosted somewhere in the US on the machine with IP address 216.167.19.48.  I do all my development at home in Australia.  I don't have a permanent IP address for my development machine.  So I have set up my development machine with dev. versions of the domain names that I maintain.  You can do this by adding entries to your /etc/hosts file.  Here is what mine looks like (note that the gaps are tabs):
+<pre>
+127.0.0.1	ws01.synop.com  localhost	dev.synop.com	dev.e-gineer.com	aolserver.doc	apache.doc	php.doc	solid.doc	mysql.doc
+</pre>
+You can see that I have also created dummy domains for the documentation of various products.  By creating virtual hosts to handle these domains I can just fire up Netscape and type in apache.doc for easy off-line access to the manual.
+
+<p>
+
+<li>Now if you ping any of these domains on your development machine they should respond immediately.
+<pre>
+    ping dev.synop.com
+</pre>
+<pre>
+PING ws01.synop.com (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.2 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.1 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.1 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.1 ms
+
+--- ws01.synop.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.1/0.1/0.2 ms
+</pre>
+<pre>
+    ping apache.doc
+</pre>
+<pre>
+PING ws01.synop.com (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.2 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.1 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.1 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.1 ms
+
+--- ws01.synop.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.1/0.1/0.2 ms
+</pre>
+
+<p>
+
+<li>We can now create the virtual host entries in the Apache configuration file:
+<pre>
+    /www/conf/httpd.conf
+</pre>
+The example in the default configuration file is fairly self explanatory.  We just add the virtual host entries to the end of the httpd.conf file.  Here are the entries on my development machine:
+<pre>
+NameVirtualHost 127.0.0.1:80
+
+#
+# VirtualHost example:
+# Almost any Apache directive may go into a VirtualHost container.
+#
+#&lt;VirtualHost ip.address.of.host.some_domain.com&gt;
+#    ServerAdmin webmaster@host.some_domain.com
+#    DocumentRoot /www/docs/host.some_domain.com
+#    ServerName host.some_domain.com
+#    ErrorLog logs/host.some_domain.com-error_log
+#    CustomLog logs/host.some_domain.com-access_log combined
+#&lt;/VirtualHost&gt;
+
+#&lt;VirtualHost _default_:*&gt;
+#&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/synop.com
+     ServerName dev.synop.com
+     ErrorLog /www/logs/synop.com/error-log
+     CustomLog /www/logs/synop.com/access-log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/e-gineer.com
+     ServerName dev.e-gineer.com
+     ErrorLog /www/logs/e-gineer.com/error-log
+     CustomLog /www/logs/e-gineer.com/access-log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/apache.doc
+     ServerName apache.doc
+     ErrorLog /www/logs/apache.doc/error-log
+     CustomLog /www/logs/apache.doc/access-log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/php.doc
+     ServerName php.doc
+     ErrorLog /www/logs/php.doc/error-log
+     CustomLog /www/logs/php.doc/access-log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/mysql.doc
+     ServerName mysql.doc
+     ErrorLog /www/logs/mysql.doc/error-log
+     CustomLog /www/logs/mysql.doc/access-log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/aolserver.doc
+     ServerName aolserver.doc
+     ErrorLog /www/logs/aolserver.doc/error-log
+     CustomLog /www/logs/aolserver.doc/access-log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 127.0.0.1:80&gt;
+     ServerAdmin webmaster@synop.com
+     DocumentRoot /www/servers/solid.doc
+     ServerName solid.doc
+     ErrorLog /www/logs/solid.doc/error-log
+     CustomLog /www/logs/solid.doc/access-log combined
+&lt;/VirtualHost&gt;
+</pre>
+
+<p>
+
+<li>Now we are ready to run the server!
+
+</ol>
+
+<p>
+<br>
+
+<h2>Running Apache</h2>
+
+<ol>
+
+<li>If another version of Apache is running on your machine then you will need to stop it before going any further.  Neat ways are described <a href="http://www.apache.org/docs/stopping.html">here</a>, the quick and dirty way is:
+<pre>
+    killall httpd
+</pre>
+
+<p>
+
+<li>Starting your new server is simple.
+<pre>
+    cd /usr/local/etc/httpd/bin
+    ./apachectl start
+</pre>
+
+<p>
+
+<li>apachectl is the easiest way to start and stop your server manually.  Just use it's help if you get stuck:
+<pre>
+    ./apachectl help
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Starting and Stopping Apache Automatically</h2>
+
+If you use Red Hat or one of it's variants you can use <a href="starting-and-stopping-apache-automatically-on-redhat.htm">these instructions</a> to make Apache start and stop automatically with your machine.
+
+<p>
+<br>
+
+<h2>What Next?</h2>
+
+<a href="install-php3xx-for-apache1xx-on-linux.htm">Install PHP3</a> or <a href="install-php4x-for-apache1xx-on-linux.htm">PHP4</a> with <a href="install-mysql3xx-on-linux.htm">MySQL</a> to create dynamic web pages and services.
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

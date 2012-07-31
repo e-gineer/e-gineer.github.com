@@ -1,0 +1,1082 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>PHP: Hackers Paradise Revisited</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>PHP: Hackers Paradise Revisited</h1>
+
+<p>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (April 4, 2001)
+
+<h2>Note</h2>
+<p>
+This is an improvement / follow up to <a href="php-hackers-paradise.htm">PHP: Hackers Paradise</a>.
+You might like to read it first, or refer to it at various times since I choose to repeat myself as little as possible.
+</p>
+
+<h2>Introduction</h2>
+
+<p>PHP (<a href="http://www.php.net">http://www.php.net</a>) is a powerful server
+side web scripting solution.  It has quickly grown in popularity and according to the 
+<a href="http://www.php.net/usage.php">February 2001 usage stats</a> PHP is
+installed on 19.8% of all web sites (up 7% from when I gave a similar talk last year).  Much of its
+syntax is borrowed from C, Java and Perl with some unique PHP-specific features thrown in. The goal
+of the language is to allow web developers to write dynamically generated pages quickly.
+</p>
+
+<p>
+Being a good PHP hacker isn't just about writing single line solutions to complex problems.  For
+example, web gurus know that speed of coding is much more important than speed of code.  In this
+article we'll look at techniques that can help you become a better PHP hacker.  We'll assume that
+you have a basic knowledge of PHP and databases.
+</p>
+
+<p>
+The main topics that I want to cover today are:
+</p>
+<ul>
+<li>Laziness is a Virtue
+<li>PHP First Principles
+<li>Chameleon Coding
+<li>Speed of Coding, Not Speed of Code
+<li>PHP Hacking
+</ul>
+
+<p>
+Some of these were covered in more detail in <a href="http://www.e-gineer.com/articles/php-hackers-paradise.phtml">PHP: Hackers Paradise</a>.
+This revisit has refined a number of ideas, made the transition to PHP4 and focuses a lot more on
+first principles and good code structure for web applications.
+</p>
+
+<h2>Laziness is a Virtue</h2>
+
+<h3>Introduction</h3>
+
+It seems strange to think of a web programmer as lazy.  Last year most of us were working 100
+hours a week to join the gold rush, now we are doing it at reduced pay just to stay afloat.
+In fact, we need to be lazy because we are so busy.
+
+<p>
+
+There are two key ways to be lazy.  Firstly always use existing code when it is available,
+just integrate it into your standards and project.  The second technique is to develop a
+library of helpful functions that let you be lazy in the future.
+
+<p>
+
+<h3>Use Other People's Code</h3>
+
+We need to use laziness to our advantage and PHP is the perfect tool.  PHP was born and raised
+in an open source environment.  The community holds open source ideals close to its heart.  As
+a result there are thousands of people on the mailing list willing to share their knowledge and
+code.  There are also many open source PHP projects that you can tap into.  I'm not suggesting
+that you spend all day asking people to write code for you.  But through clever use of resources
+like the FAQTs knowledge base, mailing list archives and PHP projects you can save yourself a lot of
+time.
+
+<p>
+
+PHP Code Exchange - <a href="http://px.sklar.com">http://px.sklar.com</a>
+
+<p>
+
+PHP Classes Repository - <a href="http://phpclasses.upperdesign.com">http://phpclasses.upperdesign.com</a>
+
+<p>
+
+PHP Knowledge Base - <a href="http://php.faqts.com">http://php.faqts.com</a>
+
+<p>
+
+PHP Mailing List Archive - <a href="http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2">http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2</a>
+
+<p>
+
+<h3>Write Once, Use Everywhere</h3>
+
+A small amount of work now let's us be lazy in the future.  By developing libraries of code and functionality
+we can reuse them through all our sites.  This gives us an ever increasing amount of power that is instantly
+available.  Best of all, as you reuse this code you can refine it and gradually add it to your coding vocabulary.
+The end result is that you are more productive, your code is easier to maintain and there are less bugs.
+
+<p>
+
+There are a number of useful code modules you can use that I used as part of the
+<a href="http://www.e-gineer.com/articles/php-hackers-paradise.phtml">PHP: Hackers Paradise</a>
+talk.  They include things like:
+<ul type=disc>
+<li>database abstraction layer
+<li>session management
+<li>debugging libraries
+<li>logging functions
+<li>timing code
+</ul>
+
+<p>
+
+<h3>Copy &amp; Paste Coding</h3>
+
+An extension of code reuse is code structure reuse.  Many web applications are very similar in nature.  For
+example, almost all require an interface with users and with a backend database.  Very often these problems
+can be solved using techniques that you have employed in the past.  Don't be shy about copying your existing
+code and using it as a starting point.  By adopting the same coding style through your applications you
+will find them easier to maintain and read in the future.  It will also help you to reduce the amount of time
+it takes to get your application to the prototyped, working stage.  From there, it is a simple matter of
+refinement over time.  Just be sure to test for those copy and paste bugs that can look good on the surface
+but lurk to get you in trouble with the QA department.
+
+<p>
+<br>
+
+<h2>PHP First Principles</h2>
+
+<h3>Introduction</h3>
+
+One of the great things about PHP is that it requires almost no specific training for a programmer to pick it up
+and start doing interesting things.  In fact, the language is so simple that most of the training really
+needs to go into more general web programming concepts such as form handling, request sequences and code
+structure.
+
+<p>
+
+Once you start doing serious PHP programming though it is very important to revisit the PHP language
+from a concept of first principles.  By understanding the basics under the hood of the language you will
+glean a greater insight into its power and avoid many of the pitfalls that can reveal themselves over
+time.
+
+<p>
+
+Typically as you discover and research some of the basic PHP concepts you will look at your old code
+(which mostly worked) and discover things that could have been done in much safer and more reliable
+ways.
+
+<p>
+
+<h3>Object Oriented, Functional Scripting</h3>
+
+PHP is an object-oriented, functional scripting language.  Basically that means that you've got a bit of
+everything available to you.  This can be frustrating because sometimes there is ambiguity but is
+liberating as it gives us the opportunity to always use the best type of structure for the job.
+
+<p>
+
+The main thing to remember is that just because you can use any type of programming paradigm, that
+doesn't mean that you should.  Consistency of style and programming practice is essential if you want
+to build sites that are maintainable.  Besides, you don't want to spend the rest of your life trying
+to work out what the hell you were thinking.
+
+<p>
+
+Web programming requires everything right through from structured backend code to hackable frontend
+scripts.  Typically I like to use classes and objects at the backend to build a high-level functionality
+that I can quickly utilize from frontend scripts.  I use a fuzzy middle layer of functions to fill the
+gaps that inevitably appear between these layers.
+
+<p>
+
+<h3>Scope</h3>
+
+In PHP, scope applies to class definitions, function definitions and variables.  PHP does some tricky
+things with scope that make sense when you are just coding and don't really think about it, but need
+some careful analysis once you really want to understand what is going on.
+
+<p>
+
+Function and class names are case insensitive.  Even all of the built in PHP functions are case insensitive.
+<pre>
+    function foo () {
+        return 'foo';
+    }
+
+    function FOO () {
+        return 'FOO';
+    }
+
+    // error: function foo() already declared
+</pre>
+
+<p>
+
+Variables, on the other hand, are case sensitive.
+<pre>
+   $foo = 'foo';
+   $FOO = 'FOO';
+   echo "$foo:$FOO";
+   // prints foo:FOO
+</pre>
+
+<p>
+
+PHP parses one file at a time.  Thus, you can use any function or class that has already been declared
+or is declared as part of the current file.  So, this is valid:
+<pre>
+    foo();
+
+    function foo () {
+        echo 'foo';
+    }
+</pre>
+
+<p>
+
+Note that if we move the foo() function into an include file the above ordering will no longer work
+regardless of whether we use include() or require() since PHP will attempt to run that step after
+the call to the function foo().  So, this will not work:
+<pre>
+    foo();
+    include('./foo.inc');
+</pre>
+
+<p>
+
+It is important to note that the above does not hold true for classes, even when declared in the
+same file.  So, this will produce an error:
+<pre>
+$b = new b;
+echo $b->foo;
+
+class b extends a {
+    var $foo = 'b';
+}
+
+class a {
+    var $foo = 'a';
+}
+</pre>
+But, we can extend a class that hasn't yet been defined.  So this is valid:
+<pre>
+class b extends a {
+    var $foo = 'b';
+}
+
+class a {
+    var $foo = 'a';
+}
+
+$b = new b;
+echo $b->foo;
+</pre>
+
+<p>
+
+When a file is include()ed, the code it contains inherits the variable scope of the
+line on which the include() occurs. Any variables available at that line in the calling file will be
+available within the called file. If the include() occurs inside a function within the calling file,
+then all of the code contained in the called file will behave as though it had been defined inside
+that function.   The same is true for require().
+
+<p>
+
+Code declared within a function works in an interesting way.  Basically, PHP lets you declare constructs
+such as functions and classes within a function but then makes them available in the global space only
+after the function has been executed.  So, this is valid:
+<pre>
+    function foo () {
+        function bar () {
+            return 'bar';
+        }
+        return 'foo';
+    }
+    // if I call bar() before calling foo() PHP would throw an error
+    echo foo();
+    // bar() is available in the global space now that foo() has been called
+    echo bar();
+</pre>
+
+<p>
+
+We also need to be careful about how we use variables in function definitions.  For example, you write
+a function to do all of the includes for your site:
+<pre>
+    function my_include ($name) {
+        require("/my/include/path/$name.inc");
+    }
+</pre>
+
+<p>
+
+Now, any variables that you declare seemingly in the global space in this require()d files will actually
+only exist in the scope of the my_include function.  To make them global, they must be explicitly
+declared as such.  For example, imagine foo.inc:
+<pre>
+    // using foo in what would appear to be global space (but actually depends on how we are included)
+    echo "$foo\n";
+</pre>
+and its calling file main.phtml:
+<pre>
+    $foo = 'global foo';
+
+    function test () {
+        $foo = 'test function foo';
+        include('./foo.inc');
+    }
+    
+    test(); // prints "test function foo";
+
+    include('./foo.inc'); // prints "global foo";
+</pre>
+Now if we change foo.inc to explicitly declare the variable as global (since that was the intention):
+<pre>
+    global $foo;
+    echo "$foo\n";
+</pre>
+we would get the following output from main.phtml
+<pre>
+    global foo
+    global foo
+</pre>
+
+<p>
+
+The scope of variables in PHP is basically identical to that in other languages.  The only
+difference is that global variables must be explicitly declared before they are used.  This
+is because they are implemented as references which I will discuss in more detail later.
+
+<p>
+
+The last interesting effect on scope is eval() statements.  eval() is basically the same
+as pretending that you have a file for the string and then include()ing the file.  It is
+executed in exactly the same way.  That means: it is run in the scope of where it is called,
+any definitions in the script are available to the eval, any definitions made in the eval
+are then available in the script.  So, be careful of variable scope and definition conflicts.
+
+<p>
+
+<h3>Types</h3>
+
+For the most part, types are hidden from the developer in PHP.  99% of the time you don't
+know or care about the type of a variable since PHP is so good at doing automatic conversions
+under the hood.  There are times however when the type of your variables does become
+important.  Normally it is not until you've been debugging and cursing a type bug for a few
+hours that you learn the lesson to be aware of types.  PHP4 has the following types:
+<ul type=disc>
+<li>array
+<li>boolean
+<li>double
+<li>integer
+<li>null - variables that are not set
+<li>object
+<li>resource - variables that represent resources such as file or database handles
+<li>string
+<li>unknown type
+</ul>
+
+<p>
+
+Variables that have not been set are defined as NULL.  If you use a variable that has not been
+set then PHP will treat the NULL like it is an empty string (unless you are doing tests on its
+type).  But, don't depend on your variables being empty unless you have explicitly set them to be
+so. Users can pass arbitrary variable values into your script using the GET and POST HTTP methods.
+
+<p>
+
+The big gotcha to watch out for with types are mismatches.  Equality (==) of two variables is
+not the same as identity (===).  There is more about this in the know your data section below.
+
+<p>
+
+You can explicitly cast and convert between types in PHP when necessary.  The main time you need
+to think about doing this is when you are trying to do comparisons between variables of unknown
+or different types.
+
+<p>
+
+A good example of where types can get tricky is with database operations.  Any return value from
+a database will always be represented in PHP as a string.  The type in the database is irrelevant,
+immediately upon its return to PHP the value will be a string.  Implicit conversion will treat
+this string as an integer or however you might expect, but under the hood it is still a string.
+There is one notable exception however.  If you get a NULL return value from the database then
+PHP will create a variable of type NULL (ie: effectively the variable is not set).
+
+<p>
+
+<h3>Debugging</h3>
+
+Debugging in PHP can be fairly primitive at the best of times.  This places a significant burden
+on the developer, particularly as the language gets more complex and powerful through the addition
+of references and so on.
+
+<p>
+
+The classic debugging technique for PHP (and many other languages) is through echo statements.
+Just dump out information or the contents of your variables at various points in the script.  There
+are some tricks that you can use to make debugging more effective:
+<ul>
+<li>log messages to file rather than printing so you don't affect HTTP headers or your HTML output
+<li>use print_r or var_dump to examine the contents of any variable
+</ul>
+
+<p>
+
+There are now some PHP debuggers coming onto the market that allow you to step through PHP code
+line by line.  Since PHP always runs on the server side these generally require some sort of debugging
+server to be installed.
+
+<p>
+
+<h3>References</h3>
+
+All variable assignments in PHP are done by copying values.  Every time you assign a value to a variable
+you are creating a copy.  Most of the time this doesn't really matter and in fact protects programmers
+from themselves since they can't destroy their precious data.  Sometimes however copying by value can
+be a burden if your data is large and the copy isn't really necessary.
+
+<p>
+
+To get around this problem PHP lets you create references to data.  For example, you can make $b reference
+the same data as $a with this command:
+<pre>
+    $b =&amp; $a;
+</pre>
+
+<p>
+
+An example of a reference that you've all been using for years is this:
+<pre>
+    $foo = "foo\n";
+    function unset_foo () {
+        global $foo;
+        unset($foo);
+    }
+    unset_foo();
+    echo $foo;
+</pre>
+Unexpectedly this will print the following:
+<pre>
+    foo
+</pre>
+This is because global $foo just creates a reference to the global variable $foo.  Unsetting the
+reference does nothing to unset the other reference that is in the global space.
+
+<p>
+
+Another interesting example is in the creation of a new object.  This familiar code also does
+a copy, not a reference assignment:
+<pre>
+    $b = new b();
+</pre>
+So, the constructor for the class b will have created an object that is then immediately copied
+into the variable $b and the first object is wasted since it no longer has any references.  You
+can avoid this copy by instead assigning the value of $b by reference:
+<pre>
+    $b =&amp; new b();
+</pre>
+
+<p>
+
+I've just scratched the surface of references here.  They are a mine field with lots of surprises.
+I know there are big gains to be made through careful use of references.  I did some quick timing
+tests and found a simple function pass and return by reference example that was about 200x faster
+than passing and returning by copy.  Read through the PHP manual on references:
+<ul>
+    <a href="http://www.php.net/manual/en/language.references.php">http://www.php.net/manual/en/language.references.php</a>
+</ul>
+then re-read it and try some examples and re-read it again.
+
+<p>
+
+<h3>Know Your Data</h3>
+
+So much PHP programming is about manipulating data.  We are passing it through HTTP requests,
+storing it in the database, validating it from user inputs, talking to other servers for
+information.
+
+<p>
+
+Most of the time data manipulation in PHP is so easy that you don't even need to think about
+it.  Most of the time.  The rest of the time it can cause bugs and problems that you may never
+have anticipated and will have lots of trouble tracking down.  As PHP hackers we need to build
+up an awareness of the data which just ticks away in the back of our brains so we can avoid
+these problems before they arise.
+
+<p>
+
+PHP4 has introduced a concept of identity to the language.  Two values are identical if they
+have the same content and the same type.  Equality is based on two values having the same
+content after they have been converted to the same type.  Here are some examples:
+<pre>
+    echo "&lt;p&gt;undefined variable is".($a == '' ? '' : ' not')." equal to empty string";       // equal
+    echo "&lt;p&gt;false is".(false == '' ? '' : ' not')." equal to empty string";                 // equal
+    echo "&lt;p&gt;number zero is".(0 == '' ? '' : ' not')." equal to empty string";               // equal
+    echo "&lt;p&gt;string zero is".('0' == 0 ? '' : ' not')." equal to number zero";               // equal
+    echo "&lt;p&gt;string foo is".('foo' == 0 ? '' : ' not')." equal to number zero";              // equal
+    echo "&lt;p&gt;string foo123 is".('foo123' == 0 ? '' : ' not')." equal to number zero";        // equal
+    echo "&lt;p&gt;string 123 is".('123' == 0 ? '' : ' not')." equal to number zero";              // not equal (123 != 0)
+    echo "&lt;p&gt;string 123foo is".('123foo' == 0 ? '' : ' not')." equal to number zero";        // not equal (123 != 0)
+    echo "&lt;p&gt;&lt;br&gt;";
+    echo "&lt;p&gt;undefined variable is".($a === '' ? '' : ' not')." identical to empty string";  // not identical
+    echo "&lt;p&gt;false is".(false === '' ? '' : ' not')." identical to empty string";            // not identical
+    echo "&lt;p&gt;number zero is".(0 === '' ? '' : ' not')." identical to empty string";          // not identical
+    echo "&lt;p&gt;string zero is".('0' === 0 ? '' : ' not')." identical to number zero";          // not identical
+    echo "&lt;p&gt;string foo is".('foo' === 0 ? '' : ' not')." identical to number zero";         // not identical
+    echo "&lt;p&gt;string foo123 is".('foo123' === 0 ? '' : ' not')." identical to number zero";   // not identical
+    echo "&lt;p&gt;string 123 is".('123' === 0 ? '' : ' not')." identical to number zero";         // not identical
+    echo "&lt;p&gt;string 123foo is".('123foo' === 0 ? '' : ' not')." identical to number zero";   // not identical
+</pre>
+
+<p>
+
+You need to think carefully about your data cases, particularly where information is
+optional.  For example, imagine you are creating a database query form where the user
+can enter an empty string, the word NULL or no data.  We need some way to catch and
+handle all three of these conditions.  It's the no data case that is tricky since we
+can't use the empty string as that will conflict with the case where they have entered
+data that just happens to be an empty string.  Using the new NULL keyword seems like
+a good choice but that might conflict with the word NULL entered by a user.  The solution
+is to introduce a new unique string that we consistently use in these cases.  In all
+Synop code we use ss_unknown to describe values that are not specified.  This is a
+unique string that is very unlikely to be matched or entered by users.
+
+<p>
+
+Having an ss_unknown case is particularly useful given the differences in SQL syntax
+that are required when handling NULL values in database queries.  For example, in MySQL
+these queries can return different results:
+<pre>
+    select * from member where url is NULL;  // matches when url is NULL
+    select * from member where url = '';     // matches when url is the empty string
+    select * from member where url = 'NULL'; // matches when url is the string 'NULL'
+</pre>
+This means that we need to form different database queries based on the type of data
+that we are looking for.  By having an explicit case for NULL (no value) we can build
+the appropriate queries easily.
+
+<p>
+
+Passing data from page to page through the HTTP mechanisms is quite an art form the minute
+there might be anything slightly complex to be sent.  For example, sending a double quote
+as part of a hidden POST field or sending ampersands in GET data.  The key is to use
+urlencoding to protect your data from corruption.  But, the cases for using urlencode()
+and urldecode() need to be carefully chosen and examined.
+<pre>
+    hidden POST variables need to be urlencoded and urldecoded
+    POSTed forms don't need to be urlencoded or urldecoded
+    GET variables need to be urlencoded but not urldecoded
+    Cookies don't need to be urlencoded or urldecoded
+</pre>
+
+<p>
+
+Data in textareas may need to have htmlspecialchars() applied.  For example, if you want
+to have the string "</textarea>" in your textarea then it must be protected so that it
+doesn't prematurely end the box.  Using htmlspecialchars() causes the text to be displayed
+properly in the textarea and the effect is undone when the code is submitted for processing.
+I'm a bit baffled as to how this works, but all my testing seems to indicate that it solves
+the problem.
+
+<p>
+<br>
+
+<h2>Chameleon Coding</h2>
+
+<h3>Introduction</h3>
+
+A chameleon is a lizard that is well known for its ability to change skin color.  This is a
+useful metaphor for web programming as it highlights the importance of separating well structured
+and stable backend code from the dynamic web pages it supports.
+
+<p>
+
+PHP is the perfect language for chameleon coding as it supports both structured classes and
+simple web scripting.  In this section we will look at some coding and page structures you can
+use to help build applications that are robust, yet easy to change and simple to maintain.
+
+<p>
+
+<h3>Code Structure</h3>
+
+When writing PHP code we need to make a clear distinction between the code which does the principal
+work of the application and the code which is used to display that work to the user.  The backend
+code does the difficult tasks like talking to the database, logging, and performing calculations.
+The pages that display the interface to these operations are part of the front end.
+
+<p>
+
+Mixing programming code in with HTML is messy.  We can talk about ways to format the code or
+structure your pages, but the end result will still be quite complicated.  We need to move as much
+of the code away from the HTML as possible.  But, we need to do this so that we don't get lost in
+the interaction between our application and the user interface.  A web site is a dynamic target.
+It is continually evolving, improving and changing.  We need to keep our HTML pages simple so that
+these changes can be made quickly and easily.  The best way to do that is by making all calls to
+PHP code simple and their results obvious.  We shouldn't worry too much about the structure of the
+PHP code contained in the front end, it will change soon anyway.  That means that we need to remove
+all structured code from the actual pages into the supporting include files.  All common operations
+should be encapsulated into functions contained in the backend.
+
+<p>
+
+In complete contrast to the web pages your backend code should be well designed, documented and
+structured.  All the time you invest here is well spent, next time you need a page quickly hacked
+together all the hard parts will be already done waiting for you in backend functions.  Your
+backend code should be arranged into a set of include files.  These should be either included
+dynamically when required, or automatically included in all pages through the use of the
+php_auto_prepend_file directive.  If you need to include HTML in your backend code it should be
+as generic as possible.  All presentation and layout should really be contained in the front end
+code.  Exceptions to this rule are obvious when they arise, for example, the creation of select
+boxes for a date selection form.  PHP is flexible enough to let you design your code using classes
+and or functions.  My object oriented background means that I like to create a class to represent
+each facet of the application.  All database queries are encapsulated in these classes, hidden
+from the front end pages completely.  This helps by keeping all database code in a single location
+and simplifying the PHP code contained in pages.
+
+<p>
+
+<h3>Include File Structures</h3>
+
+Include files are a PHP hackers best friend.  Use them liberally to help you layout and control
+your code.  The performance drop due to extra include files is completely insignificant next to
+the gains you will get from ease of maintenance and better understanding of your own code.
+
+<p>
+
+A good example use of include files is to separate out sections of content into a form that makes
+them easier to maintain and reuse.  For example, many home pages on the web are basically broken
+into a number of content boxes.  Yahoo is basically boxes of links, auctions, news, shopping, events
+and self-promotion.  Using include files in PHP we can break this page into the following structure:
+<pre>
+index.phtml
+  -&gt; links.inc
+  -&gt; auctions.inc
+  -&gt; news.inc
+  -&gt; shopping.inc
+  -&gt; events.inc
+</pre>
+
+<p>
+
+Now each content box is on its own and can be maintained independently.  This structure is so
+simple that you can use it to build completely dynamic sites for people who know nothing about
+PHP and refuse to use any HTML editor other than Frontpage.  Just break their content areas out
+into a number of small files and let them go nuts.  Your PHP code is safely locked in files
+called something like index-dont-touch.php that they can ignore.
+
+<p>
+
+Best of all, those content boxes can be reused anywhere on the site and only need to be edited
+and updated in a single location.
+
+<p>
+
+<h3>Form Structures</h3>
+
+Another essential structural element in all web applications are user forms.  These little beasts
+seem so simple but are so important that we have to get them completely right.  The easiest way
+is to develop some standard PHP structures for handling forms that we can copy and paste over and
+over again.
+
+<p>
+
+The easiest way to do web forms is through a multiple page interaction with the user.  The simple
+case is just to have a page for prompting and a page for processing the results.  Slightly more
+complicated (mostly due to the urlencoding problems discussed above) is to add a confirm step to
+the sequence.  Here is a file structure that we found to be fairly flexible across many applications:
+<ul>
+<li>index.phtml - prompts the user
+<li>check.inc - checks the data inputs from both the confirm and save pages
+<li>confirm.phtml - shows the data back to the user letting them confirm it is correct
+<li>save.phtml - processes the data and prints a success message
+</ul>
+The problems inherit with this method are that you rely quite strongly on the browser back button
+(which for some strange reason many users have difficulty finding) and the confirm step can be
+annoying for simple operations but is not easy to bypass.  It is also a problem to leave the user
+looking at a save page that they can potentially reload adding duplicate data or getting database
+errors.
+
+<p>
+
+A more flexible and robust scheme that we've been working on lately uses a more complex include
+file structure but manages to break up all the form processing steps into simple stages.  This
+makes it simple to write forms and the end result is easier to use.  All of the prompting,
+confirming and saving phases are done on the same page.  This way we can display errors along
+with the data to be edited, can make the confirm step optional for the user, and can redirect
+from the save step to another location.
+<ul>
+<li>index.phtml - the main control script for working through the sub-scripts below
+<li>prepare.inc - prepare the data by urldecoding etc if necessary
+<li>cancel.inc - redirect the user to a sensible location if they cancel the entire operation
+<li>check.inc - check the data that has been entered and construct any relevant error messages
+<li>init.inc - get ready to display the prompt page by looking up or processing data
+<li>index.inc - display errors and prompt the user for input
+<li>confirm.inc - display the entered data and prompt the user to confirm, cancel or go back
+<li>process.inc - perform any processing that needs to be done before the save script is run
+<li>save.inc - perform the actual operation and redirect to a sensible location (eg: view page)
+</ul>
+Unfortunately there are many files to edit, which can be annoying.  The redirection upon cancel
+or save can be a problem depending on the quality of the data given to the form.  These pages
+rely on the urlencoded state for each variable being set.  Using a urlencoded state gives us
+a lot of power and flexibility but can increase the burden on the programmer who is trying to
+interface with our forms.  Fortunately, at worst they are no worse off than we were already
+for dealing with urlencoding of variables.
+<p>
+Here is the structure for the index.phtml file calling to the other scripts:
+<pre>
+    include('./prepare.inc');
+    if (isset($cancel)) {
+            include('./cancel.inc');
+    }
+    else {
+        if (!isset($confirm) && !isset($save)) {
+            include('./init.inc');
+            include('./index.inc');
+        }
+        else {
+            include('./check.inc');
+            if (!strempty($error_message)) {
+                include('./index.inc');
+            }
+            else {
+                if (isset($confirm)) {
+                    include('./confirm.inc');
+                }
+                elseif (isset($save)) {
+                    include('./process.inc');
+                    include('./save.inc');
+                    include('./cancel.inc');
+                }
+            }
+        }
+    }
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Speed of Coding, Not Speed of Code</h2>
+
+<h3>Introduction</h3>
+
+The hardest thing for me to learn as a web programmer was to change the way I wrote code.
+Coming from a product development and university background the emphasis is on doing it the
+right way.  Products have to be as close to perfect as possible before release.  School
+assignments need to be perfect.
+
+<p>
+
+The web is different.  Here it is more important to finish a project as soon as possible
+than it is to get it perfect first time. Web sites are evolutionary, there is no freeze
+date after which it is difficult to make changes.
+
+<p>
+
+I like to think of my web sites as prototypes.  Everyday they get a little closer to being
+finished.  I can throw together 3 pages in the time it would take to do one perfectly.  It's
+usually better on the web to release all three and then decide where your priorities lie.
+Speed is all important.
+
+<p>
+
+So, everything you do as a programmer should be focused on the speed at which you are
+producing code (pages).
+
+<p>
+
+<h3>Optimizations</h3>
+
+This section describes some tricks you can use to speed up your PHP code.  Most of them
+make very little difference when compared to the time taken for parsing, database queries
+and sending data down a modem.
+
+<p>
+
+They are useful to know both so you can feel you are optimizing your code and to aid your
+understanding of certain PHP concepts.
+
+<p>
+
+Here is a quick set of test data to compare the performance of str_replace with some regular
+expressions when making changes to a simple string.  Not that although the difference is
+significant (20x) the overall saving from a single usage would only be 0.000095 secs.
+<pre>
+    $string = 'Testing with &lt;em&gt;emphasis&lt;/em&gt; on a long string so we can see how the &lt;em&gt;different&lt;/em&gt; replace functions perform.';
+
+    ss_timing_start('str_replace');
+    for ($i=0; $i&lt;10000; $i++) {
+         str_replace('em&gt;', 'strong&gt;', $string).'&lt;br&gt;';
+    }
+    ss_timing_stop('str_replace');
+
+    ss_timing_start(ereg);
+    for ($i=0; $i&lt;10000; $i++) {
+         ereg_replace('em&gt;', 'strong&gt;', $string).'&lt;br&gt;';
+    }
+    ss_timing_stop(ereg);
+
+    ss_timing_start(eregi);
+    for ($i=0; $i&lt;10000; $i++) {
+         eregi_replace('em&gt;', 'strong&gt;', $string).'&lt;br&gt;';
+    }
+    ss_timing_stop(eregi);
+
+    ss_timing_start(ereg_pattern);
+    for ($i=0; $i&lt;10000; $i++) {
+         ereg_replace('&lt;([/]*)em&gt;', '&lt;\1strong&gt;', $string).'&lt;br&gt;';
+    }
+    ss_timing_stop(ereg_pattern);
+
+    ss_timing_start(eregi_pattern);
+    for ($i=0; $i&lt;10000; $i++) {
+         eregi_replace('&lt;([/]*)em&gt;', '&lt;\1strong&gt;', $string).'&lt;br&gt;';
+    }
+    ss_timing_stop(eregi_pattern);
+
+    echo "10,000 iterations gave:";
+    echo "&lt;p&gt;str_replace - ".ss_timing_current(str_replace);
+    echo "&lt;p&gt;ereg - ".ss_timing_current(ereg);
+    echo "&lt;p&gt;ereg_pattern - ".ss_timing_current(ereg_pattern);
+    echo "&lt;p&gt;eregi - ".ss_timing_current(eregi);
+    echo "&lt;p&gt;eregi_pattern - ".ss_timing_current(eregi_pattern);
+</pre>
+Here are the results:
+<pre>
+// TODO 
+</pre>
+
+<p>
+
+<h3>Real Optimizations</h3>
+
+While the optimizations above are definitely cool there are some more boring things we can do to
+see big time savings.  The immediately obvious ones are:
+<ul>
+<li>reduce page size
+<li>reduce the number of database queries
+<li>optimize database queries
+<li>avoid table joins
+</ul>
+
+<p>
+
+There are a number of caching systems that are starting to come out in the open source space and
+through commercial vendors.  These basically keep a compiled form of PHP in memory saving the need
+for PHP to parse all of your scripts for every request to the web server.  The time and memory
+savings through these offerings is significant, we've seen up to a 400% increase in performance.
+
+<p>
+<br>
+
+<h2>PHP Hacking</h2>
+
+<h3>Introduction</h3>
+
+I covered a number of tricky concepts, gotchas and general PHP coding techniques in the
+<a href="http://www.e-gineer.com/articles/php-hackers-paradise.phtml">original talk</a>.
+Below I'll be discussing some new ones that have come up since then.
+
+<p>
+
+<h3>Gotchas</h3>
+
+I was hacking a library of datetime functions when suddenly I started getting "Document contains no data"
+errors from Apache.  Quickly I started cursing everyone and everything in sight since I had absolutely
+no idea what I'd just done that could cause PHP to start core dumping all over the place.
+
+<p>
+
+In fact, I was pretty close the solution as I ran around blowing my stack.  It turns out that PHP doesn't
+like infinite recursion.  It can take quite a while to track down that your no data error is due to runaway
+recursion, particularly if you are used to being burned by the old PHP parser which would occaisionally get
+in a funny state and start returning those kinds of problems for parse errors.
+
+<p>
+
+<h3>Tips and Tricks</h3>
+
+<a href="http://www.php.net/manual/en/function.trigger-error.php">trigger_error()</a>
+is a cool little function that I recently discovered.  By using trigger_error() you can
+print out errors and warnings to the browser in the same fashion as many of the internal PHP functions.
+Best of all, you can supress the messages through the use of the @ operator.  This gives you great flexibility
+when writing library code for handling problems without needing to do tricky error handling techniques.
+
+<p>
+
+PHP4 has introduced the capability for functions to handle
+<a href="http://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list">variable length argument lists</a>.
+This is fantastic for situations where you want to create data objects for example.  Imagine:
+<pre>
+    $s = new Set($a, $b, $c, $d, $e, $f, $g, $h);
+</pre>
+
+<p>
+
+Be careful when forming regular expressions to keep in mind all the different times when slashes,
+periods, dollar signs and quotes need to be escaped.  For example, to match a dollar amount you
+would need a regular expression that looks like this:
+<pre>
+    \$[0-9]{1,}\.[0-9]{2,2}
+</pre>
+As a PHP string the slashes and the dollar sign need to be escaped, so this needs to be done as:
+<pre>
+    "\\\$[0-9]{1,}\\.[0-9]{2,2}"
+</pre>
+
+<p>
+
+<h3>Scripting with PHP</h3>
+
+It's easy to forget that PHP is a complete programming language that can be used for more than just
+generating web pages.  I was once writing a script to receive emails and place them in a database. 
+I was fumbling around in Perl and shell scripts until it dawned on me to install PHP for scripting.
+30 minutes later the emails were churning in.
+
+<p>
+
+Installing PHP for scripting on unix is easy.  Just remove the -with-apache directive from your
+configure options.  This will create the PHP binary that can be used to run scripts directly from
+the command line.  There are complete instructions for installing PHP for scripting here:
+<ul>
+<a href="http://www.e-gineer.com/instructions">http://www.e-gineer.com/instructions</a>
+</ul>
+
+<p>
+
+You can then write your script like any other shell script.  Here is an example:
+<pre>
+    #!/usr/local/bin/php -q
+    &lt;?php
+    // your php code here
+    ?&gt;
+</pre>
+
+<p>
+
+Once you start scripting with PHP the possibilities are endless.  It's a fully featured language,
+you can do anything you would normally do in a shell script.
+
+<p>
+
+<h3>Encoding and Protecting Your Source</h3>
+
+With the Zend Encoder being released in January we now have the capability to encrypt and protect our
+PHP source.  Without breaking into a huge discussion about the merits of open vs closed source business
+models it is obvious that a product like the Encoder opens up a range of possibilities for commerical
+PHP companies.
+
+<p>
+
+In turns out that the reality of protecting your code and scripts is actually much harder than it may
+initially seem.  Protecting a single library file is easy, just encode it with some hard coded time
+bomb checks or similar and away you go.  Protecting thousands of PHP scripts and libraries is a completely
+different ball game.
+
+<p>
+
+Encoded source does nothing to protect you at run time.  All of your global variables and function names
+are there for everyone to see.  All they have to do is remove your libraries one at a time and they
+will get PHP errors that dutifully report every missing function or class.
+
+<p>
+
+A problem we faced recently was working out how to protect all of our scripts through a license package
+that could modularise all of the license checks and problems.  It seems simple, just encode the license
+package and make a call to something like ss_license_valid(package_name).  Unfortunately it's not that
+easy since a user can just remove the license package and replace it with their own little license
+validation function that always returns true.
+
+<p>
+
+In fact, you quickly realise that we have the classic authentication problem with eavesdropping.  Luckily
+we have some safety in that the encoder can be used to encrypt up secrets for communcation between the
+packages allowing us to authenticate.  The ideal solution would be through some sort of public key that
+can be published by each package, but PHP doesn't have support for public key encryption at this time.
+
+<p>
+
+So, to protect a library of encoded scripts you must first validate the license package from package foo,
+then validate the license for foo using the license package.
+
+<p>
+<br>
+
+<h2>Getting Help</h2>
+
+There are many resources available for PHP help.  The PHP community is generous with its
+time and assistance.  Make use of their contributions and use the time you save to help others.
+
+<p>
+
+The PHP Knowledge Base is a growing collection of PHP related information.  It captures
+the knowledge from the mailing list into a complete collection of searchable, correct answers.
+Of course, I may be a little biased:
+<ul>
+<a href="http://php.faqts.com">http://php.faqts.com</a>
+</ul>
+
+<p>
+
+The PHP manual is a great reference point for information on functions or language constructs.
+<ul>
+<a href="http://www.php.net/manual">http://www.php.net/manual</a>
+</ul>
+
+<p>
+
+If you can't find the relevant information in the PHP Knowledge Base your next stop should be
+the mailing list archives.  There are thousands of questions on the mailing list every month
+so you can be almost certain your question has been asked before.  Prepare to do some wading.
+<ul>
+<a href="http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2">http://www.progressive-comp.com/Lists/?l=php3-general&r=1&w=2</a>
+</ul>
+
+<p>
+
+If all that searching fails to help, try asking on the mailing list.  A lot of PHP gurus reside there.
+<ul>
+<a href="mailto:php-general@lists.php.net">php-general@lists.php.net</a>
+</ul>
+
+<p>
+
+If all these on-line resources aren't enough or you hate reading from a computer screen, you
+might be interested in one of the many PHP books that are now available.
+<ul>
+<a href="http://www.php.net/books.php3">http://www.php.net/books.php3</a>
+</ul>
+
+
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

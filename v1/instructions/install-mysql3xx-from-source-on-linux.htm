@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing MySQL 3.x.x from Source on Linux</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing MySQL 3.x.x from Source on Linux</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 22, 1999)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+These instructions describe the installation of <a href="http://www.mysql.com">MySQL</a> from source.  They should work for most linux distributions.
+
+<p>
+
+The process is completely identical to <a href="install-mysql3xx-on-linux.htm">installing from binaries</a> except for the Installing section.  In fact, to prevent duplication these instructions point you to the post install part of the binary installation.
+
+<p>
+<br>
+
+<h2>Before We Begin</h2>
+
+<ol>
+
+<li>These instructions assume that you are working as root.
+<pre>
+    su root
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Getting MySQL</h2>
+
+<ol>
+
+<li>You can determine the latest stable version of MySQL at the <a href="http://www.mysql.com/download.html">downloads page</a>.  For this installation I'm using <a href="http://www.mysql.com/Downloads/MySQL-3.22/mysql-3.22.27.tar.gz">MySQL 3.22.27</a>.
+
+<p>
+
+<li>Download the binary distribution for PC Linux.  Save it into your /usr/local/downloads directory.  If you haven't already created a downloads directory you can do so now with:
+<pre>
+    mkdir /usr/local/downloads
+</pre>
+Then we can download the distribution:
+<pre>
+    cd /usr/local/downloads
+    ftp ftp.mysql.com <em>(user: anonymous password: email address)</em>
+    cd MySQL-3.23
+    bin
+    get mysql-3.23.28-gamma.tar.gz
+    bye
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Installing MySQL</h2>
+
+<ol>
+
+<li>Unpack the MySQL download into the source directory on your machine (NB: that's a capital C):
+<pre>
+    tar xzf mysql-3.23.28-gamma.tar.gz -C /usr/local/src
+</pre>
+
+<p>
+
+<li>Configure the installation.
+<pre>
+    cd /usr/local/src/mysql-3.23.28-gamma
+    ./configure --prefix=/usr/local/mysql
+</pre>
+
+<p>
+
+<li>Make and install the binaries.  These steps will take a long time:
+<pre>
+    make
+    make install
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Post Install Instructions</h2>
+
+The post install process on most systems is identical to that for the <a href="install-mysql3xx-on-linux.htm">MySQL installation from binaries</a>.  You still need to configure your installation, setup users, and so on, so start at the <a href="install-mysql3xx-on-linux.htm#configuring">Configuring MySQL section</a>.
+
+<p>
+
+There might be some small differences since some scripts are still in the source directory structure, not the installed one.  For example, mysql_install_db is located in the scripts directory in the /usr/local/src structure.  You should be able to find most things pretty easily.
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

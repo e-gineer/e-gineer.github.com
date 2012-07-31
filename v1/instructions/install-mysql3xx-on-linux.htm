@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing MySQL 3.x.x on Linux</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing MySQL 3.x.x on Linux</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 18, 1999)<br>
+<em>and Dean Peters</em> (Dec 5, 2000)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+These instructions describe the installation of MySQL binaries on Linux.  They were written while installing on Red Hat 6.1, but should work for any recent version of Linux.  These binaries are optimised for i686 computers, if you are using anything else then you should probably <a href="install-mysql3xx-from-source-on-linux.htm">install from source</a>.
+
+<p>
+<br>
+
+<h2>Before We Begin</h2>
+
+<ol>
+
+<li>These instructions assume that you are working as root.
+<pre>
+    su root
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Getting MySQL</h2>
+
+<ol>
+
+<li>You can determine the latest stable version of MySQL at the <a href="http://www.mysql.com/download.html">downloads page</a>.  For this installation I'm using <a href="http://www.mysql.com/Downloads/MySQL-3.23/mysql-3.23.28-gamma-pc-linux-gnu-i686.tar.gz">MySQL 3.23.28</a>.
+
+<p>
+
+<li>Download the binary distribution for PC Linux.  Save it into your /usr/local directory.
+<pre>
+    cd /usr/local
+    ftp ftp.mysql.com      <em> (Name: anonymous) (Password: [enter your email address here])</em>
+    cd MySQL-3.23
+    bin
+    get mysql-3.23.28-gamma-pc-linux-gnu-i686.tar.gz
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Installing MySQL</h2>
+
+<ol>
+
+<li>Unpack the MySQL download.
+<pre>
+    tar xzf mysql-3.23.28-gamma-pc-linux-gnu-i686.tar.gz
+</pre>
+
+<p>
+
+<li>Make life easier by adding a symbolic link to the complex directory name.  This also makes it easier in the future if you want to upgrade your MySQL installation.
+<pre>
+    ln -s mysql-3.23.28-gamma-pc-linux-gnu-i686 mysql
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<a name="configuring"><h2>Configuring MySQL</h2>
+
+<ol>
+
+<li>Now we must initialise the standard MySQL databases.  This also sets up the initial user privileges for your MySQL server.
+<pre>
+    cd mysql
+    scripts/mysql_install_db
+</pre>
+
+</ol>
+
+<p>
+<br>
+<h2>Running the Server Using an Unprivileged User Account</h2>
+
+<ol>
+
+<li>Before we start the server, we want to make an account for the MySQL server.  This should really be a seperate account from other users and not on the root.  Why?  Because this could compromise security.  Also, in general, you want to limit the power of any process unless it needs root access, which MySQL does not.  First off, we shall add the user.
+<pre>
+   /usr/sbin/useradd mysql
+</pre>
+
+<p>
+
+<li>If the system being used is Red Hat, the next command can be skipped.  All other systems have to seperatly define a group for its users, where as Red Hat automatically does this in the last command.
+<pre>
+   /usr/sbin/groupadd mysql
+</pre>
+
+<p>
+
+<li>Now we modify the ownership of the data directory and any subdirectories and files so that the mysql user owns them.
+<pre>
+   cd /usr/local/mysql/data
+</pre>
+Once the file is found, we now modify the ownership.
+<pre>   
+   chown -R mysql:mysql .            <em>(Make sure the final [space][period], is present, as this specifies which file to modify.)</em>
+</pre>
+
+<p>
+
+<li>Modify the permissions to the directory and subdirectories and files so that only the mysqladm has access    
+<pre>
+   chmod -R go-rwx .                 <em>(Once again, remember the final [space][period].)</em>
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Starting the Server By Hand</h2>
+
+<ol>
+
+<li>You can start the server with a single command.  Give it a moment to start and then press Enter a couple of times to get your command prompt back (the &amp; starts the server in another process).
+<pre>
+    cd /usr/local/mysql
+    bin/safe_mysqld &amp;
+</pre>
+
+<p>
+
+<li>It should be obvious whether the MySQL server started properly, but you can use the admin program to check.
+<pre>
+    bin/mysqladmin ping
+</pre>
+<pre>
+mysqld is alive
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Securing the Server and Adding Users</h2>
+
+<ol>
+
+<li>The MySQL security and privilege system is extremely powerful and thus quite complicated.  My setup below is for a very simple set of users.  The <a href="http://www.mysql.com/docs/manual.html#Privilege_system">MySQL manual</a> explains the details very well.  Basically you can configure privileges based on the user name, the user's location (host), the database they are using, and the tables and columns they wish to use.
+
+<p>
+
+<li>The initial user setup and security for MySQL is designed for ease of use.  That is, completely insecure.  The first thing we need to do is give the root user a password.  Here I'm setting the root password to be mypass:
+<pre>
+    bin/mysqladmin -u root password mypass
+</pre>
+
+<p>
+
+<li>You can now access the database by giving a password on the command line or entering it when prompted.  Notice that there is no space between the -p and the password when connecting.
+<pre>
+    bin/mysql -uroot -pmypass
+</pre>
+To get prompted, just leave off the password.  This is more secure since other users may be able to see your command like that above:
+<pre>
+    bin/mysql -uroot -p
+</pre>
+
+<p>
+
+<li>I generally create one database for each web site.  For example, e-gineer has a database set up as follows:
+<pre>
+shell&gt; bin/mysql -uroot -pmypass
+mysql&gt; create database egineer;
+</pre>
+Now I create a database user that will be used by PHP to access this database.   I use the same name as the database (egineer) for convenience.  Notice that this user only has privileges to select, insert, update and delete.  They also only have permission to connect from the local machine.  Since the password will be in PHP code it's best to keep the privileges for this user as minimal as possible.
+<pre>
+mysql&gt; GRANT SELECT,INSERT,UPDATE,DELETE
+           ON egineer.*
+           TO egineer@localhost
+           IDENTIFIED BY 'mypass';
+</pre>
+
+<p>
+
+<li>Now the parameters for your PHP code are:
+<pre>
+    Host:     localhost
+    User:     egineer
+    Password: mypass
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Adding the MySQL commands to Your Path</h2>
+
+<ol>
+
+<li>This section is completely optional.  It just sets up your system so the MySQL commands can be run from anywhere like this:
+<pre>
+    mysql
+</pre>
+instead of having to qualify the full path to the binary file:
+<pre>
+    /usr/local/mysql/bin/mysql
+</pre>
+Which do you prefer?
+
+<p>
+
+<li>If most of the users on the machine use mysql then you might like to make the commands available in the default path.  You can do this by editing:
+<pre>
+    /etc/profile
+</pre>
+
+<p>
+
+<li>Simply add the MySQL bin path to the PATH command in this file.  I just added a line like this:
+<pre>
+    PATH=$PATH:/usr/local/mysql/bin
+</pre>
+immediately below the existing command to set the PATH.
+
+<p>
+
+<li>If you don't want to make the mysql commands available to everyone, but want to give yourself the convenience add the PATH command to your own .profile.  For me, this file is:
+<pre>
+    ~/.bash_profile
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Making MySQL Start Automatically on Boot</h2>
+
+It's convenient to have MySQL start automatically with your machine.  It's also wise if you have an unattended web server that might be rebooted for reasons beyond your control.  <a href="starting-and-stopping-mysql-automatically-on-redhat.htm">These instructions</a> explain how to set it up on Red Hat Linux.
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

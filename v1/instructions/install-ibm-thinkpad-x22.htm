@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Setting up an IBM Thinkpad X22</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Setting up an IBM Thinkpad X22</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 31, 2001)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+With a massive deadline to complete before leaving the country for a couple of months I decided this
+was the best time to buy a new laptop to help me on my travels.  My last machine was a Mitac derivative
+and while still grunty a year after I bought it (Oct 2000) with 850MHz 256MB RAM, DVD etc it is just
+to clunky for my liking.
+
+<p>
+
+The X22 is fantastic.  Light, sturdy.  I'm in love with it already.  Of course, love only comes after
+spending massive amounts of time together and fighting through horrible installation problems.
+
+<p>
+
+I decided to buy the machine without a docking station etc since I'd really only need a CD-ROM for
+installations anyway.  So this is an attempted install with no CD-ROM or floppy drive.
+
+<p>
+
+I've explained my entire machine setup below.  A new X22 running Windows XP with Red Hat Linux 7.2.  At
+the time of writing you just can't get much more cutting edge than that!
+
+<p>
+
+Be warned that this document is a little all over the place.  I wanted to try and capture all the
+things I'd learned through the installation process to help others in a similar situation.  The info
+on the net about this stuff currently seems quite disjointed.
+
+<p>
+
+Note that there are a lot of similarities between this notebook and the IBM Thinkpad T23.  Once I
+worked that out I got a lot of useful info by doing web searches on the T23.
+
+<p>
+<br>
+
+<h2>Delivered Installation</h2>
+
+The delivered machine has a hidden partition where Windows 2000 sits.  This means that you can restore
+your machine completely at any point by pressing F11 during the boot sequence.  This takes about 1GB of
+your precious disk space.  It turns out that IBM seem to format the hard disk in a really weird manner
+that brings all sorts of problems with Linux partitioning programs.  I don't totally understand it, but
+they seem to have setup the partition with 240 heads per cylinder rather than the recommended 255. Even
+Partition Magic doesn't like this and reported my entire hard disk as a bad partition at one low point.
+
+<p>
+
+The 2000 installation from IBM runs very cleanly.  First you note that it uses Win98 as the platform to
+start the installation.  Interesting (and an omen).
+
+<p>
+
+All the network drivers etc work beautifully out of the box, as they should.
+
+<p>
+<br>
+
+<h2>Trying to Install Linux from Windows 2000 with No Floppy and No CD-ROM</h2>
+
+Beginning the Linux installation with no floppy or CD-ROM is interesting.  It turns out that there is
+a program autoboot.bat in the dosutils directory of your Red Hat CD.  This is able to boot into Linux
+directly from Windows 98.  It does not work from Windows 2000.  There is no DOS mode in Windows 2000,
+even if you boot into command prompt only safe mode.
+
+<p>
+
+So, you can't boot linux from the machine to start the install.  If you are a true maniac you might
+consider booting into the IBM service program and trying to get to a dos prompt.  I've seen this, but
+it might have been when I managed to crash the service auto install at some point.
+
+<p>
+
+The only solution I could find to this problem was to remove the hard drive from the machine and do
+the installation elsewhere.  This was suggested by someone with a Vaio.  This is actually surprisingly
+simple to do. There are instructions for removing the hard disk in the manual, basically undo one screw
+and pull it out.
+
+<p>
+
+I plugged the hard disk into my old Mitac above for installation.  Alternatively you can buy a 44 pin
+to 40 pin adaptor to put the notebook hard disk into your desktop machine.
+
+<p>
+<br>
+
+<h2>Partition your Drive First</h2>
+
+With hindsight, this is the time to partition your whole hard drive.  Use Partition Magic from inside
+Windows 2000, the command line Partition Magic boot disks don't seem to like the hard drive layout either.  None of the
+other tools seemed to support all the functionality we need.  By partitioning the drive now we can 
+completely avoid problems with linux partitioning tools like disk druid blowing up during the installation
+because of the weird IBM service partion which makes them all think the disk is inconsistent.
+
+<p>
+
+You need to create a number of partitions:
+<ul>
+<li>Windows 98 FAT 32 partition, say 1GB
+<li>Windows XP FAT 32 partition, say 6GB (use FAT 32 since it plays nicely with linux etc)
+<li>Linux EXT2 partition, say 6GB (use EXT2 since Partition Magic etc support it better)
+<li>Linux Swap partition, say 256MB
+<li>Leave the IBM Service partition alone!
+</ul>
+
+<p>
+
+If you don't want to run XP you can stick with 2000 by just resizing that partition instead.
+
+<p>
+<br>
+
+<h2>Back to Good Old Windows 98</h2>
+
+Since we want to actually do the linux installation on the IBM notebook your aim here is to set things
+up to make that possible.  I'd love to know if there is a way to write the files from a simple linux
+floppy boot disk to a bootable hard drive partition.  This would seem like an obvious capability but
+I couldn't find anything describing the process.  Then we could just boot the installation floppy image
+from the hard drive and start the install.
+
+<p>
+
+In the end, the only process I could think of was to install Windows 98 first.  I struggled with this,
+but all of the Linux installation tools seem to be written for use with DOS versions.  After we have
+a working Windows 98 partition everything will be sweet, we can boot linux install images automatically,
+upgrade to Windows XP and so on.
+
+<p>
+
+Focus on the end result, not the means of getting there. :)
+
+<p>
+
+Just install Windows 98 in the normal way.  You can either do a full install, or perhaps even just format
+that partition as a system drive.  The important thing is that you get the dosutils directory from the
+Red Hat CD-ROM copied into the Windows 98 partition.  It's what we are going to have to run for linux.
+
+<p>
+
+The best way to do a full Windows 98 install is by copying the entire CD onto the partition.  That way
+you can put the hard disk back in your Thinkpad and run the install there reducing the driver problems
+etc.  This is very new hardware and Windows 98 is quite old so don't expect networking etc to work.
+
+<p>
+<br>
+
+<h2>Installing Linux</h2>
+
+After you have Windows 98 and the linux partitions we are ready to try the install. Boot into Windows 98
+in command line mode and run autoboot.bat in the dosutils directory.  We are going to try and do a
+network installation of Linux.
+
+<p>
+
+I believe that at one point the built in Intel Pro/100 VE network card worked during the linux installation.
+But later it wouldn't work.  I don't know why, perhaps it was 6am and I was delusional.  I used my pcmcia
+network card to do the install in the end.  This worked, you might have luck without it.
+
+<p>
+
+I leave the details of a linux network install to other people.
+
+<p>
+
+Don't expect X Windows or networking to play nicely out of the box.
+
+<p>
+<br>
+
+<h2>Getting X Windows to Work</h2>
+
+X Windows didn't work properly for me the first time.  The ATI Radeon card is very new.  After a lot of
+digging around I found one of those 1 line gems in a discussion list that solved my problem.
+
+<p>
+
+When you try to start X Windows you should get a massive memory dump error:
+<ul>
+    startx
+</ul>
+
+<p>
+
+Somewhere in all of that it tells you the name of the configuration file it was trying to use.  For me
+that was:
+<ul>
+    /etc/X11/XF86Config-4
+</ul>
+
+<p>
+
+Go to the Device section in that file and add the VideoRam 32768 line to make it look something like this:
+<pre>
+    Section "Device"
+        Identifier "ATI|Radeon Mobility M6 LY"
+        Driver "radeon"
+        VideoRam 32768
+        BoardName "Unknown"
+        Option "nodri"
+    EndSection
+</pre>
+
+<p>
+
+Try starting X windows again and like magic it should work.
+
+<p>
+<br>
+
+<h2>Getting Network Capabilities in Linux</h2>
+
+The network card in this machine is so new that even under Windows XP a special driver download is needed
+from IBM.  Same under Linux.  As best I can tell, the network card is a "Intel Pro/100 VE".  After a lot
+of different Internet searches I found this page:
+<ul>
+    <a href="http://appsr.intel.com/scripts-df/Detail_Desc.asp?ProductID=407&DwnldID=2896">http://appsr.intel.com/scripts-df/Detail_Desc.asp?ProductID=407&DwnldID=2896</a>
+</ul>
+
+<p>
+
+The readme file from there describes the entire installation which is really simple once you get kernel source
+installed on the machine.  Of course, since you still don't have networking you probably need to be using
+a pcmcia network card to do a lot of this work and copying.  You can install the kernel source using the RPMS
+on the 2nd Red Hat CD.  Use rpm --install on the kernel source package.  Then copy and do the same for each
+dependency package until it will actually install.  Don't worry, there are only about 5.
+
+<p>
+
+After that, compiling the driver is a snap.  Then getting it to work is also simple.  I have DHCP so I didn't
+even need the IP address that the Intel readme tells you to use.  You might need to use eth1 if you have a
+pcmcia network card installed when you try this.  I just moved the network connection over before running
+the ifconfig command.
+<pre>
+    insmod e100
+    ifconfig eth0
+</pre>
+
+<p>
+
+It works!
+
+<p>
+
+I haven't worked out how to get this to start automatically on boot, or even better as a hotplug device.
+
+<p>
+<br>
+
+<h2>The Modem Under Linux</h2>
+
+As best I can work out it is not possible to use the modem under Linux.
+
+<p>
+
+<a href="http://www.pc.ibm.com/qtechinfo/MIGR-4ZKKVZ.html?lang=en_US&page=brand&brand=IBM+ThinkPad&family=IBM+ThinkPad%7CThinkPad+T23&machineType=&doctype=Downloadable+files&subtype=Modems&up=">Here</a> is the IBM page talking about the type of modem installed.
+
+<p>
+
+<a href="http://www.linmodems.org">Here is more information about linmodems (the Linux equivalent of winmodems), and in particular
+<a href="http://www.heby.de/ltmodem">information</a> about how Lucent AMR modems are definitely not supported in Linux.
+
+<p>
+<br>
+
+<h2>Installing Windows XP</h2>
+
+You can install Windows XP from within Windows 2000, or if you installed the full thing, Windows 98.  You
+just have to mount the installation CD on the samba cd-rom drive you have on your network.  Or like me,
+the samba CD-ROM drive that you setup on your network to support installations for your fancy new notebook
+that doesn't have basic facilities like a CD-ROM.  You might be able to do something funky here with
+a USB drive etc by telling the machine to boot using an "alternate boot device".
+
+<p>
+
+The installation should run very smoothly.  The only issue is networking (again).  You will need to
+download the drivers that are available from IBM.  The trick here is working out it is the same networking
+setup as the T23.  IBM has info and drivers for the T23, but has absolutely nothing (at the time of
+writing) for the X22.
+
+<p>
+
+IBM calls it the "IBM High Rate Wireless LAN Mini-PCI Combo card".  You can download the drivers
+<a href="http://www.pc.ibm.com/qtechinfo/MIGR-4ZVMXK.html?lang=en_US&page=brand&brand=IBM+ThinkPad&doctype=Downloadable+files&subtype=Cat">here</a>.
+I think in the last day they've added something saying this works with the X22.  Installation and setup
+is simple.
+
+<p>
+<br>
+
+<h2>Installing Software from Samba Mounted CD-ROM</h2>
+
+In trying to install things like Microsoft Office etc I had to do it from a Samba mounted CD-ROM drive.  This
+is easy once you work out that there is a unhide option when mounting a CD-ROM.  These installation disks
+have a number of hidden files.  You get really strange errors when trying to install if the setup programs
+can't find these hidden files.
+<pre>
+    mount -o unhide /mnt/cdrom
+</pre>
+
+<p>
+
+This one really stumped me for a while!
+
+<p>
+<br>
+
+<h2>A Boot Manager</h2>
+
+After shelling out all that money for Partition Magic I thought I might as well use its included boot manager
+since it is able to talk to all the different operating systems.  Apparently there can be hassles with lilo
+or Windows XP boot options when trying to talk between Linux etc.  I have lilo dual booting Windows XP and
+Linux on my desktop, but didn't want to risk more trouble during this install.
+
+<p>
+
+The Boot Magic program works like a treat.  Easy to setup.  Another good trick is to just add the IBM Service
+partition to the boot options, although hopefully you'll never have to run it again.
+
+<p>
+<br>
+
+<h2>Good Luck!</h2>
+
+I think that is just about all of the problems I encountered during machine setup.  I haven't played much
+with the wireless networking yet.  I'm confident that it can all
+be solved from this point though with time.  When I had the machine in a state of the IBM Service partition
+not installing properly, Partition Magic reporting the whole drive as a bad partition and no OS installed
+I was pretty worried (grin).
+
+<p>
+
+You can post comments or suggestions for others below.  Sorry if I can't answer your emails for help, I'm
+now really far behind on project work after this setup interlude (grin).
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

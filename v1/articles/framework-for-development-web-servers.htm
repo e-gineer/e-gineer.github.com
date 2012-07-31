@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Framework for Development Web Servers</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Framework for Development Web Servers</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (May 25, 1999)
+
+<p>
+<br>
+
+Web site developers need fast and easy access to documentation, development servers and released sites.  Setting up your development web server with a consistent framework is the easiest way to meet these needs.
+
+<p>
+<br>
+
+<a name=assumptions></a><h2>Framework Assumptions</h2>
+
+I use a single Linux box to do all my development.  Although <strong>this framework is based on a single machine setup</strong>, the techniques could be used in a team/network environment.
+
+<p>
+<br>
+
+<a name=access></a><h2>Fast and Easy Access</h2>
+
+<strong>The easiest way for an e-gineer to access information is with a web browser.</strong>  When working I already have browsers open for viewing my work and <a href="http://www-aus.cricket.org/link_to_database/ARCHIVE/WORLD_CUPS/WC99/">browsing the net</a>.
+
+<p>
+
+There are two ways to make information easy to find with a browser:
+<ul>
+<li>bookmarks
+<li>simple domain names
+</ul>
+
+<p>
+
+Since my bookmarks seem to get out of hand extremely quickly I find <strong>simple domain names are best</strong>.  Bookmarks also have the disadvantage of being tied to a particular users browser.  This means that when I log into my box as root for some reason I no longer have access to all of the bookmarks from my normal working account.
+
+<p>
+<br>
+
+<a name=domainnames></a><h2>Simple Domain Names</h2>
+
+We are going to play <a href="http://www.icann.org">God</a> and <strong>create two new domain levels</strong>:
+<ul>
+<li>.doc
+<li>dev.
+</ul>
+
+<p>
+
+The new .doc top level domain (TLD) is used for <strong>referencing documentation with our browser</strong>.
+
+<p>
+
+<strong>Sites currently under development get a special dev.mysite.com URL</strong> which points to the development web server.
+
+<p>
+
+Read my <a href="../instructions/install-apache1xx-on-linux.htm">Apache Installation Instructions</a> for more information on setting up these simple domain names on your machine and for your web server.
+
+<p>
+<br>
+
+<a name=doc></a><h2>Documentation</h2>
+
+Almost all documentation is now <strong>available on the web in HTML format</strong>.  Unfortunately I can't afford to be connected to the web permanently and my connection is too slow to jump around the often massive documentation HTML files.  Worst of all, I have to dig my way down to the doc since I can't find anything in my huge bookmark list.
+
+<p>
+
+So, I <strong>download the documentation and install it under my own local web server</strong>.  I usually create a domain for each documentation set, <strong>eg: mysql.doc, php.doc, apache.doc</strong> and so on.  Now the documentation is always available, fast and easy to find.
+
+<p>
+<br>
+
+<a name=sites></a><h2>Development and Production Sites</h2>
+
+Keeping the <strong>pages and code separate for the development and live versions</strong> of the site is important because you:
+<ul>
+<li>are less likely to post a mistake on your live site
+<li>have at least one backup copy of the site
+<li>can develop while not connected to the net
+</ul>
+
+<p>
+
+One important aspect when programming pages for this configuration is to <strong>avoid the use of the server name when linking</strong>.  The page for this article is in the same directory as my articles contents page.  There are a number of ways that I can link back to the contents.  The three principal techniques are:
+<ul>
+<li>http://www.e-gineer.com/e-gineer/articles/index.phtml
+<li>/e-gineer/articles/index.phtml
+<li>index.phtml
+</ul>
+
+<p>
+
+Similarly, linking back to the main page of this site can be done with:
+<ul>
+<li>http://www.e-gineer.com
+<li>http://www.e-gineer.com/e-gineer/index.phtml
+<li>/e-gineer/index.phtml
+<li>../index.phtml
+</ul>
+
+<p>
+
+The links that contain the explicit reference to <a href="http://www.e-gineer.com">http://www.e-gineer.com</a> are not suitable for testing on the development server.  Every link will take us to the live web server.  When we <strong>link to the file location only</strong>, the links point to within the current server, allowing us to <strong>test using the development server</strong>.
+
+<p>
+
+The best solution is to <strong>use relative file name links</strong>, the final case in the examples above.  This gives us the freedom to use different server names and to move the location of the file hierarchy without changing all of the links.  Currently e-gineer.com is running as a virtual host, which is why the url for every page starts with <a href="http://www.e-gineer.com/e-gineer">http://www.e-gineer.com/e-gineer</a> instead of <a href="http://www.e-gineer.com">http://www.e-gineer.com</a>.  If these pages are moved to their own server (thus losing the /e-gineer part) then using relative file name links will mean that I won't have to change all of my links.  This is not extremely important since <a href="http://www.useit.com/alertbox/981129.html">links must live forever</a>.
+
+<p>
+
+I keep an <strong>exact copy of the pages and file struction on both servers</strong>.  This gives me the chance to create freely in development and upload the changes when I am ready.  The added advantage is the protection of having at least two copies of your web pages.
+
+<p>
+
+Use a <strong>consistent directory layout</strong> when working on multiple sites.  Here is an example:
+<pre>
+    /www
+    /www/servers
+    /www/servers/synop.com    - serves pages for dev.synop.com
+    /www/servers/e-gineer.com - serves pages for dev.e-gineer.com
+    /www/servers/apache.doc   - contains apache html manual for apache.doc
+</pre>
+
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

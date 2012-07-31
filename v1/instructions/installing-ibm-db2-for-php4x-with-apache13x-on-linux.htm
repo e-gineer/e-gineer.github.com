@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Getting IBM DB2/Apache 1.x/PHP4.x to work together on Linux</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Getting IBM DB2/Apache 1.x/PHP4.x to work together on Linux</h1>
+
+<p><em>by <a href="mailto:shawndo@austin.rr.com">Shawn M. Drew</a></em> (Mar 18, 2001)</p>
+
+<h2>Introduction, Resources and Credits</h2>
+
+<p>
+This document will cover configuring php to work with DB2. This expands on 
+Apache and PHP installation instructions given by <a href="../../nathan/">Nathan Wallace</a> 
+and John Brett from <a href="http://www.synop.com">Synop</a>. 
+I have written these instructions while performing the installation on RedHat 
+7.0 If something is unclear, or you need help with a step because your distribution 
+is different, <a href="mailto:shawndo@austin.rr.com">email</a> me. I have performed 
+this with Apache 1.3.19, PHP 4.0.4p1, and DB2 7.1</p>
+<p>Links with related information:</p>
+<ul>
+<li><a href="install-apache1xx-on-linux.htm">Installing Apache 1.x.x on Linux</a></li>
+<li><a href="install-php4x-for-apache1xx-on-linux.htm">Installing PHP 4.x for Apache 1.x.x on Linux</a></li>
+<li><a href="http://www.linuxdoc.org/HOWTO/DB2-HOWTO/index.html">DB2 Version 7.1 for Linux HOWTO</a></li>
+<li><a href="http://www-4.ibm.com/cgi-bin/db2www/data/db2/udb/winos2unix/support/v7pubs.d2w/en_main">DB2 UDB and Connect Manuals</a></li>
+<li><a href="http://cs1.mcm.edu/tutorial/htmlguid/php/php-odbc.phtml">PHP ODBC</a></li>
+</ul>
+
+<h2>Assumptions:</h2>
+
+<p>1. The instructions assume you have installed Linux and have gcc installed 
+  and ready to go. If not, head on over to <b><a href="http://www.linuxiso.org">LinuxISO</a></b> 
+  and get a copy (You do have access to a burner right?). I have done this successfully 
+  with the default &quot;workstation&quot; install of Redhat 7.0 and &quot;developement&quot; 
+  on Mandrake 7.2</p>
+<p>2. You have an Internet connection configured</p>
+<p>3. You have the DB2 server configured and running. If not, refer to the <a href="http://www.linuxdoc.org/HOWTO/DB2-HOWTO/index.html">DB2 
+  Version 7.1 for Linux HOWTO.</a></p>
+<p><b>Note: </b>DB2 does not need to be on the same machine as Apache/PHP4. While 
+  writing this, I have DB2 installed on a seperate machine. All that matters is 
+  that the DB2 server is reachable through the network with no firewall in between. 
+  The scope of this document does not cover firewall configuration to allow DB2 
+  traffic</p>
+<p>4. You have the media and licensing for the DB2 Connect package if the DB2 
+  service is installed on a remote machine, or the DB2 Server media if installed 
+  locally. While writing this I am using an untar'd DB2 Connect EE.</p>
+
+<h2>Preparing your system for installation</h2>
+
+<p>1. Log in as root if not already</p>
+<p><b>su root</b></p>
+<p>2. I like to have a &quot;clean&quot; install so I dont want multiple copies 
+  of Apache and PHP floating around. Check if you have any components installed.</p>
+<p><b>rpm -qa | grep php</b></p>
+<p><b>rpm -qa | grep -i apache</b></p>
+<p>If it shows any packages, they should be removed with:</p>
+<p><b>rpm -e &lt;package_name&gt;</b></p>
+<p>These packages may have to be removed in a specific order because of their 
+  dependencies. Basically if one fails, come back to it later. <b>Note: </b>this 
+  is only a preference of mine, and they dont <i>have</i> to be removed.</p>
+<p>3. ksh needs to be installed for the db2 installation script to run. </p>
+<p>If you are running RedHat 7.0: insert disc2</p>
+<p><b>mount /mnt/cdrom</b> (if the cdrom doesn't mount automatically)</p>
+<p><b>rpm -Uvh /mnt/cdrom/RedHat/RPMS/pdksh-5.2.14-8.i386.rpm</b></p>
+<p>4. The ncurses library needs to be linked so that the DB2 installer can find 
+  its version. Mandrake does this by default, but Redhat doesn't.</p>
+<p>on Redhat 7.0:</p>
+<p><b>cd /usr/lib</b></p>
+<p><b>ls libncurses*</b> (you should see a number of &quot;libncurses&quot; files. 
+  if not, install the ncurses-5.1-2 package from Disc 1</p>
+<p><b>ln -s libncurses.so.5.1 libncurses.so.4</b></p>
+
+<h2>Installing the DB2 client</h2>
+
+<p>1. Insert the DB2 Connect CD, mount it, and change to the directory</p>
+<p><b>mount /mnt/cdrom</b> (if the cdrom doesn't mount automatically)</p>
+<p><b>cd /mnt/cdrom </b>(or directory of the untar'd file if downloaded)</p>
+<p>2. Run the DB2 installation program</p>
+<p><b>./db2setup</b></p>
+<p><b>Note:</b> The DB2 installation has this annoying property of filling the 
+  screen with &quot;old&quot; characters. To work arround this, just hit &lt;CTRL&gt;&lt;L&gt; 
+  to clear these characters out when you are getting annoyed.</p>
+<p>3. Select &quot;DB2 Administration Client&quot; and &quot;DB2 Application Development 
+  Client&quot; then select &lt;OK&gt;</p>
+<p><b>Note:</b> The &quot;Application Development Client&quot; is only needed 
+  to compile PHP. It can be removed afterward if you do not plan on re-compiling 
+  php once everything works</p>
+<p>4. Select &quot;Create a DB2 instance&quot;</p>
+<p>The default settings that pop up should be fine, just enter a password under 
+  the specified sections then select &lt;OK&gt;</p>
+<p>5. Begin the installation</p>
+<p>select &lt;OK&gt; to go to the &quot;Summary Report&quot; then select &lt;Continue&gt; 
+  then &lt;OK&gt; to begin installation</p>
+<p>6. Exit the installation program</p>
+
+<h2>Configuring the DB2 client</h2>
+
+<p>1. switch to the db2 instance user that was created during the installation 
+  (to get the environment)</p>
+<p><b>su - db2inst1</b></p>
+<p>3. Configure the connection to the DB2 server</p>
+<p><b>db2 catalog tcpip node delilah remote delilah.shawndo.net server 50000</b></p>
+<p>where: </p>
+<p>&quot;delilah&quot; is the name you want to give to this connection. I always 
+  just use the hostname of the machine with the db2 service (localhost if local)</p>
+<p>&quot;delilah.shawndo.net&quot; is the hostname of the machine with the db2 
+  service (localhost if local)</p>
+<p><b>Note:</b> The DB2 documentation says that you can use an IP address for 
+  this value instead, but I have never done this successfully. When testing the 
+  connection, I always get a &quot;SQL30081N Communication Error&quot; So if you 
+  can not resolve this machine through DNS, add the hostname and IP address to 
+  the /etc/hosts file</p>
+<p>&quot;50000&quot; is the tcp port that the instance containing the desired 
+  database is listening</p>
+<p><b>Note:</b> The port number can be obtained by starting the control center 
+  on the DB2 server, right-click the instance name (default is DB2) and select 
+  &quot;Setup communications&quot; then click on &quot;Properties&quot; next to 
+  &quot;TCP/IP&quot; to show the port number</p>
+<p><b>db2 terminate</b> (not sure what this does, but the db2 manual says to do 
+  it....</p>
+<p>4. Configure the connection to the database. In these examples, I am connecting 
+  to the sample database that DB2 comes with.</p>
+<p><b>db2 catalog database sample as sample at node delilah</b></p>
+<p>where:</p>
+<p>&quot;sample&quot;(1st occurance) is the name of the database as it is named 
+  on the db2 server</p>
+<p>&quot;sample&quot;(2nd occurance) is the alias you want to give this database 
+  when referring to it (I just use the same name) The important thing is that 
+  this alias is unique on this client. This is the value you will use in your 
+  php code when referring to this database.</p>
+<p>&quot;delilah&quot; is the node name that you specified in step 3</p>
+<p><b>db2 terminate</b></p>
+<p>5. Test your connection to the database</p>
+<p><b>- db2 </b>(To start the db2 command line processor)</p>
+<p><b>- connect to sample user &lt;user&gt; using &lt;password&gt;</b></p>
+<p>where:</p>
+<p>&quot;sample&quot; is the alias you gave to the database in Step4</p>
+<p>&quot;&lt;user&gt;&quot; is an account on the DB2 server that has access to 
+  this database</p>
+<p>&quot;&lt;password&quot; is the password for the account</p>
+<p>- You should receive a message like the one below:</p>
+<p> <i>Database Connection Information</i></p>
+<p><i> Database server = DB2/NT 7.1.0<br>
+  SQL authorization ID = DB2<br>
+  Local database alias = SAMPLE</i><br>
+</p>
+<p>- <b>select firstnme from employee </b>(Simple query)</p>
+
+<h2>Installing Apache</h2>
+
+<p>1. Install and configure Apache according to these instructions:</p>
+<p><a href="install-apache1xx-on-linux.htm">Installing Apache 1.x.x on Linux</a></p>
+<p>Note: Before starting the Apache server (./apachectl start) the db2 profile 
+  needs to be sourced. this can be done with:</p>
+<p><b>. /home/db2inst1/sqllib/db2profile</b></p>
+<p>then you can start apache with ./apachectl start</p>
+
+<h2>Installing PHP4</h2>
+
+<p>1. Add library directories to /etc/ld/so/conf</p>
+<p><b>su root</b></p>
+<p><b>echo &quot;/usr/IBMdb2/V7.1/lib&quot; &gt;&gt; /etc/ld.so.conf</b></p>
+<p><b>echo &quot;/usr/IBMdb2/V7.1/include&quot; &gt;&gt; /etc/ld.so.conf</b></p>
+<p><b>ldconfig</b></p>
+<p>Note: I am not a developer and do not know if this is the &quot;correct&quot; 
+  way to do things, but it is the only way I was able to get this to work.</p>
+<p>2. Install and configure PHP4 according to these instructions:</p>
+<p><a href="install-php4x-for-apache1xx-on-linux.htm">Installing PHP 4.x for Apache 1.x.x on Linux</a> (with the following modifications)</p>
+<p>- Do not perform sections 2-5 under &quot;Compiling PHP&quot;. Instead use 
+  this command:</p>
+<p><b>./configure --with-apache=../httpd --with-config-file-path=/www/conf --with-ibm-db2 
+  --enable-track-vars</b></p>
+<p><b>Note:</b> This is assuming that you let db2 create the default instance 
+  id as &quot;db2inst1&quot; in Step 4 of &quot;Installing the DB2 client&quot;. 
+  If not, change the option &quot;--with-ibm-db2&quot; to read <b>--with--ibm-db2=/home/&lt;instanceUID&gt;/sqllib 
+  </b>for example:</p>
+<p><b>./configure --with-apache=../httpd --with-config-file-path=/www/conf --with-ibm-db2=/home/db2inst2/sqllib 
+  --enable-track-vars</b></p>
+<p>- Under step 2 under &quot;Check that it Works&quot;, I was not able to get 
+  the ./apachectl status command to work without modifying the /www/conf/httpd.conf. 
+  I can tell that this isn't a good way to do it, but maybe just change it temporarily 
+  to see the status, or figure out the proper way to do it.</p>
+<p>I had to change the following lines:</p>
+<p><b>#&lt;Location /server-status&gt;<br>
+  # SetHandler server-status<br>
+  # Order deny,allow<br>
+  # Deny from all<br>
+  # Allow from .shawndo.net<br>
+  #&lt;/Location&gt;</b></p>
+<p>to read:</p>
+<p><b>&lt;Location /server-status&gt;<br>
+  SetHandler server-status<br>
+  Allow from All<br>
+  &lt;/Location&gt;</b></p>
+<p>&nbsp;</p>
+
+<h2>Checking that it all works together</h2>
+
+<p>1. First look at the php information</p>
+<p><b>echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /www/servers/phpinfo.php</b></p>
+<p>Bring up a web browser, and look at the page <b>http://&lt;hostname&gt;/phpinfo.php</b></p>
+<p>Look for the section beginning with &quot;ODBC&quot;. If you see this, then 
+  php was successfully compiled.</p>
+<p>2. Create a simple page that queries sample database (to make sure everything 
+  is working together. </p>
+<p>You need to have the information that you used in step 5, under &quot;Configuring 
+  the DB2 client. &quot;database alias, username, and password&quot; In the following 
+  example, I am using &quot;sample, db2,db2&quot; respectively. </p>
+<p>Create a document called <b>/www/servers/phpdbtest.php </b>and insert the following 
+  (change the $dsn, $user, and $passwd to fit your setup):</p>
+<p><font face="Courier New, Courier, mono"><b><font size="2">&lt;html&gt;<br>
+  &lt;head&gt;<br>
+  &lt;title&gt;&lt;/title&gt;<br>
+  &lt;/head&gt;<br>
+  &lt;body</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">&lt;?php</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">$dsn = sample;<br>
+  $user = db2;<br>
+  $passwd = db2;</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">$conn = odbc_connect($dsn,$user,$passwd 
+  );</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">echo &quot;conn: 
+  $conn&quot;;<br>
+  if ($conn &lt;= 0) {<br>
+  echo &quot;Error in connection&lt;BR&gt;&quot;;<br>
+  exit;<br>
+  }<br>
+  else {<br>
+  echo &quot;&lt;P&gt;Connection successful\n&quot;;<br>
+  };</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">$query = &quot;SELECT 
+  firstnme FROM EMPLOYEE&quot;;<br>
+  $result = odbc_Exec($conn, $query);</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">odbc_result_all($result);</font></b></font></p>
+<p></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono"><br>
+  odbc_Close($conn);</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono">?&gt;</font></b></font></p>
+<p><font size="2"><b><font face="Courier New, Courier, mono"><br>
+  &lt;/body&gt;<br>
+  &lt;/html&gt;</font></b></font></p>
+<p>3. Bring up a web browser, and look at the page <b>http://&lt;hostname&gt;/phpdbtest.php</b></p>
+<p>- if you used the same sample database I used, your output should look something 
+  like this:</p>
+<p><b>Connection successful </b><br>
+  <b>FIRSTNME <br>
+  CHRISTINE <br>
+  MICHAEL <br>
+  SALLY <br>
+  JOHN <br>
+  IRVING <br>
+  EVA <br>
+  EILEEN <br>
+  THEODORE <br>
+  VINCENZO </b></p>
+  
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>

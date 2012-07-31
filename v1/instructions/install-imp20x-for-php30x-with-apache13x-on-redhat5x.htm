@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Installing IMP 2.0.x for PHP 3.0.x with Apache 1.3.x on Red Hat Linux 5.x</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
+<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog">
+		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="../../">
+	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+
+<h1>Installing IMP 2.0.x for PHP 3.0.x with Apache 1.3.x on Red Hat Linux 5.x</h1>
+
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (August 11th, 1999)
+
+<p>
+<br>
+
+<h2>Introduction</h2>
+
+This document describes how to install <a href="http://www.horde.org">IMP</a> for <a href="http://www.php.net">PHP</a> with <a href="http://www.apache.org">Apache</a> on <a href="http://www.redhat.com">Red Hat</a> Linux.
+
+<p>
+<br>
+
+<h2>Before we Begin</h2>
+
+<ol>
+
+<li>These instructions assume that you have installed Apache, PHP and IMAP support according to my instructions.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Installing IMP</h2>
+
+<ol>
+
+<li>I created a new server name for my IMP installation:
+<pre>
+    cd /www/servers
+    mkdir myimp.com
+    cd myimp.com
+</pre>
+
+<p>
+
+<li>I needed to set up a new virtual host for the new IMP server name.  You can do the same by using myimp.com and following <a href="install-apache1xx-on-linux.htm#vhosts">these instructions</a>.
+
+<p>
+
+<li>Now we have to get both HORDE and IMP.
+<pre>
+    ftp ftp.horde.org
+    cd imp
+    cd tarballs
+    get horde-latest.tar.gz
+    get imp-latest.tar.gz
+</pre>
+
+<p>
+
+<li>Installing HORDE
+<pre>
+    tar xzvf horde-latest.tar.gz
+    ln -s horde-1.0.10 horde
+</pre>
+
+<p>
+
+<li>Installing IMP
+<pre>
+    mv imp-latest.tar.gz horde
+    tar xzvf imp-latest.tar.gz
+    ln -s imp-2.0.10 imp
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Building IMP</h2>
+
+<ol>
+
+<li>First we have to build HORDE.  Ignore the warning about build.opts, the current HORDE distribution has no options.
+<pre>
+    cd lib
+    cd src
+    ./build.pl
+</pre>
+
+<p>
+
+<li>Now we have to build IMP.  I am using MySQL for the database.
+<pre>
+    cd ../..
+    cd imp/lib/src
+    ./build.pl --database=mysql
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Configuring IMP</h2>
+
+<ol>
+
+<li>We need to create a defaults file.  I'm using MySQL so I'll use the include example default file as a starting point.
+<pre>
+    cd ../../config
+    cp examples/mysql.defaults.php3 defaults.php3
+</pre>
+
+<p>
+
+<li>Now we need to edit that defaults file to set the server names and so on.  There are a number of changes to make, my changes are listed below.  The first is on line 3, changing the email address that problem reports are sent to.
+<pre>
+$default-&gt;problem_email             = 'nathan@synop.com';
+</pre>
+
+<p>
+
+Next you need to specify the name of your local machine on line 16.
+<pre>
+$default-&gt;localhost                 = 'ws01.synop.com';
+</pre>
+
+<p>
+
+Then setup your IMAP server defaults on lines 19 and 20.
+<pre>
+$default-&gt;server                    = 'mail.synop.com';
+$default-&gt;from_server               = 'synop.com';
+</pre>
+
+<p>
+
+The security on my MySQL machine is a little messed up and I can't be bothered fixing it since I'm too busy writing code.  As a result I needed to remove the default password that is given to the MySQL user impmgr before things would work.  It's on line 93.  You probably won't need to do this:
+<pre>
+$default-&gt;db_password               = '';
+</pre>
+
+<p>
+
+One last change on line 104:
+<pre>
+$default-&gt;signup_email              = 'nathan@synop.com'; 
+</pre>
+
+<p>
+
+<li>Finally we need to disable the PHP setup script (which we didn't use).  This must be done for security reasons.
+<pre>
+    cd ..
+    chmod 000 setup.php3
+</pre>
+
+</ol>
+
+<p>
+<br>
+
+<h2>Setting Up the IMP Database</h2>
+
+I'm not sure if I should set up the database for Horde at this point as well.  It seemed to work even though I didn't set it up.  If I'm wrong let me know...
+
+<ol>
+
+<li>We need to define a few tables in the database before IMP will work properly.  This is really easy since we are given a script to do it.  You need to run this script as the root MySQL user.
+<pre>
+    cd imp/config/scripts
+    mysql --user=rootuser --password=password &lt;mysql_create.sql
+</pre>
+
+<p>
+
+<li>If you don't want to or can't create a new database on your system then you can just edit the script and change the defaults.php3 file (that we edited above) to use your prefered MySQL database and user names.
+
+</ol>
+
+<p>
+<br>
+
+<h2>Using IMP</h2>
+
+<ol>
+
+<li>Using IMP is now just a matter of restarting your Apache server.
+<pre>
+    su root
+    /www/bin/apachectl restart
+</pre>
+
+<p>
+
+<li>Now you can just open your browser to <a href="http://dev.myimp.com/horde/">http://dev.myimp.com/horde/</a> to start using it!
+
+<p>
+
+<li>In case you panic, notice the little IMP link in the top left hand corner.
+
+<p>
+
+<li>Also, be aware that some IMP operations can be very slow if you are talking to a mail server over a modem.
+
+</ol>
+
+  <!-- #EndEditable -->
+  </div>
+  
+<?php
+// import the footer from a dynamic blog page to ensure we have the latest archive links
+$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
+echo substr($html, strpos($html, '<div id="contentPageFooter">'));
+?>
