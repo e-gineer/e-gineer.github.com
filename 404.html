@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope/bluescope.css"/>
     <link rel="shortcut icon" href="/v2/presentation/bluescope/bluescope.ico" type="image/ico"/>
     <script type="text/javascript"><!--
-      broken_url = document.location.href;
+      broken_url = '/' + window.location.pathname;
       new_url = broken_url;
       // switch them away from old .phtml pages
       new_url = new_url.replace('.phtml', '.htm');
@@ -20,7 +20,7 @@ alert(new_url.substring(0, 8));
       }
 alert(broken_url + '\n' + new_url);
       if (new_url != broken_url) {
-        window.location = new_url;
+        window.location = window.location.protocol + '://' + window.location.host + new_url;
       }
     --></script>
     <style>
