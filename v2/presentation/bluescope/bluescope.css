@@ -31,6 +31,10 @@ UL {
   margin-top: 0;
   margin-bottom: 0.5em;
 }
+PRE {
+  font-family: "Courier New", Courier, fixed;
+  font-size: 0.9em;
+}
 OBJECT {
   margin: 1em 0 0 4em;
 }

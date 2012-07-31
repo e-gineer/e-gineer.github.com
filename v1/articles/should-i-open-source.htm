@@ -1,55 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Should I Open Source?</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
-
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-
-<h1>Should I Open Source?</h1>
+---
+layout: page
+title: Should I Open Source?
+---
 
 <em>by <a href="../../nathan/">Nathan Wallace</a></em> (September 16, 1999)
 
 <p>
-<br>
 
 As <a href="http://www.opensource.org">Open Source</a> enters the mainstream and the buzz rises to deafening levels all software producers are going to ask themselves "Should I Open Source?".  For these people the answer lies in the business value of open source, rather than the philosophical reward.  This article presents the factors to consider when making a decision about opening up your product.  The ideas were compiled from talks and discussions with industry experts at the <a href="http://conferences.oreilly.com/convention99.html">O'Reilly Open Source Convention</a>.
 
 <p>
-<br>
 
 <h2>Introduction</h2>
 
@@ -64,7 +24,6 @@ The key questions, problems and advantages to be considered when making a decisi
 You know your company and product better than anyone.  Use the high level descriptions below to determine which points require fine level attention in your case.
 
 <p>
-<br>
 
 <h2>Open Source is Good Business</h2>
 
@@ -131,7 +90,6 @@ Using your existing development team to work on an open source project also hold
 <strong>Open source projects give your employees the chance to give something back to the community, gain reputation and interact with other developers.</strong>  For a lot of developers these are strong motivating factors when at work.
 
 <p>
-<br>
 
 <h2>But it can also be Bad Business</h2>
 
@@ -166,7 +124,6 @@ It can be very <strong>difficult to find a successful business niche within open
 Perhaps worst of all, is the <strong>absense of a financial perspective</strong> in the Open Source model.  Free software grew out of anti-proprietary sentiment.  Open source adapted the free software ideas to make it more palatable to the business community.  Open source is a way of working and running your company, it is not a business model.  It may bring value to your product, but turning that extra quality into financial gain is still a difficult question.
 
 <p>
-<br>
 
 <h2>Further Reading</h2>
 
@@ -176,12 +133,3 @@ These articles will provide you with more details on building and running an ope
 <li><a href="http://www.tuxedo.org/~esr/writings/cathedral-bazaar/cathedral-bazaar-4.html">The Cathedral and the Bazaar</a>
 <li><a href="http://people.netscape.com/hecker/setting-up-shop.html">Setting Up Shop</a>
 </ul>
-	
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>

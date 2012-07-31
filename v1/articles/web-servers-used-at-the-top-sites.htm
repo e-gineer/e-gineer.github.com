@@ -1,55 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Web Servers Used at the Top Site</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
-
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-
-<h1>Web Servers Used at the Top Sites</h1>
+---
+layout: page
+title: Web Servers Used at the Top Sites
+---
 
 <em>by <a href="../../nathan/">Nathan Wallace</a></em> (June 3, 1999)
 
 <p>
-<br>
 
 Apache currently dominates the overall web server market share.  Examination of a sample of the top Internet sites reveals very different popularity figures.  It's a dead heat between Apache, IIS and Netscape.  CGI programming is used by approximately 70% of these sites, with ASP (11%), PHP (5%) and mod_perl (5%) the dominant scripting solutions.
 
 <p>
-<br>
 
 <h2>What are the Top Sites?</h2>
 
@@ -68,7 +28,6 @@ I adopted <a href="http://www.pcmag.com">PC Magazine's</a> views on the <a href=
 The result was a <strong>sample of 130 web sites</strong>.
 
 <p>
-<br>
 
 <h2>Gathering Web Server Data</h2>
 
@@ -129,7 +88,6 @@ To collect this information from 130 sites I wrote a little PHP script (link rem
 The detailed results <a href="web-servers-used-at-the-top-sites-details.htm">are available here</a>.
 
 <p>
-<br>
 
 <h2>Web Server Popularity at Top Sites</h2>
 
@@ -148,7 +106,6 @@ The results show that the <strong>web server market for the top sites is very ev
 <img src="web-servers-used-at-the-top-sites-vs-overall-popularity.gif" height=377 width=519>
 
 <p>
-<br>
 
 <h2>Using Old Versions of the Web Servers</h2>
 
@@ -203,7 +160,6 @@ Similarly, the large number of old Netscape versions in use indicates that eithe
 High figures for the Netscape servers may also be an <strong>indication of their past popularity</strong>.  Many of the <strong>sites in the top listing are quite old</strong> by Internet standards.  At the time of deployment Netscape may have been a stronger force in the web server market.
 
 <p>
-<br>
 
 <h2>Scripting Language Solutions</h2>
 
@@ -234,14 +190,5 @@ Basically, I estimated the proportion of IIS servers using ASP to be the same as
 The most interesting observation here is that CGI is by far the most popular form of web site programming.  It is fair to assume that all of the sites in this sample use dynamic pages, even if it only for rotating banners.  The result is that an astounding <strong>70% of the top web sites are using CGI programs</strong>.
 
 <p>
-<br>
 
 <strong>June 11th, 1999:</strong>  The results in this article were changed slightly due to a data error.  I discovered that digitalcity.com is actually using AOLserver rather than Apache/PHP.  The problem was that my web host (where I ran the script) has digitalcity.com defined in their DNS as being parked on their servers.  Unfortunately this changed the results a little, making Apache equal with IIS and Netscape, and making PHP equal with mod_perl.
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>
