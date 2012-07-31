@@ -21,7 +21,7 @@ alert(new_url.substring(0, 9));
       }
 alert(broken_url + '\n' + new_url);
       if (new_url != broken_url) {
-        window.location = window.location.protocol + '://' + window.location.host + new_url;
+        window.location = new_url;
       }
     --></script>
     <style>
