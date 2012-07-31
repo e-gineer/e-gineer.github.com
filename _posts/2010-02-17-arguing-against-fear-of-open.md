@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Arguing against a fear of open collaboration inside an enterprise
 ---
 

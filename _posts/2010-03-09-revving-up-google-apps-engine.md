@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Revving up the Google App(s) Engine
 published: true
 ---

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Corporate Alumni - Pretend they never leave
 ---
 
