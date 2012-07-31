@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope/bluescope.css"/>
     <link rel="shortcut icon" href="/v2/presentation/bluescope/bluescope.ico" type="image/ico"/>
     <script type="text/javascript"><!--
-      broken_url = '/' + window.location.pathname;
+      broken_url = window.location.pathname;
       new_url = broken_url;
+alert(broken_url);
       // switch them away from old .phtml pages
       new_url = new_url.replace('.phtml', '.htm');
       // remove the old /e-gineer/ directory prefix if it exists
