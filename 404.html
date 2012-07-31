@@ -20,6 +20,8 @@ alert(new_url.substring(0, 9));
         new_url = '/v1' + new_url;
       }
 alert(broken_url + '\n' + new_url);
+      // redirect to directories, rather than pages if possible
+      new_url = new_url.replace('/index.htm', '');
       if (new_url != broken_url) {
         window.location = new_url;
       }
