@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.title }} | e-gineer</title>
-    <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope.css"/>
-    <link rel="shortcut icon" href="/v2/presentation/bluescope.ico" type="image/ico"/>
-  </head>
-  <body>
+{% include header.html %}
 
-    {% include header.html %}
+<div id="pageContent">
 
-    <div id="pageContent">
+  <h1>{{ page.title }}</h1>
 
-      <h1>{{ page.title }}</h1>
+  <div class="blogPostByline">
+    <a class="blogPostTimestamp" href="{{ page.url }}">{{ page.date | date: "%B %e, %Y" }}</a>
+  </div>
 
-      <div class="blogPostByline">
-        <a class="blogPostTimestamp" href="{{ page.url }}">{{ page.date | date: "%B %e, %Y" }}</a>
-      </div>
+  {{ content }}
 
-      {{ content }}
+</div>
 
-    </div>
-
-    {% include footer.html %}
-
-  </body>
-</html>
+{% include footer.html %}

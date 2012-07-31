@@ -1,140 +1,107 @@
 ---
-title: e-gineer by Nathan Wallace
+title: e-gineer
 ---
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope.css"/>
-    <link rel="shortcut icon" href="/v2/presentation/bluescope.ico" type="image/ico"/>
-    <script>
 
-      function drawBrainLine (context, xs, ys, xf, yf) {
-        var r = 5;
-        context.beginPath();
-        context.moveTo(xs, ys);
-        if ((yf-ys) > r) {
-          // heading downwards, do a simple quadratic
-          context.lineTo(xs, yf-r);
-          if (xf < xs) {
-            context.arc(xs-r, yf-r, r, 0, 90*Math.PI/180);
-          }
-          else {
-            context.arc(xs+r, yf-r, r, 180*Math.PI/180, 90*Math.PI/180, true);
-          }
-          context.lineTo(xf, yf);
-          //context.bezierCurveTo(xs, yf, xs, yf, xf, yf);
-          //context.quadraticCurveTo(xs, yf, xf, yf);
-          context.stroke();
-        }
-        else {
-          // heading straight across or back up, do a quadratic combo
-          // down
-          context.lineTo(xs, ys+r);
-          if (xf < xs) {
-            // turn left
-            context.arc(xs-r, ys+r, r, 0, 90*Math.PI/180);
-            // left
-            context.lineTo(xf+3*r, ys+2*r);
-            // turn up
-            context.arc(xf+3*r, ys+r, r, 90*Math.PI/180, 180*Math.PI/180);
-            // up
-            context.lineTo(xf+2*r, yf+r);
-            // turn left
-            context.arc(xf+r, yf+r, r, 0, 270*Math.PI/180, true);
-          }
-          else {
-            // turn right
-            context.arc(xs+r, ys+r, r, 180*Math.PI/180, 90*Math.PI/180, true);
-            // right
-            context.lineTo(xf-3*r, ys+2*r);
-            // turn up
-            context.arc(xf-3*r, ys+r, r, 90*Math.PI/180, 0, true);
-            // up
-            context.lineTo(xf-2*r, yf+r);
-            // turn right
-            context.arc(xf-r, yf+r, r, 180*Math.PI/180, 270*Math.PI/180);
-          }
-          // finish
-          context.lineTo(xf, yf);
-          context.stroke();
+{% include header.html %}
 
-          /*
-          xcp1 = xs;
-          ycp1 = ys + r;
-          xcp2 = xs + 0.8*(xf-xs);
-          ycp2 = yf;
-          xm = (xcp1 + xcp2) / 2;
-          ym = (ycp1 + ycp2) / 2;
-          context.quadraticCurveTo(xcp1, ycp1, xm, ym);
-          context.quadraticCurveTo(xcp2, ycp2, xf, yf);
-          context.stroke();
-          */
-          /*
-          context.strokeStyle = '#ff0000';
-          context.beginPath();
-          context.moveTo(xs, ys);
-          context.lineTo(xcp1, ycp1);
-          context.lineTo(xm, ym);
-          context.stroke();
-          context.strokeStyle = '#00ff00';
-          context.beginPath();
-          context.moveTo(xm, ym);
-          context.lineTo(xcp2, ycp2);
-          context.lineTo(xf, yf);
-          context.stroke();
-          context.strokeStyle = '#0000ff';
-          context.beginPath();
-          context.moveTo(xcp1, ycp1);
-          context.lineTo(xcp2, ycp2);
-          context.stroke();
-          context.strokeStyle = '#adadad';
-          */
+<div id="homeContent">
 
-        }
-      }
+  <div id="tweets">
+    <div id="tweet-links"><img src="/v2/presentation/ajax-loader.gif"></div>
+    <p class="more"><a href="https://twitter.com/nathanwallace">Twitter &rarr;</a></p>
+  </div>
 
-      window.onload = function() {
-        var canvas = document.getElementById("brain");
-        var context = canvas.getContext("2d");
-        startX = 126.5;
-        startY = 145.5;
-        context.lineWidth = 1;
-        context.strokeStyle = '#dddddd';
+  <canvas id="brain" width='220' height='500'></canvas>
 
-        drawBrainLine(context, startX+25, startY, canvas.width, 205.5);
-        drawBrainLine(context, startX+17, startY, canvas.width, 288.5);
-        drawBrainLine(context, startX+12, startY, canvas.width, 371.5);
-      }
-    </script>
-  </head>
-  <body>
-
-    {% include header.html %}
-
-    <div id="homeContent">
-
-      <div id="tweets">
-        <div id="tweet-links"><img src="/v2/presentation/ajax-loader.gif"></div>
-        <p class="more"><a href="https://twitter.com/nathanwallace">Twitter &rarr;</a></p>
-      </div>
-
-      <canvas id="brain" width='220' height='500'></canvas>
-
-      <div id="blogs">
-        <div id="blog-posts">
-          {% for p in site.posts limit:3 %}
-          <p><a href="{{ p.url }}">{{ p.title }}</a>&nbsp;&nbsp;{{ p.date | date: "%e %b %Y" }}</p>
-          {% endfor %}
-        </div>
-        <p class="more"><a href="">Blog &rarr;</a></p>
-      </div>
-
+  <div id="blogs">
+    <div id="blog-posts">
+      {% for p in site.posts limit:3 %}
+      <p class="blog-post"><a href="{{ p.url }}">{{ p.title }}</a>&nbsp;&nbsp;{{ p.date | date: "%e %b %Y" }}</p>
+      {% endfor %}
     </div>
+    <p class="more"><a href="">Blog &rarr;</a></p>
+  </div>
 
-    {% include footer.html %}
+</div>
 
 <script type="text/javascript"><!--
+
+// Draw a line from the brain to the input tweet or output blog post.
+// The line starts from position (xs, ys) and goes to (xf, yf).
+function drawBrainLine (context, xs, ys, xf, yf) {
+  var r = 5;
+  context.beginPath();
+  context.moveTo(xs, ys);
+  if ((yf-ys) > r) {
+    // heading down to the final position, so it's just a simple line
+    // of down, curve and then across
+    // down
+    context.lineTo(xs, yf-r);
+    if (xf < xs) {
+      // left
+      context.arc(xs-r, yf-r, r, 0, 90*Math.PI/180);
+    }
+    else {
+      // right
+      context.arc(xs+r, yf-r, r, 180*Math.PI/180, 90*Math.PI/180, true);
+    }
+    // across
+    context.lineTo(xf, yf);
+    context.stroke();
+  }
+  else {
+    // finish point is above start point, so go down, across, up, and
+    // then across to the finish
+    // down
+    context.lineTo(xs, ys+r);
+    if (xf < xs) {
+      // turn left
+      context.arc(xs-r, ys+r, r, 0, 90*Math.PI/180);
+      // left
+      context.lineTo(xf+3*r, ys+2*r);
+      // turn up
+      context.arc(xf+3*r, ys+r, r, 90*Math.PI/180, 180*Math.PI/180);
+      // up
+      context.lineTo(xf+2*r, yf+r);
+      // turn left
+      context.arc(xf+r, yf+r, r, 0, 270*Math.PI/180, true);
+    }
+    else {
+      // turn right
+      context.arc(xs+r, ys+r, r, 180*Math.PI/180, 90*Math.PI/180, true);
+      // right
+      context.lineTo(xf-3*r, ys+2*r);
+      // turn up
+      context.arc(xf-3*r, ys+r, r, 90*Math.PI/180, 0, true);
+      // up
+      context.lineTo(xf-2*r, yf+r);
+      // turn right
+      context.arc(xf-r, yf+r, r, 180*Math.PI/180, 270*Math.PI/180);
+    }
+    // finish
+    context.lineTo(xf, yf);
+    context.stroke();
+  }
+}
+
+window.onload = function() {
+  var canvas = document.getElementById("brain");
+  var context = canvas.getContext("2d");
+  // Starting position for lines from the brain. Use half points
+  // to line up with screen pixel positions.
+  startX = 126.5;
+  startY = 145.5;
+  context.lineWidth = 1;
+  context.strokeStyle = '#dddddd';
+  // draw the lines from the brain to the blog posts
+  tmp = document.getElementsByClassName('blog-post');
+  xOffsets = [25, 17, 12]; // x offset of starting points on brain
+  for (i in tmp) {
+    drawBrainLine(context, startX+xOffsets[i], startY, canvas.width, tmp[i].offsetTop+tmp[i].offsetParent.offsetTop+12);
+  }
+}
+
+
 function relativeTime(time_value) {
   var values = time_value.split(" ");
   time_value = values[1] + " " + values[2] + ", " + values[5] + " " + values[3] + " " + values[4];
@@ -157,6 +124,7 @@ function relativeTime(time_value) {
   return 'Long&nbsp;ago';
   }
 }
+
 function linkTweet(tweet) {
   // remove any stray line breaks to make regexp easier
   tweet = tweet.replace(/\n/gi,' ');
@@ -178,42 +146,35 @@ function linkTweet(tweet) {
   tweet = tweet.replace(regexp,' <a href="http://search.twitter.com/search?q=&tag=$1&lang=all">#$1</a>');
   return tweet;
 }
+
 function twitterItems(items) {
+  // Add the twitter items to the page
   html = '';
   for (i=0;i<items.length;i++) {
     html += '<p>' + linkTweet(items[i]['text']) + '&nbsp; <span class="timestamp">' + relativeTime(items[i]['created_at']) + '</span></p>';
     html += '<div class="tweet-underline"></div>';
   }
   document.getElementById('tweet-links').innerHTML = html;
+  // draw lines from the brain to the tweets
   var canvas = document.getElementById("brain");
   var context = canvas.getContext("2d");
   startX = 126.5;
   startY = 145.5;
   context.lineWidth = 1;
   context.strokeStyle = '#eeeeee';
-
+  // use a gradient for the lines so they fade in from the tweet
   var gradLeft = context.createLinearGradient(startX+10, startY, 0, startY);
-  gradLeft.addColorStop(0.6, '#dddddd'); //'#eeeeee');
-  gradLeft.addColorStop(1, '#eeeeee'); //'#f3f3f3');
+  gradLeft.addColorStop(0.6, '#dddddd');
+  gradLeft.addColorStop(1, '#eeeeee');
   context.strokeStyle = gradLeft;
-
   tmp = document.getElementsByClassName('tweet-underline');
   xOffsets = [0, 1, 4, 5, 8, 9];
   for (i in tmp) {
     drawBrainLine(context, startX+xOffsets[i], startY, 0, tmp[i].offsetTop+tmp[i].offsetParent.offsetTop);
   }
 
-  /*
-  drawBrainLine(context, startX, startY, 0, 121.5);
-  drawBrainLine(context, startX+1, startY, 0, 203.5);
-  drawBrainLine(context, startX+4, startY, 0, 285.5);
-  drawBrainLine(context, startX+5, startY, 0, 347.5);
-  drawBrainLine(context, startX+8, startY, 0, 409.5);
-  drawBrainLine(context, startX+9, startY, 0, 451.5);
-  */
 }
 --></script>
 <script src="https://twitter.com/status/user_timeline/nathanwallace.json?count=6&callback=twitterItems"></script>
-    
-  </body>
-</html>
+
+{% include footer.html %}

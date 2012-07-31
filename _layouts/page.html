@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.title }} | e-gineer</title>
-    <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope.css"/>
-    <link rel="shortcut icon" href="/v2/presentation/bluescope.ico" type="image/ico"/>
-  </head>
-  <body>
+{% include header.html %}
 
-    {% include header.html %}
+<div id="pageContent">
 
-    <div id="pageContent">{{ content }}</div>
+  <h1>{{ page.title }}</h1>
 
-    {% include footer.html %}
+  {{ content }}
 
-  </body>
-</html>
+</div>
+
+{% include footer.html %}
