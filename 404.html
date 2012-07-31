@@ -10,6 +10,7 @@
       // switch them away from old .phtml pages
       new_url = new_url.replace('.phtml', '.htm');
       // remove the old /e-gineer/ directory prefix if it exists
+alert(new_url.substring(0, 8));
       if (new_url.substring(0, 8) == '/e-gineer') {
         new_url = new_url.substring(9);
       }
