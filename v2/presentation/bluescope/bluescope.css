@@ -8,7 +8,6 @@ body {
 H1 {
   font-size: 1.7em;
   color: black;
-  /*margin-bottom: 0.8em;*/
   font-weight: normal;
 }
 H2 {
@@ -36,9 +35,6 @@ P {
 OBJECT {
   margin: 1em 0 0 4em;
 }
-a {
-  color: #174694;
-}
 img {
   border: 0;
 }
@@ -47,10 +43,6 @@ div.clearFloats {
   clear: all;
   line-height: 0;
   font-size: 0;
-}
-
-img {
-  border: 0;
 }
 
 a {
@@ -86,7 +78,7 @@ header {
 
 #homeContent {
   position: relative;
-  background-image: url('/v2/presentation/social-network-brain9.png');
+  background-image: url('/v2/presentation/bluescope/social-network-brain.png');
   background-position: 340px top;
   background-repeat: no-repeat;
 }
@@ -98,6 +90,10 @@ header {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+p.more {
+  margin-top: 1.2em;
 }
 
 p.more a {
@@ -115,14 +111,6 @@ p.more a {
   margin: 0;
   margin-top: 1.5em;
   padding-right: 5px;
-  /*
-  border-bottom: 1px dotted #dddddd;
-  background-image: url(grey-corner.png);
-  background-position: right bottom;
-  background-image: url(grey-arrow.png);
-  background-position: right center;
-  background-repeat: no-repeat;
-  */
 }
 
 #tweet-links a {
@@ -142,7 +130,6 @@ span.timestamp {
 #blogs {
   margin-top: 110px;
   width: 290px;
-  /*float: left;*/
   position: absolute;
   bottom: 0;
   right: 0;
@@ -158,9 +145,9 @@ span.timestamp {
 }
 
 #blog-posts p {
-  margin: 2em 0;
+  margin: 1.5em 0;
   padding-left: 10px;
-  background-image: url(/v2/presentation/grey-arrow.png);
+  background-image: url(/v2/presentation/bluescope/grey-arrow.png);
   background-position: left 9px;
   background-repeat: no-repeat;
 }
@@ -205,25 +192,3 @@ img.archiveScreenshot {
   border: 1px solid #333;
   height: 1.5em;
 }
-
-/*
-#searchArchive {
-  margin: 2em 0;
-  text-align: center;
-}
-#searchArchiveForm {
-  display: inline;
-  border: 1px solid #ddd;
-  background-color: #fcfcfc;
-  padding: 0.6em 6em;
-  font-size: 0.9em;
-}
-#searchArchiveInput {
-  border: 1px solid black;
-}
-#searchArchiveButton {
-  color: black;
-  border: 1px solid #333;
-  height: 1.5em;
-}
-*/
