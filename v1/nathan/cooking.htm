@@ -1,48 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Cooking</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
-
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-
-<h1>Cooking</h1>
+---
+layout: page
+title: Cooking
+---
 
 <p>
-<br>
 
 <h2>Disclaimer</h2>
 
@@ -61,7 +22,6 @@ This is just a collection of random recipes that I use.  I mix and match dependi
 </ul>
 
 <p>
-<br>
 
 <h2>Recipes</h2>
 
@@ -86,7 +46,6 @@ This is just a collection of random recipes that I use.  I mix and match dependi
 </ol>
 
 <p>
-<br>
 
 <b>Pasta</b>
 <ol>
@@ -98,7 +57,6 @@ This is just a collection of random recipes that I use.  I mix and match dependi
 </ol>
 
 <p>
-<br>
 
 <b>White Sauce</b>
 <ol>
@@ -114,7 +72,6 @@ This is just a collection of random recipes that I use.  I mix and match dependi
 </ol>
 
 <p>
-<br>
 
 <b>Spaghetti Bolognase Sauce</b>
 <ol>
@@ -131,12 +88,3 @@ This is just a collection of random recipes that I use.  I mix and match dependi
 </ol>
 
 </ul>
-
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>
