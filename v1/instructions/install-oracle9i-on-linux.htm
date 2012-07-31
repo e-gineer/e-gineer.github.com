@@ -1,44 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Installing Oracle9i on Linux</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
+---
+layout: page
+title: Installing Oracle9i on RedHat Linux (or Similar)
+---
 
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-<h1>Installing Oracle9i on RedHat Linux (or Similar)</h1>
 This document describes how to install Oracle9i (9.0.1) on Redhat Linux
 ( or similar).
 <p>by <a href="http://techdocs.postgresql.org/markir/">Mark Kirkwood</a>
@@ -444,11 +408,3 @@ esac</pre>
 <a NAME="help"></a>Help</h2>
 <a href="http://otn.oracle.com">Oracle Technology Network</a> is a good
 source of help and documentation
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>

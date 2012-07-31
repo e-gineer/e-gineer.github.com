@@ -1,50 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Installing Frontpage Extensions for Apache on Linux</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
-
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-
-<h1>Installing Frontpage Extensions for Apache on Linux</h1>
+---
+layout: page
+title: Installing Frontpage Extensions for Apache on Linux
+---
 
 <em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 31, 1999)
 
 <p>
-<br>
 
 <h2>Introduction</h2>
 
@@ -55,7 +16,6 @@ This document describes how to install the <a href="http://www.microsoft.com">Mi
 The specifics of these instructions assume that you have Apache setup and layed out as per <a href="install-apache1xx-on-linux.htm">these instructions</a>.
 
 <p>
-<br>
 
 <h2>Getting mod_frontpage</h2>
 
@@ -110,7 +70,6 @@ The scary thing is that the combined download for MySQL, Apache and PHP is less 
 </ol>
 
 <p>
-<br>
 
 <h2>Pre-Installation for Front Page Extensions</h2>
 
@@ -131,7 +90,6 @@ Make sure to put the full path!
 </ol>
 
 <p>
-<br>
 
 <h2>Installing Front Page Extensions</h2>
 
@@ -278,7 +236,6 @@ Now we need to make sure that all the users are part of this group and that it i
 </ol>
 
 <p>
-<br>
 
 <h2>Installing mod_frontpage</h2>
 
@@ -416,7 +373,6 @@ NameVirtualHost 192.168.6.1
 </ol>
 
 <p>
-<br>
 
 <h2>Testing the Installation</h2>
 
@@ -439,12 +395,3 @@ NameVirtualHost 192.168.6.1
 </pre>
 
 </ol>
-
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>

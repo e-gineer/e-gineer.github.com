@@ -1,51 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Installing Apache 1.x.x on Linux</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
-
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-
-<h1>Installing Apache 1.x.x on Linux</h1>
+---
+layout: page
+title: Installing Apache 1.x.x on Linux
+---
 
 <em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 25, 1999)<br>
 <em>and John Brett</em> (Dec 4, 2000)<br>
 
 <p>
-<br>
 
 <h2>Introduction</h2>
 
@@ -56,7 +17,6 @@ This document describes how to install <a href="http://www.apache.org">Apache</a
 People familiar with my previous instruction sets will notice that I have changed the layout of the files.  I believe this new format to be slightly better.
 
 <p>
-<br>
 
 <h2>Installing Apache</h2>
 
@@ -113,7 +73,6 @@ I've decided to start using httpd for the link since that's what everyone else s
 </ol>
 
 <p>
-<br>
 
 <h2>The Apache Layout</h2>
 
@@ -150,7 +109,6 @@ We will have a few directories here to maintain this structure:
 </pre>
 
 <p>
-<br>
 
 <h2>Configuring and Compiling Apache</h2>
 
@@ -210,7 +168,6 @@ One nice thing here is that if you are installing a new apache, it will not over
 </ol>
 
 <p>
-<br>
 
 <h2>Setting Up Your Apache Server</h2>
 
@@ -328,7 +285,6 @@ If you don't get a large number of hits and you want to know where your visitors
 </ol>
 
 <p>
-<br>
 
 <a name="vhosts"></a><h2>Setting Up Virtual Hosts</h2></a>
 
@@ -519,7 +475,6 @@ NameVirtualHost 127.0.0.1:80
 </ol>
 
 <p>
-<br>
 
 <h2>Running Apache</h2>
 
@@ -548,23 +503,13 @@ NameVirtualHost 127.0.0.1:80
 </ol>
 
 <p>
-<br>
 
 <h2>Starting and Stopping Apache Automatically</h2>
 
 If you use Red Hat or one of it's variants you can use <a href="starting-and-stopping-apache-automatically-on-redhat.htm">these instructions</a> to make Apache start and stop automatically with your machine.
 
 <p>
-<br>
 
 <h2>What Next?</h2>
 
 <a href="install-php3xx-for-apache1xx-on-linux.htm">Install PHP3</a> or <a href="install-php4x-for-apache1xx-on-linux.htm">PHP4</a> with <a href="install-mysql3xx-on-linux.htm">MySQL</a> to create dynamic web pages and services.
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>

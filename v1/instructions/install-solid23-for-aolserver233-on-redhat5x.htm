@@ -1,50 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<!-- #BeginTemplate "../../v2/presentation/template.dwt" -->
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x</title>
-<!-- #EndEditable -->
-<link rel="stylesheet" type="text/css" href="../../v2/presentation/TortoiseRocket.css"/>
-<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="../../v2/blog/rss.xml" />
-<link rel="shortcut icon" href="../../v2/presentation/TortoiseRocket.ico" type="image/ico"/>
-</head>
-<body>
-
-<div id="contentPageWrapper">
-
-  <div id="contentPageHeader">
-    <div id="contentPageHeaderBar">
-      <div id="contentPageHeaderLinkBlog">
-		<a href="../../v2/blog/" class="contentPageHeaderLink">Blog</a></div>
-      <div id="contentPageHeaderLinkNathan"><a href="../../nathan/" class="contentPageHeaderLink">Nathan</a></div>
-      <div id="contentPageHeaderLinkArchive"><a href="../../archive/" class="contentPageHeaderLink">Archive</a></div>
-    </div>
-    <a href="../../">
-	<img id="contentPageEgineerImage" src="../../v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
-  </div>
-
-  <div id="googleAd">  
-    <script type="text/javascript"><!--
-    google_ad_client = "pub-4825523674148460";
-    /* 728x90, created 4/13/09 */
-    google_ad_slot = "2745493970";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-  </div>
-
-  <div id="contentPageBody">
-  <!-- #BeginEditable "body" -->
-
-<h1>Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x</h1>
+---
+layout: page
+title: Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x
+---
 
 <em>by <a href="../../nathan/">Nathan Wallace</a></em> (April 28, 1999)
 
 <p>
-<br>
 
 <h2>Introduction</h2>
 
@@ -67,7 +28,6 @@ We will work through the installation of Solid and then setup AOLserver to talk 
 Solid is cheap, low maintenance and will be powerful enough for most web sites.
 
 <p>
-<br>
 
 
 <h2>Installing Solid</h2>
@@ -149,7 +109,6 @@ Solid is cheap, low maintenance and will be powerful enough for most web sites.
 </ol>
 
 <p>
-<br>
 
 
 <h2>Using Solid</h2>
@@ -587,7 +546,6 @@ Server is shut down, exiting from SOLID Remote Control.
 </ol>
 
 <p>
-<br>
 
 <h2>Making AOLserver and Solid Work Together with CGI</h2>
 
@@ -632,7 +590,6 @@ We can see that this is simply a program which performs this query on the databa
 </ol>
 
 <p>
-<br>
 
 <h2>Making AOLserver and Solid Work Together with TCL and Persistant Connections</h2>
 
@@ -815,7 +772,6 @@ ns_puts $html
 </ol>
 
 <p>
-<br>
 
 <h2>Opening a new Solid Database</h2>
 
@@ -864,12 +820,3 @@ Listening of 'UPipe SOLID' started.
 Listening of 'TCP/IP 1313' started.
 SOLID Server started at Sat Oct 31 02:34:14 1998
 </pre>
-
-  <!-- #EndEditable -->
-  </div>
-  
-<?php
-// import the footer from a dynamic blog page to ensure we have the latest archive links
-$html = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/e-gineer.com/v2/blog/2009/03/lachlan-and-then-there-were-4.htm');
-echo substr($html, strpos($html, '<div id="contentPageFooter">'));
-?>
