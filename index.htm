@@ -96,7 +96,7 @@ window.onload = function() {
   // draw the lines from the brain to the blog posts
   tmp = document.getElementsByClassName('blog-post');
   xOffsets = [25, 17, 12]; // x offset of starting points on brain
-  for (i in tmp) {
+  for (var i=0; i<tmp.length; i++) {
     drawBrainLine(context, startX+xOffsets[i], startY, canvas.width, tmp[i].offsetTop+tmp[i].offsetParent.offsetTop+12);
   }
 }
@@ -169,7 +169,7 @@ function twitterItems(items) {
   context.strokeStyle = gradLeft;
   tmp = document.getElementsByClassName('tweet-underline');
   xOffsets = [0, 1, 4, 5, 8, 9];
-  for (i in tmp) {
+  for (var i=0; i<tmp.length; i++) {
     drawBrainLine(context, startX+xOffsets[i], startY, 0, tmp[i].offsetTop+tmp[i].offsetParent.offsetTop);
   }
 

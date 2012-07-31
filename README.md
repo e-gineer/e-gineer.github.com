@@ -1,4 +1,4 @@
-e-gineer.github.com
-===================
+# e-gineer.com
 
-Test with Phil.
+This is the git repository for e-gineer.com, which is implemented with Jekyll
+running on GitHub Pages.
