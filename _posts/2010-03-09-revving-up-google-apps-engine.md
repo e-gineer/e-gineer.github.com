@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Revving up the Google App(s) Engine
-published: false
+published: true
 ---
 
 Google have just [announced](http://googleblog.blogspot.com/2010/03/open-for-business-google-apps.html)
