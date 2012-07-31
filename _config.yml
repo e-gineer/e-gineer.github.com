@@ -1,2 +1,2 @@
 auto: true
-permalink: /v2/blog/:year/:month/:title.html
+permalink: /v2/blog/:year/:month/:title.htm
