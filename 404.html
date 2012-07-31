@@ -7,11 +7,9 @@
     <script type="text/javascript"><!--
       broken_url = window.location.pathname;
       new_url = broken_url;
-alert(broken_url);
       // switch them away from old .phtml pages
       new_url = new_url.replace('.phtml', '.htm');
       // remove the old /e-gineer/ directory prefix if it exists
-alert(new_url.substring(0, 9));
       if (new_url.substring(0, 9) == '/e-gineer') {
         new_url = new_url.substring(9);
       }
@@ -19,7 +17,6 @@ alert(new_url.substring(0, 9));
       if ( (new_url.substring(0, 9) == '/articles') || (new_url.substring(0, 13) == '/instructions') || (new_url.substring(0, 11) == '/domainator') ) {
         new_url = '/v1' + new_url;
       }
-alert(broken_url + '\n' + new_url);
       // redirect to directories, rather than pages if possible
       new_url = new_url.replace('/index.htm', '');
       if (new_url != broken_url) {
@@ -28,13 +25,14 @@ alert(broken_url + '\n' + new_url);
     --></script>
     <style>
       #movedBox {
-          border: 2px solid red;
-          background-color: #fee;
-          padding: 1em;
+        margin: 2em 50px 0 0;
+        border: 2px solid red;
+        background-color: #fee;
+        padding: 1em;
       }
-      P.movedUrl {
-          margin-left: 2em;
-          font-weight: bold;
+      p.movedUrl {
+        margin-left: 2em;
+        font-weight: bold;
       }
     </style>
   </head>
