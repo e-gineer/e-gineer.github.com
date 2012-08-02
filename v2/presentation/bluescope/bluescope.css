@@ -160,6 +160,22 @@ span.timestamp {
   font-size: 16pt;
 }
 
+ul.blog-archive {
+  margin: 0;
+  padding: 0;
+}
+
+ul.blog-archive li {
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+span.blog-archive-date {
+  font-size: 10pt;
+  color: #999999;
+}
+
+
 #brain {
   margin-left: 290px;
 }
@@ -180,14 +196,11 @@ img.archiveScreenshot {
   height: 196px;
 }
 
-#searchArchive {
-}
 #searchArchiveForm {
   display: inline;
   border: 1px solid #ddd;
   background-color: #fcfcfc;
   padding: 0.6em 1em;
-  font-size: 0.9em;
 }
 #searchArchiveInput {
   border: 1px solid black;

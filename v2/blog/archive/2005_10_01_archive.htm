@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Nathan @ e-gineer: 200510</title>
+<!-- #EndEditable -->
+<script type="text/javascript">(function() { var a=window;function e(b){this.t={};this.tick=function(c,h,d){d=d?d:(new Date).getTime();this.t[c]=[d,h]};this.tick("start",null,b)}var f=new e;a.jstiming={Timer:e,load:f};try{a.jstiming.pt=a.chrome&&a.chrome.csi?Math.floor(a.chrome.csi().pageT):a.gtbExternal&&a.gtbExternal.pageT()||a.external&&a.external.pageT}catch(g){};a.tickAboveFold=function(b){b=b;var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}b=c;b<=750&&a.jstiming.load.tick("aft")};var i=false;function j(){if(!i){i=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",j,false):a.attachEvent("onscroll",j); })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Nathan @ e-gineer - Atom" href="http://www.e-gineer.com/v2/blog/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="http://www.e-gineer.com/v2/blog/rss.xml" />
+<link rel="service.post" type="application/atom+xml" title="Nathan @ e-gineer - Atom" href="http://www.blogger.com/feeds/13013707/posts/default" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=13013707" />
+ <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=13013707&zx=d4857c2c-b5d4-46b3-a18a-e7f5792b374d"/>
+<link rel="stylesheet" type="text/css" href="/v2/presentation/TortoiseRocket.css"/>
+<link rel="shortcut icon" href="/v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog"><a href="/v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="/nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="/archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="/"><img id="contentPageEgineerImage" src="/v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+google_ad_host = "pub-1556223355139109";
+google_ad_host_channel="00000";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+  
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112977419133903075"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/integrating-microsoft-html-help-search.htm" class="blogPostTitle"><h1 class="blogPostTitle">Integrating Microsoft HTML Help search into .NET applications</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/integrating-microsoft-html-help-search.htm">Thursday, October 20, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/integrating-microsoft-html-help-search.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/integrating-microsoft-html-help-search.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><p>While spending countless hours writing a comprehensive help file is infinitely rewarding for application testing, consistency and design; it counts for a lot more if users can perform quick help searches from inside the application. That little help search box in the top right hand corner of Office 2003 applications is worth its weight in gold.</p><p>The <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vbcon/html/vborihelpproviderctltasks.asp">HelpProvider</a> in .NET doesn't provide a method to run help searches from your application. After digging around we found <a href="http://support.microsoft.com/?kbid=317406">.NET wrapper code</a> to use the unmanaged HTML Help API. While this unmanaged API has an appropriate method, it turns out that HTML Help 1.4 has <a href="http://support.microsoft.com/?kbid=Q241381">a bug</a> which ignores the search information struct anyway. So, it will never work. I guess that's why they didn't provide a method to do it from inside .NET.</p><p>Of course, rather than thinking about fancy APIs etc we can always fall back on the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemwindowsformssendkeysclasssendtopic.asp">simplest thing that will possibly work</a>:</p><pre>// Open the help window to the search<br />paneHelp.ShowHelp(this, Application.StartupPath + Path.DirectorySeparatorChar + "SauceReader.chm", HelpNavigator.Find, "");<br />// run the search, by sending key strokes to now active help<br />windowSystem.Windows.Forms.SendKeys.SendWait("{HOME}^+{END}{BACKSPACE}search query{ENTER}");<br />// select the first result<br />System.Windows.Forms.SendKeys.Send("{TAB}{TAB}{ENTER}");</pre><p><em>Note: Originally posted to my Synop blog on April 2, 2004.</em></p><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112959024108265613"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/once-you-enter-you-are-incumbent.htm" class="blogPostTitle"><h1 class="blogPostTitle">Once you enter, you are an incumbent</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/once-you-enter-you-are-incumbent.htm">Tuesday, October 18, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/once-you-enter-you-are-incumbent.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/once-you-enter-you-are-incumbent.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div>A nice articulation from Peter Rip of why many entrepreneurs will face <a href="http://earlystagevc.typepad.com/earlystagevc/2005/10/the_web_20_entr.html">the same problems in Web 2.0</a> that investors faced in Web 1.0:<br /><blockquote><p>[T]he root causes are the same:</p><ol><li>It is very easy to make the initial commitment (founding or funding).</li><li>Underestimation of how many had the same conclusion.</li><li>Underestimation of survival requirements for the ‘too many competitors’ case.</li></ol><p>...</p><p>Reduced barriers to entry always look attractive to the entrants. But once you enter, you are an incumbent.</p></blockquote><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112954784814942892"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/two-cents-worth-definition.htm" class="blogPostTitle"><h1 class="blogPostTitle">Two cents worth, a definition</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/two-cents-worth-definition.htm">Monday, October 17, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/two-cents-worth-definition.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/two-cents-worth-definition.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div>After dropping "That's my $0.02." into an email for a multi-cultural uni group today, I was asked what it meant. Finding a <a href="http://alt-usage-english.org/excerpts/fxputino.html">definition</a> was surprisingly difficult, but I did stumble across a forum with <a href="http://www.phrases.org.uk/bulletin_board/40/messages/446.html">this little gem</a> on the way:<br /><blockquote><p><em>The phrase "2 cents" does often be found in emails and some other situations. What does this phrase mean?</em></p><p>I believe the complete phrase you want is "two cents' worth," but often shortened to "two cents," as in, "Can I put in my two cents here?" Two cents is, in the U.S., two pennies, a very small sum of money. Even in "the old days," two pennies were considered not worth much. So my opinion, which may not be worth much, is "my two cents' worth."</p><p><em>If its "My 2 cents worth" and "A penny for your thoughts", where does the other penny go?</em></p><p>That's the penny that dropped.</p></blockquote><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112924890618220695"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/entrepreneur-v2.htm" class="blogPostTitle"><h1 class="blogPostTitle">Entrepreneur v2</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/entrepreneur-v2.htm">Friday, October 14, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/entrepreneur-v2.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/entrepreneur-v2.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><p>Watching Dave Winer on <a href="http://www.pbs.org/cringely/nerdtv/">NerdTV</a> last night I was struck by <a href="http://www.pbs.org/cringely/nerdtv/transcripts/006.html">one section</a> in particular:</p><blockquote><p>Anyway, well, there's an awful lot of BOGU<sup>1</sup> in being a successful entrepreneur, and so the second time around you go, "Well, I'm not gonna work really hard. I'm just gonna be smart, 'cause I know I'm really smart. And I'm gonna have - I'm not gonna have to make do with an inadequate computer, and we're gonna have a really good PR firm, and they're gonna take care of the PR issues for us the whole time through. And everything's gonna be done first-class. We're just gonna do it the right way this time." As opposed to, "Well, it didn't work."</p><p>Fact is that you always got a competitor that's willing to do all the awful things that you have to do to be successful, and the fact is to achieve that level - any level of success, I think you really do have to burn yourself out. I really do. I don't think there's a shortcut. And so that's the - that seems to be the story that a lot of second time entrepreneurs go through. I think they - that we all end up learning that one. </p></blockquote><p>The mysterious Mr Gutman posted <a href="http://mrgutman.blogspot.com/2005/06/second-time-entrepreneurs.html">very similar ideas</a> a few months ago, drawing a <a href="http://evhead.com/2005/06/mr-gutman-second-time-entrepreneurs.asp">response from Ev</a> (a Blogger founder):</p><blockquote><p>I firmly believe that the extreme imbalance so pervasively assumed to be a required component of startup life is detrimental to effectiveness in the long run. What I think is much more key is focus.</p><p>Another trick to this theory is that it's harder to demonstrate focus to your people than it is to demonstrate willingness to put in insane hours. And all this is not to say that, endless hours can't make up for some lack of focus.</p></blockquote><p>All the feelings and sentiments in these posts ring true for me, but I think it all boils down to a feeling of wanting to "do it right" the second time round. Starting a business is more than just a learning curve, it's getting beat over the head with a learning stick. Through daily decisions and drawing lines of grey you learn about your boundaries, strengths and weaknesses.</p><p>I believe it's about focused energy. Start-ups have very limited capital, time and skills. The tighter your focus, the further you can progress with the limited resources available. Unfortunately, this is incredibly hard to do in the whirlwind of chasing new ideas and customers. </p><p>Great start-ups should be like having a baby. No matter how tired you are, or how much attention it requires, the joy and rewards are worth it<sup>2</sup>.</p><p><em>1. Bend over and grease up - see #19 </em><a href="http://radio.weblogs.com/0001011/2003/02/26.html"><em>here</em></a><em>.<br />2. Or so I'm told by people who actually have children (or canine psuedo-children).</em></p><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112924423446027838"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/best-first-post-sequence-for-blog.htm" class="blogPostTitle"><h1 class="blogPostTitle">Best first post sequence for a blog</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/best-first-post-sequence-for-blog.htm">Friday, October 14, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/best-first-post-sequence-for-blog.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/best-first-post-sequence-for-blog.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div>The other day I stumbled across <a href="http://blogs.msdn.com/owen_braun/">Owen Braun's</a> weblog, which must have the best first post sequence I've ever read:<br /><blockquote><p><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473115.aspx#comments"></a><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473114.aspx">Testing</a><br /><em>posted </em><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473114.aspx"><em>Friday, September 23, 2005 3:37 AM</em></a><em> by </em><a href="http://blogs.msdn.com/Profile.aspx?UserID=11230"><em>owenb</em></a><em> </em><br />Hmmm, first post to my first blog. Dum de dum. </p><p><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473115.aspx">Looking Good</a><br /><em>posted </em><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473115.aspx"><em>Friday, September 23, 2005 3:42 AM</em></a><em> by </em><a href="http://blogs.msdn.com/Profile.aspx?UserID=11230"><em>owenb</em></a><em><br /></em>No flames as yet. Emboldened, in next post, will experiment with actual content.</p><p><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473119.aspx">Hello</a><br /><em>posted </em><a href="http://blogs.msdn.com/owen_braun/archive/2005/09/23/473119.aspx"><em>Friday, September 23, 2005 3:47 AM</em></a><em> by </em><a href="http://blogs.msdn.com/Profile.aspx?UserID=11230"><em>owenb</em></a><em><br /></em>I’m writing this blog to tell you about the next version of OneNote (“OneNote 12”), which is currently under development.... [etc ... lots of good content]</p></blockquote><p>Anyone seen something better?</p><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112909777739867682"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/bird-noises.htm" class="blogPostTitle"><h1 class="blogPostTitle">Bird noises</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/bird-noises.htm">Wednesday, October 12, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/bird-noises.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/bird-noises.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div>There's nothing better than a nice quiet neighbourhood...<br /><br />Video: <a href="/v2/blog/2005/10/Bird noises.wmv">Bird noises.wmv</a> (1.3MB) | <a href="/v2/blog/2005/10/Bird noises (small).wmv">Bird noises (small).wmv</a> (0.5MB)<div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112898675523320496"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/aspiring-leaders-prepare-for_11.htm" class="blogPostTitle"><h1 class="blogPostTitle">Aspiring leaders prepare for opportunity</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/aspiring-leaders-prepare-for_11.htm">Tuesday, October 11, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/aspiring-leaders-prepare-for_11.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/aspiring-leaders-prepare-for_11.htm#comment-form;>Comments (1)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><p>Over the weekend, in a Leadership &amp; Motivation MBA course, we had a number of interesting discussions about what it takes to be a great leader. Many ideas were tossed around including drive, luck, ambition, charisma and much more.</p><p>Through discussion, our group boiled it down to this simple model:</p><blockquote>Leadership performance = Ability x Motivation x Alignment x Opportunity</blockquote><p>In reality, this is just a slight variation of <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0787900303">Vroom's 1964 model</a> for performance at work:</p><blockquote>Performance = Ability x Motivation<br />Performance = (Aptitude x Training x Resources) x (Desire x Commitment)</blockquote><p>The fundamental difference being that work normally provides you with a context of tasks or opportunity by default while great leaders normally arise out of new opportunities (thrust upon them, created or sought out). For us, opportunity incorporates luck, timing and preparation.</p><p>A guest lecturer, Harry Bergsteiner, likes to expand Vroom's model to include Values:</p><blockquote>Performance = Ability x Motivation x Values</blockquote><p>In this context, Values includes ethics, policies, procedures and corporate culture. His argument is that the alignment of someone's values with those of the organisation is very important to performance. Interestingly, he also points out that the only place where punishment or sanctions of staff make sense is when values are not met. Any ability or motivation issues need to be addressed through feedback, encouragement and training. Personally I think that Values is a little bit too idealistic and universal. For mine, it makes more sense to talk about this as alignment with the values of the organisation.</p><blockquote>Performance = Ability x Motivation x Alignment</blockquote><p>Part of leadership is choosing, building and communicating appropriate values for an organisation (followers). Here alignment remains a vital element to success, both upwards (personal alignment with larger organisation values) and downwards (bring followers into alignment). So, the performance of a leader boils down to:</p><blockquote>Leadership performance = Ability x Motivation x Alignment x Opportunity</blockquote><p>According to Winston Churchill, "Luck is what happens when preparation meets opportunity". So, if you have the motivation, keep preparing and looking for the opportunity that aligns with your values.</p><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112890122928818495"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/searching-for-real-nathan-wallace.htm" class="blogPostTitle"><h1 class="blogPostTitle">Searching for the real nathan wallace</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/searching-for-real-nathan-wallace.htm">Monday, October 10, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/searching-for-real-nathan-wallace.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/searching-for-real-nathan-wallace.htm#comment-form;>Comments (1)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><p>A few days ago, my <a href="http://www.e-gineer.com/nathan/">personal home page</a> and <a href="http://www.e-gineer.com/v2/blog/">blog</a> suddenly lost all of their Google juice. After being the number one result on "<a href="http://www.google.com/search?hl=en&amp;q=nathan+wallace">nathan wallace</a>" for many years all of a sudden I'm not even in the top 200 results.</p><p>The weird thing is that the top 10 results are still pretty much all to do with me, they are just specific articles I wrote, people pointing to my blog or profile pages about me on other websites.</p><p>The dropped pages are still in Google's index and can be found through very specific searches.</p><p>The only explanations I can come up with are:</p><ol><li>I'm using 301 permanent redirects from the old URLs like http://www.e-gineer.com/nathan/index.phtml to <a href="http://www.e-gineer.com/nathan/">http://www.e-gineer.com/nathan/</a>. This is part of changing my site to purely static content.</li><li>This blog is published to the e-gineer site using FTP from Blogger. You can tell since the pages contain metadata saying it is blogger generated. Perhaps the splog problem is being targetted even harder by Google.</li><li>I've actively started updating the e-gineer site and the pigeons really don't like the direction my content is taking...</li></ol><p>I love Google and rely on their services for email, blogging and my daily searching. No complaints here. But, I am searching for reasons as to why I'm suddenly being cast off into the index wilderness. Google, why don't you like me anymore?</p><p><em>Update (Oct 14, 2005): My <a href="http://www.e-gineer.com/v2/blog/">blog</a> has jumped back up to result #3.</em></p><p><em>Update (Oct 15, 2005): My <a href="http://www.e-gineer.com/v2/blog/">blog</a> is now #2 and the <a href="http://www.e-gineer.com/nathan/">Nathan</a> page #3.</em></p><p><em>Update (Dec 3, 2005): I was lost, but now I'm found. Google, Yahoo and MSN all have the <a href="http://www.e-gineer.com/nathan/">Nathan</a> page #1 and my <a href="http://www.e-gineer.com/v2/blog/">blog</a> #2.</em></p><p><em>Update (Jan 2, 2006): Google has completely shunned me again.</em></p><p><em>Update (Feb 4, 2006): I'm back at #1 & #2 again.</em></p><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112857715616183393"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/becoming-tough-guy-macho.htm" class="blogPostTitle"><h1 class="blogPostTitle">Becoming tough guy macho</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/becoming-tough-guy-macho.htm">Thursday, October 06, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/becoming-tough-guy-macho.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/becoming-tough-guy-macho.htm#comment-form;>Comments (0)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><img style="float: left; padding-right: 10px" src="http://www.e-gineer.com/v2/blog/2005/10/Deal & Kennedy's cultural model.gif"/><a href="http://changingminds.org/explanations/culture/deal_kennedy_culture.htm">Deal and Kennedy's cultural model</a> groups organisations into one of four categories. I often reflect on this model when evaluating new ideas or projects.<br /><br />I like to aim for "tough guy macho". It allows me to think big, learn fast and make <a href="http://software.ericsink.com/bos/Make_More_Mistakes.html">lots of non-fatal mistakes</a>.<div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="112847173639622862"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2005/10/watching-through-windows.htm" class="blogPostTitle"><h1 class="blogPostTitle">Watching through the windows</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2005/10/watching-through-windows.htm">Wednesday, October 05, 2005</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2005/10/watching-through-windows.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2005/10/watching-through-windows.htm#comment-form;>Comments (1)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><p>Apparently, some analysts believe "<a href="http://news.com.com/Music+industry+seeks+Hollywoods+windows/2100-1027_3-5825706.html">the music business is evolving into a natural home for windows</a>". By windows they mean the gradual release of content, for example movies are available in theatres, DVD and then TV. In Australia we have the added disadvantage of a geographical window, further delaying releases in each form.</p><p>Let's consider the "windows" for The West Wing (a current addiction for me):</p><ol><li>Shown on NBC in the US.</li><li>Released to DVD in the US.</li><li>Released to DVD in Australia.</li><li>Available as overnight DVD hire.</li><li>Available as 3 day DVD hire.</li><li>Available as weekly DVD hire.</li><li>TV broadcast in random order at variable, late night times (standard for sophisticated show on Australian free to air TV). </li></ol><p>While this seems like a nice theoretical pecking order, there are some overlooked steps:</p><ol><li>Shown on NBC in the US.</li><li>TV scrape available for free download via Bit Torrent (or other P2P technology).</li><li>Released to DVD in the US.</li><li>DVD rip available for free download via Bit Torrent (or other P2P technology).</li><li>Released to DVD in Australia.</li><li>Available as overnight DVD hire.</li><li>Available as 3 day DVD hire.</li><li>Available as weekly DVD hire.</li><li>TV broadcast in random order at variable, late night times (standard for sophisticated show on Australian free to air TV). </li></ol><p>Currently, the only way to watch season 6 or 7 in Australia is by P2P download. It is not yet available in video stores. Given a single hire contains about 8 episodes, even for season 5 (overnight hire), download or hire and rip to personal hard disk is the only practical way to watch.</p><p>Long term, the only way I can see "windows" working is if it is released in digital form first. I'm happy to pay, but I'm not happy to wait.</p><p>A digital release can be done sooner and at lower cost. There is no artwork or packaging to create. Demand can be gauged and built before the release of collectable physical versions. Fans will buy in digital form first (timely access) and then in physical form later (experience access).</p><p>Making digital copies the initial release adds to their value and discourages sharing. Asking a friend if I can rip an electronic copy from their physical copy costs them nothing, they still own the higher quality and more exclusive object. But, if the only copies available are in paid digital form, then asking for a copy reduces its exclusivity. Unfortunately the main concern here is normally the perception of a friend about their copy, not the rights of the artist or publisher.</p><p>So, if you are going to use windows, the most effective order would be:</p><ol><li>Hard to copy live performances.</li><li>High quality digital release.</li><li>Released in collectable, physical form.</li></ol><p>Free copying of electronic content cannot be stopped. We have to assume that every DRM scheme will get broken, or scraping techniques so powerful that the content isn't really protected.</p><p>So, the only way to monetise electronic content is by changing focus to the value of the content to the license holder rather than the artist or publisher. You need to make me less willing to give away my stuff. Here are my recommendations:</p><ol><li>Make digital versions the first release version.</li><li>Lower the cost of digital versions reflect their production and distribution. No artwork, no packaging, less marketing, less transport.</li><li>Brand digital copies as something else.</li></ol><p></p><p>I was struck the other day by just how viable the digital alternatives have become. My $40/month internet connection can download from Australian sites at about 800kB/sec. A reasonable quality DVD rip is generally 800MB or less. Theoretically, I could download a DVD in just over 15 minutes (1000 secs). That's less time than it takes me to get to the video store, let alone make a return the next day.</p><p>Using windows to release in different formats I can live with. Just don't make me wait.</p><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+	
+  <!-- #EndEditable -->
+  </div>
+  
+  <div id="contentPageFooter">
+
+    <div id="blogArchives"> 
+      <script type="text/javascript"><!--
+      // Convert the simple Blogger Archive template output into a nice
+      // year by year grid of months view.
+      var data = new Array();
+      var archives = new Array();
+      data.push(new Array("200505", "http://www.e-gineer.com/v2/blog/archive/2005_05_01_archive.htm"));archives["200505"]="http://www.e-gineer.com/v2/blog/archive/2005_05_01_archive.htm";data.push(new Array("200506", "http://www.e-gineer.com/v2/blog/archive/2005_06_01_archive.htm"));archives["200506"]="http://www.e-gineer.com/v2/blog/archive/2005_06_01_archive.htm";data.push(new Array("200507", "http://www.e-gineer.com/v2/blog/archive/2005_07_01_archive.htm"));archives["200507"]="http://www.e-gineer.com/v2/blog/archive/2005_07_01_archive.htm";data.push(new Array("200508", "http://www.e-gineer.com/v2/blog/archive/2005_08_01_archive.htm"));archives["200508"]="http://www.e-gineer.com/v2/blog/archive/2005_08_01_archive.htm";data.push(new Array("200509", "http://www.e-gineer.com/v2/blog/archive/2005_09_01_archive.htm"));archives["200509"]="http://www.e-gineer.com/v2/blog/archive/2005_09_01_archive.htm";data.push(new Array("200510", "http://www.e-gineer.com/v2/blog/archive/2005_10_01_archive.htm"));archives["200510"]="http://www.e-gineer.com/v2/blog/archive/2005_10_01_archive.htm";data.push(new Array("200511", "http://www.e-gineer.com/v2/blog/archive/2005_11_01_archive.htm"));archives["200511"]="http://www.e-gineer.com/v2/blog/archive/2005_11_01_archive.htm";data.push(new Array("200512", "http://www.e-gineer.com/v2/blog/archive/2005_12_01_archive.htm"));archives["200512"]="http://www.e-gineer.com/v2/blog/archive/2005_12_01_archive.htm";data.push(new Array("200601", "http://www.e-gineer.com/v2/blog/archive/2006_01_01_archive.htm"));archives["200601"]="http://www.e-gineer.com/v2/blog/archive/2006_01_01_archive.htm";data.push(new Array("200602", "http://www.e-gineer.com/v2/blog/archive/2006_02_01_archive.htm"));archives["200602"]="http://www.e-gineer.com/v2/blog/archive/2006_02_01_archive.htm";data.push(new Array("200603", "http://www.e-gineer.com/v2/blog/archive/2006_03_01_archive.htm"));archives["200603"]="http://www.e-gineer.com/v2/blog/archive/2006_03_01_archive.htm";data.push(new Array("200604", "http://www.e-gineer.com/v2/blog/archive/2006_04_01_archive.htm"));archives["200604"]="http://www.e-gineer.com/v2/blog/archive/2006_04_01_archive.htm";data.push(new Array("200609", "http://www.e-gineer.com/v2/blog/archive/2006_09_01_archive.htm"));archives["200609"]="http://www.e-gineer.com/v2/blog/archive/2006_09_01_archive.htm";data.push(new Array("200701", "http://www.e-gineer.com/v2/blog/archive/2007_01_01_archive.htm"));archives["200701"]="http://www.e-gineer.com/v2/blog/archive/2007_01_01_archive.htm";data.push(new Array("200702", "http://www.e-gineer.com/v2/blog/archive/2007_02_01_archive.htm"));archives["200702"]="http://www.e-gineer.com/v2/blog/archive/2007_02_01_archive.htm";data.push(new Array("200705", "http://www.e-gineer.com/v2/blog/archive/2007_05_01_archive.htm"));archives["200705"]="http://www.e-gineer.com/v2/blog/archive/2007_05_01_archive.htm";data.push(new Array("200707", "http://www.e-gineer.com/v2/blog/archive/2007_07_01_archive.htm"));archives["200707"]="http://www.e-gineer.com/v2/blog/archive/2007_07_01_archive.htm";data.push(new Array("200708", "http://www.e-gineer.com/v2/blog/archive/2007_08_01_archive.htm"));archives["200708"]="http://www.e-gineer.com/v2/blog/archive/2007_08_01_archive.htm";data.push(new Array("200712", "http://www.e-gineer.com/v2/blog/archive/2007_12_01_archive.htm"));archives["200712"]="http://www.e-gineer.com/v2/blog/archive/2007_12_01_archive.htm";data.push(new Array("200802", "http://www.e-gineer.com/v2/blog/archive/2008_02_01_archive.htm"));archives["200802"]="http://www.e-gineer.com/v2/blog/archive/2008_02_01_archive.htm";data.push(new Array("200810", "http://www.e-gineer.com/v2/blog/archive/2008_10_01_archive.htm"));archives["200810"]="http://www.e-gineer.com/v2/blog/archive/2008_10_01_archive.htm";data.push(new Array("200902", "http://www.e-gineer.com/v2/blog/archive/2009_02_01_archive.htm"));archives["200902"]="http://www.e-gineer.com/v2/blog/archive/2009_02_01_archive.htm";data.push(new Array("200903", "http://www.e-gineer.com/v2/blog/archive/2009_03_01_archive.htm"));archives["200903"]="http://www.e-gineer.com/v2/blog/archive/2009_03_01_archive.htm";data.push(new Array("200905", "http://www.e-gineer.com/v2/blog/archive/2009_05_01_archive.htm"));archives["200905"]="http://www.e-gineer.com/v2/blog/archive/2009_05_01_archive.htm";data.push(new Array("201001", "http://www.e-gineer.com/v2/blog/archive/2010_01_01_archive.htm"));archives["201001"]="http://www.e-gineer.com/v2/blog/archive/2010_01_01_archive.htm";data.push(new Array("201002", "http://www.e-gineer.com/v2/blog/archive/2010_02_01_archive.htm"));archives["201002"]="http://www.e-gineer.com/v2/blog/archive/2010_02_01_archive.htm";data.push(new Array("201003", "http://www.e-gineer.com/v2/blog/archive/2010_03_01_archive.htm"));archives["201003"]="http://www.e-gineer.com/v2/blog/archive/2010_03_01_archive.htm";
+      if (data.length) {
+        var firstYear = parseInt(data[0][0].substr(0,4));
+        var lastYear = parseInt(data[data.length-1][0].substr(0,4));
+        var months = Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+        for (var y=lastYear; y>=firstYear; y--) {
+          document.write("<div class=\"blogArchivesDateLinksYear\"> <span class=\"blogArchivesYear\">" + y + ":</span> ");
+          for (var m=1; m<=12; m++) {
+            var ym = y*100 + m;
+            if (archives[ym.toString()]) {
+              document.write("<a class=\"blogArchives\" href=\"" + archives[ym.toString()] + "\">" + months[m-1] + "</a> ");
+            }
+            else {
+              document.write("<span class=\"blogArchivesNonLink\">" + months[m-1] + "</span> ");
+            }
+          }
+          document.write("</div>");
+        }
+      }
+      --></script> 
+      <noscript> 
+      <div class="blogArchivesDateLinksYear"> 
+        <span class="blogArchivesYear">Archive:</span> 
+        <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_05_01_archive.htm">200505</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_06_01_archive.htm">200506</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_07_01_archive.htm">200507</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_08_01_archive.htm">200508</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_09_01_archive.htm">200509</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_10_01_archive.htm">200510</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_11_01_archive.htm">200511</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_12_01_archive.htm">200512</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_01_01_archive.htm">200601</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_02_01_archive.htm">200602</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_03_01_archive.htm">200603</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_04_01_archive.htm">200604</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_09_01_archive.htm">200609</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_01_01_archive.htm">200701</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_02_01_archive.htm">200702</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_05_01_archive.htm">200705</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_07_01_archive.htm">200707</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_08_01_archive.htm">200708</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_12_01_archive.htm">200712</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2008_02_01_archive.htm">200802</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2008_10_01_archive.htm">200810</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2009_02_01_archive.htm">200902</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2009_03_01_archive.htm">200903</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2009_05_01_archive.htm">200905</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2010_01_01_archive.htm">201001</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2010_02_01_archive.htm">201002</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2010_03_01_archive.htm">201003</a> 
+      </div> 
+      </noscript> 
+      <div class="blogArchivesDateLinksYear"> 
+        <span class="blogArchivesYear">Prior:</span> 
+        <a class="blogArchives" href="/archive/">Archive</a> 
+      </div> 
+    </div> 
+
+    <div id="copyrightNotice">
+      <p><a href="/v2/blog/rss.xml" class="blogXmlButton"><img alt="Feed" class="blogXmlButton" src="/v2/presentation/xml.gif"/>&nbsp;&nbsp;<span class="blogXmlButton">Subscribe via RSS.</span></a></p>
+      <p>The postings on this site are my own and don't necessarily represent the positions, strategies or opinions of my employer.</p>
+      <p>Copyright &copy; 1999-2010 Nathan Wallace.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-65687-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript" src="http://www.blogger.com/static/v1/common/js/3323309151-csitaillib.js"></script>
+<script>if (typeof(window.attachCsiOnload) != 'undefined' && window.attachCsiOnload != null) { window.attachCsiOnload('ext_blogspot'); }</script></body>
+
+</html>

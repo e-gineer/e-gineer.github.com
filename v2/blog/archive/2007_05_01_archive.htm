@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<html>
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Nathan @ e-gineer: 200705</title>
+<!-- #EndEditable -->
+<script type="text/javascript">(function() { var a=window;function e(b){this.t={};this.tick=function(c,h,d){d=d?d:(new Date).getTime();this.t[c]=[d,h]};this.tick("start",null,b)}var f=new e;a.jstiming={Timer:e,load:f};try{a.jstiming.pt=a.chrome&&a.chrome.csi?Math.floor(a.chrome.csi().pageT):a.gtbExternal&&a.gtbExternal.pageT()||a.external&&a.external.pageT}catch(g){};a.tickAboveFold=function(b){b=b;var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}b=c;b<=750&&a.jstiming.load.tick("aft")};var i=false;function j(){if(!i){i=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",j,false):a.attachEvent("onscroll",j); })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Nathan @ e-gineer - Atom" href="http://www.e-gineer.com/v2/blog/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title="Nathan @ e-gineer - RSS" href="http://www.e-gineer.com/v2/blog/rss.xml" />
+<link rel="service.post" type="application/atom+xml" title="Nathan @ e-gineer - Atom" href="http://www.blogger.com/feeds/13013707/posts/default" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=13013707" />
+ <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/50269083-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=13013707&zx=d4857c2c-b5d4-46b3-a18a-e7f5792b374d"/>
+<link rel="stylesheet" type="text/css" href="/v2/presentation/TortoiseRocket.css"/>
+<link rel="shortcut icon" href="/v2/presentation/TortoiseRocket.ico" type="image/ico"/>
+</head>
+<body>
+
+<div id="contentPageWrapper">
+
+  <div id="contentPageHeader">
+    <div id="contentPageHeaderBar">
+      <div id="contentPageHeaderLinkBlog"><a href="/v2/blog/" class="contentPageHeaderLink">Blog</a></div>
+      <div id="contentPageHeaderLinkNathan"><a href="/nathan/" class="contentPageHeaderLink">Nathan</a></div>
+      <div id="contentPageHeaderLinkArchive"><a href="/archive/" class="contentPageHeaderLink">Archive</a></div>
+    </div>
+    <a href="/"><img id="contentPageEgineerImage" src="/v2/presentation/TortoiseRocket-Logo.gif" alt="e-gineer" width="320" height="127"/></a>
+  </div>
+
+  <div id="googleAd">  
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-4825523674148460";
+google_ad_host = "pub-1556223355139109";
+google_ad_host_channel="00000";
+    /* 728x90, created 4/13/09 */
+    google_ad_slot = "2745493970";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+
+  <div id="contentPageBody">
+  <!-- #BeginEditable "body" -->
+  
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="5211691499217974043"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2007/05/creating-flash-movie-header-or-banner.htm" class="blogPostTitle"><h1 class="blogPostTitle">Creating a flash movie header or banner for your site</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2007/05/creating-flash-movie-header-or-banner.htm">Monday, May 21, 2007</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2007/05/creating-flash-movie-header-or-banner.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2007/05/creating-flash-movie-header-or-banner.htm#comment-form;>Comments (1)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><p>Rather than use a typical image header for <a href="http://www.elimena.com">Elimena's site</a>, I wanted to try something different and use a flash movie instead. Here are complete instructions on how to create your own...</p><p>All the ActionScript code required is in a single block at the bottom of this post, but don't be too hasty as it won't make much sense without the options and other info I've described.</p><p><strong>Import the video into Flash (FLV) format</strong></p><p>First you need a suitable movie that can be looped in some reasonable way (i.e. the first and last frames of the movie have a reasonably similar appearance). I simply bought a short video from <a href="http://www.istockphoto.com">iStockPhoto</a>. I selected the large web size, which provides good movie quality at a width of 640px (just wide enough for an effective site header).</p><p>Using Macromedia Flash Professional 8 (just <a href="http://www.download.com/Macromedia-Flash-Professional/3000-6676_4-10227159.html">download a trial version</a> to get started), I created and new Flash document and imported the iStockPhoto movie (File > Import). In the advanced import settings you can crop the imported movie to 640x200px and trim the timeline down to something that loops smoothly and keeps the size reasonable. This process creates a Flash Video file (FLV) that can effectively stream as a simple static HTTP served file.</p><p>After importing the movie, we must set the background Flash document to the exact same dimensions and position. First, select the main Flash document (click in the drawing area, but outside any objects including the FLVplayback object) and then click the Size button in the Properties tab setting the dimensions of the Flash document to match the movie (e.g. 640x200px). Second, click on the FLVplayback object in the drawing area, then edit the X, Y position of the FLVplayback object to 0, 0 (perfectly aligning it with the document).</p><p>At this point we have a simple flash file that will play the movie end-to-end once.</p><p><strong>Prepare the Flash container for ActionScript code</strong></p><p>Before doing any coding, we need to prepare the FLVplayback object. (These will make sense below.) Click the FLVplayback object inserted above and then:</p><ol><li>Change the Instance Name in the Properties tab to be video.</li><li>Set a cue point (Parameters tab > cuePoints) called EndFadeIn 1 sec into the movie.</li><li>Set a cue point called StartFadeOut 1 sec before the end of the movie.</li></ol><p><strong>Making your video loop</strong></p><p>For continuous video, we need to both setup the FLVplayback object to loop and create a small fade effect to hide the jump from the last frame to the first frame. Unfortunately, and unbelieveably, there are no "make my movie loop" or "fade" checkboxes in Flash. Believe me, I looked for a long time in disbelief.</p><p>The ActionScript code below simply listens for the complete event on the FLVPlayback object and triggers the object to play again. This will cause it to loop around and around.</p><p><strong>Using fade for a seamless loop transition</strong></p><p>Unless you have a movie designed for seamless looped play, you'll most likely need to join the start and end together with a short fade sequence. This keeps the continuity of play, but hides the frame jump between the end and start of the movie.</p><p>Scarred by the lack of loop checkbox, but still optimistic I only spent half as long looking for the fade in and fade out video effects. Again, no such thing. To add fades to your movie, you need to add some ActionScript. Constant use of the onEnterFrame event leads to high CPU consumption (on my old laptop anyway, not so much on the brand spanking new desktop), so I brushed off my coding skills and put together something that achieves the effect with a very low CPU load.</p><p>The ActionScript code below catches the cue point events, using StartFadeOut to register an onFrameEvent handler that performs the gradual fade out and fade in of the movie loop. The EndFadeIn event deregisters that handler, reducing the CPU usage required to play the majority of the video clip. (I think this is a fairly neat & important trick that I didn't find used elsewhere.)</p><p><strong>Linking the banner to your home page</strong></p><p>All good site headers should link back to the home page. Still optimistic, I looked for the add hyperlink capability in Flash (which also doesn't exist). I then tried wrapping the Flash object in an anchor tag (also doesn't work).</p><p>The solution is to create a button in flash and use ActionScript to link to your chosen page:</p><ol><li>In the Timeline panel, click the icon to add a new layer. This layer will be used to house the button without affecting our other content.</li><li>Make sure the new layer is selected.</li><li>On the Insert menu, choose New Symbol...</li><li>Use the Button type, name it Button Symbol and click OK. This creates a canvas on which we can make the button template that will be added to the library. (We have to add it to our document later.)</li><li>Select the rectangle tool and set the border to none and the colour to have an alpha of 0. You can now draw an invisible rectangle in the middle of this canvas. Don't worry too much about the size &amp; position at this point.</li><li>Use the select tool and select your rectangle by clicking on where you know it will be.</li><li>In the Properties tab, set the width to 640px, the height to 200px, the X position to -320px and the Y position to -100px.</li><li>The Button Symbol is now in your Library, but isn't in the document yet.</li><li>To return to the main stage, click Scene 1 in the Timeline panel (should be just to the left of your Button Symbol link).</li><li>To add an instance of Button Symbol to the document, drag it across from the Library pane on the right.</li><li>Use the Properties tab at the bottom to set the instance name to btn and align it exactly by setting X and Y both to zero.</li><li>Make the button link to your chosen URL by adding this code to the ActionScript section:</li></ol><p><code>on(release)<br />{<br />getURL("http://www.e-gineer.com", "_self"); <br />}</code></p><p>Initially I thought this wasn't working either, as the link in the sample I copied was to an outside website which seemed to get blocked for security reasons in IE (silently) and in FireFox (with an error message that finally helped me understand what was happening).</p><p><strong>Removing the "click to activate control" (Eolas patent) requirement</strong></p><p>The final challenge is working around the <a href="http://en.wikipedia.org/wiki/Eolas">Eolas patent</a>. By default, your Flash object requires a single click to activate the control. This is very annoying when you actually want the whole object to act as a simple link.</p><p>The <a href="http://msdn2.microsoft.com/en-us/library/ms537508.aspx">workaround to remove the activation click</a> is fairly simple. Just create a Javascript file (e.g. header.js) that programmatically ites out the header HTML for embedding the Flash file. Here is example content of the Javascript file:</p><p><code>// Use external Javascript to load the object so it<br />// doesn't require the user to click to activate it.<br />// See <a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/overview/activating_activex.asp">http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/overview/activating_activex.asp</a><br />document.write('&lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="640" height="200" id="Your Header Title" align="middle"&gt;\<br />&lt;param name="allowScriptAccess" value="sameDomain"&gt;\<br />&lt;param name="movie" value="/url/to/YourHeader.swf"&gt;\<br />&lt;param name="quality" value="high"&gt;\<br />&lt;param name="bgcolor" value="black"&gt;\<br />&lt;embed src="//url/to/YourHeader.swf" quality="high" bgcolor="black" width="640" height="200" name="Your Header Title" align="middle" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/&gt;\<br />&lt;/object&gt;'); </code></p><p>And then use this code to include it where you'd like the Flash header to appear in your page:</p><p><code>&lt;script src="/url/to/header.js"&gt;&lt;/script&gt;</code></p><br /><p><strong>The ActionScript code</strong></p><p>I added all ActionScript code to the Flash document itself (there are many possible locations, this one seemed cleanest to me). Select the Flash document by clicking in the drawing area outside all existing objects, expand the ActionScript task bar and insert this code:</p><code>// This is the length of time at the start and end of the movie<br />// used for the gradual fade.<br />fadeTime = 1;<br />// The frames per second of the movie.<br />fps = 12;<br />// Calculate the alpha increment to use when fading in or out.<br />alphaInc = Math.abs(100*fadeTime/fps);<br /><br />var listenerObject:Object = new Object();<br /><br />// To make the flash movie loop, upon completion the movie<br />// is set to start playing again.<br />listenerObject.complete = function(eventObject:Object):Void {<br />  video.play();<br />};<br />video.addEventListener("complete", listenerObject);<br /><br />// To achieve the fade effect on each cycle (except when the movie<br />// first starts playing) we use an onEnterFrame event. Because of<br />// the high CPU load this causes, we use two cue points to set and<br />// remove a listener on this event as appropriate. EndFadeIn is<br />// set 1 sec after the start of the movie and StartFadeOut is set<br />// 1 sec before the end of the movie (These intervals must be the<br />// same as the fadeTime setting above.<br />listenerObject.cuePoint = function(eventObject:Object):Void {<br />  switch (eventObject.info.name) {<br />  case "StartFadeOut":<br />    // We are near the end of the movie, so register the onEnterFrame<br />    // listener which will control both the fade out and fade in tasks<br />    // as the movie loops back and until the EndFadeIn cue point is reached.<br />    video.onEnterFrame = function() {<br />      if (video.playheadTime&lt;fadeTime) {<br />        video._alpha += alphaInc;<br />      }<br />      else if ( (video.totalTime - video.playheadTime) &lt; fadeTime) {<br />        video._alpha -= alphaInc;<br />      }<br />      else {<br />        // Shouldn't be needed due to cue points, but just in case.<br />        video._alpha = 100;<br />      }<br />    }<br />    break;<br />  case "EndFadeIn":<br />    // We have faded in completely, so set the alpha to 100 for<br />    // certainty and remove the onEnterFrame listener for the time<br />    // being.<br />    video._alpha = 100;<br />    video.onEnterFrame = null;<br />    break;<br />  }<br />}<br />video.addEventListener("cuePoint", listenerObject);</code><div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+
+			<!-- Begin .post -->
+			<div class="blogPost">
+		
+				<a name="820144700575404506"></a>
+				
+				<a href="http://www.e-gineer.com/v2/blog/2007/05/elimena-joins-clan.htm" class="blogPostTitle"><h1 class="blogPostTitle">Elimena joins the clan...</h1></a>
+				
+				<div class="blogPostByline">
+					<a class="blogPostTimestamp" href="http://www.e-gineer.com/v2/blog/2007/05/elimena-joins-clan.htm">Thursday, May 10, 2007</a> |
+					<a class="blogPostCommentLink" href="http://www.e-gineer.com/v2/blog/2007/05/elimena-joins-clan.htm#comments"location.href=http://www.e-gineer.com/v2/blog/2007/05/elimena-joins-clan.htm#comment-form;>Comments (1)</a>
+					
+				</div>
+				
+			    <div class="blogPostBody">
+					<div style="clear:both;"></div><a href="http://www.elimena.com">Elimena Margaret Wallace</a> was born in Sydney at 11:48am on the 9th May 2007. Weight 3.51kg (7lb 12oz), height 52.5cm.<div style="clear:both; padding-bottom:0.25em"></div>
+			    </div>
+		  
+				<!-- Begin #comments -->
+				
+				<!-- End #comments -->
+
+			</div>
+			<!-- End .post -->
+	
+		
+	
+  <!-- #EndEditable -->
+  </div>
+  
+  <div id="contentPageFooter">
+
+    <div id="blogArchives"> 
+      <script type="text/javascript"><!--
+      // Convert the simple Blogger Archive template output into a nice
+      // year by year grid of months view.
+      var data = new Array();
+      var archives = new Array();
+      data.push(new Array("200505", "http://www.e-gineer.com/v2/blog/archive/2005_05_01_archive.htm"));archives["200505"]="http://www.e-gineer.com/v2/blog/archive/2005_05_01_archive.htm";data.push(new Array("200506", "http://www.e-gineer.com/v2/blog/archive/2005_06_01_archive.htm"));archives["200506"]="http://www.e-gineer.com/v2/blog/archive/2005_06_01_archive.htm";data.push(new Array("200507", "http://www.e-gineer.com/v2/blog/archive/2005_07_01_archive.htm"));archives["200507"]="http://www.e-gineer.com/v2/blog/archive/2005_07_01_archive.htm";data.push(new Array("200508", "http://www.e-gineer.com/v2/blog/archive/2005_08_01_archive.htm"));archives["200508"]="http://www.e-gineer.com/v2/blog/archive/2005_08_01_archive.htm";data.push(new Array("200509", "http://www.e-gineer.com/v2/blog/archive/2005_09_01_archive.htm"));archives["200509"]="http://www.e-gineer.com/v2/blog/archive/2005_09_01_archive.htm";data.push(new Array("200510", "http://www.e-gineer.com/v2/blog/archive/2005_10_01_archive.htm"));archives["200510"]="http://www.e-gineer.com/v2/blog/archive/2005_10_01_archive.htm";data.push(new Array("200511", "http://www.e-gineer.com/v2/blog/archive/2005_11_01_archive.htm"));archives["200511"]="http://www.e-gineer.com/v2/blog/archive/2005_11_01_archive.htm";data.push(new Array("200512", "http://www.e-gineer.com/v2/blog/archive/2005_12_01_archive.htm"));archives["200512"]="http://www.e-gineer.com/v2/blog/archive/2005_12_01_archive.htm";data.push(new Array("200601", "http://www.e-gineer.com/v2/blog/archive/2006_01_01_archive.htm"));archives["200601"]="http://www.e-gineer.com/v2/blog/archive/2006_01_01_archive.htm";data.push(new Array("200602", "http://www.e-gineer.com/v2/blog/archive/2006_02_01_archive.htm"));archives["200602"]="http://www.e-gineer.com/v2/blog/archive/2006_02_01_archive.htm";data.push(new Array("200603", "http://www.e-gineer.com/v2/blog/archive/2006_03_01_archive.htm"));archives["200603"]="http://www.e-gineer.com/v2/blog/archive/2006_03_01_archive.htm";data.push(new Array("200604", "http://www.e-gineer.com/v2/blog/archive/2006_04_01_archive.htm"));archives["200604"]="http://www.e-gineer.com/v2/blog/archive/2006_04_01_archive.htm";data.push(new Array("200609", "http://www.e-gineer.com/v2/blog/archive/2006_09_01_archive.htm"));archives["200609"]="http://www.e-gineer.com/v2/blog/archive/2006_09_01_archive.htm";data.push(new Array("200701", "http://www.e-gineer.com/v2/blog/archive/2007_01_01_archive.htm"));archives["200701"]="http://www.e-gineer.com/v2/blog/archive/2007_01_01_archive.htm";data.push(new Array("200702", "http://www.e-gineer.com/v2/blog/archive/2007_02_01_archive.htm"));archives["200702"]="http://www.e-gineer.com/v2/blog/archive/2007_02_01_archive.htm";data.push(new Array("200705", "http://www.e-gineer.com/v2/blog/archive/2007_05_01_archive.htm"));archives["200705"]="http://www.e-gineer.com/v2/blog/archive/2007_05_01_archive.htm";data.push(new Array("200707", "http://www.e-gineer.com/v2/blog/archive/2007_07_01_archive.htm"));archives["200707"]="http://www.e-gineer.com/v2/blog/archive/2007_07_01_archive.htm";data.push(new Array("200708", "http://www.e-gineer.com/v2/blog/archive/2007_08_01_archive.htm"));archives["200708"]="http://www.e-gineer.com/v2/blog/archive/2007_08_01_archive.htm";data.push(new Array("200712", "http://www.e-gineer.com/v2/blog/archive/2007_12_01_archive.htm"));archives["200712"]="http://www.e-gineer.com/v2/blog/archive/2007_12_01_archive.htm";data.push(new Array("200802", "http://www.e-gineer.com/v2/blog/archive/2008_02_01_archive.htm"));archives["200802"]="http://www.e-gineer.com/v2/blog/archive/2008_02_01_archive.htm";data.push(new Array("200810", "http://www.e-gineer.com/v2/blog/archive/2008_10_01_archive.htm"));archives["200810"]="http://www.e-gineer.com/v2/blog/archive/2008_10_01_archive.htm";data.push(new Array("200902", "http://www.e-gineer.com/v2/blog/archive/2009_02_01_archive.htm"));archives["200902"]="http://www.e-gineer.com/v2/blog/archive/2009_02_01_archive.htm";data.push(new Array("200903", "http://www.e-gineer.com/v2/blog/archive/2009_03_01_archive.htm"));archives["200903"]="http://www.e-gineer.com/v2/blog/archive/2009_03_01_archive.htm";data.push(new Array("200905", "http://www.e-gineer.com/v2/blog/archive/2009_05_01_archive.htm"));archives["200905"]="http://www.e-gineer.com/v2/blog/archive/2009_05_01_archive.htm";data.push(new Array("201001", "http://www.e-gineer.com/v2/blog/archive/2010_01_01_archive.htm"));archives["201001"]="http://www.e-gineer.com/v2/blog/archive/2010_01_01_archive.htm";data.push(new Array("201002", "http://www.e-gineer.com/v2/blog/archive/2010_02_01_archive.htm"));archives["201002"]="http://www.e-gineer.com/v2/blog/archive/2010_02_01_archive.htm";data.push(new Array("201003", "http://www.e-gineer.com/v2/blog/archive/2010_03_01_archive.htm"));archives["201003"]="http://www.e-gineer.com/v2/blog/archive/2010_03_01_archive.htm";
+      if (data.length) {
+        var firstYear = parseInt(data[0][0].substr(0,4));
+        var lastYear = parseInt(data[data.length-1][0].substr(0,4));
+        var months = Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+        for (var y=lastYear; y>=firstYear; y--) {
+          document.write("<div class=\"blogArchivesDateLinksYear\"> <span class=\"blogArchivesYear\">" + y + ":</span> ");
+          for (var m=1; m<=12; m++) {
+            var ym = y*100 + m;
+            if (archives[ym.toString()]) {
+              document.write("<a class=\"blogArchives\" href=\"" + archives[ym.toString()] + "\">" + months[m-1] + "</a> ");
+            }
+            else {
+              document.write("<span class=\"blogArchivesNonLink\">" + months[m-1] + "</span> ");
+            }
+          }
+          document.write("</div>");
+        }
+      }
+      --></script> 
+      <noscript> 
+      <div class="blogArchivesDateLinksYear"> 
+        <span class="blogArchivesYear">Archive:</span> 
+        <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_05_01_archive.htm">200505</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_06_01_archive.htm">200506</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_07_01_archive.htm">200507</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_08_01_archive.htm">200508</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_09_01_archive.htm">200509</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_10_01_archive.htm">200510</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_11_01_archive.htm">200511</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2005_12_01_archive.htm">200512</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_01_01_archive.htm">200601</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_02_01_archive.htm">200602</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_03_01_archive.htm">200603</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_04_01_archive.htm">200604</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2006_09_01_archive.htm">200609</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_01_01_archive.htm">200701</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_02_01_archive.htm">200702</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_05_01_archive.htm">200705</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_07_01_archive.htm">200707</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_08_01_archive.htm">200708</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2007_12_01_archive.htm">200712</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2008_02_01_archive.htm">200802</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2008_10_01_archive.htm">200810</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2009_02_01_archive.htm">200902</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2009_03_01_archive.htm">200903</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2009_05_01_archive.htm">200905</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2010_01_01_archive.htm">201001</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2010_02_01_archive.htm">201002</a> <a class="blogArchives" href="http://www.e-gineer.com/v2/blog/archive/2010_03_01_archive.htm">201003</a> 
+      </div> 
+      </noscript> 
+      <div class="blogArchivesDateLinksYear"> 
+        <span class="blogArchivesYear">Prior:</span> 
+        <a class="blogArchives" href="/archive/">Archive</a> 
+      </div> 
+    </div> 
+
+    <div id="copyrightNotice">
+      <p><a href="/v2/blog/rss.xml" class="blogXmlButton"><img alt="Feed" class="blogXmlButton" src="/v2/presentation/xml.gif"/>&nbsp;&nbsp;<span class="blogXmlButton">Subscribe via RSS.</span></a></p>
+      <p>The postings on this site are my own and don't necessarily represent the positions, strategies or opinions of my employer.</p>
+      <p>Copyright &copy; 1999-2010 Nathan Wallace.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-65687-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript" src="http://www.blogger.com/static/v1/common/js/3323309151-csitaillib.js"></script>
+<script>if (typeof(window.attachCsiOnload) != 'undefined' && window.attachCsiOnload != null) { window.attachCsiOnload('ext_blogspot'); }</script></body>
+
+</html>
