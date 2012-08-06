@@ -336,57 +336,45 @@ decisions.
 Thanks also go to [my team](http://www.e-gineer.com/v2/blog/2007/12/JCintraPeopleSearch.jpg)
 without whom this would all be theory.*
 
-  <!-- Begin #comments -->
-  
-  
-  <div id="blogComments">
-    <a name="comments"></a>
-    
-    <a name="c7038377497084827581"></a>
-    <div class="blogComment">
-      <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/00099148751209656631" rel="nofollow">sandy</a> on <a href="#7038377497084827581" title="Comment permalink">December 05, 2007 8:21 AM</a> <span class="item-control blog-admin pid-1278800738"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=7038377497084827581" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-      <div class="blogCommentBody">Glad that my post on ebizQ was helpful in researching your post. That post, and all of my subsequent ones, have been moved to my own domain at www.column2.com.</div>
-    </div>
-    
-    <a name="c2086830293548168715"></a>
-    <div class="blogComment">
-      <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/02085019057090968408" rel="nofollow">Wax</a> on <a href="#2086830293548168715" title="Comment permalink">December 06, 2007 2:16 AM</a> <span class="item-control blog-admin pid-1412939294"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=2086830293548168715" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-      <div class="blogCommentBody">Wow! This Janssen-Cilag tool seems to be so complex! I'd rather stick to <A HREF="http://www.wrike.com" REL="nofollow">Wrike</A>, which is lightweight and simple. I have a small business and <A HREF="http://www.wrike.com" REL="nofollow">Wrike</A> has been a perfect solution for me so far.</div>
-    </div>
-    
-    <a name="c9182474982996826267"></a>
-    <div class="blogComment">
-      <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/04736668434993429014" rel="nofollow">hbflynn</a> on <a href="#9182474982996826267" title="Comment permalink">December 06, 2007 6:22 AM</a> <span class="item-control blog-admin pid-1782019263"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=9182474982996826267" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-      <div class="blogCommentBody">great post... love the association to Agile, that has given me some great ideas.</div>
-    </div>
-    
-    <a name="c113736102131033819"></a>
-    <div class="blogComment">
-      <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/11335466511100423988" rel="nofollow">Marcel</a> on <a href="#113736102131033819" title="Comment permalink">December 14, 2007 7:57 AM</a> <span class="item-control blog-admin pid-1861666621"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=113736102131033819" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-      <div class="blogCommentBody">Thanks for sharing all of this. Some great lessons.<BR/><BR/>Marcel<BR/><BR/>http://www.shapingthoughts.com</div>
-    </div>
-    
-    <a name="c9093145194913136115"></a>
-    <div class="blogComment">
-      <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/08000299677451309809" rel="nofollow">Stewart</a> on <a href="#9093145194913136115" title="Comment permalink">January 09, 2008 11:49 AM</a> <span class="item-control blog-admin pid-210081065"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=9093145194913136115" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-      <div class="blogCommentBody">@Nathan - this is excellent. Maybe the best assessment I've seen so far of the challenges involved in changing an organization's culture. The stats on JCintra sounds excellent!<BR/><BR/>BTW, is it just me or does that same poster keep popping up on quite a few wiki related blog posts and shilling for Wrike? This is the third or fourth time I've seen that thinly veiled marketing pitch in a comment. Note to @wax - comments like that are easy to see through.<BR/><BR/>Cheers,<BR/>Stewart</div>
-    </div>
-    
-    <a name="c3281247916291192550"></a>
-    <div class="blogComment">
-      <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://c21org.typepad.com" rel="nofollow">Jenny Ambrozek</a> on <a href="#3281247916291192550" title="Comment permalink">June 07, 2008 10:31 PM</a> <span class="item-control blog-admin pid-122604977"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=3281247916291192550" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-      <div class="blogCommentBody">Interestingly your SERIOUS wiki case appeared in a search for Enterprise 2.0 Open Boston that I'm attending next week. I wonder if you've submitted to Andrew McAfee's Cases 2.0 wiki so it is more readily available.  <BR/><BR/>Your comments on 'culture" resonated. My blogging colleague and I have a piece coming in Effective Executive Magazine that was inspired by Bob Buckman's March 2007 comment to the AOK Yahoo Group:<BR/><BR/>"but I never did try and manage knowledge. What I really tried to manage and nurture was a culture that would encourage and expand the flow of knowledge.".  <BR/>~ Robert H. Buckman<BR/>http://tinyurl.com/5czyo8<BR/><BR/>Fortunately we were able to interview Mr. Buckman for our article and he reiterated:<BR/><BR/>"If you look at it from the standpoint of how much effort it takes to achieve and effect knowledge sharing across an organization, you will find that the technology piece is about 5 to 10 percent of the effort, changing the way work is done is the 90 to 95 percent of the effort. You can define the effort as time or as money, it still comes out about the same"   ~ Robert H. Buckman<BR/><BR/>Best with all your endeavours.<BR/><BR/>~ Jenny Ambrozek</div>
-    </div>
-    
-    <div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
 
-
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=458740964866592893'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
+  <a name="c7038377497084827581">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by sandy on <a href="#c7038377497084827581" title="Comment permalink">December 05, 2007 8:21 AM</a> </div>
+  <div class="blogCommentBody">Glad that my post on ebizQ was helpful in researching your post. That post, and all of my subsequent ones, have been moved to my own domain at www.column2.com.</div>
   </div>
-  
-  
-  <!-- End #comments -->
+
+  <a name="c2086830293548168715">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by Wax on <a href="#c2086830293548168715" title="Comment permalink">December 06, 2007 2:16 AM</a> </div>
+  <div class="blogCommentBody">Wow! This Janssen-Cilag tool seems to be so complex! I'd rather stick to <A HREF="http://www.wrike.com" REL="nofollow">Wrike</A>, which is lightweight and simple. I have a small business and <A HREF="http://www.wrike.com" REL="nofollow">Wrike</A> has been a perfect solution for me so far.</div>
+  </div>
+
+  <a name="c9182474982996826267">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by hbflynn on <a href="#c9182474982996826267" title="Comment permalink">December 06, 2007 6:22 AM</a> </div>
+  <div class="blogCommentBody">great post... love the association to Agile, that has given me some great ideas.</div>
+  </div>
+
+  <a name="c113736102131033819">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by Marcel on <a href="#c113736102131033819" title="Comment permalink">December 14, 2007 7:57 AM</a> </div>
+  <div class="blogCommentBody">Thanks for sharing all of this. Some great lessons.<BR/><BR/>Marcel<BR/><BR/>http://www.shapingthoughts.com</div>
+  </div>
+
+  <a name="c9093145194913136115">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by Stewart on <a href="#c9093145194913136115" title="Comment permalink">January 09, 2008 11:49 AM</a> </div>
+  <div class="blogCommentBody">@Nathan - this is excellent. Maybe the best assessment I've seen so far of the challenges involved in changing an organization's culture. The stats on JCintra sounds excellent!<BR/><BR/>BTW, is it just me or does that same poster keep popping up on quite a few wiki related blog posts and shilling for Wrike? This is the third or fourth time I've seen that thinly veiled marketing pitch in a comment. Note to @wax - comments like that are easy to see through.<BR/><BR/>Cheers,<BR/>Stewart</div>
+  </div>
+
+  <a name="c3281247916291192550">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by Jenny Ambrozek on <a href="#c3281247916291192550" title="Comment permalink">June 07, 2008 10:31 PM</a> </div>
+  <div class="blogCommentBody">Interestingly your SERIOUS wiki case appeared in a search for Enterprise 2.0 Open Boston that I'm attending next week. I wonder if you've submitted to Andrew McAfee's Cases 2.0 wiki so it is more readily available.  <BR/><BR/>Your comments on 'culture" resonated. My blogging colleague and I have a piece coming in Effective Executive Magazine that was inspired by Bob Buckman's March 2007 comment to the AOK Yahoo Group:<BR/><BR/>"but I never did try and manage knowledge. What I really tried to manage and nurture was a culture that would encourage and expand the flow of knowledge.".  <BR/>~ Robert H. Buckman<BR/>http://tinyurl.com/5czyo8<BR/><BR/>Fortunately we were able to interview Mr. Buckman for our article and he reiterated:<BR/><BR/>"If you look at it from the standpoint of how much effort it takes to achieve and effect knowledge sharing across an organization, you will find that the technology piece is about 5 to 10 percent of the effort, changing the way work is done is the 90 to 95 percent of the effort. You can define the effort as time or as money, it still comes out about the same"   ~ Robert H. Buckman<BR/><BR/>Best with all your endeavours.<BR/><BR/>~ Jenny Ambrozek</div>
+  </div>
+
+  <div class="blogCommentsClosed">Comments are closed.</div>
+
+</div>

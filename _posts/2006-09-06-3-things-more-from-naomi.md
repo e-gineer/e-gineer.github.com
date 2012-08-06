@@ -20,33 +20,21 @@ Naomi Wallace, recorded at home using
 3 Things was written as a wedding gift to Bianca and I,
 so clearly it's my favourite.
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c1686862062960391413"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/08916675677689244067" rel="nofollow">CentralHollywood</a> on <a href="#1686862062960391413" title="Comment permalink">December 24, 2007 3:15 PM</a> <span class="item-control blog-admin pid-826541318"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=1686862062960391413" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Loved Naomi in Wiggle Bay.  She's a treat to watch and now to hear via her music.  Thanks for posting.       <BR/><BR/><BR/>-Billy "Flabber" Forester,<BR/>Big Bad Beetleborgs, on FOX Kids, U.S.</div>
-					</div>
-					
-					<a name="c2015188880516935894"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Mike</span> on <a href="#2015188880516935894" title="Comment permalink">March 29, 2010 12:16 AM</a> <span class="item-control blog-admin pid-451992907"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=2015188880516935894" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Such a lovely lady, and a lovely voice.  I saw her on &#39;Wiggle Bay&#39;, which is one of my son&#39;s favorites.  Does she have any upcoming film or TV roles?  Her own site?</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c1686862062960391413">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by CentralHollywood on <a href="#c1686862062960391413" title="Comment permalink">December 24, 2007 3:15 PM</a> </div>
+    <div class="blogCommentBody">Loved Naomi in Wiggle Bay.  She's a treat to watch and now to hear via her music.  Thanks for posting.       <BR/><BR/>-Billy "Flabber" Forester,<BR/>Big Bad Beetleborgs, on FOX Kids, U.S.</div>
+  </div>
+  
+  <a name="c2015188880516935894">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Mike on <a href="#c2015188880516935894" title="Comment permalink">March 29, 2010 12:16 AM</a> </div>
+    <div class="blogCommentBody">Such a lovely lady, and a lovely voice.  I saw her on &#39;Wiggle Bay&#39;, which is one of my son&#39;s favorites.  Does she have any upcoming film or TV roles?  Her own site?</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=115754025013307659'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/1750744931-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

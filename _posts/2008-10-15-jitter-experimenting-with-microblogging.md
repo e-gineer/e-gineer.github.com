@@ -212,51 +212,39 @@ At
 Janssen-Cilag, we're a step or two closer to working it out.
 
 		  
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c250499100191547212"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.twitter.com/boehr" rel="nofollow">Martin Böhringer</a> on <a href="#250499100191547212" title="Comment permalink">October 21, 2008 12:53 AM</a> <span class="item-control blog-admin pid-362832290"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=250499100191547212" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Nathan, thank you very much for sharing this great insights with us. I am writing my master thesis about Enterprise Microblogging and are part of the communote-Team (http://www.communote.com). Maybe your users are just overwhelmed by the increasing number of available tools. It could be usefull to name a leading tool. In my opionion the Microblog could be this leading tool where i.e. new updates in the wiki or the personal profiles or the hierarchy are posted. You could also increase Jitter's usage in making it be policy. I.e. a project milestone is not finished until this was announced in Jitter and so on.</div>
-					</div>
-					
-					<a name="c193388942062646952"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/05964960378371719477" rel="nofollow">AbigailLB</a> on <a href="#193388942062646952" title="Comment permalink">November 04, 2008 11:30 AM</a> <span class="item-control blog-admin pid-1448235617"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=193388942062646952" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Hi Nathan, just got a report on microblogging that you might be interested in - will connect thru J&amp;J with you. Abigail</div>
-					</div>
-					
-					<a name="c6581683269633301130"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.intranetblog.com" rel="nofollow">Toby Ward</a> on <a href="#6581683269633301130" title="Comment permalink">January 08, 2009 1:49 PM</a> <span class="item-control blog-admin pid-1526891796"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=6581683269633301130" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Fantastic case study Nathan! I shall promote it on IntranetBlog.com. Any update you want to share? How many users now? And how many total employees do you have now?<BR/><BR/>Cheers,<BR/><BR/>Toby Ward<BR/>toby(at)prescientdigital(dot)com</div>
-					</div>
-					
-					<a name="c1207921270672345824"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/03492081437277325599" rel="nofollow">Russell</a> on <a href="#1207921270672345824" title="Comment permalink">January 13, 2009 9:40 PM</a> <span class="item-control blog-admin pid-1362344617"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=1207921270672345824" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Thanks for sharing - I've added this to The Parallax View Social Media Case Study list:<BR/>http://theparallaxview.com/social-media-case-studies/</div>
-					</div>
-					
-					<a name="c1119941527513972847"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.yancylent.com" rel="nofollow">Yancy Lent</a> on <a href="#1119941527513972847" title="Comment permalink">March 01, 2009 2:57 AM</a> <span class="item-control blog-admin pid-1141206681"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=1119941527513972847" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Great Info! <BR/><BR/>I love the honesty, you're right many people don't get it. For those that do, and want to try it out in the enterprise, start with Broadcastr, a turn-key microblogging solution delivered on a VM: http://www.broadcastr.net.</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments"></a>
+  
+  <a name="c250499100191547212"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Martin Bohringer on <a href="#c250499100191547212" title="Comment permalink">October 21, 2008 12:53 AM</a> </div>
+    <div class="blogCommentBody">Nathan, thank you very much for sharing this great insights with us. I am writing my master thesis about Enterprise Microblogging and are part of the communote-Team (http://www.communote.com). Maybe your users are just overwhelmed by the increasing number of available tools. It could be usefull to name a leading tool. In my opionion the Microblog could be this leading tool where i.e. new updates in the wiki or the personal profiles or the hierarchy are posted. You could also increase Jitter's usage in making it be policy. I.e. a project milestone is not finished until this was announced in Jitter and so on.</div>
+  </div>
+  
+  <a name="c193388942062646952"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by AbigailLB on <a href="#c193388942062646952" title="Comment permalink">November 04, 2008 11:30 AM</a> </div>
+    <div class="blogCommentBody">Hi Nathan, just got a report on microblogging that you might be interested in - will connect thru J&amp;J with you. Abigail</div>
+  </div>
+  
+  <a name="c6581683269633301130"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Toby Ward on <a href="#c6581683269633301130" title="Comment permalink">January 08, 2009 1:49 PM</a> </div>
+    <div class="blogCommentBody">Fantastic case study Nathan! I shall promote it on IntranetBlog.com. Any update you want to share? How many users now? And how many total employees do you have now?<BR/><BR/>Cheers,<BR/><BR/>Toby Ward<BR/>toby(at)prescientdigital(dot)com</div>
+  </div>
+  
+  <a name="c1207921270672345824"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Russell on <a href="#c1207921270672345824" title="Comment permalink">January 13, 2009 9:40 PM</a> </div>
+    <div class="blogCommentBody">Thanks for sharing - I've added this to The Parallax View Social Media Case Study list:<BR/>http://theparallaxview.com/social-media-case-studies/</div>
+  </div>
+  
+  <a name="c1119941527513972847"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Yancy Lent on <a href="#c1119941527513972847" title="Comment permalink">March 01, 2009 2:57 AM</a> </div>
+    <div class="blogCommentBody">Great Info! <BR/><BR/>I love the honesty, you're right many people don't get it. For those that do, and want to try it out in the enterprise, start with Broadcastr, a turn-key microblogging solution delivered on a VM: http://www.broadcastr.net.</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=9209857762621216399'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

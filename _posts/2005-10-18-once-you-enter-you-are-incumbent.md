@@ -7,7 +7,7 @@ A nice articulation from Peter Rip of why many entrepreneurs will face [the
 same problems in Web 2.0](http://earlystagevc.typepad.com/earlystagevc/2005/10/the_web_20_entr.html)
 that investors faced in Web 1.0:
 
-> [T]he root causes are the same:
+> The root causes are the same:
 > 
 > 1. It is very easy to make the initial commitment (founding or funding).
 > 2. Underestimation of how many had the same conclusion.

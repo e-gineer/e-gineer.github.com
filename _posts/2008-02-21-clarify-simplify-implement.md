@@ -165,27 +165,15 @@ courses.
 Clarify, Simplify, Implement challenges this process and demands
 the writing of short letters. Users will thank you for it.
 		  
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c1733076378978721265"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">lookielouie</span> on <a href="#1733076378978721265" title="Comment permalink">February 24, 2009 10:58 AM</a> <span class="item-control blog-admin pid-1198091151"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=1733076378978721265" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">This is excellent advice, though I am not in IT, I teach beginner computer users, often seniors making the great leap, windows coverts tired of that difficult and unreliable platform, or those wishing to upgrade to an newer operating system or simply want to more fully understand, and use the existing system they own.<BR/><BR/>Was looking for an image to illustrate an article on this very topic, and got caught up reading your blog.  Perfect.  Would like to use it in Mac computer group newsletter, which I edit and publish,  Full attribution will be given.<BR/><BR/>Write on!</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments"></a>
+  
+  <a name="c1733076378978721265"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by lookielouie on <a href="#c1733076378978721265" title="Comment permalink">February 24, 2009 10:58 AM</a> </div>
+    <div class="blogCommentBody">This is excellent advice, though I am not in IT, I teach beginner computer users, often seniors making the great leap, windows coverts tired of that difficult and unreliable platform, or those wishing to upgrade to an newer operating system or simply want to more fully understand, and use the existing system they own.<BR/><BR/>Was looking for an image to illustrate an article on this very topic, and got caught up reading your blog.  Perfect.  Would like to use it in Mac computer group newsletter, which I edit and publish,  Full attribution will be given.<BR/><BR/>Write on!</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=5029008682686711064'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

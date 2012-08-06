@@ -31,22 +31,3 @@ license. I'm certainly not expecting a flood of users, but I guess that means
 it's important to choose carefully before using a license. So, for now,
 everything here remains under the implicit (no need to even © it) copyright
 license.
-		  
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
-
-
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=112454569716782762'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->

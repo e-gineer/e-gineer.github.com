@@ -89,33 +89,21 @@ Successful Enterprise 2.0 accepts controls on existing areas, but frees the
 organisation to create new areas, context and information.  Successful
 Enterprise 2.0 knows that the world isn't flat.
 		  
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c679052604466558317"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/17099601643376735589" rel="nofollow">jilske</a> on <a href="#679052604466558317" title="Comment permalink">June 10, 2009 2:30 PM</a> <span class="item-control blog-admin pid-766885668"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=679052604466558317" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Well written article, thanks for the insight Nathan.  I can see how the synthesis of the enterprise and application context works as a catalyst allowing new synergies to develop and increase adoption.  Did Machiavelli want to heed people to take baby steps and changes like embrace and extend? Does that mean there is no way to think about change more to set it up for success? Does this mean no matter how it goes about it, an enterprise won&#39;t succeed in mastering a new &#39;unmature&#39; social media application as it still looking for its own context?</div>
-					</div>
-					
-					<a name="c3751531134734398925"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.hyperoffice.com" rel="nofollow">Project Pankaj</a> on <a href="#3751531134734398925" title="Comment permalink">September 10, 2009 11:22 PM</a> <span class="item-control blog-admin pid-1371687400"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=3751531134734398925" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Great article. We need more analysis on enterprise 2.0 technologies, and how they affect traditional management approches and theories. As someone with a management background, and working in the enterprise 2.0 industry, i can certainly relate to the subject!</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c679052604466558317">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by jilske on <a href="#c679052604466558317" title="Comment permalink">June 10, 2009 2:30 PM</a> </div>
+    <div class="blogCommentBody">Well written article, thanks for the insight Nathan.  I can see how the synthesis of the enterprise and application context works as a catalyst allowing new synergies to develop and increase adoption.  Did Machiavelli want to heed people to take baby steps and changes like embrace and extend? Does that mean there is no way to think about change more to set it up for success? Does this mean no matter how it goes about it, an enterprise won&#39;t succeed in mastering a new &#39;unmature&#39; social media application as it still looking for its own context?</div>
+  </div>
+  
+  <a name="c3751531134734398925">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Project Pankaj on <a href="#c3751531134734398925" title="Comment permalink">September 10, 2009 11:22 PM</a> </div>
+    <div class="blogCommentBody">Great article. We need more analysis on enterprise 2.0 technologies, and how they affect traditional management approches and theories. As someone with a management background, and working in the enterprise 2.0 industry, i can certainly relate to the subject!</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=5410044038145567744'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

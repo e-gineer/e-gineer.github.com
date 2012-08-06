@@ -93,27 +93,15 @@ problems above, train the trainer can work when:
 1. Trainers are actually trained in how to lead the training (not just taken through the training themselves). Materials should be prepared and core messages clarified for consistent and continuous delivery to new recruits. Make it simple and time efficient to conduct training.
 2. Trainers are chosen who have some interest in providing training. Whether this interest is intrinsic (I love to share knowledge) or extrinsic (increased chance of bonus) it must keep the motivation level high to conduct quality training with the core messages intact.
   
-    <!-- Begin #comments -->
-    
-    
-    <div id="blogComments">
-      <a name="comments"></a>
-      
-      <a name="c8793067299633528678"></a>
-      <div class="blogComment">
-        <div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/00269545758642245541" rel="nofollow">Anand</a> on <a href="#8793067299633528678" title="Comment permalink">February 12, 2009 10:47 PM</a> <span class="item-control blog-admin pid-261756333"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=8793067299633528678" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-        <div class="blogCommentBody">I found this article useful.</div>
-      </div>
-      
-      <div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
 
+  <a name="c8793067299633528678">&nbsp;</a>
+  <div class="blogComment">
+  <div class="blogCommentByline">Comment by Anand on <a href="#c8793067299633528678" title="Comment permalink">February 12, 2009 10:47 PM</a> </div>
+  <div class="blogCommentBody">I found this article useful.</div>
+  </div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=8613843379348004324'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-    </div>
-    
-    
-    <!-- End #comments -->
+  <div class="blogCommentsClosed">Comments are closed.</div>
+
+</div>

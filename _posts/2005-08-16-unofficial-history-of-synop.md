@@ -381,63 +381,51 @@ Unfortunately, Synop's passion had always been developing new products. So,
 the sad and difficult decision was made to divest assets and close the
 business as appropriate.
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c112422762766571678"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.drury.net.nz" rel="nofollow">Rod</a> on <a href="#112422762766571678" title="Comment permalink">August 17, 2005 7:27 AM</a> <span class="item-control blog-admin pid-199302538"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=112422762766571678" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Bugger!  Sauce Reader is my favorite RSS reader.<BR/>Have you thought about charging for it?</div>
-					</div>
-					
-					<a name="c112434010059899675"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Chris Johnson</span> on <a href="#112434010059899675" title="Comment permalink">August 18, 2005 2:41 PM</a> <span class="item-control blog-admin pid-1982845763"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=112434010059899675" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">What a shame you are giving up Sauce Reader!   It really is THE BEST reader out there ... just not enough people know about it!  I have tried all the rest and they suck.  Your software is clean, designed well, does not try to re-invent how applications look and feel ... and is easy to use!  It will probably be years before someone comes up with something as good as your V2.  Ah well .. will have to keep using that for a while yet then! :)</div>
-					</div>
-					
-					<a name="c115650290844116855"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> on <a href="#115650290844116855" title="Comment permalink">August 25, 2006 8:48 PM</a> <span class="item-control blog-admin pid-1596373079"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=115650290844116855" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Hi!<BR/>Thank you very much for that perfect news aggregator. I like it very much. I use Liferea under Linux and yours under Windows.<BR/>Please keep on going to develope it!</div>
-					</div>
-					
-					<a name="c59198295031742120"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">RadhaKrishna</span> on <a href="#59198295031742120" title="Comment permalink">January 09, 2007 5:45 PM</a> <span class="item-control blog-admin pid-1370842075"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=59198295031742120" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Saucereader is THE BEST...I cant tell you how many aggregators I have used before using this..I instantly fell in love with it..Seriously you must consider charging it..I am sure once it develops traction, a lot of people will not think twice before paying</div>
-					</div>
-					
-					<a name="c3779237367209022131"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/13026775722451581555" rel="nofollow">Luiz</a> on <a href="#3779237367209022131" title="Comment permalink">March 22, 2007 10:56 PM</a> <span class="item-control blog-admin pid-1306892401"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=3779237367209022131" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Congrats on the reader! It's the best one I tried.<BR/>Since you cannot mantain it anymore, how about transfering it to an open source initiative? :)<BR/>You keep your legacy and make a lot of happy users! :D</div>
-					</div>
-					
-					<a name="c7301312367827284276"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> on <a href="#7301312367827284276" title="Comment permalink">April 02, 2007 3:28 AM</a> <span class="item-control blog-admin pid-869528392"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=7301312367827284276" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Saucereader is the best, no other like it. I abandoned it just today after months of struggling beacause it's not more capable to read my blogs. Really thanks anyway.</div>
-					</div>
-					
-					<a name="c742736586466565553"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.bluestarit.com" rel="nofollow">Mr. Hobbs.</a> on <a href="#742736586466565553" title="Comment permalink">February 18, 2010 3:09 PM</a> <span class="item-control blog-admin pid-2133904360"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=742736586466565553" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">I look forward to reading Volume II, whenever that eventuates.</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c112422762766571678">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Rod on <a href="#c112422762766571678" title="Comment permalink">August 17, 2005 7:27 AM</a> </div>
+    <div class="blogCommentBody">Bugger!  Sauce Reader is my favorite RSS reader.<BR/>Have you thought about charging for it?</div>
+  </div>
+  
+  <a name="c112434010059899675">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Chris Johnson on <a href="#c112434010059899675" title="Comment permalink">August 18, 2005 2:41 PM</a> </div>
+    <div class="blogCommentBody">What a shame you are giving up Sauce Reader!   It really is THE BEST reader out there ... just not enough people know about it!  I have tried all the rest and they suck.  Your software is clean, designed well, does not try to re-invent how applications look and feel ... and is easy to use!  It will probably be years before someone comes up with something as good as your V2.  Ah well .. will have to keep using that for a while yet then! :)</div>
+  </div>
+  
+  <a name="c115650290844116855">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Anonymous on <a href="#c115650290844116855" title="Comment permalink">August 25, 2006 8:48 PM</a> </div>
+    <div class="blogCommentBody">Hi!<BR/>Thank you very much for that perfect news aggregator. I like it very much. I use Liferea under Linux and yours under Windows.<BR/>Please keep on going to develope it!</div>
+  </div>
+  
+  <a name="c59198295031742120">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by RadhaKrishna on <a href="#c59198295031742120" title="Comment permalink">January 09, 2007 5:45 PM</a> </div>
+    <div class="blogCommentBody">Saucereader is THE BEST...I cant tell you how many aggregators I have used before using this..I instantly fell in love with it..Seriously you must consider charging it..I am sure once it develops traction, a lot of people will not think twice before paying</div>
+  </div>
+  
+  <a name="c3779237367209022131">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Luiz on <a href="#c3779237367209022131" title="Comment permalink">March 22, 2007 10:56 PM</a> </div>
+    <div class="blogCommentBody">Congrats on the reader! It's the best one I tried.<BR/>Since you cannot mantain it anymore, how about transfering it to an open source initiative? :)<BR/>You keep your legacy and make a lot of happy users! :D</div>
+  </div>
+  
+  <a name="c7301312367827284276">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Anonymous on <a href="#c7301312367827284276" title="Comment permalink">April 02, 2007 3:28 AM</a> </div>
+    <div class="blogCommentBody">Saucereader is the best, no other like it. I abandoned it just today after months of struggling beacause it's not more capable to read my blogs. Really thanks anyway.</div>
+  </div>
+  
+  <a name="c742736586466565553">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Mr. Hobbs. on <a href="#c742736586466565553" title="Comment permalink">February 18, 2010 3:09 PM</a> </div>
+    <div class="blogCommentBody">I look forward to reading Volume II, whenever that eventuates.</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=112415955721987074'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

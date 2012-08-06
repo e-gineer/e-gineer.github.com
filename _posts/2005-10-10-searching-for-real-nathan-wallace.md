@@ -36,27 +36,15 @@ me anymore?
 
 *Update (Feb 4, 2006): I'm back at #1 & #2 again.*
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c112890898981310484"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.hadianto.net/destination" rel="nofollow">Victor</a> on <a href="#112890898981310484" title="Comment permalink">October 10, 2005 11:49 AM</a> <span class="item-control blog-admin pid-1573505801"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=112890898981310484" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Now that you mentioned it. <A HREF="http://www.google.com/search?hl=en&lr=&q=victor+hadianto&btnG=Search" REL="nofollow">Victor Hadianto</A> also didn't return my homepage or blog. <A HREF="http://www.hadianto.net/destination" REL="nofollow">Destination</A> used to be the #1 hit for victor hadianto search for a while. Strange ...</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments"></a>
+  
+  <a name="c112890898981310484"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Victor on <a href="#c112890898981310484" title="Comment permalink">October 10, 2005 11:49 AM</a> </div>
+    <div class="blogCommentBody">Now that you mentioned it. <A HREF="http://www.google.com/search?hl=en&lr=&q=victor+hadianto&btnG=Search" REL="nofollow">Victor Hadianto</A> also didn't return my homepage or blog. <A HREF="http://www.hadianto.net/destination" REL="nofollow">Destination</A> used to be the #1 hit for victor hadianto search for a while. Strange ...</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=112890122928818495'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

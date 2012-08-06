@@ -54,27 +54,15 @@ According to Winston Churchill, "Luck is what happens when preparation meets
 opportunity". So, if you have the motivation, keep preparing and looking for
 the opportunity that aligns with your values.
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c114160424334516962"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/08478877407583446938" rel="nofollow">Joe Primm</a> on <a href="#114160424334516962" title="Comment permalink">March 06, 2006 11:17 AM</a> <span class="item-control blog-admin pid-865786223"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=114160424334516962" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">I liked the article.  Preparation is key to meeting opportunity.</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c114160424334516962">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Joe Primm on <a href="#c114160424334516962" title="Comment permalink">March 06, 2006 11:17 AM</a> </div>
+    <div class="blogCommentBody">I liked the article.  Preparation is key to meeting opportunity.</div>
+  </div>
 
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=112898675523320496'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>

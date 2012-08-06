@@ -114,61 +114,51 @@ After 6 months use on a team of 25 people divided among 5 operating companies ov
 
 We're now dealing with the hard (and important) problem of seeking real process improvement and cost control rather than looking for temporary advantage by playing with cost allocations to get temporary local advantage.
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c7315524504722352750"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> on <a href="#7315524504722352750" title="Comment permalink">November 01, 2007 5:24 AM</a> <span class="item-control blog-admin pid-1661646414"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=7315524504722352750" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">How do you address,measure,and allocate increases in  server usage and storage the shared server environment? For instance, in the event that one client's needs exceeds the available capacity on an existing server but only needs an additional 15% of an additional server do you pay for and assume the cost of the server?  Is there a % or assumption in the planning stages that allos for or creates a bufer zone for growth?</div>
-					</div>
-					
-					<a name="c1094570678748381231"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/04639246119384325956" rel="nofollow">Nathan @ e-gineer</a> on <a href="#1094570678748381231" title="Comment permalink">November 01, 2007 10:05 AM</a> <span class="item-control blog-admin pid-37421963"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=1094570678748381231" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">For idle server capacity there are two choices, either the 3rd party provider builds a cost structure that includes growth capacity (e.g. Amazon EC2) or the exact costs are dynamically shared among the users. We use each of these models in different cases.<BR/><BR/>When dynamically sharing costs we calculate the total % capacity used and allocate the total cost on that basis. For example, there is 300% available capacity through 3 servers costing a total of $300/month. Company A uses 75% of a server while company B uses 150%. So, company A pays 33% of the total cost 75%/(75%+150%) which is $100. Company B pays $200.<BR/><BR/>This may mean that company A has a cost increase due to actions taken by company B. This is less predictable than a fixed cost model.<BR/><BR/>Unfortunately, in the end, someone must pay for spare capacity. The key thing is to find a model where actions to reduce my own cost (in this case reducing capacity) are the same actions that we need to take to reduce the total cost. That way companies are discussing cost, not cost allocation.</div>
-					</div>
-					
-					<a name="c6118993380453123193"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> on <a href="#6118993380453123193" title="Comment permalink">January 15, 2008 9:40 AM</a> <span class="item-control blog-admin pid-2031253337"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=6118993380453123193" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">I like your model but was wondering how you treat un-allocated capacity that occus from time to time, i.e. what if an existing FTE is not being fully utilised in a particular month on ad-hoc or project work? Where does that piece of his/her total cost get allocated? Is it a fair rule to simply allocate out any residual costs evenly across businesses?</div>
-					</div>
-					
-					<a name="c7472879029111373679"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/04639246119384325956" rel="nofollow">Nathan @ e-gineer</a> on <a href="#7472879029111373679" title="Comment permalink">January 15, 2008 10:25 PM</a> <span class="item-control blog-admin pid-37421963"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=7472879029111373679" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">There are two cases of time to be paid which has not been productive, idle time as you suggest but also periods of extended leave.<BR/><BR/>We've not seen idle time as a problem, as that gets absorbed into the "issues time block". So, those issues are particularly expensive that month, but at least the costs are split by the companies usage (even if high).<BR/><BR/>With extended leave periods, we typically split the cost based on recent allocations of that resource. So, if you normally use them a lot you will pay the majority of their cost during the unavailable period.<BR/><BR/>Of course, in the end hopefully these are the minority of your allocation costs so an even split may be a simple & fast way to achieve a similar result. If idle resource costs are a large part of your allocation, then there are bigger problems at hand than the allocation of costs ;).</div>
-					</div>
-					
-					<a name="c5538359866953291043"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> on <a href="#5538359866953291043" title="Comment permalink">January 16, 2008 1:01 PM</a> <span class="item-control blog-admin pid-888840088"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=5538359866953291043" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Thanks for the clarification Nathan. I agree that if you have large unallocated porsions of time - something is wrong. Where I work we're surrounded by accountants, so the focus is more on transparency of every minute cost basis for our businesses, so even small portions of time are relevant.</div>
-					</div>
-					
-					<a name="c8298830583212426117"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<span class="anon-comment-author">Anonymous</span> on <a href="#8298830583212426117" title="Comment permalink">February 17, 2009 5:09 AM</a> <span class="item-control blog-admin pid-853673616"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=8298830583212426117" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">I am in the process of developing a cost allocation policy for my I.T department. Currently all computer and server costs were paid by I.T. We now plan to allocate costs to user departments in an eqitable manner. My questions is...how can i measure cost allocation by some metric or index of sorts. This is to show that we have made some improvement in allocating costs to some industry standard or something.</div>
-					</div>
-					
-					<a name="c820384346564716321"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/04639246119384325956" rel="nofollow">Nathan @ e-gineer</a> on <a href="#820384346564716321" title="Comment permalink">February 24, 2009 3:35 PM</a> <span class="item-control blog-admin pid-37421963"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=820384346564716321" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Benchmarking not the costs themselves, but the model and process of cost allocation...<BR/><BR/>I've not seen any information about this and imagine its an area ripe for best practice rather than benchmark comparisons as it's all about making costs transparent without adding to them just to track funny internal money.<BR/><BR/>Other than that I guess you could benchmark against billing services that providers (e.g. telco's) provide to customers. Is your bill timely, clear, etc?<BR/><BR/>Would be interested if anyone has any links or experience to share on this...</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4><p></p>
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=5034967469474754690'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+<div id="blogComments">
+  <a name="comments"></a>
+  
+  <a name="c7315524504722352750"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Anonymous on <a href="#c7315524504722352750" title="Comment permalink">November 01, 2007 5:24 AM</a> </div>
+    <div class="blogCommentBody">How do you address,measure,and allocate increases in  server usage and storage the shared server environment? For instance, in the event that one client's needs exceeds the available capacity on an existing server but only needs an additional 15% of an additional server do you pay for and assume the cost of the server?  Is there a % or assumption in the planning stages that allos for or creates a bufer zone for growth?</div>
+  </div>
+  
+  <a name="c1094570678748381231"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Nathan @ e-gineer on <a href="#c1094570678748381231" title="Comment permalink">November 01, 2007 10:05 AM</a> </div>
+    <div class="blogCommentBody">For idle server capacity there are two choices, either the 3rd party provider builds a cost structure that includes growth capacity (e.g. Amazon EC2) or the exact costs are dynamically shared among the users. We use each of these models in different cases.<BR/><BR/>When dynamically sharing costs we calculate the total % capacity used and allocate the total cost on that basis. For example, there is 300% available capacity through 3 servers costing a total of $300/month. Company A uses 75% of a server while company B uses 150%. So, company A pays 33% of the total cost 75%/(75%+150%) which is $100. Company B pays $200.<BR/><BR/>This may mean that company A has a cost increase due to actions taken by company B. This is less predictable than a fixed cost model.<BR/><BR/>Unfortunately, in the end, someone must pay for spare capacity. The key thing is to find a model where actions to reduce my own cost (in this case reducing capacity) are the same actions that we need to take to reduce the total cost. That way companies are discussing cost, not cost allocation.</div>
+  </div>
+  
+  <a name="c6118993380453123193"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Anonymous on <a href="#c6118993380453123193" title="Comment permalink">January 15, 2008 9:40 AM</a> </div>
+    <div class="blogCommentBody">I like your model but was wondering how you treat un-allocated capacity that occus from time to time, i.e. what if an existing FTE is not being fully utilised in a particular month on ad-hoc or project work? Where does that piece of his/her total cost get allocated? Is it a fair rule to simply allocate out any residual costs evenly across businesses?</div>
+  </div>
+  
+  <a name="c7472879029111373679"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Nathan @ e-gineer on <a href="#c7472879029111373679" title="Comment permalink">January 15, 2008 10:25 PM</a> </div>
+    <div class="blogCommentBody">There are two cases of time to be paid which has not been productive, idle time as you suggest but also periods of extended leave.<BR/><BR/>We've not seen idle time as a problem, as that gets absorbed into the "issues time block". So, those issues are particularly expensive that month, but at least the costs are split by the companies usage (even if high).<BR/><BR/>With extended leave periods, we typically split the cost based on recent allocations of that resource. So, if you normally use them a lot you will pay the majority of their cost during the unavailable period.<BR/><BR/>Of course, in the end hopefully these are the minority of your allocation costs so an even split may be a simple &amp; fast way to achieve a similar result. If idle resource costs are a large part of your allocation, then there are bigger problems at hand than the allocation of costs ;).</div>
+  </div>
+  
+  <a name="c5538359866953291043"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Anonymous on <a href="#c5538359866953291043" title="Comment permalink">January 16, 2008 1:01 PM</a> </div>
+    <div class="blogCommentBody">Thanks for the clarification Nathan. I agree that if you have large unallocated porsions of time - something is wrong. Where I work we're surrounded by accountants, so the focus is more on transparency of every minute cost basis for our businesses, so even small portions of time are relevant.</div>
+  </div>
+  
+  <a name="c8298830583212426117"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Anonymous on <a href="#c8298830583212426117" title="Comment permalink">February 17, 2009 5:09 AM</a> </div>
+    <div class="blogCommentBody">I am in the process of developing a cost allocation policy for my I.T department. Currently all computer and server costs were paid by I.T. We now plan to allocate costs to user departments in an eqitable manner. My questions is...how can i measure cost allocation by some metric or index of sorts. This is to show that we have made some improvement in allocating costs to some industry standard or something.</div>
+  </div>
+  
+  <a name="c820384346564716321"></a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Nathan @ e-gineer on <a href="#c820384346564716321" title="Comment permalink">February 24, 2009 3:35 PM</a> </div>
+    <div class="blogCommentBody">Benchmarking not the costs themselves, but the model and process of cost allocation...<BR/><BR/>I've not seen any information about this and imagine its an area ripe for best practice rather than benchmark comparisons as it's all about making costs transparent without adding to them just to track funny internal money.<BR/><BR/>Other than that I guess you could benchmark against billing services that providers (e.g. telco's) provide to customers. Is your bill timely, clear, etc?<BR/><BR/>Would be interested if anyone has any links or experience to share on this...</div>
+  </div>
+
+  <div class="blogCommentsClosed">Comments are closed.</div>
+
+</div>

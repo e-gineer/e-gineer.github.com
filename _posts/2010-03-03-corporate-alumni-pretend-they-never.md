@@ -35,14 +35,15 @@ but one day they'll move back and we want to pick up right where we left off.
 
 If you love something, set it free.
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c6866946380091983129"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/09049509271960689818" rel="nofollow">Elliot</a> on <a href="#6866946380091983129" title="Comment permalink">March 04, 2010 10:00 AM</a> <span class="item-control blog-admin pid-1597380993"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=6866946380091983129" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">100% agree. Now the company just needs to the will to implement something like this. I&#39;m sure that you would find that it would pay dividends over the years.</div>
-					</div>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c6866946380091983129">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Elliot on <a href="#c6866946380091983129" title="Comment permalink">March 04, 2010 10:00 AM</a> </div>
+    <div class="blogCommentBody">100% agree. Now the company just needs to the will to implement something like this. I&#39;m sure that you would find that it would pay dividends over the years.</div>
+  </div>
+
+  <div class="blogCommentsClosed">Comments are closed.</div>
+
+</div>

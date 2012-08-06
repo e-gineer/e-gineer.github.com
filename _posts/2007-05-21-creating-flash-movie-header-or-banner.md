@@ -55,31 +55,21 @@ The [workaround to remove the activation click](http://msdn2.microsoft.com/en-us
 
 And then use this code to include it where you'd like the Flash header to appear in your page:
 
-<code>&lt;script src="/url/to/header.js"&gt;&lt;/script&gt;</code><br />
+<code>&lt;script src="/url/to/header.js"&gt;&lt;/script&gt;</code>
 
 ## The ActionScript code
 
 I added all ActionScript code to the Flash document itself (there are many possible locations, this one seemed cleanest to me). Select the Flash document by clicking in the drawing area outside all existing objects, expand the ActionScript task bar and insert this code:<code>// This is the length of time at the start and end of the movie<br />// used for the gradual fade.<br />fadeTime = 1;<br />// The frames per second of the movie.<br />fps = 12;<br />// Calculate the alpha increment to use when fading in or out.<br />alphaInc = Math.abs(100*fadeTime/fps);<br /><br />var listenerObject:Object = new Object();<br /><br />// To make the flash movie loop, upon completion the movie<br />// is set to start playing again.<br />listenerObject.complete = function(eventObject:Object):Void {<br />  video.play();<br />};<br />video.addEventListener("complete", listenerObject);<br /><br />// To achieve the fade effect on each cycle (except when the movie<br />// first starts playing) we use an onEnterFrame event. Because of<br />// the high CPU load this causes, we use two cue points to set and<br />// remove a listener on this event as appropriate. EndFadeIn is<br />// set 1 sec after the start of the movie and StartFadeOut is set<br />// 1 sec before the end of the movie (These intervals must be the<br />// same as the fadeTime setting above.<br />listenerObject.cuePoint = function(eventObject:Object):Void {<br />  switch (eventObject.info.name) {<br />  case "StartFadeOut":<br />    // We are near the end of the movie, so register the onEnterFrame<br />    // listener which will control both the fade out and fade in tasks<br />    // as the movie loops back and until the EndFadeIn cue point is reached.<br />    video.onEnterFrame = function() {<br />      if (video.playheadTime&lt;fadeTime) {<br />        video._alpha += alphaInc;<br />      }<br />      else if ( (video.totalTime - video.playheadTime) &lt; fadeTime) {<br />        video._alpha -= alphaInc;<br />      }<br />      else {<br />        // Shouldn't be needed due to cue points, but just in case.<br />        video._alpha = 100;<br />      }<br />    }<br />    break;<br />  case "EndFadeIn":<br />    // We have faded in completely, so set the alpha to 100 for<br />    // certainty and remove the onEnterFrame listener for the time<br />    // being.<br />    video._alpha = 100;<br />    video.onEnterFrame = null;<br />    break;<br />  }<br />}<br />video.addEventListener("cuePoint", listenerObject);</code>
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c2105822994434426841"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.vfsniper.com" rel="nofollow">Jehanzeb</a> on <a href="#2105822994434426841" title="Comment permalink">March 08, 2009 8:40 AM</a> <span class="item-control blog-admin pid-831763701"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=2105822994434426841" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Dear Nathan, <BR/><BR/>I was looking to create a flash header for our website as well and while searching on google I stumble upon your site.<BR/><BR/>Let me tell you, you have the best explaination in the world. no one could be that simple :-)). I have checked the link and it amazed me how nice and interesting header looks like with the flash embeded into the html.<BR/><BR/>As a result I am going to try and set one up for our site.<BR/><BR/>Many thanks for a great post<BR/><BR/>Regards<BR/><BR/>Jehanzeb</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4><p></p>
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=5211691499217974043'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c2105822994434426841">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by Jehanzeb on <a href="#c2105822994434426841" title="Comment permalink">March 08, 2009 8:40 AM</a> </div>
+    <div class="blogCommentBody">Dear Nathan, <BR/><BR/>I was looking to create a flash header for our website as well and while searching on google I stumble upon your site.<BR/><BR/>Let me tell you, you have the best explaination in the world. no one could be that simple :-)). I have checked the link and it amazed me how nice and interesting header looks like with the flash embeded into the html.<BR/><BR/>As a result I am going to try and set one up for our site.<BR/><BR/>Many thanks for a great post<BR/><BR/>Regards<BR/><BR/>Jehanzeb</div>
+  </div>
+  
+  <div class="blogCommentsClosed">Comments are closed.</div>
+
+</div>

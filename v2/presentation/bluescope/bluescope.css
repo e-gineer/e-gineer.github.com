@@ -73,7 +73,7 @@ header {
   vertical-align: text-bottom;
 }
 
-#homeContent, #pageContent {
+#homeContent, #pageContent, #postContent {
   margin-top: 30px;
   margin-left: 41px;
   width: 800px;
@@ -86,6 +86,10 @@ header {
   background-image: url('/v2/presentation/bluescope/social-network-brain.png');
   background-position: 340px top;
   background-repeat: no-repeat;
+}
+
+#postContent h1 {
+  margin-bottom: 0.2em;
 }
 
 #tweets {
@@ -209,4 +213,46 @@ img.archiveScreenshot {
   color: black;
   border: 1px solid #333;
   height: 1.5em;
+}
+
+.blogPostByline {
+  margin-top: 0.3em;
+  font-size: 0.82em;
+  color: #777;
+}
+a.blogPostTimestamp {
+  text-decoration: none;
+  color: #777;
+}
+a.blogPostTimestamp:hover {
+  color: #333;
+}
+
+#blogComments {
+  margin-top: 3em;
+  padding-left: 1em;
+  border-left: 2px dotted #ddd;
+}
+div.blogComment {
+  margin-bottom: 1.7em;
+}
+div.blogCommentsClosed {
+  margin-top: 2.5em;
+}
+div.blogCommentByline {
+  font-size: 0.9em;
+  color: #666;
+}
+div.blogCommentByline > a {
+  text-decoration: none;
+  color: #666;
+}
+div.blogCommentByline > a:hover {
+  color: #333;
+}
+div.blogCommentBody {
+  margin-top: 0.5em;
+}
+div.blogCommentsClosed {
+  font-style: italic;
 }

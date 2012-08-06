@@ -79,27 +79,15 @@ return the next day.
 
 Using windows to release in different formats I can live with. Just don't make me wait.
 
-				<!-- Begin #comments -->
-				
-				
-				<div id="blogComments">
-					<a name="comments"></a>
-					
-					<a name="c112849759163004366"></a>
-					<div class="blogComment">
-						<div class="blogCommentByline">Comment by <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.steptwo.com.au/columntwo" rel="nofollow">James Robertson</a> on <a href="#112849759163004366" title="Comment permalink">October 05, 2005 5:33 PM</a> <span class="item-control blog-admin pid-2009969873"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=13013707&postID=112849759163004366" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></div>
-						<div class="blogCommentBody">Not forgetting that we can often purchase the DVD directly from the US before it's released to TV in Australia...<BR/><BR/>(The wonders of DVD players that are "chipped"  by the store to work with any DVD region.)</div>
-					</div>
-					
-					<div class="blogCommentCreate"><div class='comment-form'>
-<a name='comment-form'></a>
-<h4>Post a Comment</h4>
+<div id="blogComments">
+  <a name="comments">&nbsp;</a>
+  
+  <a name="c112849759163004366">&nbsp;</a>
+  <div class="blogComment">
+    <div class="blogCommentByline">Comment by James Robertson on <a href="#c112849759163004366" title="Comment permalink">October 05, 2005 5:33 PM</a> </div>
+    <div class="blogCommentBody">Not forgetting that we can often purchase the DVD directly from the US before it's released to TV in Australia...<BR/><BR/>(The wonders of DVD players that are "chipped"  by the store to work with any DVD region.)</div>
+  </div>
+  
+  <div class="blogCommentsClosed">Comments are closed.</div>
 
-
-<a id='comment-editor-src' href='http://www.blogger.com/comment-iframe.g?blogID=13013707&postID=112847173639622862'></a><iframe id='comment-editor' src='' class='blogger-iframe-colorize' width='100%' height='410' scrolling='no' frameborder='0' allowtransparency='true'></iframe>
-<script type="text/javascript" src="http://www.blogger.com/static/v1/jsbin/2383433370-iframe_colorizer.js"></script>
-</div></div>
-				</div>
-				
-				
-				<!-- End #comments -->
+</div>
