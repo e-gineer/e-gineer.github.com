@@ -151,7 +151,7 @@ function twitterItems(items) {
   // Add the twitter items to the page
   max = 5; // We get 8 from twitter, but only show 5 - this prevents gaps for replies etc
   html = '';
-  for (i=0;i<maxi++) {
+  for (i=0;i<max;i++) {
     html += '<p>' + linkTweet(items[i]['text']) + '&nbsp; <span class="timestamp">' + relativeTime(items[i]['created_at']) + '</span></p>';
     html += '<div class="tweet-underline"></div>';
   }
