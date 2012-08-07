@@ -9,8 +9,8 @@
       broken_url = window.location.pathname;
       new_url = broken_url;
       // switch them away from old .phtml pages
-      new_url = new_url.replace(/\.htm/, '.html');
-      new_url = new_url.replace(/\.phtml/, '.html');
+      new_url = new_url.replace(/\.htm$/, '.html');
+      new_url = new_url.replace(/\.phtml$/, '.html');
       // remove the old /e-gineer/ directory prefix if it exists
       if (new_url.substring(0, 9) == /^\/e-gineer/) {
         new_url = new_url.substring(9);
