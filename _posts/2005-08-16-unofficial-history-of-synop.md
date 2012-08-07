@@ -3,10 +3,10 @@ layout: default
 title: "Unofficial history of Synop"
 ---
 
-<a href="http://www.e-gineer.com/v2/blog/2005/08/SynopSoftware.gif"><img
+<a href="SynopSoftware.gif"><img
 style="FLOAT: right; MARGIN: 0px 0px 10px 10px; CURSOR: hand" alt="Synop
 software logo"
-src="http://www.e-gineer.com/v2/blog/2005/08/SynopSoftwareThumbnail.gif"
+src="SynopSoftwareThumbnail.gif"
 border="0" /></a> 
 
 I started Synop in September 1998 as a uni student working
@@ -15,9 +15,9 @@ didn't seem like a big deal because I could always get a job and I didn't
 really even think of it as starting a business, let alone understand what that
 meant.
 
-<a href="http://www.e-gineer.com/v2/blog/2005/08/elecorg.gif"><img
+<a href="elecorg.gif"><img
 style="FLOAT: left; MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="elec.org
-screenshot" src="http://www.e-gineer.com/v2/blog/2005/08/elecorgThumbnail.gif"
+screenshot" src="elecorgThumbnail.gif"
 border="0" /></a> 
 
 Initially, Synop traded as a NSW business called [Synop
@@ -26,7 +26,7 @@ Software](http://www.search.asic.gov.au/cgi-bin/gns030c?state_number=V0038522&ju
 Caught up in the Internet gold rush, I wanted to build an online version of Quicken so
 I could enter my expenses remotely. Typical of Synop, this turned into a full
 fledged electronic organiser with sophisticated item sharing between members.
-[elec.org](http://www.e-gineer.com/v2/blog/2005/08/elecorg.gif) was the working
+[elec.org](elecorg.gif) was the working
 name and the site was built using AOLServer, TCL and the Solid database server.
 Having no experience with Internet sites or databases, [Philip and Alex's Guide
 to Web Publishing](http://philip.greenspun.com/panda/) was my bible at this
@@ -34,7 +34,7 @@ time.
 
 <a href="http://www.davethomas.net"><img style="FLOAT: right; MARGIN:
 0px 0px 10px 10px; CURSOR: hand" alt="Dave Thomas"
-src="http://www.e-gineer.com/v2/blog/2005/08/DaveThomas.jpg" border="0" /></a>
+src="DaveThomas.jpg" border="0" /></a>
 
 In March 1999, [Dave Thomas](http://www.davethomas.net) became involved as a
 mentor and guide on my business building journey. His probing questions led me
@@ -57,15 +57,15 @@ elec.org was horrendously difficult and expensive as AOLserver was not commonly
 used and required a dedicated server.
 
 <a
-href="http://www.e-gineer.com/v1/presentation/v1-screenshot.gif"><img
+href="/v1/presentation/v1-screenshot.gif"><img
 style="FLOAT: left; MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="e-gineer
-logo" src="http://www.e-gineer.com/v1/presentation/v1-screenshot-thumbnail.gif"
+logo" src="/v1/presentation/v1-screenshot-thumbnail.gif"
 border="0" /></a> 
 
 Inspired by [software that ArsDigita was
 building](http://openacs.org/about/history), I built a PHP equivalent called
-[Synphony](http://www.e-gineer.com/v2/blog/2005/08/SynopSynphony.gif). This
-powered [e-gineer.com](http://www.e-gineer.com), to which I was adding many
+[Synphony](SynopSynphony.gif). This
+powered [e-gineer.com](http://e-gineer.com), to which I was adding many
 articles and instruction sets and which hosted the PHP Knowledge Base (later
 [FAQTs](http://www.faqts.com)).
 
@@ -93,9 +93,9 @@ from FrontPage and static HTML to run the first version of Synphony. This top
 customer and user of Synphony.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2005/08/WorldFinanceNet.gif"><img
+href="WorldFinanceNet.gif"><img
 style="FLOAT: right; MARGIN: 0px 0px 10px 10px; CURSOR: hand" alt="Dave Thomas"
-src="http://www.e-gineer.com/v2/blog/2005/08/WorldFinanceNet.gif" border="0"
+src="WorldFinanceNet.gif" border="0"
 /></a> 
 
 WFN was a classic Internet boom company. Two decisions stand out in
@@ -108,7 +108,7 @@ private jet for getting to meetings...
 
 <a href="http://www.php.net"><img
 style="FLOAT: left; MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="PHP logo"
-src="http://www.e-gineer.com/v2/blog/2005/08/php.gif" border="0" /></a> 
+src="php.gif" border="0" /></a> 
 
 At this point, the realities of web server support became very real to me with
 many late night calls. Being woken up to cries of "the server's down!" is not
@@ -133,7 +133,7 @@ persuasive when retrieving funds.
 
 <a href="http://www.faqts.com"><img
 style="FLOAT: right; MARGIN: 0px 0px 10px 10px; CURSOR: hand" alt="FAQTs logo"
-src="http://www.e-gineer.com/v2/blog/2005/08/faqts.gif" border="0" /></a>
+src="faqts.gif" border="0" /></a>
 
 During the summer of 99/00, Jad and I built
 [FAQTs.com](http://www.faqts.com) and really took Synphony to the next level.
@@ -148,7 +148,7 @@ to present.
 
 <img style="FLOAT: left; MARGIN: 0px 10px 10px 0px; CURSOR:
 hand" alt="NY skyline"
-src="http://www.e-gineer.com/v2/blog/2005/08/NYThumbnail.jpg" border="0" />
+src="NYThumbnail.jpg" border="0" />
 
 July 2000 was a dark time for Synop, with its survival limited to my credit
 cards after the WFN payment default. Through Randy Best, a great friend to
@@ -161,7 +161,7 @@ securing this contract took Synop back into the fast lane.
 <a
 href="http://www.synop.com"><img style="FLOAT: right; MARGIN: 0px 0px 10px
 10px; CURSOR: hand" alt="Synop"
-src="http://www.e-gineer.com/v2/blog/2005/08/synop.gif" border="0" /></a>
+src="synop.gif" border="0" /></a>
 
 Synop Software incorporated to become [Synop Pty
 Ltd](http://www.search.asic.gov.au/cgi-bin/gns030c?acn=092_752_255&juris=9&amp;hdtext=ACN&srchsrc=1)
@@ -180,31 +180,30 @@ and an incredible raft of features at this time.
 
 In October 2000, my good
 friend Matt joined as Synop's first employee. He quickly established our
-[Artarmon
-office](http://www.e-gineer.com/v2/blog/2005/06/synop-sydney-office-tour.htm),
+[Artarmon office](/v2/blog/2005/06/synop-sydney-office-tour.html),
 which we used until closing and generally built all of Synop's administration
 facilities and systems that I'd completely ignored since starting. John and
 Dean joined Synop quickly afterwards, ramping up our scale to support Synphony
 and continue development.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2005/08/Sytadel.gif"><img style="FLOAT:
+href="Sytadel.gif"><img style="FLOAT:
 left; MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="Sytadel"
-src="http://www.e-gineer.com/v2/blog/2005/08/SytadelThumbnail.gif" border="0"
+src="SytadelThumbnail.gif" border="0"
 /></a> 
 
 Hopes and expectations for the future of Synop were high,
 unrealistically high on my part, around this time. In anticipation of a bright
 future, the Synphony products were rebranded to
-[Sytadel](http://www.e-gineer.com/v2/blog/2005/08/Sytadel.gif) and a suite of
+[Sytadel](Sytadel.gif) and a suite of
 E-gineers
-([communication](http://www.e-gineer.com/v2/blog/2005/08/CommunicationE-gineer.gif),
-[community](http://www.e-gineer.com/v2/blog/2005/08/CommunityE-gineer.gif),
-[construction](http://www.e-gineer.com/v2/blog/2005/08/ConstructionE-gineer.gif),
-[content](http://www.e-gineer.com/v2/blog/2005/08/ContentE-gineer.gif),
-[knowledge](http://www.e-gineer.com/v2/blog/2005/08/KnowledgeE-gineer.gif),
-[surveillance](http://www.e-gineer.com/v2/blog/2005/08/SurveillanceE-gineer.gif),
-[sytadel](http://www.e-gineer.com/v2/blog/2005/08/SytadelE-gineer.gif)).
+([communication](CommunicationE-gineer.gif),
+[community](CommunityE-gineer.gif),
+[construction](ConstructionE-gineer.gif),
+[content](ContentE-gineer.gif),
+[knowledge](KnowledgeE-gineer.gif),
+[surveillance](SurveillanceE-gineer.gif),
+[sytadel](SytadelE-gineer.gif)).
 
 These hopes came crashing back to earth when we held a booth at [ApacheCon
 2001](http://apachecon.com/2001/US/). This was a different world to just a year
@@ -220,7 +219,7 @@ allocation.
 
 <a href="http://cs.anu.edu.au/~Peter.Bailey/"><img style="FLOAT:
 right; MARGIN: 0px 0px 10px 10px; CURSOR: hand" alt="Peter Bailey"
-src="http://www.e-gineer.com/v2/blog/2005/08/PeterBaileyThumbnail.jpg"
+src="PeterBaileyThumbnail.jpg"
 border="0" /></a> 
 
 [Peter Bailey](http://cs.anu.edu.au/~Peter.Bailey/) had
@@ -233,7 +232,7 @@ Sytadel v3 was built
 and shipped as part of the [IP Access](http://www.ipaccess.gov.au) project.
 This saw version control, workflow and many other advanced features come to
 Sytadel. At this point, Sytadel owners could use the [Construction
-E-gineer](http://www.e-gineer.com/v2/blog/2005/08/ConstructionE-gineer.gif) to
+E-gineer](ConstructionE-gineer.gif) to
 develop new content types that were automatically version controlled, subject
 to workflow, had complete editing and viewing screens. All the generated code
 was completely documented and extensively commented for ease of
@@ -252,7 +251,7 @@ the agile approach".
 
 <a href="http://www.accc.gov.au"><img style="FLOAT:
 left; MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="ACCC logo"
-src="http://www.e-gineer.com/v2/blog/2005/08/accc.gif" border="0" /></a>
+src="accc.gif" border="0" /></a>
 
 Mid-2002 saw Synop win the [ACCC](http://www.accc.gov.au) Internet and
 Intranet portal redevelopment project in partnership with
@@ -263,9 +262,9 @@ from scratch into v4 based on XML saw this project blow out into 2004. As a
 fixed price concern, this project became a huge millstone around Synop's
 neck.
 
-<a href="http://www.e-gineer.com/v2/blog/2005/08/JamesCourt.jpg"><img
+<a href="JamesCourt.jpg"><img
 style="FLOAT: right; MARGIN: 0px 0px 10px 10px; CURSOR: hand" alt="James Court"
-src="http://www.e-gineer.com/v2/blog/2005/08/JamesCourt.jpg" border="0" /></a>
+src="JamesCourt.jpg" border="0" /></a>
 
 Although I did have my car written off while parked outside the ACCC late
 one night, the darkest days of this project were spent working for a week at
@@ -290,7 +289,7 @@ understand that.
 
 <a href="http://www.unjlc.org"><img style="FLOAT: left;
 MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="UNJLC logo"
-src="http://www.e-gineer.com/v2/blog/2005/08/unjlc.gif" border="0" /></a>
+src="unjlc.gif" border="0" /></a>
 
 Buried in the ACCC debacle, Synop struggled through early 2003 to deliver
 on a range of new customer projects (e.g. [UNJLC](http://www.unjlc.org),
@@ -305,10 +304,10 @@ support and consulting revenue streams to smooth out our traditionally lumpy
 revenue.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2005/08/SauceReader.jpg"><img
+href="SauceReader.jpg"><img
 style="FLOAT: right; MARGIN: 0px 0px 10px 10px; CURSOR: hand" alt="Sauce
 Reader logo"
-src="http://www.e-gineer.com/v2/blog/2005/08/SauceReaderThumbnail.jpg"
+src="SauceReaderThumbnail.jpg"
 border="0" /></a> 
 
 Contemplating life after this project onslaught, in
@@ -319,7 +318,7 @@ in September 2003, at which point [Victor Hadianto](http://www.hadianto.net)
 also joined Synop.
 
 The Sauce project had 3 components: an aggregation server
-([TrustedSauce.com](http://www.e-gineer.com/v2/blog/2005/08/TrustedSauce.gif)),
+([TrustedSauce.com](TrustedSauce.gif)),
 aggregation client ([Sauce
 Reader](http://web.archive.org/web/*/http://www.synop.com/Products/SauceReader/))
 and a content server (Sauce Studio). We built the aggregation server using .NET
@@ -354,9 +353,9 @@ to 10 people, adding more developers and our first full time business
 development manager. We finally had a good mix of experience and
 skill-sets.
 
-<a href="http://www.e-gineer.com/v2/blog/2005/08/End.jpg"><img
+<a href="End.jpg"><img
 style="FLOAT: left; MARGIN: 0px 10px 10px 0px; CURSOR: hand" alt="End"
-src="http://www.e-gineer.com/v2/blog/2005/08/EndThumbnail.jpg" border="0"
+src="EndThumbnail.jpg" border="0"
 /></a> 
 
 Come 2005, Synop was faced with a difficult situation. Despite

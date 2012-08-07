@@ -10,7 +10,7 @@ a huge step forward for SME's and forward-looking Large Enterprises.
 
 [Google Apps](http://www.google.com/apps/) is a powerful, affordable and highly
 reliable infrastructure. It is delivered at a cost point that is [hard for even
-the largest of enterprises to match](http://www.e-gineer.com/v2/blog/2010/01/two-worlds-colliding-small-and-nimble.htm).
+the largest of enterprises to match](/v2/blog/2010/01/two-worlds-colliding-small-and-nimble.html).
 The Google Apps features are still a little limited relative to Microsoft
 Office, but are improving all the time particularly as Google executes
 consistently and aggressively on their strategy of speeding up the web (Chrome,

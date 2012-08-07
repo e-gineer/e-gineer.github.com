@@ -4,8 +4,8 @@ title: Clarify. Simplify. Implement.
 ---
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/02/ClarifySimplifyImplement.gif"><img
-src="http://www.e-gineer.com/v2/blog/2008/02/ClarifySimplifyImplement-Thumbnail.gif"
+href="/v2/blog/2008/02/ClarifySimplifyImplement.gif"><img
+src="/v2/blog/2008/02/ClarifySimplifyImplement-Thumbnail.gif"
 style="border:0;margin-left:10px;float:right"/></a>
 
 Working through a wide range of projects,
@@ -138,7 +138,7 @@ Project economics and style change to become:
 Small, simple projects are fast to prototype, easy to
 justify and responsive to business needs. Combining Clarify, Simplify,
 Implement with an iterative improvement process like the <a
-href="http://www.e-gineer.com/v2/blog/2007/08/continuous-application-release-cycle.htm">Continuous
+href="/v2/blog/2007/08/continuous-application-release-cycle.html">Continuous
 Application Release Cycle</a> sets a journey of positive dissatisfaction and
 continuous improvement that will quickly change your organisation for the
 better.

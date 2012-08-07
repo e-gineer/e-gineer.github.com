@@ -10,7 +10,7 @@ title: "Our Intranet, the Wiki: Case Study of a Wiki changing an Enterprise"
   href="http://www.janssen-cilag.com.au/"><img style="BORDER-RIGHT: 0px;
   BORDER-TOP: 0px; FLOAT: right; MARGIN: 0px 0px 10px 10px; BORDER-LEFT: 0px;
   BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2007/08/JanssenCilagDeer.gif" /></a>
+  src="/v2/blog/2007/08/JanssenCilagDeer.gif" /></a>
 
 [Janssen-Cilag](http://www.janssen-cilag.com.au/) is one of the
 fastest growing, research based pharmaceutical companies in Australia. It has
@@ -28,10 +28,10 @@ month.
 ## History of Janssen-Cilag's Intranet
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/08/InfoDownUnder.jpg"><img
+  href="/v2/blog/2007/08/InfoDownUnder.jpg"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; MARGIN: 0px 10px 10px
   0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2007/08/InfoDownUnder-Thumbnail.jpg"
+  src="/v2/blog/2007/08/InfoDownUnder-Thumbnail.jpg"
   /></a> 
 
 Janssen-Cilag's previous intranet, InfoDownUnder, was a static HTML
@@ -70,7 +70,7 @@ format usually went as follows:
 
 ## Pitching a Wiki to the business
 
-With many [years of experience](http://www.e-gineer.com/v2/blog/2005/08/unofficial-history-of-synop.htm)
+With many [years of experience](/v2/blog/2005/08/unofficial-history-of-synop.html)
 building one of the first large scale completely open
 collaboration platforms for the web and then building heavyweight enterprise
 CMS systems for large organisations, I've personally come full-circle to the
@@ -112,7 +112,7 @@ There were no major objections to trying a Wiki-style concept.
   href="http://www.atlassian.com/software/confluence/"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; MARGIN: 0px 10px 10px
   0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2007/08/Confluence.gif" /></a> 
+  src="/v2/blog/2007/08/Confluence.gif" /></a> 
 
 We purchased, customised and launched a pilot Wiki Intranet within two weeks and
 with a budget of $11,000 AUD. This included all graphic design and single sign
@@ -127,10 +127,10 @@ strong attachment capabilities, news features, LDAP integration, high quality
 search and a decent rich text editor.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/08/JCintraHomepage.jpg"><img
+  href="/v2/blog/2007/08/JCintraHomepage.jpg"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
   BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2007/08/JCintraHomepage-Thumbnail.jpg"
+  src="/v2/blog/2007/08/JCintraHomepage-Thumbnail.jpg"
   /></a> 
 
 Our customisation focused almost completely on usability. People
@@ -164,10 +164,10 @@ decision to not automatically migrate any content, mostly because it was so old
 and trust in the existing intranet information was so low.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/08/JCintraPageToolbar.jpg"><img
+  href="/v2/blog/2007/08/JCintraPageToolbar.jpg"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
   BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2007/08/JCintraPageToolbar-Thumbnail.jpg"
+  src="/v2/blog/2007/08/JCintraPageToolbar-Thumbnail.jpg"
   /></a> 
 
 Our launch was timed with an informal head office monthly meeting,
@@ -198,10 +198,10 @@ to grow since launch. People are engaging and collaborating more with time,
 they are not losing steam as you might expect.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/08/JCintraContributionsPerMonth.jpg"><img
+  href="/v2/blog/2007/08/JCintraContributionsPerMonth.jpg"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
   MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2007/08/JCintraContributionsPerMonth-Thumbnail.jpg"
+  src="/v2/blog/2007/08/JCintraContributionsPerMonth-Thumbnail.jpg"
   /></a> 
 
 To drive adoption, we've primarily focused on owning the flow of
@@ -280,7 +280,7 @@ away.
 screenshots above, which were taken from the time of launch to avoid business
 confidentiality issues in this public forum. The site now includes a wealth
 of content and tight integration with our data warehouse, CRM and internal
-operational systems. Read more in **[Building Enterprise 2.0 on Culture 1.0](http://www.e-gineer.com/v2/blog/2007/12/building-enterprise-20-on-culture-10.htm)**.*
+operational systems. Read more in **[Building Enterprise 2.0 on Culture 1.0](/v2/blog/2007/12/building-enterprise-20-on-culture-10.html)**.*
     
 <div id="blogComments">
   <a name="comments">&nbsp;</a>
@@ -306,7 +306,7 @@ operational systems. Read more in **[Building Enterprise 2.0 on Culture 1.0](htt
   <a name="c7401026224139080250">&nbsp;</a>
   <div class="blogComment">
     <div class="blogCommentByline">Comment by Anonymous on <a href="#c7401026224139080250" title="Comment permalink">August 25, 2007 11:41 PM</a> </div>
-    <div class="blogCommentBody">Didn't find a contact page on e-gener, so I'll post this here.<BR/><BR/>Looking for some info on php, I stumbled upon this page:<BR/><BR/>http://mythink.wordpress.com/2007/06/14/php-first-principles/<BR/><BR/>Seems a non-credited copy-paste from <BR/><BR/>http://www.e-gineer.com/v1/articles/php-hackers-paradise-revisited.htm<BR/><BR/>to me, so I thought I'd let you know.<BR/><BR/>Regards,<BR/>anonymous</div>
+    <div class="blogCommentBody">Didn't find a contact page on e-gener, so I'll post this here.<BR/><BR/>Looking for some info on php, I stumbled upon this page:<BR/><BR/>http://mythink.wordpress.com/2007/06/14/php-first-principles/<BR/><BR/>Seems a non-credited copy-paste from <BR/><BR/>/v1/articles/php-hackers-paradise-revisited.htm<BR/><BR/>to me, so I thought I'd let you know.<BR/><BR/>Regards,<BR/>anonymous</div>
   </div>
 
   <a name="c3634546764227712565">&nbsp;</a>
@@ -342,7 +342,7 @@ operational systems. Read more in **[Building Enterprise 2.0 on Culture 1.0](htt
   <a name="c4039952457901826638">&nbsp;</a>
   <div class="blogComment">
     <div class="blogCommentByline">Comment by Nathan @ e-gineer on <a href="#c4039952457901826638" title="Comment permalink">October 23, 2007 5:32 AM</a> </div>
-    <div class="blogCommentBody">Anonymous: Thanks for the tip off, unfortunately there are a huge number of <A HREF="http://www.e-gineer.com/v2/blog/2005/08/this-is-copyrighted-by-me-so-u-cant.htm" REL="nofollow">rip off copies of that article</A>.</div>
+    <div class="blogCommentBody">Anonymous: Thanks for the tip off, unfortunately there are a huge number of <A HREF="/v2/blog/2005/08/this-is-copyrighted-by-me-so-u-cant.html" REL="nofollow">rip off copies of that article</A>.</div>
   </div>
 
   <a name="c4284705416923303489">&nbsp;</a>

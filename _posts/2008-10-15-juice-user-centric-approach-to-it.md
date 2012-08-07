@@ -3,10 +3,10 @@ layout: default
 title: "Juice: A user-centric approach to IT equipment and new starters"
 ---
 
-<a href="http://www.e-gineer.com/v2/blog/2008/10/JuiceHomePage.png"><img
+<a href="/v2/blog/2008/10/JuiceHomePage.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
 BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceHomePage-Thumbnail.png"
+src="/v2/blog/2008/10/JuiceHomePage-Thumbnail.png"
 /></a> 
 
 ## Introduction
@@ -38,10 +38,10 @@ Awards</a>.
 
 ## Before Juice
 
-<a href="http://www.e-gineer.com/v2/blog/2008/10/JuiceKits.png"><img
+<a href="/v2/blog/2008/10/JuiceKits.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceKits-Thumbnail.png" /></a>
+src="/v2/blog/2008/10/JuiceKits-Thumbnail.png" /></a>
 
 High level standards were in place (e.g. Dell D630 laptop), but low level
 customisation was allowed (e.g. 4GB RAM instead of standard 2GB) leading to a
@@ -63,10 +63,10 @@ in cupboards as departments tried to ensure a smooth entry for new
 starters.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/JuiceCatalog.png"><img
+href="/v2/blog/2008/10/JuiceCatalog.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
 BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceCatalog-Thumbnail.png"
+src="/v2/blog/2008/10/JuiceCatalog-Thumbnail.png"
 /></a> 
 
 This ad-hoc ownership and provision meant that broken equipment
@@ -98,10 +98,10 @@ considered essential to the functioning of the kit. If a kit is returned
 incomplete, we simply charge the user for any missing accessories.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/JuiceViewAKit.png"><img
+href="/v2/blog/2008/10/JuiceViewAKit.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceViewAKit-Thumbnail.png"
+src="/v2/blog/2008/10/JuiceViewAKit-Thumbnail.png"
 /></a>
 
 Each kit has a key item (e.g. the laptop itself). If that item is
@@ -130,10 +130,10 @@ with strict policies and eventually worked around through shadow IT or
 creative business / safety / any reasoning.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/JuiceActivityTracking.png"><img
+href="/v2/blog/2008/10/JuiceActivityTracking.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
 BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceActivityTracking-Thumbnail.png"
+src="/v2/blog/2008/10/JuiceActivityTracking-Thumbnail.png"
 /></a> 
 
 Instead, IT must control the standards, options and service. While
@@ -164,10 +164,10 @@ the end, IT owns macro-level standards, cost control and service levels.
 Users own micro-level decisions, needs and cost-benefit choices.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/JuicePlaceAnOrder.png"><img
+href="/v2/blog/2008/10/JuicePlaceAnOrder.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuicePlaceAnOrder-Thumbnail.png"
+src="/v2/blog/2008/10/JuicePlaceAnOrder-Thumbnail.png"
 /></a>
 
 ## Approvals and workflow
@@ -193,10 +193,10 @@ equipment, service and training.
 ## Onboarding &amp; Offboarding
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/JuiceTeam.png"><img
+href="/v2/blog/2008/10/JuiceTeam.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
 BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceTeam-Thumbnail.png" /></a>
+src="/v2/blog/2008/10/JuiceTeam-Thumbnail.png" /></a>
 
 
 Without good people control, you cannot have good asset or equipment
@@ -222,10 +222,10 @@ Juice also stores cost centre and team information, inherited
 ## Order fulfilment, stock management &amp; asset tracking
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2008/10/JuiceIncomingOrders.png"><img
+  href="/v2/blog/2008/10/JuiceIncomingOrders.png"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
   MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2008/10/JuiceIncomingOrders-Thumbnail.png"
+  src="/v2/blog/2008/10/JuiceIncomingOrders-Thumbnail.png"
   /></a> 
 
 A key insight during this project was the importance of separating
@@ -242,10 +242,10 @@ The fulfilment team
   they can walk away with a phone that is immediately ready for business.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/JuiceShippingAnItem.png"><img
+href="/v2/blog/2008/10/JuiceShippingAnItem.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
 BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/JuiceShippingAnItem-Thumbnail.png"
+src="/v2/blog/2008/10/JuiceShippingAnItem-Thumbnail.png"
 /></a> 
 
 Separating fulfilment from procurement allows us to aim for a 2
@@ -267,10 +267,10 @@ Tracking kits in Juice gives us a
 ## Business impact
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2008/10/JuiceOrdersByQuarter.png"><img
+  href="/v2/blog/2008/10/JuiceOrdersByQuarter.png"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
   BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2008/10/JuiceOrdersByQuarter-Thumbnail.png"
+  src="/v2/blog/2008/10/JuiceOrdersByQuarter-Thumbnail.png"
   /></a> 
 
 The first impression on new starters for IT and the business as a
@@ -285,10 +285,10 @@ For
   managers, the new starter process now requires no forms and works well
   regardless of the managers proactivity or experience in onboarding. This is a
   huge relief and reduced burden on their time.<a
-  href="http://www.e-gineer.com/v2/blog/2008/10/JuiceKitRegister.png"><img
+  href="/v2/blog/2008/10/JuiceKitRegister.png"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
   MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2008/10/JuiceKitRegister-Thumbnail.png"
+  src="/v2/blog/2008/10/JuiceKitRegister-Thumbnail.png"
   /></a> 
 
 For day-to-day equipment purchases the adoption of Juice has been
@@ -318,10 +318,10 @@ In
   choose which equipment best suits their needs, and control over their
   individual costs. IT has control of equipment standards (the menu),
   purchasing decisions and quality delivery.<a
-  href="http://www.e-gineer.com/v2/blog/2008/10/JuiceKitRegisterDetailed.png"><img
+  href="/v2/blog/2008/10/JuiceKitRegisterDetailed.png"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
   BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2008/10/JuiceKitRegisterDetailed-Thumbnail.png"
+  src="/v2/blog/2008/10/JuiceKitRegisterDetailed-Thumbnail.png"
   /></a> 
 
 ## Integration &amp; next steps
@@ -333,7 +333,7 @@ The Juice model
 
 Juice is the database driving
   the people search capabilities on <a
-  href="http://www.e-gineer.com/v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.htm">JCintra</a>.
+  href="/v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.html">JCintra</a>.
 
 Juice
   is used for billing of consumable costs such as the SMS send feature of
@@ -356,15 +356,15 @@ We will also
 ## Conclusion
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2008/10/JuiceJCintraIntegration.png"><img
+  href="/v2/blog/2008/10/JuiceJCintraIntegration.png"><img
   style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT: 10px;
   BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-  src="http://www.e-gineer.com/v2/blog/2008/10/JuiceJCintraIntegration-Thumbnail.png"
+  src="/v2/blog/2008/10/JuiceJCintraIntegration-Thumbnail.png"
   /></a> 
 
 Juice was a low cost project that has had a large and growing
   impact on the day-to-day productivity of our business. The <a
-  href="http://www.e-gineer.com/v2/blog/2008/02/clarify-simplify-implement.htm">Clarify,
+  href="/v2/blog/2008/02/clarify-simplify-implement.html">Clarify,
   Simplify, Implement</a> approach pushed our team to convert our delivery
   process, remove the barriers for users and transform the financial
   model.

@@ -6,7 +6,7 @@ title: "Two worlds colliding: Small and nimble versus Big and efficient"
 ## Two worlds colliding
 
 While running
-[Synop](http://www.e-gineer.com/v2/blog/2005/08/unofficial-history-of-synop.htm)
+[Synop](/v2/blog/2005/08/unofficial-history-of-synop.html)
 I'll never forget bidding for a project in partnership with
 [Telstra](http://www.telstra.com.au/).  We'd worked through a lot of the
 details and then were asked "Who should we contact from your legal

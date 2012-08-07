@@ -4,7 +4,7 @@ title: "Big corporate world"
 ---
 
 <a href="http://www.jnj.com"><img
-src="http://www.e-gineer.com/v2/blog/2006/01/jnj.gif" align="right" border="0"
+src="/v2/blog/2006/01/jnj.gif" align="right" border="0"
 /></a>
 
 In December, I accepted a job as an "Information Management Manager" for
@@ -14,7 +14,7 @@ scoping, designing and running implementation projects for a wide range of
 information management systems.
 
 After pouring so much energy and time into
-[Synop](http://www.e-gineer.com/v2/blog/2005/08/unofficial-history-of-synop.htm),
+[Synop](/v2/blog/2005/08/unofficial-history-of-synop.html),
 and loving every minute of it, the decision of what to do next was very
 difficult. In the end, my decision came down to two things: emotional energy
 and inflection points.

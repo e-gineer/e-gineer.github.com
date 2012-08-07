@@ -16,7 +16,7 @@ href="http://www.steptwo.com.au/products/iia2008/winners">Highly Commended in
 the 2008 Intranet Innovation Awards</a>.
 
 While <a
-href="http://www.e-gineer.com/v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.htm">our
+href="/v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.html">our
 intranet wiki JCintra</a> continues to be highly successful, we wanted to keep
 building our culture of collaboration by capturing and highlighting the flow of
 ideas. We also wanted to make it easier for our field force to participate and
@@ -29,10 +29,10 @@ journey.
 ## People Search with Jitter
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchHome.png"><img
+href="/v2/blog/2008/10/PeopleSearchHome.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchHome-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchHome-Thumbnail.png"
 /></a> 
 
 This is the home page of the People Search component. Note the simple
@@ -45,26 +45,26 @@ and are injected into the news feed based on the latest post timestamp of the
 news / Jitters.<br/><br/><br/><br/>
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchNameSearch.png"><img
+href="/v2/blog/2008/10/PeopleSearchNameSearch.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchNameSearch-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchNameSearch-Thumbnail.png"
 /></a> 
 
 Searching for a name (e.g. Nathan) shows results from first or last
 name matches. This quick view allows immediate use of the telephone numbers
 etc, and incorporates information from our local company system (<a
-href="http://www.e-gineer.com/v2/blog/2008/10/juice-user-centric-approach-to-it.htm">Juice</a>)
+href="/v2/blog/2008/10/juice-user-centric-approach-to-it.html">Juice</a>)
 and other operating companies through integration with the Outlook Corporate
 Directory they populate.
 
 Search results are immediate (no Enter click
 required) and use an AJAX component to prevent the need for full intranet page
 refresh.<br/><br/><br/><br/><a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchTeamSearch.png"><img
+href="/v2/blog/2008/10/PeopleSearchTeamSearch.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchTeamSearch-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchTeamSearch-Thumbnail.png"
 /></a> 
 
 Users may choose to search for a team name (e.g. Information), which
@@ -73,10 +73,10 @@ returns a picture wall of faces from matching teams.
 Note that team and
 individual results may be mixed together depending on the search term and
 matches.<br/><br/><br/><br/><br/><br/><br/><a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchPersonView.png"><img
+href="/v2/blog/2008/10/PeopleSearchPersonView.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchPersonView-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchPersonView-Thumbnail.png"
 /></a> 
 
 Simple page displaying all information for Nathan Wallace. The latest
@@ -88,10 +88,10 @@ Clicking on those faces navigates the hierarchy. Green arrows show if a team is
 present under that person.<br/><br/><br/><br/><br/><br/>
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchSMSSending.png"><img
+href="/v2/blog/2008/10/PeopleSearchSMSSending.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchSMSSending-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchSMSSending-Thumbnail.png"
 /></a> 
 
 SMS sending is integrated into the People Search. Messages can be
@@ -103,14 +103,14 @@ number, but instead a short text based name is shown on the recipients phone as
 the sender.
 
 SMS costs are billed to the senders cost centre through <a
-href="http://www.e-gineer.com/v2/blog/2008/10/juice-user-centric-approach-to-it.htm">the
+href="/v2/blog/2008/10/juice-user-centric-approach-to-it.html">the
 Juice system</a>.<br/><br/><br/><br/>
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchJitterPosting.png"><img
+href="/v2/blog/2008/10/PeopleSearchJitterPosting.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchJitterPosting-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchJitterPosting-Thumbnail.png"
 /></a> 
 
 Users can post to Jitter by clicking "Update status" in the Jitter
@@ -123,10 +123,10 @@ immediately. Note that SMS following is also available in the system for real
 time notification of new posts.<br/><br/><br/><br/><br/>
 
 <a
-href="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchJitterArchive.png"><img
+href="/v2/blog/2008/10/PeopleSearchJitterArchive.png"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT: 0px;
 MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2008/10/PeopleSearchJitterArchive-Thumbnail.png"
+src="/v2/blog/2008/10/PeopleSearchJitterArchive-Thumbnail.png"
 /></a> 
 
 An archive of previous Jitter posts is available for
@@ -164,7 +164,7 @@ launched.
 The flow of news on
 JCintra has been hugely successful and filled a natural need for the
 organisation. But Jitter wasn't <a
-href="http://www.e-gineer.com/v2/blog/2007/12/building-enterprise-20-on-culture-10.htm">responding
+href="/v2/blog/2007/12/building-enterprise-20-on-culture-10.html">responding
 to a need, it tried to create demand</a>. Open collaboration and idea sharing
 are common organisational goals, but that doesn't mean there is latent demand
 among the people of the business for the tools that enable it. With any new

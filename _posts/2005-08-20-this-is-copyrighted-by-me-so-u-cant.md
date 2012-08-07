@@ -4,7 +4,7 @@ title: "\"this is copyrighted by me so u cant copy it!\""
 ---
 
 Until last night, I had no idea how widely read my [PHP: Hackers
-Paradise](http://www.e-gineer.com/v1/articles/php-hackers-paradise-revisited.htm)
+Paradise](/v1/articles/php-hackers-paradise-revisited.html)
 articles had spread. Turns out, you can read copies of the article in full (or
 close to full) on these sites:
 

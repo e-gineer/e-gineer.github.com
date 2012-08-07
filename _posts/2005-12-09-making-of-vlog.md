@@ -10,8 +10,8 @@ Maker](http://www.microsoft.com/windowsxp/using/moviemaker/default.mspx) and
 [Blogger](http://www.blogger.com).
 
 The [resulting
-video](http://www.e-gineer.com/v2/blog/2005/12/vlog-in-vlog-about-vlog.htm) is
+video](/v2/blog/2005/12/vlog-in-vlog-about-vlog.html) is
 in line with my [15 second
-approach](http://www.e-gineer.com/v2/blog/2005/06/15s-of-fame.htm).
+approach](/v2/blog/2005/06/15s-of-fame.html).
 
-Video: <a href="http://www.e-gineer.com/v2/blog/2005/12/The making of vlog.wmv">The making of vlog</a> (27MB) | <a href="http://www.e-gineer.com/v2/blog/2005/12/The making of vlog (small).wmv">The making of vlog (small)</a> (11MB)
+Video: <a href="/v2/blog/2005/12/The making of vlog.wmv">The making of vlog</a> (27MB) | <a href="/v2/blog/2005/12/The making of vlog (small).wmv">The making of vlog (small)</a> (11MB)

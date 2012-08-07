@@ -11,6 +11,6 @@ the moment.
 
 Confession: While I don't plan to make it a habit, this video has two camera
 shots and is about 1 second longer than
-[normal](/v2/blog/2005/06/15s-of-fame.htm).
+[normal](/v2/blog/2005/06/15s-of-fame.html).
 
 Video: <a href="/v2/blog/2005/08/Killboy Powerhead.wmv">Killboy Powerhead.wmv</a> (5.2MB) | <a href="/v2/blog/2005/08/Killboy Powerhead (small).wmv">Killboy Powerhead (small).wmv</a> (1.2MB)

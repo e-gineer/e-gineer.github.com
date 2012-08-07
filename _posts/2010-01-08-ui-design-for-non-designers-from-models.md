@@ -26,7 +26,7 @@ something different now?)
 
 All our applications go through a design review process during the
 Implementation phase of the [Clarify, Simplify,
-Implement](http://www.e-gineer.com/v2/blog/2008/02/clarify-simplify-implement.htm)
+Implement](/v2/blog/2008/02/clarify-simplify-implement.html)
 process.
 
 First we discuss, challenge and agree on these UI models to be used. This is

@@ -6,13 +6,13 @@ title: Building Enterprise 2.0 on Culture 1.0
 ## Introduction
 
 <a
-href="http://www.e-gineer.com/v2/blog/2007/12/JCintraContributionsPerMonth.jpg"><img
+href="/v2/blog/2007/12/JCintraContributionsPerMonth.jpg"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left;
 BORDER-LEFT: 0px; MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2007/12/JCintraContributionsPerMonth-Thumbnail.jpg"
+src="/v2/blog/2007/12/JCintraContributionsPerMonth-Thumbnail.jpg"
 /></a> 
 
-[JCintra, our Intranet Wiki](http://www.e-gineer.com/v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.htm),
+[JCintra, our Intranet Wiki](/v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.html),
 has seen incredible levels of adoption and
 participation, with a positive impact on the way information flows in
 our organisation.
@@ -22,10 +22,10 @@ content contributions from 239 (~70%) people. The number of
 contributions per month continues to increase steadily.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2007/12/JCintraAuthorsPerPage.jpg"><img
+href="/v2/blog/2007/12/JCintraAuthorsPerPage.jpg"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right;
 MARGIN-LEFT: 10px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2007/12/JCintraAuthorsPerPage-Thumbnail.jpg"
+src="/v2/blog/2007/12/JCintraAuthorsPerPage-Thumbnail.jpg"
 /></a> 
 
 But, JCintra continues to function as an incredibly easy
@@ -59,22 +59,22 @@ Frankly, at Janssen-Cilag, we don't yet know exactly how we should be
 communicating and collaborating. But, we do know that the steps we've
 taken so far have improved communication, increased our flexibility
 and given people the power to run with ideas. We want to continue
-this journey, [pushing more power to the edge of the organisation](http://www.e-gineer.com/v2/blog/2005/08/making-powerful-decisions-from-edge.htm).
+this journey, [pushing more power to the edge of the organisation](/v2/blog/2005/08/making-powerful-decisions-from-edge.html).
 
 ### The Enterprise Collaboration Maturity Model
 
 <a
-href="http://www.e-gineer.com/v2/blog/2007/12/EnterpriseCollaborationMaturityModel.jpg"><img
+href="/v2/blog/2007/12/EnterpriseCollaborationMaturityModel.jpg"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right;
 MARGIN-LEFT: 10px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2007/12/EnterpriseCollaborationMaturityModel-Thumbnail.jpg"
+src="/v2/blog/2007/12/EnterpriseCollaborationMaturityModel-Thumbnail.jpg"
 /></a> 
 
 All knowledge work is either individual or group based,
 and it is always performed in an individual, shared or open
 environment.
 
-The [Enterprise Collaboration Maturity Model](http://www.e-gineer.com/v2/blog/2007/12/EnterpriseCollaborationMaturityModel.jpg) depicts these work models, and
+The [Enterprise Collaboration Maturity Model](/v2/blog/2007/12/EnterpriseCollaborationMaturityModel.jpg) depicts these work models, and
 incorporates the cultural journey that enterprises take to reach each
 stage. Currently, Janssen-Cilag provides an open Wiki (high
 capability maturity) but primarily uses it as Groupware (medium usage
@@ -136,10 +136,10 @@ learning reinforcement for the recipient.
 ### Reducing the personal risk of sharing knowledge
 
 <a
-href="http://www.e-gineer.com/v2/blog/2007/12/JCintraHomePage.jpg"><img
+href="/v2/blog/2007/12/JCintraHomePage.jpg"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left;
 BORDER-LEFT: 0px; MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2007/12/JCintraHomePage-Thumbnail.jpg"
+src="/v2/blog/2007/12/JCintraHomePage-Thumbnail.jpg"
 /></a> 
 
 Collaboration and knowledge sharing increase personal
@@ -195,7 +195,7 @@ A focus on capturing the flow has many advantages:
 * The system always contains the latest information, building trust and adoption.
 * The process is easy to enforce and success is readily measured (by monitoring email announcements, the only alternative).
 * Work and risk is minimised for contributors.
-* Through search, [archived flows become a rich and readily available stock](http://www.e-gineer.com/v2/blog/2007/07/promotion-helps-turn-flows-into.htm).
+* Through search, [archived flows become a rich and readily available stock](/v2/blog/2007/07/promotion-helps-turn-flows-into.html).
 
 Over time, the flow of decisions and
 insights washes over the organisation, helping each person refine
@@ -221,10 +221,10 @@ collaboration systems:
 the right, we value the items on the left more.)
 
 <a
-href="http://www.e-gineer.com/v2/blog/2007/12/JCintraPeopleSearch.jpg"><img
+href="/v2/blog/2007/12/JCintraPeopleSearch.jpg"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: left; BORDER-LEFT:
 0px; MARGIN-RIGHT: 10px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2007/12/JCintraPeopleSearch-Thumbnail.jpg"
+src="/v2/blog/2007/12/JCintraPeopleSearch-Thumbnail.jpg"
 /></a> 
 
 We are building processes and tools to help with
@@ -268,10 +268,10 @@ news items. The people directory will also have direct links to recent
 posts.
 
 <a
-href="http://www.e-gineer.com/v2/blog/2007/12/Jitter.jpg"><img
+href="/v2/blog/2007/12/Jitter.jpg"><img
 style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FLOAT: right; MARGIN-LEFT:
 10px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"
-src="http://www.e-gineer.com/v2/blog/2007/12/Jitter-Thumbnail.jpg"
+src="/v2/blog/2007/12/Jitter-Thumbnail.jpg"
 /></a> 
 
 Second, we'll add a [Twitter](http://www.twitter.com/) /
@@ -282,7 +282,7 @@ will be integrated with the <a
 href="http://office.microsoft.com/en-us/communicator/FX101729051033.aspx">Office
 Communicator</a> Note field. Recent status updates will also be
 incorporated into the home page news feed, but in a very lightweight
-way. (The [Jitter screenshot](http://www.e-gineer.com/v2/blog/2007/12/Jitter.jpg)
+way. (The [Jitter screenshot](/v2/blog/2007/12/Jitter.jpg)
 shows our early experiment in this area, which we have
 decided not to launch but instead integrate into the people
 directory.)
@@ -333,7 +333,7 @@ decisions.
 [writing](http://theobvious.typepad.com/blog/2007/03/the_100_guarant.html)
 [this](http://www.ebizq.net/blogs/column2/archives/2007/06/enterprise_20_r.php)
 [post](http://discussionleader.hbsp.com/davenport/2007/03/why_enterprise_20_wont_transfo.html).
-Thanks also go to [my team](http://www.e-gineer.com/v2/blog/2007/12/JCintraPeopleSearch.jpg)
+Thanks also go to [my team](/v2/blog/2007/12/JCintraPeopleSearch.jpg)
 without whom this would all be theory.*
 
 <div id="blogComments">

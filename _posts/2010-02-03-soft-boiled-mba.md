@@ -11,7 +11,7 @@ reading. I recall almost none of it.
 
 But, as a result of my MBA, I am self-aware of my style in groups, confident in
 my breadth of knowledge and able to see business from different view points. I
-can [make hard decisions](http://www.e-gineer.com/v2/blog/2005/08/unofficial-history-of-synop.htm)
+can [make hard decisions](/v2/blog/2005/08/unofficial-history-of-synop.html)
 more easily and am comfortable finding a balance between performance, friendship
 and opinions.
 

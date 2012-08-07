@@ -3,9 +3,9 @@ layout: default
 title: Project Insulation
 ---
 
-<a href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Attic%20space.jpg"><img
+<a href="/v2/blog/2007/01/Insulation%20-%20Attic%20space.jpg"><img
   title="Attic space" style="FLOAT: right; MARGIN-LEFT: 1em" alt="Attic space"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Attic%20space%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Attic%20space%20-%20thumbnail.jpg"
   /></a>
 
 I spent all of last weekend crawling around in our attic, cleaning out
@@ -23,10 +23,10 @@ professional cleaning service. (I've heard this costs about $1,500AUD and is
 probably the route I'd take if I ever have to do this again in my life now that
 I've proven my stupidity.)
 
-<a href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Drywall%20vs%20wood%20lath%20plaster.jpg"><img
+<a href="/v2/blog/2007/01/Insulation%20-%20Drywall%20vs%20wood%20lath%20plaster.jpg"><img
   title="Drywall vs wood lath plaster" style="FLOAT: left; MARGIN-RIGHT: 1em"
   alt="Drywall vs wood lath plaster"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Drywall%20vs%20wood%20lath%20plaster%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Drywall%20vs%20wood%20lath%20plaster%20-%20thumbnail.jpg"
   /></a>
 
 First, I tried using our household vacuum cleaner. After only a few
@@ -39,10 +39,10 @@ vacuum. Predictably, and not as spectacularly as I expected, it was only able
 to pickup a small amount of the gunk which it then promptly spewed back into
 the air through it's course filters.
 
-<a href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Dust%20extraction%20methods.jpg"><img
+<a href="/v2/blog/2007/01/Insulation%20-%20Dust%20extraction%20methods.jpg"><img
   title="Dust extraction methods" style="FLOAT: right; MARGIN-LEFT: 1em"
   alt="Dust extraction methods"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Dust%20extraction%20methods%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Dust%20extraction%20methods%20-%20thumbnail.jpg"
   /></a>
 
 I then spoke with <a href="http://www.kennards.com.au">Kennards</a>
@@ -60,10 +60,10 @@ the process down to brushing along each 2cm x 40cm plaster crevice towards the
 beam, and then lengthways along the beam. This gathered the most dust and piled
 it for an easier lengthways brushing over the plaster ridges.
 
-<a href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Before%20and%20after%20with%20brush.jpg"><img
+<a href="/v2/blog/2007/01/Insulation%20-%20Before%20and%20after%20with%20brush.jpg"><img
   title="Before and after with brush" style="FLOAT: left; MARGIN-RIGHT: 1em"
   alt="Before and after with brush"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Before%20and%20after%20with%20brush%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Before%20and%20after%20with%20brush%20-%20thumbnail.jpg"
   /></a>
 
 All in all, brushing was reasonably effective, but is definitely not
@@ -75,10 +75,10 @@ insulation batts is fast and easy. I settled on
 which were not at strong as the R4.0 I wanted, but were
 immediately available off the shelf at Bunnings.
 
-<a href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Nathan%20with%20dust%20bags.jpg"><img
+<a href="/v2/blog/2007/01/Insulation%20-%20Nathan%20with%20dust%20bags.jpg"><img
   title="Nathan with dust bags" style="FLOAT: right; MARGIN-LEFT: 1em"
   alt="Nathan with dust bags"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Nathan%20with%20dust%20bags%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Nathan%20with%20dust%20bags%20-%20thumbnail.jpg"
   /></a>
 
 Understanding as much as I could about R-values, it appears that the
@@ -104,9 +104,9 @@ than they do in a Sydney style location. So, I didn't install a vapour
 barrier.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Batt%20bags.jpg"><img
+  href="/v2/blog/2007/01/Insulation%20-%20Batt%20bags.jpg"><img
   title="Batt bags" style="FLOAT: left; MARGIN-RIGHT: 1em" alt="Batt bags"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Batt%20bags%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Batt%20bags%20-%20thumbnail.jpg"
   /></a>
 
 There are 4 things you need to know when buying batts: desired R-value,
@@ -126,10 +126,10 @@ the store expert from his holidays to help with the computer. $35 for a huge
 pile of batts delivered next day delivery after 4pm.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Manhole%20view.jpg"><img
+  href="/v2/blog/2007/01/Insulation%20-%20Manhole%20view.jpg"><img
   title="Manhole view" style="FLOAT: right; MARGIN-LEFT: 1em" alt="Manhole
   view"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Manhole%20view%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Manhole%20view%20-%20thumbnail.jpg"
   /></a>
 
 Opening a packet of batts is like pulling the cord on an inflatable
@@ -153,9 +153,9 @@ roof has a fairly high pitch, so even laying in the corners was not too
 difficult.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Laid%20batts.jpg"><img
+  href="/v2/blog/2007/01/Insulation%20-%20Laid%20batts.jpg"><img
   title="Laid batts" style="FLOAT: left; MARGIN-RIGHT: 1em" alt="Laid batts"
-  src="http://www.e-gineer.com/v2/blog/2007/01/Insulation%20-%20Laid%20batts%20-%20thumbnail.jpg"
+  src="/v2/blog/2007/01/Insulation%20-%20Laid%20batts%20-%20thumbnail.jpg"
   /></a>
 
 Basically, with some preparation (i.e. buy batts &amp; safety gear) and
