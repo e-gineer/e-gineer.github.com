@@ -108,7 +108,7 @@ The key is to remember to keep all cost drivers transparent and controllable. Tr
 
 ## Conclusion
 
-<a href="http://www.e-gineer.com/v2/blog/2007/08/CostAllocationModelForSharedServices.pdf"><img src="http://www.e-gineer.com/v2/blog/2007/08/CostAllocationModelForSharedServices.gif" style="float:right"/></a>
+<a href="/v2/blog/2007/08/CostAllocationModelForSharedServices.pdf"><img src="/v2/blog/2007/08/CostAllocationModelForSharedServices.gif" style="float:right"/></a>
 
 After 6 months use on a team of 25 people divided among 5 operating companies over 2 countries, we've found this to be a simple, flexible model that has given us unprecedented insight and high level of control over cost drivers. 
 

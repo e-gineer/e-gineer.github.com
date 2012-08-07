@@ -20,8 +20,8 @@ through to internal enterprise web applications.
 ## The Continuous Application Release Cycle
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/12/ContinuousApplicationReleaseCycle.png"><img
-  src="http://www.e-gineer.com/v2/blog/2007/12/ContinuousApplicationReleaseCycle-Inline.png"
+  href="/v2/blog/2007/12/ContinuousApplicationReleaseCycle.png"><img
+  src="/v2/blog/2007/12/ContinuousApplicationReleaseCycle-Inline.png"
   style="border:0"/></a>
 
 Adopting this cycle brings certainty and
@@ -31,8 +31,8 @@ to the next, with only a small cross-over for bug fixing during the Beta
 period.
 
 <a
-  href="http://www.e-gineer.com/v2/blog/2007/12/DetailedContinuousApplicationReleaseCycle.png"><img
-  src="http://www.e-gineer.com/v2/blog/2007/12/DetailedContinuousApplicationReleaseCycle-Inline.png"
+  href="/v2/blog/2007/12/DetailedContinuousApplicationReleaseCycle.png"><img
+  src="/v2/blog/2007/12/DetailedContinuousApplicationReleaseCycle-Inline.png"
   style="border:0"/></a>
 
 *Release planning* is a high level determination of the features and bug fixes

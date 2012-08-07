@@ -48,8 +48,8 @@ We need to embrace and extend.
 ## Embrace and extend
 
 <a
-href="http://www.e-gineer.com/v2/blog/2009/05/ContextAndControlInEnterprise20.png"><img
-src="http://www.e-gineer.com/v2/blog/2009/05/ContextAndControlInEnterprise20-Thumbnail.png"
+href="/v2/blog/2009/05/ContextAndControlInEnterprise20.png"><img
+src="/v2/blog/2009/05/ContextAndControlInEnterprise20-Thumbnail.png"
 style="float:right;border:0;margin-left:10px"/></a>
 
 Revolution towards a consumer equivalent involves the complete destruction or

@@ -4,18 +4,18 @@ title: "3 Things & more from Naomi"
 ---
 
 <img style="FLOAT: right; MARGIN-LEFT: 10px" alt="Naomi Wallace" title="Naomi
-Wallace" src="http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace.jpg" />
+Wallace" src="/v2/blog/2006/09/Naomi%20Wallace.jpg" />
 
 It's hard when all of the talent and the good looks in the family go to one
 of your siblings. The songs below are all composed and performed by my sister
 Naomi Wallace, recorded at home using
 [GarageBand](http://www.apple.com/ilife/garageband/).
-* [True, This Is Love!](http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%201%20-%20True,%20This%20Is%20Love!.mp3) (6MB mp3)
-* [Strong](http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%202%20-%20Strong.mp3) (6MB mp3)
-* [Crucial Ingredient](http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%203%20-%20Crucial%20Ingredient.mp3) (6MB mp3)
-* [Peaceless Sigh](http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%204%20-%20Peaceless%20Sigh.mp3) (9MB mp3)
-* [Only Direction](http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%205%20-%20Only%20Direction.mp3) (5MB mp3)
-* [3 Things](http://www.e-gineer.com/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%206%20-%203%20Things.mp3) (8MB mp3)
+* [True, This Is Love!](/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%201%20-%20True,%20This%20Is%20Love!.mp3) (6MB mp3)
+* [Strong](/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%202%20-%20Strong.mp3) (6MB mp3)
+* [Crucial Ingredient](/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%203%20-%20Crucial%20Ingredient.mp3) (6MB mp3)
+* [Peaceless Sigh](/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%204%20-%20Peaceless%20Sigh.mp3) (9MB mp3)
+* [Only Direction](/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%205%20-%20Only%20Direction.mp3) (5MB mp3)
+* [3 Things](/v2/blog/2006/09/Naomi%20Wallace%20-%20Demo%20Tracks%20-%206%20-%203%20Things.mp3) (8MB mp3)
 
 3 Things was written as a wedding gift to Bianca and I,
 so clearly it's my favourite.
