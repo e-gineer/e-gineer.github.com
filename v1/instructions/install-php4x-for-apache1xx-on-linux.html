@@ -1,23 +1,24 @@
 ---
 layout: page
-title: Installing PHP 3.x for Apache 1.x.x on Linux
+title: Installing PHP 4.x for Apache 1.x.x on Linux
 ---
 
-<em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 25, 1999)
+<em>by <a href="../../nathan/">Nathan Wallace</a></em> (Oct 25, 1999)<br>
+<em>and John Brett</em> (Dec 4, 2000)
 
 <p>
 
 <h2>Introduction</h2>
 
-This document describes how to install <a href="http://www.php.net">PHP</a> for <a href="http://www.apache.org">Apache</a> on Linux.  It was written using <a href="http://www.redhat.com">Red Hat</a> 6.1, Apache 1.3.9 and PHP 3.0.12.
+This document describes how to install <a href="http://www.php.net">PHP</a> for <a href="http://www.apache.org">Apache</a> on Linux.  It was written using <a href="http://www.redhat.com">Red Hat</a> 7.0, Apache 1.3.14 and PHP 4.0.3 patch level 1
 
 <p>
 
-You should have Apache installed before trying to install PHP.  Here are my <a href="install-apache1xx-on-linux.htm">Apache installation instructions</a>.
+You should have Apache installed before trying to install PHP.  Here are my <a href="install-apache1xx-on-linux.html">Apache installation instructions</a>.
 
 <p>
 
-If you want to use PHP with <a href="http://www.mysql.com">MySQL</a> then you must <a href="install-mysql3xx-on-linux.htm">install MySQL first</a>.
+If you want to use PHP with <a href="http://www.mysql.com">MySQL</a> then you must <a href="install-mysql3xx-on-linux.html">install MySQL first</a>.
 
 <p>
 
@@ -25,7 +26,7 @@ If you want to use PHP with <a href="http://www.mysql.com">MySQL</a> then you mu
 
 <ol>
 
-<li>These instructions assume that you have Apache installed according to <a href="install-apache1xx-on-linux.htm">my instructions</a>.  That installation is done into /usr/local/etc/httpd and /www.
+<li>These instructions assume that you have Apache installed according to <a href="install-apache1xx-on-linux.html">my instructions</a>.  That installation is done into /usr/local/etc/httpd and /www.
 
 </ol>
 
@@ -42,25 +43,27 @@ If you want to use PHP with <a href="http://www.mysql.com">MySQL</a> then you mu
 
 <p>
 
+<li>You can get <a href="http://www.php.net/distributions/php-4.0.3pl1.tar.gz">PHP4.0.3 patch level 1  from here</a>.  Here is a <a href="http://www.php.net/download-php.php3">list of mirrors</a>.<br>Or you can ftp from mirror.aarnet.edu.au
+
+<pre>
+    ftp mirror.aarnet.edu.au
+    cd php
+    cd distributions
+    bin
+    hash
+    get php-4.0.3pl1.tar.gz
+    bye
+</pre>
+<p>
+
+
 <li>I save all my downloads in:
 <pre>
-    /usr/local/download
+    /usr/local/downloads
 </pre>    
 If you don't already have one, you may need to create that directory now:
 <pre>
-    mkdir /usr/local/download
-</pre>
-
-<p>
-
-<li>You can get <a href="ftp://ftp.php.net/pub/distributions/php-3.0.12.tar.gz">PHP 3.0.12 from here</a>.  Here is a <a href="http://www.php.net/download-php.php3">list of mirrors</a>.  Here are the ftp commands:
-<pre>
-    cd /usr/local/download
-    ftp ftp.php.net
-    cd pub/distributions
-    bin
-    get php-3.0.12.tar.gz
-    bye
+    mkdir /usr/local/downloads
 </pre>
 
 </ol>
@@ -73,23 +76,23 @@ If you don't already have one, you may need to create that directory now:
 
 <li>We will install PHP in /usr/local/etc, but use a tricky tar command to do it in on hit from the download directory:
 <pre>
-    cd /usr/local/download
-    tar xzf php-3.0.12.tar.gz -C ../etc
+    cd /usr/local/downloads
+    tar xzf php-4.0.3pl1.tar.gz -C ../etc
 </pre>
 
 <p>
 
-<li>Now we create a nice directory name (php) for the installed directory (php-3.0.12):
+<li>Now we create a nice directory name (php) for the installed directory (php-4.0.3pl1):
 <pre>
     cd /usr/local/etc
-    ln -s php-3.0.12 php
+    ln -s php-4.0.3pl1 php
 </pre>
 
 </ol>
 
 <p>
 
-<a name="compiling"><h2>Compiling PHP</h2>
+<h2>Compiling PHP</h2>
 
 <ol>
 
@@ -164,41 +167,31 @@ Next, jump to step 6.
 </pre>
 You can configure Apache using the previous command with the added PHP module by doing:
 <pre>
-    ./config.status --activate-module=src/modules/php3/libphp3.a
+    ./config.status --activate-module=src/modules/php4/libphp4.a
 </pre>
-If you used the simple Apache install from <a href="install-apache1xx-on-linux.htm">my instructions</a> the command will look like this:
+If you used the simple Apache install from <a href="install-apache1xx-on-linux.html">my instructions</a> this will effectively perform this:
 <pre>
-    ./configure --prefix=/usr/local/etc/httpd --sysconfdir=/www/conf --activate-module=src/modules/php3/libphp3.a
+    ./configure --prefix=/usr/local/etc/httpd --sysconfdir=/www/conf \
+        --activate-module=src/modules/php4/libphp4.a --enable-module=status \
+	--enable-module=rewrite --enable-module=status
 </pre>
 
 <p>
 
-<li>Make and install Apache with PHP enabled:
+<li>Make Apache with PHP enabled:
 <pre>
     make
+
 </pre>
 
 <p>
 
-<li>We need to stop the server before installing the files:
+<li>Now shut down Apache and install before starting again:
 <pre>
-    bin/apachectl stop
-</pre>
-
-<p>
-
-<li>Now we can install the new binaries:
-<pre>
+    /usr/local/etc/httpd/bin/apachectl stop
     make install
+    /usr/local/etc/httpd/bin/apachectl start
 </pre>
-
-<p>
-
-<li>Start apache again (now running the new php enabled version): 
-<pre>
-    bin/apachectl start
-</pre>
-
 </ol>
 
 <p>
@@ -210,7 +203,7 @@ If you used the simple Apache install from <a href="install-apache1xx-on-linux.h
 <li>PHP has created an ini file.  We have to install this into it's correct location.
 <pre>
     cd ../php
-    cp php3.ini-dist /www/conf/php3.ini
+    cp php.ini-dist /www/conf/php.ini
 </pre>
 
 <p>
@@ -222,15 +215,15 @@ If you used the simple Apache install from <a href="install-apache1xx-on-linux.h
 
 <li>Edit the httpd.conf file.  If you do a search for php you will find a couple of commented out lines telling Apache to use the PHP module.  You should uncomment them to look like this.
 <pre>
-AddType application/x-httpd-php3 .php3
-AddType application/x-httpd-php3-source .phps
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
 </pre>
 
 <p>
 
 <li>I prefer to use the extension .phtml, you can use whatever extension you like (even .html) by adding lines to httpd.conf like this:
 <pre>
-AddType application/x-httpd-php3 .phtml
+AddType application/x-httpd-php .phtml
 </pre>
 
 </ol>
@@ -249,22 +242,22 @@ AddType application/x-httpd-php3 .phtml
 
 <p>
 
-<li>Apache should now be running with PHP enabled.  The server version should include PHP/3.0b2.
+<li>Apache should now be running with PHP enabled.  The server version should include PHP/4.0.3pl1.
 <pre>
     ./apachectl status
 </pre>
 <pre>
                 Apache Server Status for dev.synop.com
                                        
-Server Version: Apache/1.3.9 (Unix) PHP/3.0.12
-Server Built: Oct 25 1999 00:37:07
+Server Version: Apache/1.3.14 (Unix) PHP/4.0.3pl1
+Server Built: Dec 4th 2000 13:31:09
 
 ...
 </pre>
 
 <p>
 
-<li>Now it is time to test PHP with a page.  The simplest thing to do is create a page in one of your virtual servers (eg: dev.synop.com) called test.php3.  My file is here (link removed).  This file contains the following text:
+<li>Now it is time to test PHP with a page.  The simplest thing to do is create a page in one of your virtual servers (eg: dev.synop.com) called test.php.  My file is here (link removed).  This file contains the following text:
 <pre>
 &lt;?php phpinfo(); ?&gt;
 </pre>
@@ -273,11 +266,11 @@ Server Built: Oct 25 1999 00:37:07
 
 <li>Point your browser at this file on the virtual host which you used:
 <pre>
-    http://dev.synop.com/test.php3
+    http://dev.synop.com/test.php
 </pre>
 
 <p>
 
-<li>The results should look like this (link removed).
+<li>The results should look something like this (link removed).
 
 </ol>

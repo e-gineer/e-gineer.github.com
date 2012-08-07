@@ -53,7 +53,7 @@ The new .doc top level domain (TLD) is used for <strong>referencing documentatio
 
 <p>
 
-Read my <a href="../instructions/install-apache1xx-on-linux.htm">Apache Installation Instructions</a> for more information on setting up these simple domain names on your machine and for your web server.
+Read my <a href="../instructions/install-apache1xx-on-linux.html">Apache Installation Instructions</a> for more information on setting up these simple domain names on your machine and for your web server.
 
 <p>
 
@@ -80,7 +80,7 @@ Keeping the <strong>pages and code separate for the development and live version
 
 One important aspect when programming pages for this configuration is to <strong>avoid the use of the server name when linking</strong>.  The page for this article is in the same directory as my articles contents page.  There are a number of ways that I can link back to the contents.  The three principal techniques are:
 <ul>
-<li>http://www.e-gineer.com/e-gineer/articles/index.phtml
+<li>http://e-gineer.com/e-gineer/articles/index.phtml
 <li>/e-gineer/articles/index.phtml
 <li>index.phtml
 </ul>
@@ -89,19 +89,19 @@ One important aspect when programming pages for this configuration is to <strong
 
 Similarly, linking back to the main page of this site can be done with:
 <ul>
-<li>http://www.e-gineer.com
-<li>http://www.e-gineer.com/e-gineer/index.phtml
+<li>http://e-gineer.com
+<li>http://e-gineer.com/e-gineer/index.phtml
 <li>/e-gineer/index.phtml
 <li>../index.phtml
 </ul>
 
 <p>
 
-The links that contain the explicit reference to <a href="http://www.e-gineer.com">http://www.e-gineer.com</a> are not suitable for testing on the development server.  Every link will take us to the live web server.  When we <strong>link to the file location only</strong>, the links point to within the current server, allowing us to <strong>test using the development server</strong>.
+The links that contain the explicit reference to <a href="http://e-gineer.com">http://e-gineer.com</a> are not suitable for testing on the development server.  Every link will take us to the live web server.  When we <strong>link to the file location only</strong>, the links point to within the current server, allowing us to <strong>test using the development server</strong>.
 
 <p>
 
-The best solution is to <strong>use relative file name links</strong>, the final case in the examples above.  This gives us the freedom to use different server names and to move the location of the file hierarchy without changing all of the links.  Currently e-gineer.com is running as a virtual host, which is why the url for every page starts with <a href="http://www.e-gineer.com/e-gineer">http://www.e-gineer.com/e-gineer</a> instead of <a href="http://www.e-gineer.com">http://www.e-gineer.com</a>.  If these pages are moved to their own server (thus losing the /e-gineer part) then using relative file name links will mean that I won't have to change all of my links.  This is not extremely important since <a href="http://www.useit.com/alertbox/981129.html">links must live forever</a>.
+The best solution is to <strong>use relative file name links</strong>, the final case in the examples above.  This gives us the freedom to use different server names and to move the location of the file hierarchy without changing all of the links.  Currently e-gineer.com is running as a virtual host, which is why the url for every page starts with <a href="http://e-gineer.com/e-gineer">http://e-gineer.com/e-gineer</a> instead of <a href="http://e-gineer.com">http://e-gineer.com</a>.  If these pages are moved to their own server (thus losing the /e-gineer part) then using relative file name links will mean that I won't have to change all of my links.  This is not extremely important since <a href="http://www.useit.com/alertbox/981129.html">links must live forever</a>.
 
 <p>
 

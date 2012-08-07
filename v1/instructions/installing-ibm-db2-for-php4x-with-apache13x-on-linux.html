@@ -17,8 +17,8 @@ is different, <a href="mailto:shawndo@austin.rr.com">email</a> me. I have perfor
 this with Apache 1.3.19, PHP 4.0.4p1, and DB2 7.1</p>
 <p>Links with related information:</p>
 <ul>
-<li><a href="install-apache1xx-on-linux.htm">Installing Apache 1.x.x on Linux</a></li>
-<li><a href="install-php4x-for-apache1xx-on-linux.htm">Installing PHP 4.x for Apache 1.x.x on Linux</a></li>
+<li><a href="install-apache1xx-on-linux.html">Installing Apache 1.x.x on Linux</a></li>
+<li><a href="install-php4x-for-apache1xx-on-linux.html">Installing PHP 4.x for Apache 1.x.x on Linux</a></li>
 <li><a href="http://www.linuxdoc.org/HOWTO/DB2-HOWTO/index.html">DB2 Version 7.1 for Linux HOWTO</a></li>
 <li><a href="http://www-4.ibm.com/cgi-bin/db2www/data/db2/udb/winos2unix/support/v7pubs.d2w/en_main">DB2 UDB and Connect Manuals</a></li>
 <li><a href="http://cs1.mcm.edu/tutorial/htmlguid/php/php-odbc.phtml">PHP ODBC</a></li>
@@ -147,7 +147,7 @@ this with Apache 1.3.19, PHP 4.0.4p1, and DB2 7.1</p>
 <h2>Installing Apache</h2>
 
 <p>1. Install and configure Apache according to these instructions:</p>
-<p><a href="install-apache1xx-on-linux.htm">Installing Apache 1.x.x on Linux</a></p>
+<p><a href="install-apache1xx-on-linux.html">Installing Apache 1.x.x on Linux</a></p>
 <p>Note: Before starting the Apache server (./apachectl start) the db2 profile 
   needs to be sourced. this can be done with:</p>
 <p><b>. /home/db2inst1/sqllib/db2profile</b></p>
@@ -163,7 +163,7 @@ this with Apache 1.3.19, PHP 4.0.4p1, and DB2 7.1</p>
 <p>Note: I am not a developer and do not know if this is the &quot;correct&quot; 
   way to do things, but it is the only way I was able to get this to work.</p>
 <p>2. Install and configure PHP4 according to these instructions:</p>
-<p><a href="install-php4x-for-apache1xx-on-linux.htm">Installing PHP 4.x for Apache 1.x.x on Linux</a> (with the following modifications)</p>
+<p><a href="install-php4x-for-apache1xx-on-linux.html">Installing PHP 4.x for Apache 1.x.x on Linux</a> (with the following modifications)</p>
 <p>- Do not perform sections 2-5 under &quot;Compiling PHP&quot;. Instead use 
   this command:</p>
 <p><b>./configure --with-apache=../httpd --with-config-file-path=/www/conf --with-ibm-db2 

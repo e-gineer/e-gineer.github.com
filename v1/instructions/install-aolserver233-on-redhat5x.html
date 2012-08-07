@@ -46,7 +46,7 @@ internal.synop.com
 
 <p>
 
-<li>We need somewhere to keep all of our web pages, scripts and logs.  I have a directory /web.  This could be a super fast disk, or on a development machine just a symbolic link to somewhere on the machine with enough space.  Of course, you can not use this at all and just keep all the pages in user hierarchy for nsadmin.  My development machine has a partition /u01 with a lot of space that I <a href="install-oracle805-on-redhat5x.htm">use for Oracle</a>.  I keep my server logs here in /web/logs.  If you need completely optimal speed then I assume that it would probably be better to keep your logs on a different disk to your web pages.  Assuming that you are logged in as root and have set up the nsadmin user here are the commands.
+<li>We need somewhere to keep all of our web pages, scripts and logs.  I have a directory /web.  This could be a super fast disk, or on a development machine just a symbolic link to somewhere on the machine with enough space.  Of course, you can not use this at all and just keep all the pages in user hierarchy for nsadmin.  My development machine has a partition /u01 with a lot of space that I <a href="install-oracle805-on-redhat5x.html">use for Oracle</a>.  I keep my server logs here in /web/logs.  If you need completely optimal speed then I assume that it would probably be better to keep your logs on a different disk to your web pages.  Assuming that you are logged in as root and have set up the nsadmin user here are the commands.
 <pre>
     cd /u01
     mkdir web
@@ -162,7 +162,7 @@ Initially I could only get this to work by using localhost rather than internal.
 
 <p>
 
-<li>The virtual server parameters are all set here.  You will probably need to update these later, especially the URL pointers to your error and busy pages.  You may like to set the Expert option Verbose to On.  Note that there is a bug in the setup for the nsprofile module.  When I discovered this I was very impressed that the AOLserver guys had a fix to me within two hours.   You probably don't need to use nsprofile, but <a href="patch-aolserver233-nsprofile-setup.htm">here is the fix</a>.  Click Add when you are done.  My settings for the virtual server (in Basic Mode) that are different from the defaults are:
+<li>The virtual server parameters are all set here.  You will probably need to update these later, especially the URL pointers to your error and busy pages.  You may like to set the Expert option Verbose to On.  Note that there is a bug in the setup for the nsprofile module.  When I discovered this I was very impressed that the AOLserver guys had a fix to me within two hours.   You probably don't need to use nsprofile, but <a href="patch-aolserver233-nsprofile-setup.html">here is the fix</a>.  Click Add when you are done.  My settings for the virtual server (in Basic Mode) that are different from the defaults are:
 <pre>
     Page Root: /web/synop/www
     Directory File: index.html, index.htm, index.tcl
