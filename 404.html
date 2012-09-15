@@ -1,40 +1,71 @@
----
-title: 404 Page Not Found
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>404 Page Not Found | e-gineer</title>
+    <link rel="stylesheet" type="text/css" href="/v2/presentation/bluescope/bluescope.css"/>
+    <link rel="alternate" type="application/rss+xml" title="e-gineer" href="/v2/blog/rss.xml" />
+    <link rel="shortcut icon" href="/v2/presentation/bluescope/bluescope.ico" type="image/ico"/>
+    <script type="text/javascript"><!--
+      broken_url = window.location.pathname;
+      new_url = broken_url;
+      // switch them away from old .phtml pages
+      new_url = new_url.replace(/\.htm$/, '.html');
+      new_url = new_url.replace(/\.phtml$/, '.html');
+      // remove the old /e-gineer/ directory prefix if it exists
+      if (new_url.substring(0, 9) == '/e-gineer') {
+        new_url = new_url.substring(9);
+      }
+      // move them into the v1 directory for old areas of the site
+      if ( (new_url.substring(0, 9) == '/articles') || (new_url.substring(0, 13) == '/instructions') || (new_url.substring(0, 11) == '/domainator') ) {
+        new_url = '/v1' + new_url;
+      }
+      // redirect to directories, rather than pages if possible
+      new_url = new_url.replace(/\/index.html$/, '');
+      if (new_url != broken_url) {
+        window.location = new_url;
+      }
+    --></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-65687-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
 
-{% include header.html %}
+    <header>
+      <a href="/"><img id="logo" src="/v2/presentation/bluescope/e-gineer-logo.png"></a>
+      <div id="nav">
+        <a href="/v2/blog/">BLOG</a>
+        <a href="/nathan/">NATHAN</a>
+        <a href="/archive/">ARCHIVE</a>
+        <a href="https://twitter.com/nathanwallace"><img src="/v2/presentation/bluescope/twitter-bird.png"></a>
+      </div>
+    </header>
 
-<script type="text/javascript"><!--
-  broken_url = window.location.pathname;
-  new_url = broken_url;
-  // switch them away from old .phtml pages
-  new_url = new_url.replace(/\.htm$/, '.html');
-  new_url = new_url.replace(/\.phtml$/, '.html');
-  // remove the old /e-gineer/ directory prefix if it exists
-  if (new_url.substring(0, 9) == '/e-gineer') {
-    new_url = new_url.substring(9);
-  }
-  // move them into the v1 directory for old areas of the site
-  if ( (new_url.substring(0, 9) == '/articles') || (new_url.substring(0, 13) == '/instructions') || (new_url.substring(0, 11) == '/domainator') ) {
-    new_url = '/v1' + new_url;
-  }
-  // redirect to directories, rather than pages if possible
-  new_url = new_url.replace(/\/index.html$/, '');
-  if (new_url != broken_url) {
-    window.location = new_url;
-  }
---></script>
+    <div id="pageContent">
 
-<div id="movedBox">
+      <h1>404 Page Not Found</h1>
+      <script type="text/javascript">
+        if (new_url != broken_url) {
+          document.write('<p>The URL for this page has permanently changed. You are now being redirected to the new location. Please update the link to:</p>');
+          document.write('<p class="movedUrl"><a href="' + new_url + '">' + new_url + '</a>.</p>');
+        }
+        else {
+          document.write('<p>We cannot find the page you requested. Please start from the <a href="/">home page</a> or <a href="/archive/">archive</a>.');
+        }
+      </script>
 
-  <h1>404 Page Not Found</h1>
-  <p>
-  The URL for this page has permanently changed. You are now being redirected to the new location. Please update the link to:
-  </p>
-  <p class="movedUrl">
-  <script type="text/javascript">
-    document.write('<a href="' + new_url + '">' + new_url + '</a>');
-  </script>
-  </p>
+    </div>
 
-</div>
+    <footer>
+    Copyright &copy; 1999-2012 Nathan Wallace
+    </footer>
+
+  </body>
+</html>
