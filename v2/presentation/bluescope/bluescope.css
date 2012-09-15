@@ -53,6 +53,14 @@ a {
   color: #005498;
 }
 
+a:hover {
+  color: #3386cc;
+}
+
+a:visited {
+  color: #211f7b;
+}
+
 header {
 }
 
@@ -68,6 +76,9 @@ header {
   margin-left: 50px;
   font-size: 14pt;
   line-height: 109px;
+}
+#nav a, #nav a:hover, #nav a:visited {
+  color: #005498;
 }
 #nav a img {
   vertical-align: text-bottom;
@@ -255,4 +266,15 @@ div.blogCommentBody {
 }
 div.blogCommentsClosed {
   font-style: italic;
+}
+
+#movedBox {
+  margin: 2em 50px 0 0;
+  border: 2px solid red;
+  background-color: #fee;
+  padding: 1em;
+}
+p.movedUrl {
+  margin-left: 2em;
+  font-weight: bold;
 }
