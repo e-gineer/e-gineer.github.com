@@ -1,5 +1,5 @@
 ---
-title: e-gineer by Nathan Wallace
+title: e-gineer by Nathan Wallace (@nathanwallace)
 ---
 
 {% include header.html %}
@@ -103,8 +103,6 @@ window.onload = function() {
 
 
 function relativeTime(time_value) {
-  var values = time_value.split(" ");
-  time_value = values[1] + " " + values[2] + ", " + values[5] + " " + values[3] + " " + values[4];
   var parsed_date = Date.parse(time_value);
   var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
   var delta = parseInt((relative_to.getTime() - parsed_date) / 1000);
@@ -175,7 +173,57 @@ function twitterItems(items) {
   }
 
 }
+
+// Filters the HTML data from twitter to extract useful data fields (created_at,
+// html, text) and send those through to the callback requested when calling
+// twitter_get_data
+function twitter_receive_data(data) {
+  var tweets = new Array();
+  var hidden_result = document.createElement("div");
+  hidden_result.id = "twitter-hidden-result";
+  hidden_result.style.cssText = "display: none";
+  $("body").append(hidden_result);
+  hidden_result.innerHTML = data.body;
+  items = $("#twitter-hidden-result li.tweet").get();
+  for (i=0; i<items.length; i++) {
+    var datetime = $("time.dt-updated", items[i]).attr("datetime");
+    var html = $("p.e-entry-title", items[i]).html();
+    $("span.tco-ellipsis", items[i]).replaceWith("");
+    $("p.e-entry-title a.link", items[i]).each(function() {
+      $(this).replaceWith($(this).attr("href"))
+    });
+    $("p.e-entry-title a.hashtag", items[i]).each(function() {
+      $(this).replaceWith($(this).text())
+    });
+    $("p.e-entry-title a.profile", items[i]).each(function() {
+      $(this).replaceWith($(this).text())
+    });
+    var text = $("p.e-entry-title", items[i]).html();
+    tweets.push({
+      created_at: datetime,
+      html: html,
+      text: text
+    });
+  }
+  _twitter_callback(tweets);
+}
+
+// Gets the twitter data for widget_id and triggers the requested
+// callback (after filtering the data out through twitter_receive_data)
+function twitter_get_data(widget_id, callback) {
+  _twitter_callback = callback;
+  var c = document.createElement("script");
+  c.type = "text/javascript";
+  c.src = "https://cdn.syndication.twimg.com/widgets/timelines/" + widget_id + "?&lang=en&callback=twitter_receive_data&suppress_response_codes=true&rnd=" + Math.random();
+  $("body").append(c);
+}
+
+$(document).ready(function(){
+  twitter_get_data('348395096607174657', twitterItems);
+});
+
 --></script>
-<script src="http://api.twitter.com/1/statuses/user_timeline.json?screen_name=nathanwallace&count=8&trim_user=true&include_entities=false&exclude_replies=true&callback=twitterItems"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 {% include footer.html %}
