@@ -105,8 +105,9 @@ window.onload = function() {
 
 
 function relativeTime(time_value) {
-  var parsed_date = Date.parse(time_value);
-  var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
+  var d = new Date(Date.UTC(time_value.substring(0,4), parseInt(time_value.substring(5,7))-1, time_value.substring(8,10), time_value.substring(11,13), time_value.substring(14,16), time_value.substring(17,19)));
+  parsed_date = d.getTime()
+  var relative_to = new Date();
   var delta = parseInt((relative_to.getTime() - parsed_date) / 1000);
   if(delta < 120) {
   return '1&nbsp;min&nbsp;ago';
