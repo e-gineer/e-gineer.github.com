@@ -5,35 +5,19 @@ title: e-gineer by Nathan Wallace (@nathanwallace)
 {% include header.html %}
 
 <div id="homeContent">
-  <div id="tweets">
-    <a
-      class="twitter-timeline"
-      data-lang="en"
-      data-width="300"
-      data-height="800"
-      href="https://twitter.com/nathanwallace?ref_src=twsrc%5Etfw"
-      >Tweets by nathanwallace</a
-    >
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
-  </div>
-
-  <canvas id="brain" width="220" height="500"></canvas>
-
-  <div id="blogs">
-    <div id="blog-posts">
-      {% for p in site.posts limit:3 %}
-      <p class="blog-post">
-        <a href="{{ p.url }}">{{ p.title }}</a>&nbsp;&nbsp;{{ p.date | date: "%e
-        %b %Y" }}
-      </p>
-      {% endfor %}
-    </div>
-    <p class="more"><a href="/v2/blog">Blog &rarr;</a></p>
-  </div>
+  <a
+    class="twitter-timeline"
+    data-lang="en"
+    data-width="400"
+    data-height="800"
+    href="https://twitter.com/nathanwallace?ref_src=twsrc%5Etfw"
+    >Tweets by nathanwallace</a
+  >
+  <script
+    async
+    src="https://platform.twitter.com/widgets.js"
+    charset="utf-8"
+  ></script>
 </div>
 
 {% include footer.html %}
