@@ -4,117 +4,278 @@ title: Archive
 ---
 
 <script language="JavaScript1.2">
-var images = new Array()
-images[0] = '../v2/presentation/v2.3-screenshot.png'
-images[1] = '../v2/presentation/v2.2-screenshot.jpg'
-images[2] = '../v2/presentation/v2.1-screenshot.jpg'
-images[3] = '../v2/presentation/v2-screenshot.jpg'
-var thumbnails = new Array()
-thumbnails[0]='<img src="../v2/presentation/v2.3-screenshot-thumbnail.png" alt="Version 2.3 screenshot" class="archiveScreenshot"/>'
-thumbnails[1]='<img src="../v2/presentation/v2.2-screenshot-thumbnail.jpg" alt="Version 2.2 screenshot" class="archiveScreenshot"/>'
-thumbnails[2]='<img src="../v2/presentation/v2.1-screenshot-thumbnail.jpg" alt="Version 2.1 screenshot" class="archiveScreenshot"/>'
-thumbnails[3]='<img src="../v2/presentation/v2-screenshot-thumbnail.gif" alt="Version 2 screenshot" class="archiveScreenshot"/>'
-var current = 0
-function changeItem(){
- document.getElementById('v2screenshot').href = images[current];
- document.getElementById('v2screenshot').innerHTML = thumbnails[current];
- if (current == images.length - 1) current = 0
- else current++
- setTimeout("changeItem()",2500)
-}
-window.onload = changeItem
+  var images = new Array();
+  images[0] = "../v2/presentation/v2.3-screenshot.png";
+  images[1] = "../v2/presentation/v2.2-screenshot.jpg";
+  images[2] = "../v2/presentation/v2.1-screenshot.jpg";
+  images[3] = "../v2/presentation/v2-screenshot.jpg";
+  var thumbnails = new Array();
+  thumbnails[0] =
+    '<img src="../v2/presentation/v2.3-screenshot-thumbnail.png" alt="Version 2.3 screenshot" class="archiveScreenshot"/>';
+  thumbnails[1] =
+    '<img src="../v2/presentation/v2.2-screenshot-thumbnail.jpg" alt="Version 2.2 screenshot" class="archiveScreenshot"/>';
+  thumbnails[2] =
+    '<img src="../v2/presentation/v2.1-screenshot-thumbnail.jpg" alt="Version 2.1 screenshot" class="archiveScreenshot"/>';
+  thumbnails[3] =
+    '<img src="../v2/presentation/v2-screenshot-thumbnail.gif" alt="Version 2 screenshot" class="archiveScreenshot"/>';
+  var current = 0;
+  function changeItem() {
+    document.getElementById("v2screenshot").href = images[current];
+    document.getElementById("v2screenshot").innerHTML = thumbnails[current];
+    if (current == images.length - 1) current = 0;
+    else current++;
+    setTimeout("changeItem()", 2500);
+  }
+  window.onload = changeItem;
 </script>
 
 <div id="searchArchive">
-  <FORM method="get" action="http://www.google.com/search" id="searchArchiveForm">
-  <input type="hidden" name="ie" value="UTF-8">
-  <input type="hidden" name="oe" value="UTF-8">
-  <input type="hidden" name="domains" value="e-gineer.com">
-  <input type="hidden" name="sitesearch" value="e-gineer.com">
-  Search e-gineer with Google:
-  <INPUT id="searchArchiveInput" TYPE="text" name="q" size="31" maxlength="255" value="">
-  <INPUT id="searchArchiveButton" type="submit" name="btnG" VALUE="Go">
-  </FORM>
+  <form
+    method="get"
+    action="https://www.google.com/search"
+    id="searchArchiveForm"
+  >
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="hidden" name="oe" value="UTF-8" />
+    <input type="hidden" name="domains" value="e-gineer.com" />
+    <input type="hidden" name="sitesearch" value="e-gineer.com" />
+    Search e-gineer with Google:
+    <input
+      id="searchArchiveInput"
+      type="text"
+      name="q"
+      size="31"
+      maxlength="255"
+      value=""
+    />
+    <input id="searchArchiveButton" type="submit" name="btnG" value="Go" />
+  </form>
 </div>
 
 <h2>Version 2: 2005 to present</h2>
-  <a id="v2screenshot" href="../v2/presentation/v2-screenshot.gif"><img src="../v2/presentation/v2-screenshot-thumbnail.gif" alt="Version 2 screenshot" class="archiveScreenshot"/></a>
-  <p>A blog, focused on the challenge of simplifying enterprise IT (&amp; <a href="../v2/blog/2006/02/15lb-burger.html">burgers</a>).</p>
+<a id="v2screenshot" href="../v2/presentation/v2-screenshot.gif"
+  ><img
+    src="../v2/presentation/v2-screenshot-thumbnail.gif"
+    alt="Version 2 screenshot"
+    class="archiveScreenshot"
+/></a>
+<p>
+  A blog, focused on the challenge of simplifying enterprise IT (&amp;
+  <a href="../v2/blog/2006/02/15lb-burger.html">burgers</a>).
+</p>
 <ul>
-  <li><a href="../v2/blog/2008/02/clarify-simplify-implement.html">Clarify. Simplify. Implement.</a></li>
-  <li><a href="../v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.html">Our Intranet, the Wiki: Case Study of a Wiki changing an Enterprise</a></li>
-  <li><a href="../v2/blog/2007/12/building-enterprise-20-on-culture-10.html">Building Enterprise 2.0 on Culture 1.0</a></li>
-  <li><a href="../v2/blog/2008/10/jitter-experimenting-with-microblogging.html">Jitter: Experimenting with microblogging in the enterprise</a></li>
-  <li><a href="../v2/blog/2008/10/juice-user-centric-approach-to-it.html">Juice: A user-centric approach to IT equipment and new starters</a></li>
-  <li><a href="../v2/blog/2005/08/unofficial-history-of-synop.html">The unofficial history of Synop</a></li>
-  <li><a href="../v2/blog/2006/02/15lb-burger.html">The 15lb burger</a><br><br></li>
-  <li><a href="../v2/blog"><strong>Full archive of posts &raquo;</strong></a></li>
+  <li>
+    <a href="../v2/blog/2008/02/clarify-simplify-implement.html"
+      >Clarify. Simplify. Implement.</a
+    >
+  </li>
+  <li>
+    <a href="../v2/blog/2007/08/our-intranet-wiki-case-study-of-wiki.html"
+      >Our Intranet, the Wiki: Case Study of a Wiki changing an Enterprise</a
+    >
+  </li>
+  <li>
+    <a href="../v2/blog/2007/12/building-enterprise-20-on-culture-10.html"
+      >Building Enterprise 2.0 on Culture 1.0</a
+    >
+  </li>
+  <li>
+    <a href="../v2/blog/2008/10/jitter-experimenting-with-microblogging.html"
+      >Jitter: Experimenting with microblogging in the enterprise</a
+    >
+  </li>
+  <li>
+    <a href="../v2/blog/2008/10/juice-user-centric-approach-to-it.html"
+      >Juice: A user-centric approach to IT equipment and new starters</a
+    >
+  </li>
+  <li>
+    <a href="../v2/blog/2005/08/unofficial-history-of-synop.html"
+      >The unofficial history of Synop</a
+    >
+  </li>
+  <li>
+    <a href="../v2/blog/2006/02/15lb-burger.html">The 15lb burger</a
+    ><br /><br />
+  </li>
+  <li>
+    <a href="../v2/blog"><strong>Full archive of posts &raquo;</strong></a>
+  </li>
 </ul>
 <div class="clearFloats">&nbsp;</div>
 <h2>Version 1: 1999 to 2005</h2>
-<a href="../v1/presentation/v1-screenshot.gif"><img src="../v1/presentation/v1-screenshot-thumbnail.gif" alt="Version 1 screenshot" class="archiveScreenshot"/></a>
+<a href="../v1/presentation/v1-screenshot.gif"
+  ><img
+    src="../v1/presentation/v1-screenshot-thumbnail.gif"
+    alt="Version 1 screenshot"
+    class="archiveScreenshot"
+/></a>
 <p>
-Focused on web infrastructure, e-gineer was frequently updated from 1999 to 2001. It became
-the home for many interesting tools including Domainator domain name search and the
-PHP knowledge base which later grew into <a href="http://www.faqts.com">FAQTs.com</a>.
-e-gineer was largely unchanged from 2001 to 2005 as Nathan was busy concentrating on the
-growth of Synop.
+  Focused on web infrastructure, e-gineer was frequently updated from 1999 to
+  2001. It became the home for many interesting tools including Domainator
+  domain name search and the PHP knowledge base which later grew into
+  <a href="http://www.faqts.com">FAQTs.com</a>. e-gineer was largely unchanged
+  from 2001 to 2005 as Nathan was busy concentrating on the growth of Synop.
 </p>
 <h3>Articles</h3>
 <ul>
-  <li><a href="../v1/articles/web-writing-for-many-interest-levels.html">Web Writing for Many Interest Levels</a></li>
-  <li><a href="../v1/articles/php-hackers-paradise-revisited.html">PHP: Hackers Paradise Revisited</a></li>
-  <li>Other: <a href="../v1/articles/php-hackers-paradise.html">PHP: Hackers Paradise</a>,
-  <a href="../v1/articles/design-patterns-in-web-programming.html">Design Patterns in Web Programming</a>,
-  <a href="../v1/articles/should-i-open-source.html">Should I Open Source?</a>,
-  <a href="../v1/articles/web-servers-used-at-the-top-sites.html">Web Servers Used at the Top Sites</a>,
-  <a href="../v1/articles/framework-for-development-web-servers.html">Framework for Development Web Servers</a>,
-  <a href="../v1/articles/web-server-popularity.html">Web Server Popularity</a>,
-  <a href="../v1/articles/wasting-domain-names.html">Wasting Domain Names</a>,
-  <a href="../v1/articles/very-simple-dns-tips-and-tricks-on-redhat5x.html">Very Simple DNS Tips and Tricks on Red Hat Linux 5.x</a>.</li>
+  <li>
+    <a href="../v1/articles/web-writing-for-many-interest-levels.html"
+      >Web Writing for Many Interest Levels</a
+    >
+  </li>
+  <li>
+    <a href="../v1/articles/php-hackers-paradise-revisited.html"
+      >PHP: Hackers Paradise Revisited</a
+    >
+  </li>
+  <li>
+    Other:
+    <a href="../v1/articles/php-hackers-paradise.html">PHP: Hackers Paradise</a
+    >,
+    <a href="../v1/articles/design-patterns-in-web-programming.html"
+      >Design Patterns in Web Programming</a
+    >,
+    <a href="../v1/articles/should-i-open-source.html">Should I Open Source?</a
+    >,
+    <a href="../v1/articles/web-servers-used-at-the-top-sites.html"
+      >Web Servers Used at the Top Sites</a
+    >,
+    <a href="../v1/articles/framework-for-development-web-servers.html"
+      >Framework for Development Web Servers</a
+    >,
+    <a href="../v1/articles/web-server-popularity.html">Web Server Popularity</a
+    >,
+    <a href="../v1/articles/wasting-domain-names.html">Wasting Domain Names</a>,
+    <a href="../v1/articles/very-simple-dns-tips-and-tricks-on-redhat5x.html"
+      >Very Simple DNS Tips and Tricks on Red Hat Linux 5.x</a
+    >.
+  </li>
 </ul>
 <h3>Instructions</h3>
 <ul>
-  <li>Notebooks:
-  <a href="../v1/instructions/install-ibm-thinkpad-x22.html">IBM Thinkpad X22</a>.</li>
-  <li>Databases: 
-  <a href="../v1/instructions/install-oracle9i-on-linux.html">Installing Oracle 9i on Linux</a>,
-  <a href="../v1/instructions/install-oracle805-on-redhat5x.html">Installing Oracle 8.0.5 on Red Hat Linux 5.x</a>,
-  <a href="../v1/instructions/install-mysql3xx-on-linux.html">Installing MySQL 3.x.x on Linux</a>,
-  <a href="../v1/instructions/install-mysql3xx-from-source-on-linux.html">Installing MySQL 3.x.x from Source on Linux</a>,
-  <a href="../v1/instructions/starting-and-stopping-mysql-automatically-on-redhat.html">Starting MySQL Automatically on Red Hat Linux</a>.</li>
-  <li>Apache:
-  <a href="../v1/instructions/install-apache1xx-on-linux.html">Installing Apache 1.x.x on Linux</a>,
-  <a href="../v1/instructions/starting-and-stopping-apache-automatically-on-redhat.html">Starting and Stopping Apache Automatically on Red Hat Linux</a>,
-  <a href="../v1/instructions/install-apache1xx-on-windows9x.html">Installing Apache 1.x.x on Windows 9x</a>,
-  <a href="../v1/instructions/install-frontpage-extensions-for-apache-on-linux.html">Installing Frontpage Extensions for Apache on Linux</a>.</li>
-  <li>PHP:
-  <a href="../v1/instructions/install-php3xx-for-apache1xx-on-linux.html">Installing PHP 3.x.x for Apache 1.x.x on Linux</a>,
-  <a href="../v1/instructions/install-php4x-for-apache1xx-on-linux.html">Installing PHP 4.x for Apache 1.x.x on Linux</a>,
-  <a href="../v1/instructions/install-php3xx-from-cvs-source-for-apache1xx-on-linux.html">Install PHP 3.x.x from CVS Source for Apache 1.x.x on Linux</a>,
-  <a href="../v1/instructions/install-php3x-scripting-on-redhat5x.html">Installing PHP Scripting on Red Hat Linux 5.x</a>,
-  <a href="../v1/instructions/install-imap4x-for-php30x-with-apache13x-on-redhat5x.html">Installing IMAP 4.x for PHP 3.0.x with Apache 1.3.x on Red Hat Linux 5.x</a>,
-  <a href="../v1/instructions/install-imp20x-for-php30x-with-apache13x-on-redhat5x.html">Installing IMP 2.0.x for PHP 3.0.x with Apache 1.3.x on Red Hat Linux 5.x</a>,
-  <a href="../v1/instructions/install-gd13-for-php-with-apache-on-linux.html">Installing GD 1.3 for PHP with Apache on Linux</a>,
-  <a href="../v1/instructions/installing-ibm-db2-for-php4x-with-apache13x-on-linux.html">Installing IBM DB2 for PHP 4.x with Apache 1.3.x on Linux</a>.</li>
-  <li>Windows:
-  <a href="../v1/instructions/install-php3xx-for-iis4x-on-windowsnt.html">Installing PHP 3.x.x for IIS 4.x on Windows NT</a>,
-  <a href="../v1/instructions/install-php3xx-for-apache1xx-on-windows9x.html">Installing PHP 3.x.x for Apache 1.x.x on Windows 9x</a>.</li>
-  <li>AOLserver and Solid:
-  <a href="../v1/instructions/install-aolserver233-on-redhat5x.html">Installing AOLserver 2.3.3 on Red Hat Linux 5.x</a>,
-  <a href="../v1/instructions/install-solid23-for-aolserver233-on-redhat5x.html">Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x</a>,
-  <a href="../v1/instructions/patch-aolserver233-nsprofile-setup.html">Patching nsprofile Setup for AOLserver 2.3.3</a>,
-  <a href="../v1/instructions/upgrade-aolserver232-aolserver233-on-redhat5x.html">Upgrading from AOLserver 2.3.2 to AOLserver 2.3.3 on Red Hat Linux 5.x</a>.</li>
-  <li>Other Software:
-  <a href="../v1/instructions/install-vim-on-linux.html">Installing VIM on Linux</a>.</li>
+  <li>
+    Notebooks:
+    <a href="../v1/instructions/install-ibm-thinkpad-x22.html"
+      >IBM Thinkpad X22</a
+    >.
+  </li>
+  <li>
+    Databases:
+    <a href="../v1/instructions/install-oracle9i-on-linux.html"
+      >Installing Oracle 9i on Linux</a
+    >,
+    <a href="../v1/instructions/install-oracle805-on-redhat5x.html"
+      >Installing Oracle 8.0.5 on Red Hat Linux 5.x</a
+    >,
+    <a href="../v1/instructions/install-mysql3xx-on-linux.html"
+      >Installing MySQL 3.x.x on Linux</a
+    >,
+    <a href="../v1/instructions/install-mysql3xx-from-source-on-linux.html"
+      >Installing MySQL 3.x.x from Source on Linux</a
+    >,
+    <a
+      href="../v1/instructions/starting-and-stopping-mysql-automatically-on-redhat.html"
+      >Starting MySQL Automatically on Red Hat Linux</a
+    >.
+  </li>
+  <li>
+    Apache:
+    <a href="../v1/instructions/install-apache1xx-on-linux.html"
+      >Installing Apache 1.x.x on Linux</a
+    >,
+    <a
+      href="../v1/instructions/starting-and-stopping-apache-automatically-on-redhat.html"
+      >Starting and Stopping Apache Automatically on Red Hat Linux</a
+    >,
+    <a href="../v1/instructions/install-apache1xx-on-windows9x.html"
+      >Installing Apache 1.x.x on Windows 9x</a
+    >,
+    <a
+      href="../v1/instructions/install-frontpage-extensions-for-apache-on-linux.html"
+      >Installing Frontpage Extensions for Apache on Linux</a
+    >.
+  </li>
+  <li>
+    PHP:
+    <a href="../v1/instructions/install-php3xx-for-apache1xx-on-linux.html"
+      >Installing PHP 3.x.x for Apache 1.x.x on Linux</a
+    >,
+    <a href="../v1/instructions/install-php4x-for-apache1xx-on-linux.html"
+      >Installing PHP 4.x for Apache 1.x.x on Linux</a
+    >,
+    <a
+      href="../v1/instructions/install-php3xx-from-cvs-source-for-apache1xx-on-linux.html"
+      >Install PHP 3.x.x from CVS Source for Apache 1.x.x on Linux</a
+    >,
+    <a href="../v1/instructions/install-php3x-scripting-on-redhat5x.html"
+      >Installing PHP Scripting on Red Hat Linux 5.x</a
+    >,
+    <a
+      href="../v1/instructions/install-imap4x-for-php30x-with-apache13x-on-redhat5x.html"
+      >Installing IMAP 4.x for PHP 3.0.x with Apache 1.3.x on Red Hat Linux
+      5.x</a
+    >,
+    <a
+      href="../v1/instructions/install-imp20x-for-php30x-with-apache13x-on-redhat5x.html"
+      >Installing IMP 2.0.x for PHP 3.0.x with Apache 1.3.x on Red Hat Linux
+      5.x</a
+    >,
+    <a href="../v1/instructions/install-gd13-for-php-with-apache-on-linux.html"
+      >Installing GD 1.3 for PHP with Apache on Linux</a
+    >,
+    <a
+      href="../v1/instructions/installing-ibm-db2-for-php4x-with-apache13x-on-linux.html"
+      >Installing IBM DB2 for PHP 4.x with Apache 1.3.x on Linux</a
+    >.
+  </li>
+  <li>
+    Windows:
+    <a href="../v1/instructions/install-php3xx-for-iis4x-on-windowsnt.html"
+      >Installing PHP 3.x.x for IIS 4.x on Windows NT</a
+    >,
+    <a href="../v1/instructions/install-php3xx-for-apache1xx-on-windows9x.html"
+      >Installing PHP 3.x.x for Apache 1.x.x on Windows 9x</a
+    >.
+  </li>
+  <li>
+    AOLserver and Solid:
+    <a href="../v1/instructions/install-aolserver233-on-redhat5x.html"
+      >Installing AOLserver 2.3.3 on Red Hat Linux 5.x</a
+    >,
+    <a
+      href="../v1/instructions/install-solid23-for-aolserver233-on-redhat5x.html"
+      >Installing Solid 2.3 for AOLserver 2.3.3 on Red Hat Linux 5.x</a
+    >,
+    <a href="../v1/instructions/patch-aolserver233-nsprofile-setup.html"
+      >Patching nsprofile Setup for AOLserver 2.3.3</a
+    >,
+    <a
+      href="../v1/instructions/upgrade-aolserver232-aolserver233-on-redhat5x.html"
+      >Upgrading from AOLserver 2.3.2 to AOLserver 2.3.3 on Red Hat Linux 5.x</a
+    >.
+  </li>
+  <li>
+    Other Software:
+    <a href="../v1/instructions/install-vim-on-linux.html"
+      >Installing VIM on Linux</a
+    >.
+  </li>
 </ul>
 <h3>Nathan</h3>
 <ul>
-  <li><a href="../v1/nathan/movies.html">Movies</a>, <a href="../v1/nathan/books.html">Books</a>, <a href="../v1/nathan/cooking.html">Cooking</a>.</li>
+  <li>
+    <a href="../v1/nathan/movies.html">Movies</a>,
+    <a href="../v1/nathan/books.html">Books</a>,
+    <a href="../v1/nathan/cooking.html">Cooking</a>.
+  </li>
 </ul>
 
 <h2>Way back machine</h2>
 <p>
-Most pages on e-gineer have been periodically <a href="http://web.archive.org/web/*/http://e-gineer.com">archived by the Way Back Machine</a>. You can use 
-this site to see our previous site designs, old content versions and more.
+  Most pages on e-gineer have been periodically
+  <a href="http://web.archive.org/web/*/http://e-gineer.com"
+    >archived by the Way Back Machine</a
+  >. You can use this site to see our previous site designs, old content
+  versions and more.
 </p>

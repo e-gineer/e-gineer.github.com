@@ -1,7 +1,7 @@
 auto: true
 permalink: /v2/blog/:year/:month/:title.html
 
-url: http://e-gineer.com
+url: https://e-gineer.com
 title: e-gineer
 description: Personal web site of Nathan Wallace.
 author: Nathan Wallace
