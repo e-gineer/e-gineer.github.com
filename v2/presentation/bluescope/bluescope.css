@@ -6,13 +6,13 @@ body {
   color: #222;
 }
 H1 {
-  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
   font-size: 1.7em;
   color: black;
   font-weight: normal;
 }
 H2 {
-  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
   font-size: 1.3em;
   color: black;
   margin-top: 1.5em;
@@ -20,7 +20,7 @@ H2 {
   font-weight: normal;
 }
 H3 {
-  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
   font-size: 1.1em;
   color: black;
   margin-top: 1em;
@@ -69,7 +69,7 @@ header {
 }
 
 #nav {
-  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
   text-align: right;
 }
 #nav a {
@@ -77,14 +77,18 @@ header {
   font-size: 14pt;
   line-height: 109px;
 }
-#nav a, #nav a:hover, #nav a:visited {
+#nav a,
+#nav a:hover,
+#nav a:visited {
   color: #005498;
 }
 #nav a img {
   vertical-align: text-bottom;
 }
 
-#homeContent, #pageContent, #postContent {
+#homeContent,
+#pageContent,
+#postContent {
   margin-top: 30px;
   margin-left: 41px;
   width: 800px;
@@ -92,11 +96,9 @@ header {
 }
 
 #homeContent {
-  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  text-align: right;
+  font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
   position: relative;
-  background-image: url('/v2/presentation/bluescope/social-network-brain.png');
-  background-position: 340px top;
-  background-repeat: no-repeat;
 }
 
 #postContent h1 {
@@ -190,13 +192,12 @@ span.blog-archive-date {
   color: #999999;
 }
 
-
 #brain {
   margin-left: 290px;
 }
 
 footer {
-  font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
   clear: both;
   font-size: 10pt;
   color: #999999;
