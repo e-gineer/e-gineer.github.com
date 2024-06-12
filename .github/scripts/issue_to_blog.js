@@ -21,7 +21,7 @@ const issueNumber = process.env.GITHUB_EVENT_PATH ? require(process.env.GITHUB_E
     issue_number: issueNumber,
   });
 
-  console.log(data);
+  console.log(issue);
 
   const images = [];
   const issueBody = issue.body.replace(/!\[.*?\]\((.*?)\)/g, (match, url) => {
@@ -39,7 +39,7 @@ ${issueBody}
 `;
 
   const postFilename = `_posts/${new Date().toISOString().split('T')[0]}-${issue.number}.md`;
-  fs.writeFileSync(postFilename, postContent);
+  //fs.writeFileSync(postFilename, postContent);
 
   for (const { url, filename } of images) {
     const response = await axios.get(url, { responseType: 'arraybuffer' });
