@@ -1,6 +1,8 @@
 # Ignore the generated site
 _site
 
+node_modules
+
 # Ignore vim droppings
 *.swp
 *.swo
